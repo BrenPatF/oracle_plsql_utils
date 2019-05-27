@@ -1,0 +1,27 @@
+
+Database             Time                 Version
+-------------------- -------------------- ------------------------------
+Start: ORCL          26-MAY-2019 16:44:32 Version 18.3.0.0.0
+
+External table creation
+=======================
+Create lines_et
+
+Table created.
+
+Packages creation
+=================
+Create package Col_Group
+
+Package created.
+
+No errors.
+
+Package body created.
+
+No errors.
+
+'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
+----------------------------------
+End: 26-MAY-2019 16:44:32
+

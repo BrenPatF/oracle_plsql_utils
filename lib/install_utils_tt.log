@@ -1,0 +1,22 @@
+
+Database             Time                 Version
+-------------------- -------------------- ------------------------------
+Start: ORCL          27-MAY-2019 07:04:28 Version 18.3.0.0.0
+
+Create package TT_Utils
+
+Package created.
+
+
+Package body created.
+
+No errors.
+Add the tt_units record, reading in JSON file from INPUT_DIR
+
+PL/SQL procedure successfully completed.
+
+
+'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
+----------------------------------
+End: 27-MAY-2019 07:04:28
+

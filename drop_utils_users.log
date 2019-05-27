@@ -1,0 +1,74 @@
+
+Database             Time                 Version
+-------------------- -------------------- ------------------------------
+Start: ORCL          27-MAY-2019 06:52:02 Version 18.3.0.0.0
+
+Drop lib and app
+old   1: DROP USER &LIB_USER CASCADE
+new   1: DROP USER lib CASCADE
+
+User dropped.
+
+old   1: DROP USER &APP_USER CASCADE
+new   1: DROP USER app CASCADE
+DROP USER app CASCADE
+          *
+ERROR at line 1:
+ORA-01918: user 'APP' does not exist
+
+
+DROP PUBLIC SYNONYM L1_chr_arr
+                    *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist
+
+
+DROP PUBLIC SYNONYM L1_num_arr
+                    *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist
+
+
+DROP PUBLIC SYNONYM chr_int_rec
+                    *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist
+
+
+DROP PUBLIC SYNONYM chr_int_arr
+                    *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist
+
+
+DROP PUBLIC SYNONYM utils
+                    *
+ERROR at line 1:
+ORA-01432: public synonym to be dropped does not exist
+
+
+Drop directory input_dir
+DROP DIRECTORY input_dir
+*
+ERROR at line 1:
+ORA-04043: object INPUT_DIR does not exist
+
+
+Revoke UTL_File and DBMS_Lock from PUBLIC
+REVOKE EXECUTE ON UTL_File FROM PUBLIC
+*
+ERROR at line 1:
+ORA-01927: cannot REVOKE privileges you did not grant
+
+
+REVOKE EXECUTE ON DBMS_Lock FROM PUBLIC
+*
+ERROR at line 1:
+ORA-01927: cannot REVOKE privileges you did not grant
+
+
+
+'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
+----------------------------------
+End: 27-MAY-2019 06:52:04
+

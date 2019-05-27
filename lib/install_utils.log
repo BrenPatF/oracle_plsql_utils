@@ -1,0 +1,73 @@
+
+Database             Time                 Version
+-------------------- -------------------- ------------------------------
+Start: ORCL          27-MAY-2019 07:04:17 Version 18.3.0.0.0
+
+Common type creation
+====================
+Create type L1_chr_arr
+
+Type created.
+
+
+Synonym created.
+
+
+Grant succeeded.
+
+Create type L1_num_arr
+
+Type created.
+
+
+Synonym created.
+
+
+Grant succeeded.
+
+DROP TYPE chr_int_arr
+*
+ERROR at line 1:
+ORA-04043: object CHR_INT_ARR does not exist
+
+
+
+Type created.
+
+
+Synonym created.
+
+
+Grant succeeded.
+
+
+Type created.
+
+
+Synonym created.
+
+
+Grant succeeded.
+
+Packages creation
+=================
+Create package Utils
+
+Package created.
+
+No errors.
+
+Package body created.
+
+No errors.
+
+Grant succeeded.
+
+
+Synonym created.
+
+
+'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
+----------------------------------
+End: 27-MAY-2019 07:04:17
+

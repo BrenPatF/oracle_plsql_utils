@@ -1,0 +1,13 @@
+
+Database             Time                 Version
+-------------------- -------------------- ------------------------------
+Start: ORCL          27-MAY-2019 07:04:35 Version 18.3.0.0.0
+
+
+PL/SQL procedure successfully completed.
+
+
+'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
+----------------------------------
+End: 27-MAY-2019 07:04:39
+

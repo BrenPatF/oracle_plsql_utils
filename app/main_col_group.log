@@ -1,0 +1,64 @@
+
+Database             Time                 Version
+-------------------- -------------------- ------------------------------
+Start: ORCL          26-MAY-2019 16:46:17 Version 18.3.0.0.0
+
+Example of Utils.Heading, .Col_Headers, .List_To_Line, .W (VARCHAR2), .W (L1_chr_arr)
+                          p_value_lis => chr_int_arr(chr_int_rec(p_res_arr(i).chr_value, 30),
+                                                                 *
+ERROR at line 17:
+ORA-06550: line 17, column 66:
+PLS-00201: identifier 'P_RES_ARR' must be declared
+ORA-06550: line 16, column 5:
+PL/SQL: Statement ignored
+
+
+Example of Utils.View_To_List
+
+CSV
+------------------------------------------------------------
+COL_GROUP|76089|26-MAY-19|2019-05-26:16:44:32
+COL_GROUP|76090|26-MAY-19|2019-05-26:16:44:32
+LINES_ET|76088|26-MAY-19|2019-05-26:16:44:32
+
+Example of Utils.Cursor_To_List, .Split_Values, .Join_Values (list), .Join_Values (scalars)
+.
+Utils.Cursor_To_List on user_objects...
+=======================================
+LINES_ET|76088|26-MAY-19|2019-05-26:16:44:32
+COL_GROUP|76089|26-MAY-19|2019-05-26:16:44:32
+COL_GROUP|76090|26-MAY-19|2019-05-26:16:44:32
+.
+Utils.Split_Values on first line...
+===================================
+LINES_ET
+76088
+26-MAY-19
+2019-05-26:16:44:32
+.
+Utils.Join_Values on first line, passing list, with "," delimiter...
+====================================================================
+LINES_ET,76088,26-MAY-19,2019-05-26:16:44:32
+.
+Utils.Join_Values on first line, passing first three values...
+==============================================================
+LINES_ET|76088|26-MAY-19
+
+PL/SQL procedure successfully completed.
+
+Example of Utils.Sleep, .IntervalDS_To_Seconds, sleeping for 1.2s of which 0.36s CPU
+Elapsed time is 1.2
+CPU time is .36
+DECLARE
+*
+ERROR at line 1:
+ORA-20000: Example of raising error via Raise_Error
+ORA-06512: at "LIB.UTILS", line 370
+ORA-06512: at line 10
+
+
+
+'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
+----------------------------------
+End: 26-MAY-2019 16:46:18
+
