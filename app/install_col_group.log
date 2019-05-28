@@ -1,7 +1,7 @@
 
 Database             Time                 Version
 -------------------- -------------------- ------------------------------
-Start: ORCL          26-MAY-2019 16:44:32 Version 18.3.0.0.0
+Start: ORCL          28-MAY-2019 06:21:24 Version 18.3.0.0.0
 
 External table creation
 =======================
@@ -23,5 +23,5 @@ No errors.
 
 'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
 ----------------------------------
-End: 26-MAY-2019 16:44:32
+End: 28-MAY-2019 06:21:24
 
