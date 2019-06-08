@@ -1,23 +1,19 @@
-@..\initspool install_utils_tt
+DEFINE app=&1
 /***************************************************************************************************
-Name: install_utils_tt.sql             Author: Brendan Furey                       Date: 26-May-2019
+Name: grant_utils_to_app.sql           Author: Brendan Furey                       Date: 08-Jun-2019
 
-Installation script for the unit test components in the oracle_plsql_utils module. It requires a 
-minimum Oracle database version of 12.2.
+Grants privileges on Utils components from lib to app schema (passed as parameter).
 
 This module comprises a set of generic user-defined Oracle types and a PL/SQL package of functions
 and procedures of general utility.
 
-	GitHub: https://github.com/BrenPatF/oracle_plsql_utils
+    GitHub: https://github.com/BrenPatF/oracle_plsql_utils
 
 There are install scripts for sys, lib and app schemas. However the base code alone can be installed
 via install_utils.sql in an existing schema without executing the other scripts.
 
 If the unit test code is to be installed, trapit_oracle_tester module must be installed after the 
-base install: 
-
-	GitHub: https://github.com/BrenPatF/trapit_oracle_tester
-
+base install: https://github.com/BrenPatF/trapit_oracle_tester.
 ====================================================================================================
 |  Script                  |  Notes                                                                |
 |===================================================================================================
@@ -25,43 +21,37 @@ base install:
 ----------------------------------------------------------------------------------------------------
 |  install_utils.sql       |  Creates base components, including Utils package, in lib schema      |
 ----------------------------------------------------------------------------------------------------
-| *install_utils_tt.sql*   |  Creates unit test components that require a minimum Oracle database  |
+|  install_utils_tt.sql    |  Creates unit test components that require a minimum Oracle database  |
 |                          |  version of 12.2 in lib schema                                        |
 ----------------------------------------------------------------------------------------------------
-|  grant_utils_to_app.sql  |  Grants privileges on Utils components from lib to app schema         |
+| *grant_utils_to_app.sql* |  Grants privileges on Utils components from lib to app schema         |
 ----------------------------------------------------------------------------------------------------
 |  install_col_group.sql   |  Creates components for the Col_Group example in app schema           |
 ----------------------------------------------------------------------------------------------------
 |  c_utils_syns.sql        |  Creates synonyms for Utils components in app schema to lib schema    |
 ====================================================================================================
 
-This file has the install script for the unit test components in the lib schema. It requires a
-minimum Oracle database version of 12.2, owing to the use of v12.2 PL/SQL JSON features.
+This file grants privileges on Utils components from lib to app schema.
 
-Components created, with NO synonyms or grants - only accessible within lib schema:
+Grants applied:
 
-    Packages      Description
-    ============  ==================================================================================
-    TT_Utils      Unit test package for Utils. Uses Oracle v12.2 JSON features
-
-    Metadata      Description
-    ============  ==================================================================================
-    tt_units      Record for package, procedure ('TT_Utils', 'Test_API'). The input JSON file
-                  must first be placed in the OS folder pointed to by INPUT_DIR directory
+    Privilege           Object                   Object Type
+    ==================  =======================  ===================================================
+    Execute             L1_chr_arr               Array (VARRAY)
+    Execute             L1_num_arr               Array (VARRAY)
+    Execute             chr_int_rec              Object
+    Execute             chr_int_arr              Array (VARRAY)
+    Execute             Utils                    Package
 
 ***************************************************************************************************/
-
-PROMPT Add the tt_units record, reading in JSON file from INPUT_DIR
-DEFINE LIB=lib
-DECLARE
-BEGIN
-
-  Trapit.Add_Ttu('TT_UTILS', 'Test_API', '&LIB', 'Y', 'tt_utils.test_api_inp.json');
-
-END;
+PROMPT Granting Utils components to &app...
+GRANT EXECUTE ON L1_chr_arr TO &app
 /
-PROMPT Create package TT_Utils
-@tt_utils.pks
-@tt_utils.pkb
-
-@..\endspool
+GRANT EXECUTE ON L1_num_arr TO &app
+/
+GRANT EXECUTE ON chr_int_rec TO &app
+/
+GRANT EXECUTE ON chr_int_arr TO &app
+/
+GRANT EXECUTE ON Utils TO &app
+/

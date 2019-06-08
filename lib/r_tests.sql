@@ -36,9 +36,10 @@ format expected by the nodejs program. The nodejs program produces listings of t
 and/or text format, and a sample set of listings is included in the folder test_output.
 
 ***************************************************************************************************/
+DEFINE LIB=lib
 BEGIN
 
-  Trapit.Run_Tests;
+  Trapit_Run.Run_Tests('&LIB');
 
 END;
 /

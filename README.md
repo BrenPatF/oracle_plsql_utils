@@ -54,7 +54,9 @@ To run the example script in a slqplus session from app subfolder (after install
 SQL> @main_col_group
 ```
 
-## API
+## API - Utils
+This package runs with Invoker rights, not the default Definer rights, so that the dynamic SQL methods execute SQL using the rights of the calling schema, not the lib schema (if different).
+
 ### l_heading_lis L1_chr_arr := Utils.Heading(p_head)
 Returns a 2-element string array consisting of the string passed in and a string of underlining '=' of the same length, with parameters as follows:
 
@@ -160,10 +162,13 @@ If you do not create new users, subsequent installs will be from whichever schem
 #### [Schema: lib; Folder: lib]
 - Run script from slqplus:
 ```
-SQL> @install_utils
+SQL> @install_utils app
 ```
 
-This creates the required components for the base install along with public synonyms and grants for them. This install is all that is required to use the package and object types.
+This creates the required components for the base install along with grants for them to the app schema (passing none instead of app will bypass the grants). This install is all that is required to use the package and object types within the lib schema and app (if passed). To grant privileges to any `schema`, run the grants script directly, passing `schema`:
+```
+SQL> @grant_utils_to_app schema
+```
 
 ### Install 3: Create components for example code
 #### [Schema: app; Folder: app]
@@ -171,10 +176,13 @@ This creates the required components for the base install along with public syno
   - fantasy_premier_league_player_stats.csv
 - Run script from slqplus:
 ```
-SQL> @install_col_group
+SQL> @install_col_group lib
 ```
 
-You can review the results from the example code in the `app` subfolder without doing this install.
+You can review the results from the example code in the `app` subfolder without doing this install. This install creates private synonyms to the lib schema. To create synonyms within another schema, run the synonyms script directly from that schema, passing lib schema:
+```
+SQL> @c_utils_syns lib
+```
 
 The remaining, optional, installs are for the unit testing code, and require a minimum Oracle database version of 12.2.
 ### Install 4: Install Trapit module
@@ -198,7 +206,7 @@ The unit test program (if installed) may be run from the Oracle lib subfolder:
 SQL> @r_tests
 ```
 
-The program is data-driven from the input file tt_utils.json and produces an output file, tt_utils.test_api_out.json, that contains arrays of expected and actual records by group and scenario.
+The program is data-driven from the input file tt_utils.test_api_inp.json and produces an output file, tt_utils.test_api_out.json, that contains arrays of expected and actual records by group and scenario.
 
 The output file is processed by a nodejs program that has to be installed separately from the `npm` nodejs repository, as described in the Trapit install in `Install 4` above. The nodejs program produces listings of the results in HTML and/or text format, and a sample set of listings is included in the subfolder test_output. To run the processor (in Windows), open a DOS or Powershell window in the trapit package folder after placing the output JSON file, tt_utils.test_api_out.json, in the subfolder ./examples/externals and run:
 

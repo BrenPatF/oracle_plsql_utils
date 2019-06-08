@@ -18,6 +18,8 @@ and procedures of general utility.
 This file has the Utils package body. See README for API specification, and the main_col_group.sql
 script for simple examples of use.
 
+This package runs with Invoker rights, not the default Definer rights, so that the dynamic SQL 
+methods execute SQL using the rights of the calling schema, not the lib schema (if different).
 ***************************************************************************************************/
 
 LINES                         CONSTANT VARCHAR2(1000) := '--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------';

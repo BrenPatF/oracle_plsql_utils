@@ -1,8 +1,8 @@
 CREATE OR REPLACE PACKAGE Utils AUTHID CURRENT_USER AS
 /***************************************************************************************************
-Name: utils.pkb                        Author: Brendan Furey                       Date: 18-May-2019
+Name: utils.pks                        Author: Brendan Furey                       Date: 18-May-2019
 
-Package body component in the oracle_plsql_utils module. The module comprises a set of generic 
+Package spec component in the oracle_plsql_utils module. The module comprises a set of generic 
 user-defined Oracle types and a PL/SQL package of functions and procedures of general utility.
 
 GitHub: https://github.com/BrenPatF/oracle_plsql_utils
@@ -15,6 +15,8 @@ GitHub: https://github.com/BrenPatF/oracle_plsql_utils
 
 This file has the general utility functions package spec.
 
+This package runs with Invoker rights, not the default Definer rights, so that the dynamic SQL 
+methods execute SQL using the rights of the calling schema, not the lib schema (if different).
 ***************************************************************************************************/
 
 PRMS_END             CONSTANT VARCHAR2(30) := 'PRMS_END';
