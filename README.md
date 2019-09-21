@@ -54,6 +54,8 @@ To run the example script in a slqplus session from app subfolder (after install
 SQL> @main_col_group
 ```
 
+There is also a separate [module](https://github.com/BrenPatF/oracle_plsql_api_demos) demonstrating instrumentation and logging, code timing and unit testing of Oracle PL/SQL APIs, which also uses this module.
+
 ## API - Utils
 This package runs with Invoker rights, not the default Definer rights, so that the dynamic SQL methods execute SQL using the rights of the calling schema, not the lib schema (if different).
 
@@ -234,6 +236,7 @@ Tested on Windows 10, should be OS-independent
 - [Log_Set - Oracle logging module](https://github.com/BrenPatF/log_set_oracle)
 - [Timer_Set - Oracle PL/SQL code timing module](https://github.com/BrenPatF/timer_set_oracle)
 - [Trapit - nodejs unit test processing package](https://github.com/BrenPatF/trapit_nodejs_tester)
+- [Oracle PL/SQL API Demos - demonstrating instrumentation and logging, code timing and unit testing of Oracle PL/SQL APIs](https://github.com/BrenPatF/oracle_plsql_api_demos)
 
 ## License
 MIT

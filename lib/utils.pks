@@ -23,7 +23,9 @@ PRMS_END             CONSTANT VARCHAR2(30) := 'PRMS_END';
 DELIM                         VARCHAR2(30) := '|';
 
 FUNCTION Heading(
-            p_head                         VARCHAR2) 
+            p_head                         VARCHAR2,
+            p_num_blanks_pre               PLS_INTEGER := 0,
+            p_num_blanks_post              PLS_INTEGER := 0) 
             RETURN                         L1_chr_arr;
 FUNCTION Col_Headers(
             p_value_lis                    chr_int_arr) 
@@ -73,6 +75,16 @@ PROCEDURE Raise_Error(
             p_message                      VARCHAR2);
 PROCEDURE W(p_line                         VARCHAR2);
 PROCEDURE W(p_line_lis                     L1_chr_arr);
+
+PROCEDURE Delete_File(
+            p_file_name                    VARCHAR2);
+PROCEDURE Write_File(
+            p_file_name                    VARCHAR2,
+            p_line_lis                     L1_chr_arr);
+
+FUNCTION Read_File(
+            p_file_name                    VARCHAR2)
+            RETURN                         L1_chr_arr;
 
 END Utils;
 /

@@ -46,7 +46,9 @@ BEGIN
     RETURN l_ret_value_lis;
   END IF;
 
-  l_ret_value_lis := Utils.heading(p_head => p_value_2lis(1)(1));
+  l_ret_value_lis := Utils.heading(p_head            => p_value_2lis(1)(1),
+                                   p_num_blanks_pre  => p_value_2lis(1)(2),
+                                   p_num_blanks_post => p_value_2lis(1)(3));
   RETURN l_ret_value_lis;
 
 END heading;
@@ -267,7 +269,7 @@ BEGIN
     RETURN l_ret_value_lis;
   END IF;
 
-  l_sel_value_lis := extract_Lis_From_2Lis(p_value_2lis => p_sel_value_2lis);
+  l_sel_value_lis := extract_Lis_From_2Lis(p_value_2lis     => p_sel_value_2lis);
   IF p_where IS  NULL THEN
     IF p_delim IS NULL THEN
       l_ret_value_lis := Utils.View_To_List(p_view_name     => p_view_name,
@@ -280,14 +282,14 @@ BEGIN
     END IF;
   ELSE
     IF p_delim IS NULL THEN
-      l_ret_value_lis := Utils.View_To_List(p_view_name   => p_view_name,
-                                          p_sel_value_lis => l_sel_value_lis,
-                                          p_where         => p_where);
+      l_ret_value_lis := Utils.View_To_List(p_view_name     => p_view_name,
+                                            p_sel_value_lis => l_sel_value_lis,
+                                            p_where         => p_where);
     ELSE
-      l_ret_value_lis := Utils.View_To_List(p_view_name   => p_view_name,
-                                          p_sel_value_lis => l_sel_value_lis,
-                                          p_where         => p_where,
-                                          p_delim         => p_delim);
+      l_ret_value_lis := Utils.View_To_List(p_view_name     => p_view_name,
+                                            p_sel_value_lis => l_sel_value_lis,
+                                            p_where         => p_where,
+                                            p_delim         => p_delim);
 
     END IF;
   END IF;
@@ -490,7 +492,7 @@ FUNCTION w( p_line_2lis                    L2_chr_arr)   -- lines of text in fir
   l_ret_value_lis   L1_chr_arr;
 BEGIN
 
-  IF p_line_2lis IS NULL THEN
+  IF p_line_2lis.COUNT = 0  THEN
     RETURN l_ret_value_lis;
   END IF;
 
@@ -527,12 +529,72 @@ END add_Exception;
 
 /***************************************************************************************************
 
+file_IO: Add a record to the exceptions group array element
+
+***************************************************************************************************/
+FUNCTION file_IO(
+            p_value_2lis                   L2_chr_arr,   -- 1 row: file name, #lines, line 1, line 2
+            p_delim                        VARCHAR2)     -- delimiter
+            RETURN                         L1_chr_arr IS -- line list
+
+  l_line_lis          L1_chr_arr;
+  l_n_lines           PLS_INTEGER;
+  l_filename          VARCHAR2(100);
+  l_ret_value         VARCHAR2(4000);
+  l_line_1            VARCHAR2(1000);
+  l_line_2            VARCHAR2(1000);
+  l_ret_value_lis     L1_chr_arr;
+BEGIN
+
+  IF p_value_2lis.COUNT = 0 THEN
+    RETURN l_ret_value_lis;
+  END IF;
+  l_filename := p_value_2lis(1)(1);
+  l_n_lines  := p_value_2lis(1)(2);
+  l_line_1   := p_value_2lis(1)(3);
+  l_line_2   := p_value_2lis(1)(4);
+
+  IF l_n_lines > 0 THEN
+
+    l_line_lis := L1_chr_arr();
+    l_line_lis.EXTEND(l_n_lines);
+    l_line_lis(1) := l_line_1;
+
+    IF l_n_lines > 1 THEN
+      l_line_lis(2) := l_line_2;
+    END IF;
+
+  END IF;
+
+  Utils.Write_File(p_file_name => l_filename,
+                   p_line_lis  => l_line_lis);
+
+  l_line_lis := Utils.Read_File(p_file_name => l_filename);
+
+  l_n_lines := l_line_lis.COUNT;
+
+  IF l_n_lines > 0 THEN
+
+    l_line_1 := l_line_lis(1);
+    IF l_n_lines > 1 THEN
+      l_line_2 := l_line_lis(2);
+    END IF;
+
+  END IF;
+
+  l_ret_value := l_n_lines || p_delim || l_line_1 || p_delim  || l_line_2;
+  Utils.Delete_File(p_file_name => l_filename);
+
+  RETURN L1_chr_arr(l_ret_value);
+
+END file_IO;
+
+/***************************************************************************************************
+
 purely_Wrap_API: Design pattern has the API call wrapped in a 'pure' function, called once per 
                  scenario, with the output 'actuals' array including everything affected by the API,
                  whether as output parameters, or on database tables, etc. The inputs are also
-                 extended from the API parameters to include any other effective inputs. Assertion 
-                 takes place after all scenarios and is against the extended outputs, with extended
-                 inputs also listed. The API call is timed
+                 extended from the API parameters to include any other effective inputs
 
 ***************************************************************************************************/
 FUNCTION purely_Wrap_API(
@@ -546,7 +608,7 @@ FUNCTION purely_Wrap_API(
   l_message                      VARCHAR2(4000);
 BEGIN
 
-  l_act_2lis.EXTEND(13);
+  l_act_2lis.EXTEND(14);
   l_act_2lis(1) := heading(              p_value_2lis     => p_inp_3lis(1));
   l_act_2lis(2) := col_Headers(          p_value_2lis     => p_inp_3lis(2));
   l_act_2lis(3) := list_To_Line(         p_value_2lis     => p_inp_3lis(3));
@@ -564,10 +626,10 @@ BEGIN
                                          p_delim          => p_inp_3lis(12)(1)(1));
   EXCEPTION
     WHEN OTHERS THEN
-      l_act_2lis(11) := add_Exception(p_source    => 'view_To_List',
-                                      p_message   => SQLERRM,
-                                      p_act_lis   => l_act_2lis(11),
-                                      p_delim     => p_delim);
+      l_act_2lis(11) := add_Exception(   p_source         => 'view_To_List',
+                                         p_message        => SQLERRM,
+                                         p_act_lis        => l_act_2lis(11),
+                                         p_delim          => p_delim);
   END;
 
   BEGIN
@@ -576,10 +638,10 @@ BEGIN
                                          p_delim          => p_inp_3lis(12)(1)(1));
   EXCEPTION
     WHEN OTHERS THEN
-      l_act_2lis(11) := add_Exception(p_source    => 'cursor_To_List',
-                                      p_message   => SQLERRM,
-                                      p_act_lis   => l_act_2lis(11),
-                                      p_delim     => p_delim);
+      l_act_2lis(11) := add_Exception(   p_source         => 'cursor_To_List',
+                                         p_message        => SQLERRM,
+                                         p_act_lis        => l_act_2lis(11),
+                                         p_delim          => p_delim);
   END;
 
   l_act_2lis(9) := intervalDS_To_Seconds(p_value_2lis     => p_inp_3lis(9));
@@ -587,13 +649,16 @@ BEGIN
                                          p_delim          => p_delim);
   l_message := raise_Error(              p_value_2lis     => p_inp_3lis(11));
   IF l_message IS NOT NULL THEN
-    l_act_2lis(11) := add_Exception(p_source    => 'Raise_Error',
-                                    p_message   => l_message,
-                                    p_act_lis   => l_act_2lis(11),
-                                    p_delim     => p_delim);
+    l_act_2lis(11) := add_Exception(     p_source         => 'Raise_Error',
+                                         p_message        => l_message,
+                                         p_act_lis        => l_act_2lis(11),
+                                         p_delim          => p_delim);
   END IF;
   l_act_2lis(12) := w(                   p_line           => p_inp_3lis(12)(1)(4));
   l_act_2lis(13) := w(                   p_line_2lis      => p_inp_3lis(13));
+  l_act_2lis(14) := file_IO(             p_value_2lis     => p_inp_3lis(14),
+                                         p_delim          => p_delim);
+
   RETURN l_act_2lis;
 
 END purely_Wrap_API;
@@ -622,6 +687,7 @@ BEGIN
   l_delim := l_scenarios.delim;
   l_act_3lis.EXTEND(l_sces_4lis.COUNT);
   FOR i IN 1..l_sces_4lis.COUNT LOOP
+
     l_act_3lis(i) := purely_Wrap_API(p_delim    => l_delim,
                                      p_inp_3lis => l_sces_4lis(i));
 

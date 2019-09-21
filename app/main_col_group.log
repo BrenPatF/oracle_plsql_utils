@@ -1,7 +1,7 @@
 
 Database             Time                 Version
 -------------------- -------------------- ------------------------------
-Start: ORCL          08-JUN-2019 14:02:00 Version 18.3.0.0.0
+Start: ORCL          21-SEP-2019 13:25:47 Version 18.3.0.0.0
 
 Example of Utils.Heading, .Col_Headers, .List_To_Line, .W (VARCHAR2), .W (L1_chr_arr)
                           p_value_lis => chr_int_arr(chr_int_rec(p_res_arr(i).chr_value, 30),
@@ -17,14 +17,14 @@ Example of Utils.View_To_List
 
 CSV
 ------------------------------------------------------------
-CHR_INT_ARR|77408|08-JUN-19|2019-06-08:14:01:47
-CHR_INT_REC|77407|08-JUN-19|2019-06-08:14:01:47
-COL_GROUP|77411|08-JUN-19|2019-06-08:14:01:47
-COL_GROUP|77412|08-JUN-19|2019-06-08:14:01:47
-L1_CHR_ARR|77405|08-JUN-19|2019-06-08:14:01:47
-L1_NUM_ARR|77406|08-JUN-19|2019-06-08:14:01:47
-LINES_ET|77410|08-JUN-19|2019-06-08:14:01:47
-UTILS|77409|08-JUN-19|2019-06-08:14:01:47
+CHR_INT_ARR|85299|21-SEP-19|2019-09-21:13:25:11
+CHR_INT_REC|85298|21-SEP-19|2019-09-21:13:25:11
+COL_GROUP|85302|21-SEP-19|2019-09-21:13:25:12
+COL_GROUP|85303|21-SEP-19|2019-09-21:13:25:12
+L1_CHR_ARR|85296|21-SEP-19|2019-09-21:13:25:11
+L1_NUM_ARR|85297|21-SEP-19|2019-09-21:13:25:11
+LINES_ET|85301|21-SEP-19|2019-09-21:13:25:11
+UTILS|85300|21-SEP-19|2019-09-21:13:25:11
 
 8 rows selected.
 
@@ -32,45 +32,45 @@ Example of Utils.Cursor_To_List, .Split_Values, .Join_Values (list), .Join_Value
 .
 Utils.Cursor_To_List on user_objects...
 =======================================
-L1_CHR_ARR|77405|08-JUN-19|2019-06-08:14:01:47
-L1_NUM_ARR|77406|08-JUN-19|2019-06-08:14:01:47
-CHR_INT_REC|77407|08-JUN-19|2019-06-08:14:01:47
-CHR_INT_ARR|77408|08-JUN-19|2019-06-08:14:01:47
-UTILS|77409|08-JUN-19|2019-06-08:14:01:47
-LINES_ET|77410|08-JUN-19|2019-06-08:14:01:47
-COL_GROUP|77411|08-JUN-19|2019-06-08:14:01:47
-COL_GROUP|77412|08-JUN-19|2019-06-08:14:01:47
+L1_CHR_ARR|85296|21-SEP-19|2019-09-21:13:25:11
+L1_NUM_ARR|85297|21-SEP-19|2019-09-21:13:25:11
+CHR_INT_REC|85298|21-SEP-19|2019-09-21:13:25:11
+CHR_INT_ARR|85299|21-SEP-19|2019-09-21:13:25:11
+UTILS|85300|21-SEP-19|2019-09-21:13:25:11
+LINES_ET|85301|21-SEP-19|2019-09-21:13:25:11
+COL_GROUP|85302|21-SEP-19|2019-09-21:13:25:12
+COL_GROUP|85303|21-SEP-19|2019-09-21:13:25:12
 .
 Utils.Split_Values on first line...
 ===================================
 L1_CHR_ARR
-77405
-08-JUN-19
-2019-06-08:14:01:47
+85296
+21-SEP-19
+2019-09-21:13:25:11
 .
 Utils.Join_Values on first line, passing list, with "," delimiter...
 ====================================================================
-L1_CHR_ARR,77405,08-JUN-19,2019-06-08:14:01:47
+L1_CHR_ARR,85296,21-SEP-19,2019-09-21:13:25:11
 .
 Utils.Join_Values on first line, passing first three values...
 ==============================================================
-L1_CHR_ARR|77405|08-JUN-19
+L1_CHR_ARR|85296|21-SEP-19
 
 PL/SQL procedure successfully completed.
 
 Example of Utils.Sleep, .IntervalDS_To_Seconds, sleeping for 1.2s of which 0.36s CPU
-Elapsed time is 1.201
-CPU time is .37
+Elapsed time is 1.2
+CPU time is .36
 DECLARE
 *
 ERROR at line 1:
 ORA-20000: Example of raising error via Raise_Error
-ORA-06512: at "LIB.UTILS", line 372
+ORA-06512: at "LIB.UTILS", line 374
 ORA-06512: at line 10
 
 
 
 'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
 ----------------------------------
-End: 08-JUN-2019 14:02:01
+End: 21-SEP-2019 13:25:48
 

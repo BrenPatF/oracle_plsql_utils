@@ -40,7 +40,7 @@ DEFINE LIB=lib
 BEGIN
 
   Trapit_Run.Run_Tests('&LIB');
-
+  
 END;
 /
 @..\endspool

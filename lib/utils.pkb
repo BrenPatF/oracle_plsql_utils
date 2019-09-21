@@ -34,17 +34,19 @@ Heading: Return a 2-element list of strings as a heading with double underlining
 
 ***************************************************************************************************/
 FUNCTION Heading(
-            p_head                         VARCHAR2)     -- heading string
-            RETURN                         L1_chr_arr IS -- heading as 2-element list
+            p_head                         VARCHAR2,         -- heading string
+            p_num_blanks_pre               PLS_INTEGER := 0, -- # blank lines before
+            p_num_blanks_post              PLS_INTEGER := 0) -- # blank lines after
+            RETURN                         L1_chr_arr IS     -- heading as 2-element list
 
   l_under       VARCHAR2(500) := Substr(EQUALS, 1, Length(p_head));
   l_ret_lis     L1_chr_arr := L1_chr_arr();
 
 BEGIN
 
-  l_ret_lis.EXTEND(2);
-  l_ret_lis(1) := p_head;
-  l_ret_lis(2) := l_under;
+  l_ret_lis.EXTEND(p_num_blanks_pre + 2 + p_num_blanks_post);
+  l_ret_lis(p_num_blanks_pre + 1) := p_head;
+  l_ret_lis(p_num_blanks_pre + 2) := l_under;
   RETURN l_ret_lis;
 
 END Heading;
@@ -390,6 +392,76 @@ BEGIN
     DBMS_Output.Put_line(p_line_lis(i));
   END LOOP;
 END W;
+
+/***************************************************************************************************
+
+Delete_File: Delete OS file if present (used in ut)
+
+***************************************************************************************************/
+PROCEDURE Delete_File(
+            p_file_name                    VARCHAR2) IS -- OS file name
+BEGIN
+
+  UTL_File.FRemove(INPUT_DIR, p_file_name);
+
+END Delete_File;
+
+/***************************************************************************************************
+
+Write_File: Open an OS file and write an input list of lines to it, then close it (used in ut)
+
+***************************************************************************************************/
+PROCEDURE Write_File(
+            p_file_name                    VARCHAR2,      -- OS file name
+            p_line_lis                     L1_chr_arr) IS -- list of lines to write
+  l_file_ptr            UTL_FILE.File_Type;
+BEGIN
+
+  l_file_ptr := UTL_File.FOpen(INPUT_DIR, p_file_name, 'W', 32767);
+  IF p_line_lis IS NOT NULL THEN
+
+    FOR i IN 1..p_line_lis.COUNT LOOP
+
+      UTL_File.Put_Line(l_file_ptr, p_line_lis(i));
+
+    END LOOP;
+
+  END IF;
+  UTL_File.FClose(l_file_ptr);
+
+END Write_File;
+
+/***************************************************************************************************
+
+Read_File: Open an OS file and read lines into a list, then close it
+
+***************************************************************************************************/
+FUNCTION Read_File(
+            p_file_name                    VARCHAR2)
+            RETURN                         L1_chr_arr IS
+  l_file_ptr            UTL_FILE.File_Type;
+  l_line                VARCHAR2(32767);
+  l_lines               L1_chr_arr := L1_chr_arr();
+  i PLS_INTEGER := 0;
+BEGIN
+
+  l_file_ptr := UTL_File.FOpen(INPUT_DIR, p_file_name, 'R', 32767);
+
+  LOOP
+    i := i + 1;
+    EXIT WHEN i > 5;
+    UTL_File.Get_Line(l_file_ptr, l_line);
+    l_lines.EXTEND;
+    l_lines(l_lines.COUNT) := l_line;
+
+  END LOOP;
+
+EXCEPTION
+  WHEN NO_DATA_FOUND THEN
+    UTL_File.FClose(l_file_ptr);
+    RETURN l_lines;
+
+END Read_File;
 
 END Utils;
 /
