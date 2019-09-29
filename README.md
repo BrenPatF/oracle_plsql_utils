@@ -173,9 +173,16 @@ SQL> @grant_utils_to_app schema
 ```
 
 ### Install 3: Create components for example code
-#### [Schema: app; Folder: app]
-- Copy the following files from the root folder to the `input_dir` folder:
-  - fantasy_premier_league_player_stats.csv
+#### [Folder: (module root)] Copy example csv to input folder
+- Copy the following file from the root folder to the server folder pointed to by the Oracle directory INPUT_DIR:
+    - fantasy_premier_league_player_stats.csv
+
+- There is also a bash script to do this (it also copies the unit test JSON file), assuming C:\input as INPUT_DIR:
+```
+$ ./cp_data_files_to_input.ksh
+```
+
+#### [Schema: app; Folder: app] Install example code
 - Run script from slqplus:
 ```
 SQL> @install_col_group lib
@@ -187,15 +194,42 @@ SQL> @c_utils_syns lib
 ```
 
 The remaining, optional, installs are for the unit testing code, and require a minimum Oracle database version of 12.2.
+
 ### Install 4: Install Trapit module
-#### [Schema: lib; Folder: (Trapit) lib]
-- Download and install the Trapit module:
-[Trapit on GitHub](https://github.com/BrenPatF/trapit_oracle_tester)
+The module can be installed from its own Github page: [Trapit on GitHub](https://github.com/BrenPatF/trapit_oracle_tester). Alternatively, it can be installed directly here as follows:
+
+#### [Schema: lib; Folder: install_ut_prereq\lib] Create lib components
+- Run script from slqplus:
+```
+SQL> @install_lib_all
+```
+#### [Schema: app; Folder: install_ut_prereq\app] Create app synonyms
+- Run script from slqplus:
+```
+SQL> @c_syns_all
+```
+#### [Folder: (npm root)] Install npm trapit package
+The npm trapit package is a nodejs package used to format unit test results as HTML pages.
+
+Open a DOS or Powershell window in the folder where you want to install npm packages, and, with [nodejs](https://nodejs.org/en/download/) installed, run
+```
+$ npm install trapit
+```
+This should install the trapit nodejs package in a subfolder .\node_modules\trapit
 
 ### Install 5: Install unit test code
-#### [Schema: lib; Folder: lib]
+This step requires the Trapit module option to have been installed via Install 4 above.
+
+#### [Folder: (module root)] Copy unit test JSON file to input folder
 - Copy the following file from the root folder to the server folder pointed to by the Oracle directory INPUT_DIR:
-  - tt_utils.test_api_inp.json
+    - tt_utils.test_api_inp.json
+
+- The bash script mentioned in Install 3 above also copies this file, assuming C:\input as INPUT_DIR (so if executed already, no need to repeat):
+```
+$ ./cp_data_files_to_input.ksh
+```
+
+#### [Schema: lib; Folder: lib] Install unit test code
 - Run script from slqplus:
 ```
 SQL> @install_utils_tt

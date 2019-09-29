@@ -1,3 +1,4 @@
+WHENEVER SQLERROR CONTINUE
 DEFINE app=&1
 @..\initspool install_utils
 /***************************************************************************************************
