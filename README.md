@@ -17,14 +17,14 @@ This module is a pre-requisite for these other Oracle GitHub modules:
 The package is tested using the Math Function Unit Testing design pattern, with test results in HTML and text format included. See test_output\utils.html for the unit test results root page.
 
 ## In this README...
-- [Usage (extract from main_col_group.sql)](https://github.com/BrenPatF/sandbox#usage-extract-from-main_col_groupsql)
-- [API - Utils](https://github.com/BrenPatF/sandbox#api---utils)
-- [Installation](https://github.com/BrenPatF/sandbox#installation)
-- [Unit Testing](https://github.com/BrenPatF/sandbox#unit-testing)
-- [Operating System/Oracle Versions](https://github.com/BrenPatF/sandbox#operating-systemoracle-versions)
+- [Usage (extract from main_col_group.sql)](https://github.com/BrenPatF/oracle_plsql_utils#usage-extract-from-main_col_groupsql)
+- [API - Utils](https://github.com/BrenPatF/oracle_plsql_utils#api---utils)
+- [Installation](https://github.com/BrenPatF/oracle_plsql_utils#installation)
+- [Unit Testing](https://github.com/BrenPatF/oracle_plsql_utils#unit-testing)
+- [Operating System/Oracle Versions](https://github.com/BrenPatF/oracle_plsql_utils#operating-systemoracle-versions)
 
 ## Usage (extract from main_col_group.sql)
-- [In this README...](https://github.com/BrenPatF/sandbox#in-this-readme)
+- [In this README...](https://github.com/BrenPatF/oracle_plsql_utils#in-this-readme)
 ```sql
 DECLARE
   l_res_arr              chr_int_arr;
@@ -68,20 +68,20 @@ SQL> @main_col_group
 There is also a separate [module](https://github.com/BrenPatF/oracle_plsql_api_demos) demonstrating instrumentation and logging, code timing and unit testing of Oracle PL/SQL APIs, which also uses this module.
 
 ## API - Utils
-- [In this README...](https://github.com/BrenPatF/sandbox#in-this-readme)
-- [Heading(p_head)](https://github.com/BrenPatF/sandbox#l_heading_lis-l1_chr_arr--utilsheadingp_head)
-- [Utils.Col_Headers(p_value_lis)](https://github.com/BrenPatF/sandbox#l_headers_lis-l1_chr_arr--utilscol_headersp_value_lis)
-- [List_To_Line(p_value_lis)](https://github.com/BrenPatF/sandbox#l_line-varchar24000--utilslist_to_linep_value_lis)
-- [Join_Values(p_value_lis, optional parameters)](https://github.com/BrenPatF/sandbox#l_line-varchar24000--utilsjoin_valuesp_value_lis-optional-parameters)
-- [Join_Values(p_value1, optional parameters)](https://github.com/BrenPatF/sandbox#l_line-varchar24000--utilsjoin_valuesp_value1-optional-parameters)
-- [Split_Values(p_string, optional parameters)](https://github.com/BrenPatF/sandbox#l_value_lis-l1_chr_arr--utilssplit_valuesp_string-optional-parameters)
-- [View_To_List(p_view_name, p_sel_value_lis, optional parameters)](https://github.com/BrenPatF/sandbox#l_row_lis-l1_chr_arr--utilsview_to_listp_view_name-p_sel_value_lis-optional-parameters)
-- [Cursor_To_List(x_csr, optional parameters)](https://github.com/BrenPatF/sandbox#l_row_lis-l1_chr_arr--utilscursor_to_listx_csr-optional-parameters)
-- [IntervalDS_To_Seconds(p_interval)](https://github.com/BrenPatF/sandbox#l_seconds-number--utilsintervalds_to_secondsp_interval)
-- [Sleep(p_ela_seconds, optional parameters)](https://github.com/BrenPatF/sandbox#utilssleepp_ela_seconds-optional-parameters)
-- [Raise_Error(p_message)](https://github.com/BrenPatF/sandbox#utilsraise_errorp_message)
-- [W(p_line)](https://github.com/BrenPatF/sandbox#utilswp_line)
-- [W(p_line_lis)](https://github.com/BrenPatF/sandbox#utilswp_line_lis)
+- [In this README...](https://github.com/BrenPatF/oracle_plsql_utils#in-this-readme)
+- [Heading(p_head)](https://github.com/BrenPatF/oracle_plsql_utils#l_heading_lis-l1_chr_arr--utilsheadingp_head)
+- [Utils.Col_Headers(p_value_lis)](https://github.com/BrenPatF/oracle_plsql_utils#l_headers_lis-l1_chr_arr--utilscol_headersp_value_lis)
+- [List_To_Line(p_value_lis)](https://github.com/BrenPatF/oracle_plsql_utils#l_line-varchar24000--utilslist_to_linep_value_lis)
+- [Join_Values(p_value_lis, optional parameters)](https://github.com/BrenPatF/oracle_plsql_utils#l_line-varchar24000--utilsjoin_valuesp_value_lis-optional-parameters)
+- [Join_Values(p_value1, optional parameters)](https://github.com/BrenPatF/oracle_plsql_utils#l_line-varchar24000--utilsjoin_valuesp_value1-optional-parameters)
+- [Split_Values(p_string, optional parameters)](https://github.com/BrenPatF/oracle_plsql_utils#l_value_lis-l1_chr_arr--utilssplit_valuesp_string-optional-parameters)
+- [View_To_List(p_view_name, p_sel_value_lis, optional parameters)](https://github.com/BrenPatF/oracle_plsql_utils#l_row_lis-l1_chr_arr--utilsview_to_listp_view_name-p_sel_value_lis-optional-parameters)
+- [Cursor_To_List(x_csr, optional parameters)](https://github.com/BrenPatF/oracle_plsql_utils#l_row_lis-l1_chr_arr--utilscursor_to_listx_csr-optional-parameters)
+- [IntervalDS_To_Seconds(p_interval)](https://github.com/BrenPatF/oracle_plsql_utils#l_seconds-number--utilsintervalds_to_secondsp_interval)
+- [Sleep(p_ela_seconds, optional parameters)](https://github.com/BrenPatF/oracle_plsql_utils#utilssleepp_ela_seconds-optional-parameters)
+- [Raise_Error(p_message)](https://github.com/BrenPatF/oracle_plsql_utils#utilsraise_errorp_message)
+- [W(p_line)](https://github.com/BrenPatF/oracle_plsql_utils#utilswp_line)
+- [W(p_line_lis)](https://github.com/BrenPatF/oracle_plsql_utils#utilswp_line_lis)
 
 This package runs with Invoker rights, not the default Definer rights, so that the dynamic SQL methods execute SQL using the rights of the calling schema, not the lib schema (if different).
 
@@ -98,7 +98,7 @@ Returns a 2-element string array consisting of a string containing the column he
   * `int_value`: field size for the column header, right-justify if < 0, else left-justify
 
 ### l_line VARCHAR2(4000) := Utils.List_To_Line(p_value_lis)
-- [API - Utils](https://github.com/BrenPatF/sandbox#api---utils)
+- [API - Utils](https://github.com/BrenPatF/oracle_plsql_utils#api---utils)
 
 Returns a string containing the values passed in as a list of tuples, justified as specified in the second element of the tuple, with parameters as follows:
 * `p_value_lis`: chr_int_arr type, array of objects of type chr_int_rec:
@@ -113,7 +113,7 @@ Optional parameters:
 * `p_delim`: delimiter string, defaults to '|'
 
 ### l_line VARCHAR2(4000) := Utils.Join_Values(p_value1, `optional parameters`)
-- [API - Utils](https://github.com/BrenPatF/sandbox#api---utils)
+- [API - Utils](https://github.com/BrenPatF/oracle_plsql_utils#api---utils)
 
 Returns a string containing the values passed in as distinct parameters, delimited by the optional p_delim parameter that defaults to '|', with parameters as follows:
 * `p_value1`: mandatory first value
@@ -141,7 +141,7 @@ Optional parameters:
 * `p_delim`: delimiter string, defaults to '|'
 
 ### l_row_lis L1_chr_arr := Utils.Cursor_To_List(x_csr, `optional parameters`)
-- [API - Utils](https://github.com/BrenPatF/sandbox#api---utils)
+- [API - Utils](https://github.com/BrenPatF/oracle_plsql_utils#api---utils)
 
 Returns a list of rows returned from the ref cursor passed, delimiting values with specified delimiter, with filter clause applied via RegExp_Like to the delimited rows, with parameters as follows:
 
@@ -157,7 +157,7 @@ Returns the number of seconds in a day-to-second interval, with parameters as fo
 * `p_interval`: INTERVAL DAY TO SECOND
 
 ### Utils.Sleep(p_ela_seconds, `optional parameters`)
-- [API - Utils](https://github.com/BrenPatF/sandbox#api---utils)
+- [API - Utils](https://github.com/BrenPatF/oracle_plsql_utils#api---utils)
 
 Sleeps for a given number of seconds elapsed time, including a given proportion of CPU time, with both numbers approximate, with parameters as follows:
 
@@ -177,24 +177,24 @@ Writes a line of text using DBMS_Output.Put_line, with parameters as follows:
 * `p_line`: line of text to write
 
 ### Utils.W(p_line_lis)
-- [API - Utils](https://github.com/BrenPatF/sandbox#api---utils)
+- [API - Utils](https://github.com/BrenPatF/oracle_plsql_utils#api---utils)
 
 Writes a list of lines of text using DBMS_Output.Put_line, with parameters as follows:
 
 * `p_line_lis`: L1_chr_arr list of lines of text to write
 
 ## Installation
-- [In this README...](https://github.com/BrenPatF/sandbox#in-this-readme)
-- [Install 1: Create lib and app schemas and Oracle directory (optional)](https://github.com/BrenPatF/sandbox#install-1-create-lib-and-app-schemas-and-oracle-directory-optional)
-- [Install 2: Create Utils components](https://github.com/BrenPatF/sandbox#install-2-create-utils-components)
-- [Install 3: Create components for example code](https://github.com/BrenPatF/sandbox#install-3-create-components-for-example-code)
-- [Install 4: Install Trapit module](https://github.com/BrenPatF/sandbox#install-4-install-trapit-module)
-- [Install 5: Install unit test code](https://github.com/BrenPatF/sandbox#install-5-install-unit-test-code)
+- [In this README...](https://github.com/BrenPatF/oracle_plsql_utils#in-this-readme)
+- [Install 1: Create lib and app schemas and Oracle directory (optional)](https://github.com/BrenPatF/oracle_plsql_utils#install-1-create-lib-and-app-schemas-and-oracle-directory-optional)
+- [Install 2: Create Utils components](https://github.com/BrenPatF/oracle_plsql_utils#install-2-create-utils-components)
+- [Install 3: Create components for example code](https://github.com/BrenPatF/oracle_plsql_utils#install-3-create-components-for-example-code)
+- [Install 4: Install Trapit module](https://github.com/BrenPatF/oracle_plsql_utils#install-4-install-trapit-module)
+- [Install 5: Install unit test code](https://github.com/BrenPatF/oracle_plsql_utils#install-5-install-unit-test-code)
 
 You can install just the base module in an existing schema, or alternatively, install base module plus an example of usage, and unit testing code, in two new schemas, `lib` and `app`.
 
 ### Install 1: Create lib and app schemas and Oracle directory (optional)
-- [Installation](https://github.com/BrenPatF/sandbox#installation)
+- [Installation](https://github.com/BrenPatF/oracle_plsql_utils#installation)
 #### [Schema: sys; Folder: (module root)]
 - install_sys.sql creates an Oracle directory, `input_dir`, pointing to 'c:\input'. Update this if necessary to a folder on the database server with read/write access for the Oracle OS user
 - Run script from slqplus:
@@ -205,7 +205,7 @@ SQL> @install_sys
 If you do not create new users, subsequent installs will be from whichever schemas are used instead of lib and app.
 
 ### Install 2: Create Utils components
-- [Installation](https://github.com/BrenPatF/sandbox#installation)
+- [Installation](https://github.com/BrenPatF/oracle_plsql_utils#installation)
 #### [Schema: lib; Folder: lib]
 - Run script from slqplus:
 ```
@@ -218,7 +218,7 @@ SQL> @grant_utils_to_app schema
 ```
 
 ### Install 3: Create components for example code
-- [Installation](https://github.com/BrenPatF/sandbox#installation)
+- [Installation](https://github.com/BrenPatF/oracle_plsql_utils#installation)
 #### [Folder: (module root)] Copy example csv to input folder
 - Copy the following file from the root folder to the server folder pointed to by the Oracle directory INPUT_DIR:
     - fantasy_premier_league_player_stats.csv
@@ -242,7 +242,7 @@ SQL> @c_utils_syns lib
 The remaining, optional, installs are for the unit testing code, and require a minimum Oracle database version of 12.2.
 
 ### Install 4: Install Trapit module
-- [Installation](https://github.com/BrenPatF/sandbox#installation)
+- [Installation](https://github.com/BrenPatF/oracle_plsql_utils#installation)
 
 The module can be installed from its own Github page: [Trapit on GitHub](https://github.com/BrenPatF/trapit_oracle_tester). Alternatively, it can be installed directly here as follows:
 
@@ -266,7 +266,7 @@ $ npm install trapit
 This should install the trapit nodejs package in a subfolder .\node_modules\trapit
 
 ### Install 5: Install unit test code
-- [Installation](https://github.com/BrenPatF/sandbox#installation)
+- [Installation](https://github.com/BrenPatF/oracle_plsql_utils#installation)
 
 This step requires the Trapit module option to have been installed via Install 4 above.
 
@@ -286,9 +286,9 @@ SQL> @install_utils_tt
 ```
 
 ## Unit Testing
-- [In this README...](https://github.com/BrenPatF/sandbox#in-this-readme)
-- [Wrapper Function Diagram](https://github.com/BrenPatF/sandbox#wrapper-function-diagram)
-- [Unit Test Summary Page](https://github.com/BrenPatF/sandbox#unit-test-summary-page)
+- [In this README...](https://github.com/BrenPatF/oracle_plsql_utils#in-this-readme)
+- [Wrapper Function Diagram](https://github.com/BrenPatF/oracle_plsql_utils#wrapper-function-diagram)
+- [Unit Test Summary Page](https://github.com/BrenPatF/oracle_plsql_utils#unit-test-summary-page)
 
 The unit test program (if installed) may be run from the Oracle lib subfolder:
 
@@ -311,13 +311,13 @@ The package is tested using the Math Function Unit Testing design pattern (`See 
 In this case, where we have a set of small independent methods, most of which are pure functions, the wrapper function is designed to test all of them in a single generalised transaction. Four high level scenarios were identified (`Small`, `Large`, `Many`, `Bad SQL`).
 
 ### Wrapper Function Diagram
-- [Unit Testing](https://github.com/BrenPatF/sandbox#unit-testing)
+- [Unit Testing](https://github.com/BrenPatF/oracle_plsql_utils#unit-testing)
 
 This diagram shows the input/output structure of the pure unit test wrapper function:
 <img src="utils_oracle.png">
 
 ### Unit Test Summary Page
-- [Unit Testing](https://github.com/BrenPatF/sandbox#unit-testing)
+- [Unit Testing](https://github.com/BrenPatF/oracle_plsql_utils#unit-testing)
 
 This is an image of the unit test summary page, and it shows the scenarios tested.
 <img src="utils_oracle_ut_root.png">
@@ -325,7 +325,7 @@ This is an image of the unit test summary page, and it shows the scenarios teste
 You can review the formatted unit test results obtained by the author here, [Unit Test Report: utils](http://htmlpreview.github.io/?https://github.com/BrenPatF/sandbox/blob/master/test_output/utils.html), and the files are available in the `test_output` subfolder [utils.html is the root page for the HTML version and utils.txt has the results in text format].
 
 ## Operating System/Oracle Versions
-- [In this README...](https://github.com/BrenPatF/sandbox#in-this-readme)
+- [In this README...](https://github.com/BrenPatF/oracle_plsql_utils#in-this-readme)
 ### Windows
 Tested on Windows 10, should be OS-independent
 ### Oracle
