@@ -314,7 +314,7 @@ In this case, where we have a set of small independent methods, most of which ar
 - [Unit Testing](https://github.com/BrenPatF/oracle_plsql_utils#unit-testing)
 
 This diagram shows the input/output structure of the pure unit test wrapper function:
-<img src="utils_oracle.png">
+<img src="oracle_plsql_utils.png">
 
 ### Unit Test Summary Page
 - [Unit Testing](https://github.com/BrenPatF/oracle_plsql_utils#unit-testing)
