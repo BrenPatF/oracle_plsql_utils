@@ -1,7 +1,7 @@
 
 Database             Time                 Version
 -------------------- -------------------- ------------------------------
-Start: ORCL          29-SEP-2019 08:37:03 Version 18.3.0.0.0
+Start: ORCL          25-MAR-2020 15:54:02 Version 19.3.0.0.0
 
 Add the tt_units record, reading in JSON file from INPUT_DIR
 old   4:   Trapit.Add_Ttu('TT_UTILS', 'Test_API', '&LIB', 'Y', 'tt_utils.test_api_inp.json');
@@ -20,5 +20,5 @@ No errors.
 
 'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
 ----------------------------------
-End: 29-SEP-2019 08:37:03
+End: 25-MAR-2020 15:54:02
 

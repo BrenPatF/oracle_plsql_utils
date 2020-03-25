@@ -43,8 +43,8 @@ BEGIN
 
   FOR i IN 1..l_res_arr.COUNT LOOP
     Utils.W(p_line => Utils.List_To_Line(
-                          p_value_lis => chr_int_arr(chr_int_rec(p_res_arr(i).chr_value, 30), 
-                                                     chr_int_rec(p_res_arr(i).int_value, -5)
+                          p_value_lis => chr_int_arr(chr_int_rec(l_res_arr(i).chr_value, 30), 
+                                                     chr_int_rec(l_res_arr(i).int_value, -5)
     )));
   END LOOP;
 
@@ -100,6 +100,19 @@ BEGIN
   Utils.W(p_line => 'Elapsed time is ' || Utils.IntervalDS_To_Seconds(SYSTIMESTAMP - l_ela_start));
   Utils.W(p_line => 'CPU time is ' || 0.01*(DBMS_Utility.Get_CPU_Time - l_cpu_start));
   Utils.Raise_Error('Example of raising error via Raise_Error');
+END;
+/
+PROMPT Example of Utils.Get_XPlan
+DECLARE
+  l_csr             SYS_REFCURSOR;
+  l_csr_value_lis   L1_chr_arr;
+BEGIN
+
+  OPEN l_csr FOR 'SELECT /*+ gather_plan_statistics XPLAN_MARKER_CG */ 1 FROM DUAL';
+
+  l_csr_value_lis := Utils.Cursor_To_List(x_csr => l_csr);
+  Utils.W(Utils.Get_XPlan(p_sql_marker => 'XPLAN_MARKER_CG', p_add_outline => TRUE));
+
 END;
 /
 @..\endspool

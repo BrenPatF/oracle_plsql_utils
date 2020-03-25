@@ -81,9 +81,13 @@ PROCEDURE Delete_File(
 PROCEDURE Write_File(
             p_file_name                    VARCHAR2,
             p_line_lis                     L1_chr_arr);
-
 FUNCTION Read_File(
             p_file_name                    VARCHAR2)
+            RETURN                         L1_chr_arr;
+
+FUNCTION Get_XPlan(
+            p_sql_marker                   VARCHAR2,
+            p_add_outline                  BOOLEAN DEFAULT FALSE)
             RETURN                         L1_chr_arr;
 
 END Utils;

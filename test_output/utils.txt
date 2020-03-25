@@ -1,10 +1,10 @@
 Unit Test Report: utils
 =======================
 
-   SCENARIO 1: Small : 0 failed of 14: SUCCESS
-   SCENARIO 2: Large : 0 failed of 14: SUCCESS
-   SCENARIO 3: Many : 0 failed of 14: SUCCESS
-   SCENARIO 4: Bad SQL : 0 failed of 14: SUCCESS
+   SCENARIO 1: Small : 0 failed of 15: SUCCESS
+   SCENARIO 2: Large : 0 failed of 15: SUCCESS
+   SCENARIO 3: Many : 0 failed of 15: SUCCESS
+   SCENARIO 4: Bad SQL : 0 failed of 15: SUCCESS
 
 Test scenarios: 0 failed of 4: SUCCESS
 ======================================
@@ -155,6 +155,16 @@ SCENARIO 1: Small {
       }
       =
 
+      GROUP 15: XPlan Cursor {
+      ========================
+
+            #  Cursor Text                                                    Marker        Outline Y/N
+            -  -------------------------------------------------------------  ------------  -----------
+            1  SELECT /*+ gather_plan_statistics XPLAN_MARKER */ 1 FROM DUAL  XPLAN_MARKER             
+
+      }
+      =
+
    OUTPUTS
    =======
 
@@ -265,9 +275,9 @@ SCENARIO 1: Small {
       GROUP 10: Sleep {
       =================
 
-            #  Elapsed Seconds  CPU Seconds     
-            -  ---------------  ----------------
-            1  IN [0.9,1.1]: 1  IN [0.4,0.6]: .5
+            #  Elapsed Seconds     CPU Seconds      
+            -  ------------------  -----------------
+            1  IN [0.9,1.1]: .999  IN [0.4,0.6]: .49
 
       } 0 failed of 1: SUCCESS
       ========================
@@ -312,7 +322,19 @@ SCENARIO 1: Small {
       } 0 failed of 1: SUCCESS
       ========================
 
-} 0 failed of 14: SUCCESS
+      GROUP 15: XPlan List (keyword extract) {
+      ========================================
+
+            #  XPlan Line                                                                         
+            -  -----------------------------------------------------------------------------------
+            1  LIKE /SQL_ID +62unzfghvzfw4, child number.+/: SQL_ID  62unzfghvzfw4, child number 0
+            2  SELECT /*+ gather_plan_statistics XPLAN_MARKER */ 1 FROM DUAL                      
+            3  LIKE /Plan hash value: .+/: Plan hash value: 1388734953                            
+
+      } 0 failed of 3: SUCCESS
+      ========================
+
+} 0 failed of 15: SUCCESS
 =========================
 
 SCENARIO 2: Large {
@@ -468,6 +490,9 @@ SCENARIO 2: Large {
       }
       =
 
+      GROUP 15: XPlan Cursor: Empty
+      =============================
+
    OUTPUTS
    =======
 
@@ -542,14 +567,14 @@ SCENARIO 2: Large {
 
             #  Delimited String                                                                        
             -  ----------------------------------------------------------------------------------------
-            1  LIKE /CHR_INT_ARR,\d+?,\d.+\d,\d.+\d/: CHR_INT_ARR,85293,21-SEP-2019,2019-09-21:13:24:51
-            2  LIKE /CHR_INT_REC,\d+?,\d.+\d,\d.+\d/: CHR_INT_REC,85292,21-SEP-2019,2019-09-21:13:24:51
-            3  LIKE /L1_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L1_CHR_ARR,85290,21-SEP-2019,2019-09-21:13:24:51  
-            4  LIKE /L1_NUM_ARR,\d+?,\d.+\d,\d.+\d/: L1_NUM_ARR,85291,21-SEP-2019,2019-09-21:13:24:51  
-            5  LIKE /L2_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L2_CHR_ARR,85304,21-SEP-2019,2019-09-21:13:26:40  
-            6  LIKE /L3_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L3_CHR_ARR,85305,21-SEP-2019,2019-09-21:13:26:40  
-            7  LIKE /L4_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L4_CHR_ARR,85306,21-SEP-2019,2019-09-21:13:26:40  
-            8  LIKE /TT_UNITS,\d+?,\d.+\d,\d.+\d/: TT_UNITS,85307,21-SEP-2019,2019-09-21:13:26:40      
+            1  LIKE /CHR_INT_ARR,\d+?,\d.+\d,\d.+\d/: CHR_INT_ARR,74470,25-MAR-2020,2020-03-25:15:48:50
+            2  LIKE /CHR_INT_REC,\d+?,\d.+\d,\d.+\d/: CHR_INT_REC,74469,25-MAR-2020,2020-03-25:15:48:50
+            3  LIKE /L1_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L1_CHR_ARR,74467,25-MAR-2020,2020-03-25:15:48:50  
+            4  LIKE /L1_NUM_ARR,\d+?,\d.+\d,\d.+\d/: L1_NUM_ARR,74468,25-MAR-2020,2020-03-25:15:48:50  
+            5  LIKE /L2_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L2_CHR_ARR,74481,25-MAR-2020,2020-03-25:15:49:28  
+            6  LIKE /L3_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L3_CHR_ARR,74482,25-MAR-2020,2020-03-25:15:49:28  
+            7  LIKE /L4_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L4_CHR_ARR,74483,25-MAR-2020,2020-03-25:15:49:28  
+            8  LIKE /TT_UNITS,\d+?,\d.+\d,\d.+\d/: TT_UNITS,74484,25-MAR-2020,2020-03-25:15:49:28      
 
       } 0 failed of 8: SUCCESS
       ========================
@@ -559,14 +584,14 @@ SCENARIO 2: Large {
 
             #  Delimited String                                                                        
             -  ----------------------------------------------------------------------------------------
-            1  LIKE /CHR_INT_ARR,\d+?,\d.+\d,\d.+\d/: CHR_INT_ARR,85293,21-SEP-2019,2019-09-21:13:24:51
-            2  LIKE /CHR_INT_REC,\d+?,\d.+\d,\d.+\d/: CHR_INT_REC,85292,21-SEP-2019,2019-09-21:13:24:51
-            3  LIKE /L1_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L1_CHR_ARR,85290,21-SEP-2019,2019-09-21:13:24:51  
-            4  LIKE /L1_NUM_ARR,\d+?,\d.+\d,\d.+\d/: L1_NUM_ARR,85291,21-SEP-2019,2019-09-21:13:24:51  
-            5  LIKE /L2_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L2_CHR_ARR,85304,21-SEP-2019,2019-09-21:13:26:40  
-            6  LIKE /L3_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L3_CHR_ARR,85305,21-SEP-2019,2019-09-21:13:26:40  
-            7  LIKE /L4_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L4_CHR_ARR,85306,21-SEP-2019,2019-09-21:13:26:40  
-            8  LIKE /TT_UNITS,\d+?,\d.+\d,\d.+\d/: TT_UNITS,85307,21-SEP-2019,2019-09-21:13:26:40      
+            1  LIKE /CHR_INT_ARR,\d+?,\d.+\d,\d.+\d/: CHR_INT_ARR,74470,25-MAR-2020,2020-03-25:15:48:50
+            2  LIKE /CHR_INT_REC,\d+?,\d.+\d,\d.+\d/: CHR_INT_REC,74469,25-MAR-2020,2020-03-25:15:48:50
+            3  LIKE /L1_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L1_CHR_ARR,74467,25-MAR-2020,2020-03-25:15:48:50  
+            4  LIKE /L1_NUM_ARR,\d+?,\d.+\d,\d.+\d/: L1_NUM_ARR,74468,25-MAR-2020,2020-03-25:15:48:50  
+            5  LIKE /L2_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L2_CHR_ARR,74481,25-MAR-2020,2020-03-25:15:49:28  
+            6  LIKE /L3_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L3_CHR_ARR,74482,25-MAR-2020,2020-03-25:15:49:28  
+            7  LIKE /L4_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L4_CHR_ARR,74483,25-MAR-2020,2020-03-25:15:49:28  
+            8  LIKE /TT_UNITS,\d+?,\d.+\d,\d.+\d/: TT_UNITS,74484,25-MAR-2020,2020-03-25:15:49:28      
 
       } 0 failed of 8: SUCCESS
       ========================
@@ -584,9 +609,9 @@ SCENARIO 2: Large {
       GROUP 10: Sleep {
       =================
 
-            #  Elapsed Seconds  CPU Seconds        
-            -  ---------------  -------------------
-            1  IN [1.9,2.1]: 2  IN [0.15,0.25]: .21
+            #  Elapsed Seconds      CPU Seconds       
+            -  -------------------  ------------------
+            1  IN [1.9,2.1]: 1.999  IN [0.15,0.25]: .2
 
       } 0 failed of 1: SUCCESS
       ========================
@@ -632,7 +657,10 @@ SCENARIO 2: Large {
       } 0 failed of 1: SUCCESS
       ========================
 
-} 0 failed of 14: SUCCESS
+      GROUP 15: XPlan List (keyword extract): Empty as expected: SUCCESS
+      ==================================================================
+
+} 0 failed of 15: SUCCESS
 =========================
 
 SCENARIO 3: Many {
@@ -973,6 +1001,16 @@ SCENARIO 3: Many {
       }
       =
 
+      GROUP 15: XPlan Cursor {
+      ========================
+
+            #  Cursor Text                                                     Marker         Outline Y/N
+            -  --------------------------------------------------------------  -------------  -----------
+            1  SELECT /*+ gather_plan_statistics XPLAN2_MARKER */ 1 FROM DUAL  XPLAN2_MARKER  Y          
+
+      }
+      =
+
    OUTPUTS
    =======
 
@@ -1084,14 +1122,14 @@ SCENARIO 3: Many {
 
             #  Delimited String                                                                                                                                                                                                                                                 
             -  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            1  LIKE /CHR_INT_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: CHR_INT_ARR||85293||TYPE|21-SEP-2019|21-SEP-2019|2019-09-21:13:24:51|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||    
-            2  LIKE /CHR_INT_REC\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: CHR_INT_REC||85292||TYPE|21-SEP-2019|21-SEP-2019|2019-09-21:13:24:51|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||    
-            3  LIKE /L1_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L1_CHR_ARR||85290||TYPE|21-SEP-2019|21-SEP-2019|2019-09-21:13:24:51|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
-            4  LIKE /L1_NUM_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L1_NUM_ARR||85291||TYPE|21-SEP-2019|21-SEP-2019|2019-09-21:13:24:51|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
-            5  LIKE /L2_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L2_CHR_ARR||85304||TYPE|21-SEP-2019|21-SEP-2019|2019-09-21:13:26:40|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
-            6  LIKE /L3_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L3_CHR_ARR||85305||TYPE|21-SEP-2019|21-SEP-2019|2019-09-21:13:26:40|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
-            7  LIKE /L4_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L4_CHR_ARR||85306||TYPE|21-SEP-2019|21-SEP-2019|2019-09-21:13:26:40|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
-            8  LIKE /TT_UNITS\|\|\d+?\|\d+?\|TABLE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: TT_UNITS||85307|85307|TABLE|21-SEP-2019|21-SEP-2019|2019-09-21:13:26:40|VALID|N|N|N|1||NONE||N|N|USING_NLS_COMP|N|N||||
+            1  LIKE /CHR_INT_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: CHR_INT_ARR||74470||TYPE|25-MAR-2020|25-MAR-2020|2020-03-25:15:48:50|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||    
+            2  LIKE /CHR_INT_REC\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: CHR_INT_REC||74469||TYPE|25-MAR-2020|25-MAR-2020|2020-03-25:15:48:50|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||    
+            3  LIKE /L1_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L1_CHR_ARR||74467||TYPE|25-MAR-2020|25-MAR-2020|2020-03-25:15:48:50|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
+            4  LIKE /L1_NUM_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L1_NUM_ARR||74468||TYPE|25-MAR-2020|25-MAR-2020|2020-03-25:15:48:50|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
+            5  LIKE /L2_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L2_CHR_ARR||74481||TYPE|25-MAR-2020|25-MAR-2020|2020-03-25:15:49:28|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
+            6  LIKE /L3_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L3_CHR_ARR||74482||TYPE|25-MAR-2020|25-MAR-2020|2020-03-25:15:49:28|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
+            7  LIKE /L4_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L4_CHR_ARR||74483||TYPE|25-MAR-2020|25-MAR-2020|2020-03-25:15:49:28|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
+            8  LIKE /TT_UNITS\|\|\d+?\|\d+?\|TABLE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: TT_UNITS||74484|74484|TABLE|25-MAR-2020|25-MAR-2020|2020-03-25:15:49:28|VALID|N|N|N|1||NONE||N|N|USING_NLS_COMP|N|N||||
 
       } 0 failed of 8: SUCCESS
       ========================
@@ -1101,14 +1139,14 @@ SCENARIO 3: Many {
 
             #  Delimited String                                                                                                                                                                                                                                                 
             -  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            1  LIKE /CHR_INT_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: CHR_INT_ARR||85293||TYPE|21-SEP-2019|21-SEP-2019|2019-09-21:13:24:51|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||    
-            2  LIKE /CHR_INT_REC\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: CHR_INT_REC||85292||TYPE|21-SEP-2019|21-SEP-2019|2019-09-21:13:24:51|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||    
-            3  LIKE /L1_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L1_CHR_ARR||85290||TYPE|21-SEP-2019|21-SEP-2019|2019-09-21:13:24:51|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
-            4  LIKE /L1_NUM_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L1_NUM_ARR||85291||TYPE|21-SEP-2019|21-SEP-2019|2019-09-21:13:24:51|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
-            5  LIKE /L2_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L2_CHR_ARR||85304||TYPE|21-SEP-2019|21-SEP-2019|2019-09-21:13:26:40|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
-            6  LIKE /L3_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L3_CHR_ARR||85305||TYPE|21-SEP-2019|21-SEP-2019|2019-09-21:13:26:40|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
-            7  LIKE /L4_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L4_CHR_ARR||85306||TYPE|21-SEP-2019|21-SEP-2019|2019-09-21:13:26:40|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
-            8  LIKE /TT_UNITS\|\|\d+?\|\d+?\|TABLE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: TT_UNITS||85307|85307|TABLE|21-SEP-2019|21-SEP-2019|2019-09-21:13:26:40|VALID|N|N|N|1||NONE||N|N|USING_NLS_COMP|N|N||||
+            1  LIKE /CHR_INT_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: CHR_INT_ARR||74470||TYPE|25-MAR-2020|25-MAR-2020|2020-03-25:15:48:50|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||    
+            2  LIKE /CHR_INT_REC\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: CHR_INT_REC||74469||TYPE|25-MAR-2020|25-MAR-2020|2020-03-25:15:48:50|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||    
+            3  LIKE /L1_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L1_CHR_ARR||74467||TYPE|25-MAR-2020|25-MAR-2020|2020-03-25:15:48:50|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
+            4  LIKE /L1_NUM_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L1_NUM_ARR||74468||TYPE|25-MAR-2020|25-MAR-2020|2020-03-25:15:48:50|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
+            5  LIKE /L2_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L2_CHR_ARR||74481||TYPE|25-MAR-2020|25-MAR-2020|2020-03-25:15:49:28|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
+            6  LIKE /L3_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L3_CHR_ARR||74482||TYPE|25-MAR-2020|25-MAR-2020|2020-03-25:15:49:28|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
+            7  LIKE /L4_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L4_CHR_ARR||74483||TYPE|25-MAR-2020|25-MAR-2020|2020-03-25:15:49:28|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
+            8  LIKE /TT_UNITS\|\|\d+?\|\d+?\|TABLE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: TT_UNITS||74484|74484|TABLE|25-MAR-2020|25-MAR-2020|2020-03-25:15:49:28|VALID|N|N|N|1||NONE||N|N|USING_NLS_COMP|N|N||||
 
       } 0 failed of 8: SUCCESS
       ========================
@@ -1194,7 +1232,24 @@ SCENARIO 3: Many {
       } 0 failed of 1: SUCCESS
       ========================
 
-} 0 failed of 14: SUCCESS
+      GROUP 15: XPlan List (keyword extract) {
+      ========================================
+
+            #  XPlan Line                                                                         
+            -  -----------------------------------------------------------------------------------
+            1  LIKE /SQL_ID +1sytgjmk99n09, child number.+/: SQL_ID  1sytgjmk99n09, child number 0
+            2  SELECT /*+ gather_plan_statistics XPLAN2_MARKER */ 1 FROM DUAL                     
+            3  LIKE /Plan hash value: .+/: Plan hash value: 1388734953                            
+            4  LIKE /SQL_ID +1sytgjmk99n09, child number.+/: SQL_ID  1sytgjmk99n09, child number 0
+            5  SELECT /*+ gather_plan_statistics XPLAN2_MARKER */ 1 FROM DUAL                     
+            6  LIKE /Plan hash value: .+/: Plan hash value: 1388734953                            
+            7  LIKE /.*BEGIN_OUTLINE_DATA.*/:       BEGIN_OUTLINE_DATA                            
+            8  LIKE /.*END_OUTLINE_DATA.*/:       END_OUTLINE_DATA                                
+
+      } 0 failed of 8: SUCCESS
+      ========================
+
+} 0 failed of 15: SUCCESS
 =========================
 
 SCENARIO 4: Bad SQL {
@@ -1266,6 +1321,9 @@ SCENARIO 4: Bad SQL {
       GROUP 14: File I/O: Empty
       =========================
 
+      GROUP 15: XPlan Cursor: Empty
+      =============================
+
    OUTPUTS
    =======
 
@@ -1319,5 +1377,8 @@ SCENARIO 4: Bad SQL {
       GROUP 14: File I/O: Empty as expected: SUCCESS
       ==============================================
 
-} 0 failed of 14: SUCCESS
+      GROUP 15: XPlan List (keyword extract): Empty as expected: SUCCESS
+      ==================================================================
+
+} 0 failed of 15: SUCCESS
 =========================

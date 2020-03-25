@@ -591,6 +591,62 @@ END file_IO;
 
 /***************************************************************************************************
 
+xPlan: Call Utils Cursor_To_List function, passing an open cursor then calls Get_XPlan to get the 
+       XPlan records, and returns the resulting list of  records.
+       Input group array count zero means omit group
+
+***************************************************************************************************/
+FUNCTION xPlan(
+            p_value_2lis                   L2_chr_arr)   -- cursor text, marker (row 1)
+            RETURN                         L1_chr_arr IS -- list of delimited records
+  l_csr             SYS_REFCURSOR;
+  l_csr_value_lis   L1_chr_arr;
+  l_xplan_lis       L1_chr_arr;
+  l_ret_lis         L1_chr_arr := L1_chr_arr();
+  l_searches        L1_chr_arr := L1_chr_arr('SQL_ID.+', 
+                                             '.+gather_plan_statistics.+', 
+                                             '.*Plan hash value:.+', 
+                                             'SQL_ID.+',
+                                             '.+gather_plan_statistics.+',
+                                             '.*Plan hash value:.+',
+                                             '.*BEGIN_OUTLINE_DATA.*',
+                                             '.*END_OUTLINE_DATA.*');
+  l_ind             PLS_INTEGER := 1;                                             
+BEGIN
+
+  IF p_value_2lis.COUNT = 0 THEN
+    RETURN l_csr_value_lis;
+  END IF;
+
+  OPEN l_csr FOR p_value_2lis(1)(1);
+
+  l_csr_value_lis := Utils.Cursor_To_List(x_csr    => l_csr);
+
+  IF p_value_2lis(1)(3) = 'Y' THEN
+    l_xplan_lis := Utils.Get_XPlan(p_sql_marker => p_value_2lis(1)(2), p_add_outline => TRUE);
+  ELSE
+    l_xplan_lis := Utils.Get_XPlan(p_sql_marker => p_value_2lis(1)(2));
+  END IF;
+
+  FOR i IN 1..l_xplan_lis.COUNT LOOP
+
+    IF RegExp_Like(l_xplan_lis(i), l_searches(l_ind)) THEN
+
+      l_ret_lis.EXTEND;
+      l_ret_lis(l_ret_lis.COUNT) := l_xplan_lis(i);
+      l_ind := l_ind + 1;
+      EXIT WHEN l_ind > l_searches.COUNT;
+
+    END IF;
+
+  END LOOP;
+
+  RETURN l_ret_lis;
+
+END xPlan;
+
+/***************************************************************************************************
+
 purely_Wrap_API: Design pattern has the API call wrapped in a 'pure' function, called once per 
                  scenario, with the output 'actuals' array including everything affected by the API,
                  whether as output parameters, or on database tables, etc. The inputs are also
@@ -608,7 +664,7 @@ FUNCTION purely_Wrap_API(
   l_message                      VARCHAR2(4000);
 BEGIN
 
-  l_act_2lis.EXTEND(14);
+  l_act_2lis.EXTEND(15);
   l_act_2lis(1) := heading(              p_value_2lis     => p_inp_3lis(1));
   l_act_2lis(2) := col_Headers(          p_value_2lis     => p_inp_3lis(2));
   l_act_2lis(3) := list_To_Line(         p_value_2lis     => p_inp_3lis(3));
@@ -658,7 +714,7 @@ BEGIN
   l_act_2lis(13) := w(                   p_line_2lis      => p_inp_3lis(13));
   l_act_2lis(14) := file_IO(             p_value_2lis     => p_inp_3lis(14),
                                          p_delim          => p_delim);
-
+  l_act_2lis(15) := xPlan(               p_value_2lis     => p_inp_3lis(15));
   RETURN l_act_2lis;
 
 END purely_Wrap_API;

@@ -1,65 +1,100 @@
 
 Database             Time                 Version
 -------------------- -------------------- ------------------------------
-Start: ORCL          29-SEP-2019 08:29:55 Version 18.3.0.0.0
+Start: ORCL          25-MAR-2020 15:55:28 Version 19.3.0.0.0
 
 Example of Utils.Heading, .Col_Headers, .List_To_Line, .W (VARCHAR2), .W (L1_chr_arr)
-                          p_value_lis => chr_int_arr(chr_int_rec(p_res_arr(i).chr_value, 30),
-                                                                 *
-ERROR at line 17:
-ORA-06550: line 17, column 66:
-PLS-00201: identifier 'P_RES_ARR' must be declared
-ORA-06550: line 16, column 5:
-PL/SQL: Statement ignored
+As Is
+=====
+Team                             Apps
+------------------------------  -----
+Chelsea                          1147
+Newcastle                        1247
+team_name_2                         1
+team_name_1                         1
+Tottenham                        1288
+Liverpool                        1227
+Sunderland                       1162
+Wigan                            1036
+Man City                         1099
+Southampton                      1110
+Fulham                           1209
+Stoke City                       1170
+Wolves                             31
+West Ham                         1126
+Everton                          1147
+Reading                          1167
+West Brom                        1219
+Blackburn                          33
+Aston Villa                       685
+Swansea                          1180
+Bolton                             37
+Arsenal                           534
+QPR                              1517
+Man Utd                          1231
+Norwich                          1229
 
+PL/SQL procedure successfully completed.
 
 Example of Utils.View_To_List
 
 CSV
 ------------------------------------------------------------
-CHR_INT_ARR|86625|29-SEP-19|2019-09-29:08:29:34
-CHR_INT_REC|86624|29-SEP-19|2019-09-29:08:29:34
-COL_GROUP|86628|29-SEP-19|2019-09-29:08:29:34
-COL_GROUP|86629|29-SEP-19|2019-09-29:08:29:34
-L1_CHR_ARR|86622|29-SEP-19|2019-09-29:08:29:34
-L1_NUM_ARR|86623|29-SEP-19|2019-09-29:08:29:34
-LINES_ET|86627|29-SEP-19|2019-09-29:08:29:34
-UTILS|86626|29-SEP-19|2019-09-29:08:29:34
+CHR_INT_ARR|74476|25-MAR-20|2020-03-25:15:49:11
+CHR_INT_REC|74475|25-MAR-20|2020-03-25:15:49:11
+COL_GROUP|74479|25-MAR-20|2020-03-25:15:49:11
+COL_GROUP|74480|25-MAR-20|2020-03-25:15:49:11
+L1_CHR_ARR|74473|25-MAR-20|2020-03-25:15:49:11
+L1_NUM_ARR|74474|25-MAR-20|2020-03-25:15:49:11
+L2_CHR_ARR|74494|25-MAR-20|2020-03-25:15:49:42
+L3_CHR_ARR|74495|25-MAR-20|2020-03-25:15:49:42
+L4_CHR_ARR|74496|25-MAR-20|2020-03-25:15:49:42
+LINES_ET|74478|25-MAR-20|2020-03-25:15:49:11
+TRAPIT_RUN|74498|25-MAR-20|2020-03-25:15:49:42
+TRAPIT|74497|25-MAR-20|2020-03-25:15:49:42
+TT_UNITS|74499|25-MAR-20|2020-03-25:15:49:42
+UTILS|74477|25-MAR-20|2020-03-25:15:49:11
 
-8 rows selected.
+14 rows selected.
 
 Example of Utils.Cursor_To_List, .Split_Values, .Join_Values (list), .Join_Values (scalars)
 .
 Utils.Cursor_To_List on user_objects...
 =======================================
-L1_CHR_ARR|86622|29-SEP-19|2019-09-29:08:29:34
-L1_NUM_ARR|86623|29-SEP-19|2019-09-29:08:29:34
-CHR_INT_REC|86624|29-SEP-19|2019-09-29:08:29:34
-CHR_INT_ARR|86625|29-SEP-19|2019-09-29:08:29:34
-UTILS|86626|29-SEP-19|2019-09-29:08:29:34
-LINES_ET|86627|29-SEP-19|2019-09-29:08:29:34
-COL_GROUP|86628|29-SEP-19|2019-09-29:08:29:34
-COL_GROUP|86629|29-SEP-19|2019-09-29:08:29:34
+L1_CHR_ARR|74473|25-MAR-20|2020-03-25:15:49:11
+L1_NUM_ARR|74474|25-MAR-20|2020-03-25:15:49:11
+CHR_INT_REC|74475|25-MAR-20|2020-03-25:15:49:11
+CHR_INT_ARR|74476|25-MAR-20|2020-03-25:15:49:11
+UTILS|74477|25-MAR-20|2020-03-25:15:49:11
+LINES_ET|74478|25-MAR-20|2020-03-25:15:49:11
+COL_GROUP|74479|25-MAR-20|2020-03-25:15:49:11
+COL_GROUP|74480|25-MAR-20|2020-03-25:15:49:11
+L2_CHR_ARR|74494|25-MAR-20|2020-03-25:15:49:42
+L3_CHR_ARR|74495|25-MAR-20|2020-03-25:15:49:42
+L4_CHR_ARR|74496|25-MAR-20|2020-03-25:15:49:42
+TRAPIT|74497|25-MAR-20|2020-03-25:15:49:42
+TRAPIT_RUN|74498|25-MAR-20|2020-03-25:15:49:42
+TT_UNITS|74499|25-MAR-20|2020-03-25:15:49:42
 .
 Utils.Split_Values on first line...
 ===================================
 L1_CHR_ARR
-86622
-29-SEP-19
-2019-09-29:08:29:34
+74473
+25-MAR-20
+2020-03-25:15:49:11
 .
 Utils.Join_Values on first line, passing list, with "," delimiter...
 ====================================================================
-L1_CHR_ARR,86622,29-SEP-19,2019-09-29:08:29:34
+L1_CHR_ARR,74473,25-MAR-20,2020-03-25:15:49:11
 .
 Utils.Join_Values on first line, passing first three values...
 ==============================================================
-L1_CHR_ARR|86622|29-SEP-19
+L1_CHR_ARR|74473|25-MAR-20
 
 PL/SQL procedure successfully completed.
 
 Example of Utils.Sleep, .IntervalDS_To_Seconds, sleeping for 1.2s of which 0.36s CPU
-Elapsed time is 1.199
+Elapsed time is 1.2
 CPU time is .36
 DECLARE
 *
@@ -69,8 +104,48 @@ ORA-06512: at "LIB.UTILS", line 374
 ORA-06512: at line 10
 
 
+Example of Utils.Get_XPlan
+SQL_ID  70kqmd0bdntty, child number 0
+-------------------------------------
+SELECT /*+ gather_plan_statistics XPLAN_MARKER_CG */ 1 FROM DUAL
+Plan hash value: 1388734953
+-------------------------------------------------------------------------
+| Id  | Operation        | Name | Starts | E-Rows | A-Rows |   A-Time   |
+-------------------------------------------------------------------------
+|   0 | SELECT STATEMENT |      |      1 |        |      1 |00:00:00.01 |
+|   1 |  FAST DUAL       |      |      1 |      1 |      1 |00:00:00.01 |
+-------------------------------------------------------------------------
+SQL_ID  70kqmd0bdntty, child number 0
+-------------------------------------
+SELECT /*+ gather_plan_statistics XPLAN_MARKER_CG */ 1 FROM DUAL
+Plan hash value: 1388734953
+-----------------------------------------------------------------
+| Id  | Operation        | Name | Rows  | Cost (%CPU)| Time     |
+-----------------------------------------------------------------
+|   0 | SELECT STATEMENT |      |       |     2 (100)|          |
+|   1 |  FAST DUAL       |      |     1 |     2   (0)| 00:00:01 |
+-----------------------------------------------------------------
+Outline Data
+-------------
+/*+
+BEGIN_OUTLINE_DATA
+IGNORE_OPTIM_EMBEDDED_HINTS
+OPTIMIZER_FEATURES_ENABLE('19.1.0')
+DB_VERSION('19.1.0')
+ALL_ROWS
+OUTLINE_LEAF(@"SEL$1")
+END_OUTLINE_DATA
+*/
+Hint Report (identified by operation id / Query Block Name / Object Alias):
+Total hints for statement: 1 (E - Syntax error (1))
+---------------------------------------------------------------------------
+1 -  SEL$1
+E -  XPLAN_MARKER_CG
+
+PL/SQL procedure successfully completed.
+
 
 'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
 ----------------------------------
-End: 29-SEP-2019 08:29:56
+End: 25-MAR-2020 15:55:30
 
