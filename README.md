@@ -9,7 +9,7 @@ This module comprises a set of generic user-defined Oracle types and a PL/SQL pa
 - returning records from cursors or views/tables as lists of delimited strings
 - joining lists of values into delimited strings, and the converse splitting operation
 
-This module is a pre-requisite for these other Oracle GitHub modules:
+This module is a prerequisite for these other Oracle GitHub modules:
 - [Trapit - Oracle PL/SQL unit testing module](https://github.com/BrenPatF/trapit_oracle_tester)
 - [Log_Set - Oracle logging module](https://github.com/BrenPatF/log_set_oracle)
 - [Timer_Set - Oracle PL/SQL code timing module](https://github.com/BrenPatF/timer_set_oracle)
@@ -183,6 +183,36 @@ Writes a list of lines of text using DBMS_Output.Put_line, with parameters as fo
 
 * `p_line_lis`: L1_chr_arr list of lines of text to write
 
+### Utils.Delete_File(p_file_name)
+Deletes a file on database server, in `input_dir`, with parameters as follows:
+
+* `p_file_name`: file name
+
+### Utils.Write_File(p_file_name, p_line_lis)
+Writes a list of lines to a file on database server, in `input_dir`, with parameters as follows:
+
+* `p_file_name`: file name
+* `p_line_lis`: list of lines to write
+
+The file is opened and closed within the procedure.
+
+### l_lines_lis L1_chr_arr := Utils.Read_File(p_file_name)
+Returns contents of a file on database server, in `input_dir`, into a list of lines, with parameters as follows:
+
+* `p_file_name`: file name
+
+The file is opened and closed within the function.
+
+### l_lines_lis L1_chr_arr := Utils.Get_XPlan(p_sql_marker, `optional parameters`)
+Returns execution plan for a recently excuted query, identified by a marker string, into a list of lines, with parameters as follows:
+
+* `p_sql_marker`: marker string
+
+Optional parameters:
+* `p_add_outline`: boolean, if TRUE return plan outline after normal execution plan, defaults to FALSE
+
+The executed query should contain a hint of the form /*+  gather_plan_statistics  `p_sql_marker` */. Check the  main_col_group.sql script for an example of usage.
+
 ## Installation
 - [In this README...](https://github.com/BrenPatF/oracle_plsql_utils#in-this-readme)
 - [Install 1: Create lib and app schemas and Oracle directory (optional)](https://github.com/BrenPatF/oracle_plsql_utils#install-1-create-lib-and-app-schemas-and-oracle-directory-optional)
@@ -329,7 +359,7 @@ You can review the formatted unit test results obtained by the author here, [Uni
 ### Windows
 Tested on Windows 10, should be OS-independent
 ### Oracle
-- Tested on Oracle Database Version 18.3.0.0.0
+- Tested on Oracle Database Version 19.3.0.0.0
 - Base code (and example) should work on earlier versions at least as far back as v11
 
 ## See also

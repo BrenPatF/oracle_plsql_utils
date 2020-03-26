@@ -298,6 +298,7 @@
                "test_file.tmp;1;1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890;"
             ],
             "XPlan Cursor":[
+               "WITH row_gen AS (SELECT LEVEL rn FROM DUAL CONNECT BY LEVEL < 4) SELECT /*+ gather_plan_statistics XPLAN_MK_RGN */ rgn.rn, ttu.package_nm, ttu.procedure_nm, ttu.group_nm FROM tt_units ttu CROSS JOIN row_gen rgn;XPLAN_MK_RGN;"
             ]
          },
          "out":{
@@ -365,6 +366,9 @@
                "1;1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890;"
             ],
             "XPlan List (keyword extract)":[
+               "LIKE /SQL_ID.+dkc3v7jcd34ku, child number.+/",
+               "LIKE /.* gather_plan_statistics XPLAN_MK_RGN .*/",
+               "LIKE /Plan hash value: .+/"
             ]
          }
       },

@@ -277,7 +277,7 @@ SCENARIO 1: Small {
 
             #  Elapsed Seconds     CPU Seconds      
             -  ------------------  -----------------
-            1  IN [0.9,1.1]: .999  IN [0.4,0.6]: .49
+            1  IN [0.9,1.1]: .999  IN [0.4,0.6]: .47
 
       } 0 failed of 1: SUCCESS
       ========================
@@ -490,8 +490,15 @@ SCENARIO 2: Large {
       }
       =
 
-      GROUP 15: XPlan Cursor: Empty
-      =============================
+      GROUP 15: XPlan Cursor {
+      ========================
+
+            #  Cursor Text                                                                                                                                                                                                         Marker        Outline Y/N
+            -  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  ------------  -----------
+            1  WITH row_gen AS (SELECT LEVEL rn FROM DUAL CONNECT BY LEVEL < 4) SELECT /*+ gather_plan_statistics XPLAN_MK_RGN */ rgn.rn, ttu.package_nm, ttu.procedure_nm, ttu.group_nm FROM tt_units ttu CROSS JOIN row_gen rgn  XPLAN_MK_RGN             
+
+      }
+      =
 
    OUTPUTS
    =======
@@ -609,9 +616,9 @@ SCENARIO 2: Large {
       GROUP 10: Sleep {
       =================
 
-            #  Elapsed Seconds      CPU Seconds       
-            -  -------------------  ------------------
-            1  IN [1.9,2.1]: 1.999  IN [0.15,0.25]: .2
+            #  Elapsed Seconds      CPU Seconds        
+            -  -------------------  -------------------
+            1  IN [1.9,2.1]: 1.999  IN [0.15,0.25]: .21
 
       } 0 failed of 1: SUCCESS
       ========================
@@ -657,8 +664,17 @@ SCENARIO 2: Large {
       } 0 failed of 1: SUCCESS
       ========================
 
-      GROUP 15: XPlan List (keyword extract): Empty as expected: SUCCESS
-      ==================================================================
+      GROUP 15: XPlan List (keyword extract) {
+      ========================================
+
+            #  XPlan Line                                                                                                         
+            -  -------------------------------------------------------------------------------------------------------------------
+            1  LIKE /SQL_ID.+dkc3v7jcd34ku, child number.+/: SQL_ID  dkc3v7jcd34ku, child number 0                                
+            2  LIKE /.* gather_plan_statistics XPLAN_MK_RGN .*/: < 4 )  SELECT /*+ gather_plan_statistics XPLAN_MK_RGN */ rgn.rn, 
+            3  LIKE /Plan hash value: .+/: Plan hash value: 2193768776                                                            
+
+      } 0 failed of 3: SUCCESS
+      ========================
 
 } 0 failed of 15: SUCCESS
 =========================
