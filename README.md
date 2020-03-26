@@ -82,6 +82,10 @@ There is also a separate [module](https://github.com/BrenPatF/oracle_plsql_api_d
 - [Raise_Error(p_message)](https://github.com/BrenPatF/oracle_plsql_utils#utilsraise_errorp_message)
 - [W(p_line)](https://github.com/BrenPatF/oracle_plsql_utils#utilswp_line)
 - [W(p_line_lis)](https://github.com/BrenPatF/oracle_plsql_utils#utilswp_line_lis)
+- [Utils.Delete_File(p_file_name)](https://github.com/BrenPatF/oracle_plsql_utils#utilsdelete_filep_file_name)
+- [Utils.Write_File(p_file_name, p_line_lis)](https://github.com/BrenPatF/oracle_plsql_utils#utilswrite_filep_file_name-p_line_lis)
+- [Utils.Read_File(p_file_name)](https://github.com/BrenPatF/oracle_plsql_utils#l_lines_lis-l1_chr_arr--utilsread_filep_file_name)
+- [Utils.Get_XPlan(p_sql_marker, optional parameters)](https://github.com/BrenPatF/oracle_plsql_utils#l_lines_lis-l1_chr_arr--utilsget_xplanp_sql_marker-optional-parameters)
 
 This package runs with Invoker rights, not the default Definer rights, so that the dynamic SQL methods execute SQL using the rights of the calling schema, not the lib schema (if different).
 
@@ -204,6 +208,8 @@ Returns contents of a file on database server, in `input_dir`, into a list of li
 The file is opened and closed within the function.
 
 ### l_lines_lis L1_chr_arr := Utils.Get_XPlan(p_sql_marker, `optional parameters`)
+- [API - Utils](https://github.com/BrenPatF/oracle_plsql_utils#api---utils)
+
 Returns execution plan for a recently excuted query, identified by a marker string, into a list of lines, with parameters as follows:
 
 * `p_sql_marker`: marker string
