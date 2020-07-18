@@ -57,6 +57,7 @@ FUNCTION View_To_List(
             p_view_name                    VARCHAR2,
             p_sel_value_lis                L1_chr_arr,
             p_where                        VARCHAR2 := NULL,
+            p_order_by                     VARCHAR2 := '1',
             p_delim                        VARCHAR2 := DELIM) 
             RETURN                         L1_chr_arr;
 FUNCTION Cursor_To_List(  

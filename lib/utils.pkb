@@ -209,7 +209,8 @@ FUNCTION View_To_List(
             p_view_name                    VARCHAR2,          -- name of view
             p_sel_value_lis                L1_chr_arr,        -- list of fields to select
             p_where                        VARCHAR2 := NULL,  -- optional where clause
-            p_delim                        VARCHAR2 := DELIM) -- filter string
+            p_order_by                     VARCHAR2 := '1',   -- optional order by
+            p_delim                        VARCHAR2 := DELIM) -- optional delimiter
             RETURN                         L1_chr_arr IS      -- list of delimited result records
 
   l_cur            SYS_REFCURSOR;
@@ -225,7 +226,7 @@ BEGIN
   END LOOP;
 
   l_sql_txt := RTrim(l_sql_txt, ',') || '), ''' || p_delim || ''') FROM ' || p_view_name || 
-               ' WHERE ' || Nvl(p_where, '1=1 ') || 'ORDER BY 1';
+               ' WHERE ' || Nvl(p_where, '1=1 ') || 'ORDER BY ' || p_order_by;
 
   OPEN l_cur FOR l_sql_txt;
 

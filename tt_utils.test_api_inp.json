@@ -239,7 +239,7 @@
                "0;;"
             ],
             "XPlan List (keyword extract)":[
-               "LIKE /SQL_ID +62unzfghvzfw4, child number.+/",
+               "LIKE /SQL_ID.+, child number.+/",
                "SELECT /*+ gather_plan_statistics XPLAN_MARKER */ 1 FROM DUAL",
                "LIKE /Plan hash value: .+/"
             ]
@@ -366,7 +366,7 @@
                "1;1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890;"
             ],
             "XPlan List (keyword extract)":[
-               "LIKE /SQL_ID.+dkc3v7jcd34ku, child number.+/",
+               "LIKE /SQL_ID.+, child number.+/",
                "LIKE /.* gather_plan_statistics XPLAN_MK_RGN .*/",
                "LIKE /Plan hash value: .+/"
             ]
@@ -785,10 +785,10 @@
                "2;Line 1;Line 2"
             ],
             "XPlan List (keyword extract)":[
-               "LIKE /SQL_ID +1sytgjmk99n09, child number.+/",
+               "LIKE /SQL_ID.+., child number.+/",
                "SELECT /*+ gather_plan_statistics XPLAN2_MARKER */ 1 FROM DUAL",
                "LIKE /Plan hash value: .+/",
-               "LIKE /SQL_ID +1sytgjmk99n09, child number.+/",
+               "LIKE /SQL_ID.+, child number.+/",
                "SELECT /*+ gather_plan_statistics XPLAN2_MARKER */ 1 FROM DUAL",
                "LIKE /Plan hash value: .+/",
                "LIKE /.*BEGIN_OUTLINE_DATA.*/",

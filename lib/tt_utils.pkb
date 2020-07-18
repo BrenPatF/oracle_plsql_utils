@@ -259,6 +259,7 @@ FUNCTION view_To_List(
             p_view_name                    VARCHAR2,
             p_sel_value_2lis               L2_chr_arr,
             p_where                        VARCHAR2,
+            p_order_by                     VARCHAR2,
             p_delim                        VARCHAR2)
             RETURN                         L1_chr_arr IS
   l_ret_value_lis   L1_chr_arr;
@@ -272,24 +273,52 @@ BEGIN
   l_sel_value_lis := extract_Lis_From_2Lis(p_value_2lis     => p_sel_value_2lis);
   IF p_where IS  NULL THEN
     IF p_delim IS NULL THEN
-      l_ret_value_lis := Utils.View_To_List(p_view_name     => p_view_name,
-                                            p_sel_value_lis => l_sel_value_lis);
+      IF p_order_by IS NULL THEN
+        l_ret_value_lis := Utils.View_To_List(p_view_name     => p_view_name,
+                                              p_sel_value_lis => l_sel_value_lis);
+      ELSE
+        l_ret_value_lis := Utils.View_To_List(p_view_name     => p_view_name,
+                                              p_sel_value_lis => l_sel_value_lis,
+                                              p_order_by      => p_order_by);
+      END IF;
     ELSE
-      l_ret_value_lis := Utils.View_To_List(p_view_name     => p_view_name,
-                                            p_sel_value_lis => l_sel_value_lis,
-                                            p_delim         => p_delim);
+      IF p_order_by IS NULL THEN
+        l_ret_value_lis := Utils.View_To_List(p_view_name     => p_view_name,
+                                              p_sel_value_lis => l_sel_value_lis,
+                                              p_delim         => p_delim);
+      ELSE
+        l_ret_value_lis := Utils.View_To_List(p_view_name     => p_view_name,
+                                              p_sel_value_lis => l_sel_value_lis,
+                                              p_order_by      => p_order_by,
+                                              p_delim         => p_delim);
+      END IF;
 
     END IF;
   ELSE
     IF p_delim IS NULL THEN
-      l_ret_value_lis := Utils.View_To_List(p_view_name     => p_view_name,
-                                            p_sel_value_lis => l_sel_value_lis,
-                                            p_where         => p_where);
+      IF p_order_by IS NULL THEN
+        l_ret_value_lis := Utils.View_To_List(p_view_name     => p_view_name,
+                                              p_sel_value_lis => l_sel_value_lis,
+                                              p_where         => p_where);
+      ELSE
+        l_ret_value_lis := Utils.View_To_List(p_view_name     => p_view_name,
+                                              p_sel_value_lis => l_sel_value_lis,
+                                              p_where         => p_where,
+                                              p_order_by      => p_order_by);
+      END IF;
     ELSE
-      l_ret_value_lis := Utils.View_To_List(p_view_name     => p_view_name,
-                                            p_sel_value_lis => l_sel_value_lis,
-                                            p_where         => p_where,
-                                            p_delim         => p_delim);
+      IF p_order_by IS NULL THEN
+        l_ret_value_lis := Utils.View_To_List(p_view_name     => p_view_name,
+                                              p_sel_value_lis => l_sel_value_lis,
+                                              p_where         => p_where,
+                                              p_delim         => p_delim);
+      ELSE
+        l_ret_value_lis := Utils.View_To_List(p_view_name     => p_view_name,
+                                              p_sel_value_lis => l_sel_value_lis,
+                                              p_where         => p_where,
+                                              p_order_by      => p_order_by,
+                                              p_delim         => p_delim);
+      END IF;
 
     END IF;
   END IF;
@@ -679,6 +708,7 @@ BEGIN
     l_act_2lis(7) := view_To_List(       p_view_name      => p_inp_3lis(12)(1)(2),
                                          p_sel_value_2lis => p_inp_3lis(7),
                                          p_where          => p_inp_3lis(12)(1)(3),
+                                         p_order_by       => p_inp_3lis(12)(1)(4),
                                          p_delim          => p_inp_3lis(12)(1)(1));
   EXCEPTION
     WHEN OTHERS THEN
@@ -710,7 +740,7 @@ BEGIN
                                          p_act_lis        => l_act_2lis(11),
                                          p_delim          => p_delim);
   END IF;
-  l_act_2lis(12) := w(                   p_line           => p_inp_3lis(12)(1)(4));
+  l_act_2lis(12) := w(                   p_line           => p_inp_3lis(12)(1)(5));
   l_act_2lis(13) := w(                   p_line_2lis      => p_inp_3lis(13));
   l_act_2lis(14) := file_IO(             p_value_2lis     => p_inp_3lis(14),
                                          p_delim          => p_delim);
