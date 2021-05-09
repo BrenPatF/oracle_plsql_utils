@@ -11,11 +11,11 @@ There is an example main program and package showing how to use the Utils packag
 program. Unit testing is optional and depends on the module trapit_oracle_tester.
 ====================================================================================================
 |  Main            |  Package    |  Notes                                                          |
-|===================================================================================================
+|==================================================================================================|
 |  main_col_group  |  Col_Group  |  Example showing how to use the Utils package procedures and    |
 |                  |             |  functions. Package is simple file-reading and group-counting   |
 |                  |             |  module also used as example in other modules                   |
-----------------------------------------------------------------------------------------------------
+|------------------|-------------|-----------------------------------------------------------------|
 | *r_tests*        |  TT_Utils   |  Unit testing the Utils package. Trapit is installed as a       |
 |                  |  Trapit     |  separate module                                                |
 ====================================================================================================
@@ -33,7 +33,7 @@ processed by a separate nodejs program, npm package trapit (see README for furth
 
 The output JSON file contains arrays of expected and actual records by group and scenario, in the
 format expected by the nodejs program. The nodejs program produces listings of the results in HTML
-and/or text format, and a sample set of listings is included in the folder test_output.
+and/or text format, and a sample set of listings is included in the folder test_data\test_output
 
 ***************************************************************************************************/
 DEFINE LIB=lib

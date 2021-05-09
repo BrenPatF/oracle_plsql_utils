@@ -1,7 +1,7 @@
 
 Database             Time                 Version
 -------------------- -------------------- ------------------------------
-Start: ORCL          18-JUL-2020 10:28:54 Version 19.3.0.0.0
+Start: ORCL          09-MAY-2021 17:51:17 Version 19.3.0.0.0
 
 Drop table tt_units
 DROP TABLE tt_units
@@ -97,13 +97,8 @@ new   1: GRANT EXECUTE ON Trapit_Run TO app
 
 Grant succeeded.
 
-old   1: GRANT SELECT ON tt_units TO &app
-new   1: GRANT SELECT ON tt_units TO app
-
-Grant succeeded.
-
 
 'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
 ----------------------------------
-End: 18-JUL-2020 10:28:55
+End: 09-MAY-2021 17:51:17
 

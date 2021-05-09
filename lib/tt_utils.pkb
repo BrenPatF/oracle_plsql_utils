@@ -11,29 +11,29 @@ There is an example main program and package showing how to use the Utils packag
 program. Unit testing is optional and depends on the module trapit_oracle_tester.
 ====================================================================================================
 |  Main/Test .sql  |  Package    |  Notes                                                          |
-|===================================================================================================
+|==================================================================================================|
 |  main_col_group  |  Col_Group  |  Example showing how to use the Utils package procedures and    |
 |                  |             |  and functions. Col_Group is a simple file-reading and          |
 |                  |             |  group-counting package also used as an example in other modules|
-----------------------------------------------------------------------------------------------------
+|------------------|-------------|-----------------------------------------------------------------|
 |  r_tests         | *TT_Utils*  |  Unit testing the Utils package. Trapit is installed as a       |
 |                  |  Trapit     |  separate module                                                |
 ====================================================================================================
 
 This file has the TT_Utils unit test package body. Note that the test package is called by the unit
-test utility package Trapit, which reads the unit test details from a table, tt_units, populated by
-the install scripts.
+test driver package Trapit_Run, which reads the unit test details from a table, tt_units, populated
+by the install scripts.
 
 The test program follows 'The Math Function Unit Testing design pattern':
 
     GitHub: https://github.com/BrenPatF/trapit_nodejs_tester
 
-Note that the unit test program generates an output file, tt_utils.test_api_out.json, that is 
-processed by a separate nodejs program, npm package trapit (see README for further details).
+Note that the unit test program generates an output file, tt_utils.purely_wrap_utils_out.json, that
+is processed by a separate nodejs program, npm package trapit (see README for further details).
 
 The output JSON file contains arrays of expected and actual records by group and scenario, in the
 format expected by the nodejs program. This program produces listings of the results in HTML and/or
-text format, and a sample set of listings is included in the folder test_output.
+text format, and a sample set of listings is included in the folder test_data\test_output
 
 ***************************************************************************************************/
 FUNCTION heading(
@@ -676,17 +676,21 @@ END xPlan;
 
 /***************************************************************************************************
 
-purely_Wrap_API: Design pattern has the API call wrapped in a 'pure' function, called once per 
-                 scenario, with the output 'actuals' array including everything affected by the API,
-                 whether as output parameters, or on database tables, etc. The inputs are also
-                 extended from the API parameters to include any other effective inputs
+Purely_Wrap_Utils: Unit test wrapper function for Utils package procedures and functions
+
+    Returns the 'actual' outputs, given the inputs for a scenario, with the signature expected for
+    the Math Function Unit Testing design pattern, namely:
+
+      Input parameter: 3-level list (type L3_chr_arr) with test inputs as group/record/field
+      Return Value: 2-level list (type L2_chr_arr) with test outputs as group/record (with record as
+                   delimited fields string)
 
 ***************************************************************************************************/
-FUNCTION purely_Wrap_API(
-            p_delim                        VARCHAR2,     -- delimiter
-            p_inp_3lis                     L3_chr_arr)   -- input list of lists (record, field)
+FUNCTION Purely_Wrap_Utils(
+            p_inp_3lis                     L3_chr_arr)   -- input list of lists (group, record, field)
             RETURN                         L2_chr_arr IS -- output list of lists (group, record)
 
+  c_delim                        VARCHAR2(1) := ';';
   l_act_2lis                     L2_chr_arr := L2_chr_arr();
   l_start_tmstp                  TIMESTAMP := SYSTIMESTAMP;
   l_start_cpu_cs                 PLS_INTEGER := DBMS_Utility.Get_CPU_Time;
@@ -715,7 +719,7 @@ BEGIN
       l_act_2lis(11) := add_Exception(   p_source         => 'view_To_List',
                                          p_message        => SQLERRM,
                                          p_act_lis        => l_act_2lis(11),
-                                         p_delim          => p_delim);
+                                         p_delim          => c_delim);
   END;
 
   BEGIN
@@ -727,63 +731,27 @@ BEGIN
       l_act_2lis(11) := add_Exception(   p_source         => 'cursor_To_List',
                                          p_message        => SQLERRM,
                                          p_act_lis        => l_act_2lis(11),
-                                         p_delim          => p_delim);
+                                         p_delim          => c_delim);
   END;
 
   l_act_2lis(9) := intervalDS_To_Seconds(p_value_2lis     => p_inp_3lis(9));
   l_act_2lis(10) := sleep(               p_value_2lis     => p_inp_3lis(10),
-                                         p_delim          => p_delim);
+                                         p_delim          => c_delim);
   l_message := raise_Error(              p_value_2lis     => p_inp_3lis(11));
   IF l_message IS NOT NULL THEN
     l_act_2lis(11) := add_Exception(     p_source         => 'Raise_Error',
                                          p_message        => l_message,
                                          p_act_lis        => l_act_2lis(11),
-                                         p_delim          => p_delim);
+                                         p_delim          => c_delim);
   END IF;
   l_act_2lis(12) := w(                   p_line           => p_inp_3lis(12)(1)(5));
   l_act_2lis(13) := w(                   p_line_2lis      => p_inp_3lis(13));
   l_act_2lis(14) := file_IO(             p_value_2lis     => p_inp_3lis(14),
-                                         p_delim          => p_delim);
+                                         p_delim          => c_delim);
   l_act_2lis(15) := xPlan(               p_value_2lis     => p_inp_3lis(15));
   RETURN l_act_2lis;
 
-END purely_Wrap_API;
-
-/***************************************************************************************************
-
-Test_API: Entry point method for the unit test. Uses Trapit to read the test data from JSON clob
-          into a 4-d list of (scenario, group, record, field), then calls a 'pure' wrapper function
-          within a loop over the scenarios to get the actuals. A final call to Trapit.Set_Outputs
-          creates the output JSON in tt_units as well as on file to be processed by trapit_nodejs
-
-***************************************************************************************************/
-PROCEDURE Test_API IS
-
-  PROC_NM                        CONSTANT VARCHAR2(30) := 'Test_API';
-
-  l_act_3lis                     L3_chr_arr := L3_chr_arr();
-  l_sces_4lis                    L4_chr_arr;
-  l_scenarios                    Trapit.scenarios_rec;
-  l_delim                        VARCHAR2(10);
-BEGIN
-
-  l_scenarios := Trapit.Get_Inputs(p_package_nm   => $$PLSQL_UNIT,
-                                   p_procedure_nm => PROC_NM);
-  l_sces_4lis := l_scenarios.scenarios_4lis;
-  l_delim := l_scenarios.delim;
-  l_act_3lis.EXTEND(l_sces_4lis.COUNT);
-  FOR i IN 1..l_sces_4lis.COUNT LOOP
-
-    l_act_3lis(i) := purely_Wrap_API(p_delim    => l_delim,
-                                     p_inp_3lis => l_sces_4lis(i));
-
-  END LOOP;
-
-  Trapit.Set_Outputs(p_package_nm   => $$PLSQL_UNIT,
-                     p_procedure_nm => PROC_NM,
-                     p_act_3lis     => l_act_3lis);
-
-END Test_API;
+END Purely_Wrap_Utils;
 
 END TT_Utils;
 /

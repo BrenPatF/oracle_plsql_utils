@@ -1,11 +1,11 @@
 
 Database             Time                 Version
 -------------------- -------------------- ------------------------------
-Start: ORCL          18-JUL-2020 12:37:54 Version 19.3.0.0.0
+Start: ORCL          09-MAY-2021 17:54:19 Version 19.3.0.0.0
 
 Add the tt_units record, reading in JSON file from INPUT_DIR
-old   4:   Trapit.Add_Ttu('TT_UTILS', 'Test_API', '&LIB', 'Y', 'tt_utils.test_api_inp.json');
-new   4:   Trapit.Add_Ttu('TT_UTILS', 'Test_API', 'lib', 'Y', 'tt_utils.test_api_inp.json');
+old   4:   Trapit.Add_Ttu('TT_UTILS', 'Purely_Wrap_Utils', '&LIB', 'Y', 'tt_utils.purely_wrap_utils_inp.json');
+new   4:   Trapit.Add_Ttu('TT_UTILS', 'Purely_Wrap_Utils', 'lib', 'Y', 'tt_utils.purely_wrap_utils_inp.json');
 
 PL/SQL procedure successfully completed.
 
@@ -20,5 +20,5 @@ No errors.
 
 'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
 ----------------------------------
-End: 18-JUL-2020 12:37:54
+End: 09-MAY-2021 17:54:20
 

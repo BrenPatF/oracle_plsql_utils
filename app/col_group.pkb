@@ -12,11 +12,11 @@ There is an example main program and package showing how to use the Utils packag
 program. Unit testing is optional and depends on the module trapit_oracle_tester.
 ====================================================================================================
 |  Main            |  Package    |  Notes                                                          |
-|===================================================================================================
+|==================================================================================================|
 |  main_col_group  | *Col_Group* |  Example showing how to use the Utils package procedures and    |
 |                  |             |  functions. Package is simple file-reading and group-counting   |
 |                  |             |  module also used as example in other modules                   |
-----------------------------------------------------------------------------------------------------
+|------------------|-------------|-----------------------------------------------------------------|
 |  r_tests         |  TT_Utils   |  Unit testing the Utils package. Trapit is installed as a       |
 |                  |  Trapit     |  separate module                                                |
 ====================================================================================================

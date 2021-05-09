@@ -5,15 +5,16 @@ Name: utils.pks                        Author: Brendan Furey                    
 Package spec component in the oracle_plsql_utils module. The module comprises a set of generic 
 user-defined Oracle types and a PL/SQL package of functions and procedures of general utility.
 
-GitHub: https://github.com/BrenPatF/oracle_plsql_utils
+      GitHub: https://github.com/BrenPatF/oracle_plsql_utils
 
 ====================================================================================================
 |  Package     |  Notes                                                                            |
-|===================================================================================================
+|==================================================================================================|
 |   Utils      |  General utility functions and procedures                                         |
 ====================================================================================================
 
-This file has the general utility functions package spec.
+This file has the Utils package spec. See README for API specification, and the main_col_group.sql
+script for simple examples of use.
 
 This package runs with Invoker rights, not the default Definer rights, so that the dynamic SQL 
 methods execute SQL using the rights of the calling schema, not the lib schema (if different).

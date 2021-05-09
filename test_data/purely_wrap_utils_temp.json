@@ -1,0 +1,234 @@
+{
+    "meta":  {
+                 "title":  "title",
+                 "delimiter":  ";",
+                 "inp":  {
+                             "Heading":  [
+                                             "Text",
+                                             "#Blanks Pre",
+                                             "#Blanks Post"
+                                         ],
+                             "Col Headers":  [
+                                                 "Text",
+                                                 "Length"
+                                             ],
+                             "List To Line":  [
+                                                  "Text",
+                                                  "Length"
+                                              ],
+                             "Join Values (list)":  [
+                                                        "Value"
+                                                    ],
+                             "Join Values (scalars)":  [
+                                                           "Value 1",
+                                                           "Value 2",
+                                                           "Value 3",
+                                                           "Value 4",
+                                                           "Value 5",
+                                                           "Value 6",
+                                                           "Value 7",
+                                                           "Value 8",
+                                                           "Value 9",
+                                                           "Value 10",
+                                                           "Value 11",
+                                                           "Value 12",
+                                                           "Value 13",
+                                                           "Value 14",
+                                                           "Value 15",
+                                                           "Value 16",
+                                                           "Value 17"
+                                                       ],
+                             "Split Values":  [
+                                                  "Delimited String"
+                                              ],
+                             "View To List":  [
+                                                  "Select Column Name"
+                                              ],
+                             "Cursor To List":  [
+                                                    "Cursor Text",
+                                                    "Filter"
+                                                ],
+                             "Interval To Seconds":  [
+                                                         "Interval String"
+                                                     ],
+                             "Sleep":  [
+                                           "Elapsed Seconds",
+                                           "Fraction CPU"
+                                       ],
+                             "Raise Error":  [
+                                                 "Message"
+                                             ],
+                             "Scalars":  [
+                                             "Delimiter",
+                                             "View Name",
+                                             "View Where",
+                                             "View Order By",
+                                             "W Line"
+                                         ],
+                             "W (List)":  [
+                                              "Line"
+                                          ],
+                             "File I/O":  [
+                                              "File Name",
+                                              "#Lines",
+                                              "Line 1",
+                                              "Line 2"
+                                          ],
+                             "XPlan Cursor":  [
+                                                  "Cursor Text",
+                                                  "Marker",
+                                                  "Outline Y/N"
+                                              ]
+                         },
+                 "out":  {
+                             "Heading":  [
+                                             "Line"
+                                         ],
+                             "Col Headers":  [
+                                                 "Line"
+                                             ],
+                             "List To Line":  [
+                                                  "Line"
+                                              ],
+                             "Join Values (list)":  [
+                                                        "Delimited String"
+                                                    ],
+                             "Join Values (scalars)":  [
+                                                           "Delimited String"
+                                                       ],
+                             "Split Values":  [
+                                                  "Value"
+                                              ],
+                             "View To List":  [
+                                                  "Delimited String"
+                                              ],
+                             "Cursor To List":  [
+                                                    "Delimited String"
+                                                ],
+                             "Interval To Seconds":  [
+                                                         "Seconds"
+                                                     ],
+                             "Sleep":  [
+                                           "Elapsed Seconds",
+                                           "CPU Seconds"
+                                       ],
+                             "Exception":  [
+                                               "Source",
+                                               "Message"
+                                           ],
+                             "W (Line)":  [
+                                              "Line"
+                                          ],
+                             "W (List)":  [
+                                              "Line"
+                                          ],
+                             "File I/O":  [
+                                              "#Lines",
+                                              "Line 1",
+                                              "Line 2"
+                                          ],
+                             "XPlan List (keyword extract)":  [
+                                                                  "XPlan Line"
+                                                              ]
+                         }
+             },
+    "scenarios":  {
+                      "scenario 1":  {
+                                         "active_yn":  "Y",
+                                         "inp":  {
+                                                     "Heading":  [
+                                                                     ";;"
+                                                                 ],
+                                                     "Col Headers":  [
+                                                                         ";"
+                                                                     ],
+                                                     "List To Line":  [
+                                                                          ";"
+                                                                      ],
+                                                     "Join Values (list)":  [
+                                                                                ""
+                                                                            ],
+                                                     "Join Values (scalars)":  [
+                                                                                   ";;;;;;;;;;;;;;;;"
+                                                                               ],
+                                                     "Split Values":  [
+                                                                          ""
+                                                                      ],
+                                                     "View To List":  [
+                                                                          ""
+                                                                      ],
+                                                     "Cursor To List":  [
+                                                                            ";"
+                                                                        ],
+                                                     "Interval To Seconds":  [
+                                                                                 ""
+                                                                             ],
+                                                     "Sleep":  [
+                                                                   ";"
+                                                               ],
+                                                     "Raise Error":  [
+                                                                         ""
+                                                                     ],
+                                                     "Scalars":  [
+                                                                     ";;;;"
+                                                                 ],
+                                                     "W (List)":  [
+                                                                      ""
+                                                                  ],
+                                                     "File I/O":  [
+                                                                      ";;;"
+                                                                  ],
+                                                     "XPlan Cursor":  [
+                                                                          ";;"
+                                                                      ]
+                                                 },
+                                         "out":  {
+                                                     "Heading":  [
+                                                                     ""
+                                                                 ],
+                                                     "Col Headers":  [
+                                                                         ""
+                                                                     ],
+                                                     "List To Line":  [
+                                                                          ""
+                                                                      ],
+                                                     "Join Values (list)":  [
+                                                                                ""
+                                                                            ],
+                                                     "Join Values (scalars)":  [
+                                                                                   ""
+                                                                               ],
+                                                     "Split Values":  [
+                                                                          ""
+                                                                      ],
+                                                     "View To List":  [
+                                                                          ""
+                                                                      ],
+                                                     "Cursor To List":  [
+                                                                            ""
+                                                                        ],
+                                                     "Interval To Seconds":  [
+                                                                                 ""
+                                                                             ],
+                                                     "Sleep":  [
+                                                                   ";"
+                                                               ],
+                                                     "Exception":  [
+                                                                       ";"
+                                                                   ],
+                                                     "W (Line)":  [
+                                                                      ""
+                                                                  ],
+                                                     "W (List)":  [
+                                                                      ""
+                                                                  ],
+                                                     "File I/O":  [
+                                                                      ";;"
+                                                                  ],
+                                                     "XPlan List (keyword extract)":  [
+                                                                                          ""
+                                                                                      ]
+                                                 }
+                                     }
+                  }
+}

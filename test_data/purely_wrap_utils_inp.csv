@@ -1,0 +1,47 @@
+group,field
+Heading,Text
+Heading,#Blanks Pre
+Heading,#Blanks Post
+Col Headers,Text
+Col Headers,Length
+List To Line,Text
+List To Line,Length
+Join Values (list),Value
+Join Values (scalars),Value 1
+Join Values (scalars),Value 2
+Join Values (scalars),Value 3
+Join Values (scalars),Value 4
+Join Values (scalars),Value 5
+Join Values (scalars),Value 6
+Join Values (scalars),Value 7
+Join Values (scalars),Value 8
+Join Values (scalars),Value 9
+Join Values (scalars),Value 10
+Join Values (scalars),Value 11
+Join Values (scalars),Value 12
+Join Values (scalars),Value 13
+Join Values (scalars),Value 14
+Join Values (scalars),Value 15
+Join Values (scalars),Value 16
+Join Values (scalars),Value 17
+Split Values,Delimited String
+View To List,Select Column Name
+Cursor To List,Cursor Text
+Cursor To List,Filter
+Interval To Seconds,Interval String
+Sleep,Elapsed Seconds
+Sleep,Fraction CPU
+Raise Error,Message
+Scalars,Delimiter
+Scalars,View Name
+Scalars,View Where
+Scalars,View Order By
+Scalars,W Line
+W (List),Line
+File I/O,File Name
+File I/O,#Lines
+File I/O,Line 1
+File I/O,Line 2
+XPlan Cursor,Cursor Text
+XPlan Cursor,Marker
+XPlan Cursor,Outline Y/N

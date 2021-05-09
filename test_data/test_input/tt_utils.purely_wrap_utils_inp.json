@@ -1,6 +1,6 @@
 {
    "meta":{
-      "title":"utils",
+      "title":"Oracle PL/SQL Utilities",
       "delimiter":";",
       "inp":{
          "Heading":[
@@ -62,6 +62,7 @@
             "Delimiter",
             "View Name",
             "View Where",
+            "View Order By",
             "W Line"
          ],
          "W (List)":[
@@ -169,7 +170,7 @@
                "Test message"
             ],
             "Scalars":[
-               ",;user_types;regexp_like(type_name, '(CHR|L\\d).+(ARR|REC)');text line"
+               ",;user_types;regexp_like(type_name, '(CHR|L\\d).+(ARR|REC)');type_name DESC;text line"
             ],
             "W (List)":[
                "1-line text list"
@@ -203,13 +204,13 @@
                "value1"
             ],
             "View To List":[
-               "CHR_INT_ARR",
-               "CHR_INT_REC",
-               "L1_CHR_ARR",
-               "L1_NUM_ARR",
-               "L2_CHR_ARR",
+               "L4_CHR_ARR",
                "L3_CHR_ARR",
-               "L4_CHR_ARR"
+               "L2_CHR_ARR",
+               "L1_NUM_ARR",
+               "L1_CHR_ARR",
+               "CHR_INT_REC",
+               "CHR_INT_ARR"
             ],
             "Cursor To List":[
                "CHR_INT_ARR",
@@ -288,7 +289,7 @@
                "Test message1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890"
             ],
             "Scalars":[
-               ",;user_objects;regexp_like(object_name, '(CHR|L\\d).+(ARR|REC)|TT_UNITS');text line1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890"
+               ",;user_objects;regexp_like(object_name, '(CHR|L\\d).+(ARR|REC)|TT_UNITS');;text line1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890"
             ],
             "W (List)":[
                "1-line text list",
@@ -298,7 +299,7 @@
                "test_file.tmp;1;1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890;"
             ],
             "XPlan Cursor":[
-               "WITH row_gen AS (SELECT LEVEL rn FROM DUAL CONNECT BY LEVEL < 4) SELECT /*+ gather_plan_statistics XPLAN_MK_RGN */ rgn.rn, ttu.package_nm, ttu.procedure_nm, ttu.group_nm FROM tt_units ttu CROSS JOIN row_gen rgn;XPLAN_MK_RGN;"
+               "WITH row_gen AS (SELECT LEVEL rn FROM DUAL CONNECT BY LEVEL < 4) SELECT /*+ gather_plan_statistics XPLAN_MK_RGN */ rgn.rn, ttu.unit_test_package_nm, ttu.purely_wrap_api_function_nm, ttu.group_nm FROM tt_units ttu CROSS JOIN row_gen rgn;XPLAN_MK_RGN;"
             ]
          },
          "out":{
@@ -574,7 +575,7 @@
             "Raise Error":[
             ],
             "Scalars":[
-               ";user_objects;regexp_like(object_name, '(CHR|L\\d).+(ARR|REC)|TT_UNITS');"
+               ";user_objects;regexp_like(object_name, '(CHR|L\\d).+(ARR|REC)|TT_UNITS');;"
             ],
             "W (List)":[
                "Line text 1",
@@ -824,7 +825,7 @@
             "Raise Error":[
             ],
             "Scalars":[
-               ",;BAD_user_types;regexp_like(type_name, '(CHR|L\\d).+(ARR|REC)|TT_UNITS');"
+               ",;BAD_user_types;regexp_like(type_name, '(CHR|L\\d).+(ARR|REC)|TT_UNITS');;"
             ],
             "W (List)":[
             ],

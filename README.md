@@ -14,7 +14,9 @@ This module is a prerequisite for these other Oracle GitHub modules:
 - [Log_Set - Oracle logging module](https://github.com/BrenPatF/log_set_oracle)
 - [Timer_Set - Oracle PL/SQL code timing module](https://github.com/BrenPatF/timer_set_oracle)
 
-The package is tested using the Math Function Unit Testing design pattern, with test results in HTML and text format included. See test_output\utils.html for the unit test results root page.
+The package is tested using the Math Function Unit Testing design pattern, with test results in HTML and text format included (see `test_data\test_output` for the unit test results folder).
+
+The module also comes with usage examples.
 
 ## In this README...
 - [Usage (extract from main_col_group.sql)](https://github.com/BrenPatF/oracle_plsql_utils#usage-extract-from-main_col_groupsql)
@@ -25,6 +27,7 @@ The package is tested using the Math Function Unit Testing design pattern, with 
 
 ## Usage (extract from main_col_group.sql)
 - [In this README...](https://github.com/BrenPatF/oracle_plsql_utils#in-this-readme)
+
 ```sql
 DECLARE
   l_res_arr              chr_int_arr;
@@ -49,7 +52,9 @@ BEGIN
 
 END;
 ```
+
 The main_col_group.sql script gives examples of usage for all the functions and procedures in the Utils package. In the extract above, an example package, Col_Group, is called to read and process a CSV file, with calls to Utils procedures and functions to 'pretty-print' a listing at the end:
+
 ```
 As Is
 =====
@@ -58,6 +63,7 @@ Team                             Apps
 team_name_2                         1
 Blackburn                          33
 ...
+
 ```
 To run the example script in a slqplus session from app subfolder (after installation):
 
@@ -82,10 +88,10 @@ There is also a separate [module](https://github.com/BrenPatF/oracle_plsql_api_d
 - [Raise_Error(p_message)](https://github.com/BrenPatF/oracle_plsql_utils#utilsraise_errorp_message)
 - [W(p_line)](https://github.com/BrenPatF/oracle_plsql_utils#utilswp_line)
 - [W(p_line_lis)](https://github.com/BrenPatF/oracle_plsql_utils#utilswp_line_lis)
-- [Utils.Delete_File(p_file_name)](https://github.com/BrenPatF/oracle_plsql_utils#utilsdelete_filep_file_name)
-- [Utils.Write_File(p_file_name, p_line_lis)](https://github.com/BrenPatF/oracle_plsql_utils#utilswrite_filep_file_name-p_line_lis)
-- [Utils.Read_File(p_file_name)](https://github.com/BrenPatF/oracle_plsql_utils#l_lines_lis-l1_chr_arr--utilsread_filep_file_name)
-- [Utils.Get_XPlan(p_sql_marker, optional parameters)](https://github.com/BrenPatF/oracle_plsql_utils#l_lines_lis-l1_chr_arr--utilsget_xplanp_sql_marker-optional-parameters)
+- [Delete_File(p_file_name)](https://github.com/BrenPatF/oracle_plsql_utils#utilsdelete_filep_file_name)
+- [Write_File(p_file_name, p_line_lis)](https://github.com/BrenPatF/oracle_plsql_utils#utilswrite_filep_file_name-p_line_lis)
+- [Read_File(p_file_name)](https://github.com/BrenPatF/oracle_plsql_utils#l_lines_lis-l1_chr_arr--utilsread_filep_file_name)
+- [Get_XPlan(p_sql_marker, optional parameters)](https://github.com/BrenPatF/oracle_plsql_utils#l_lines_lis-l1_chr_arr--utilsget_xplanp_sql_marker-optional-parameters)
 
 This package runs with Invoker rights, not the default Definer rights, so that the dynamic SQL methods execute SQL using the rights of the calling schema, not the lib schema (if different).
 
@@ -287,11 +293,13 @@ The module can be installed from its own Github page: [Trapit on GitHub](https:/
 ```
 SQL> @install_lib_all
 ```
+
 #### [Schema: app; Folder: install_ut_prereq\app] Create app synonyms
 - Run script from slqplus:
 ```
 SQL> @c_syns_all
 ```
+
 #### [Folder: (npm root)] Install npm trapit package
 The npm trapit package is a nodejs package used to format unit test results as HTML pages.
 
@@ -308,7 +316,7 @@ This step requires the Trapit module option to have been installed via Install 4
 
 #### [Folder: (module root)] Copy unit test JSON file to input folder
 - Copy the following file from the root folder to the server folder pointed to by the Oracle directory INPUT_DIR:
-    - tt_utils.test_api_inp.json
+    - tt_utils.purely_wrap_utils_inp.json
 
 - The bash script mentioned in Install 3 above also copies this file, assuming C:\input as INPUT_DIR (so if executed already, no need to repeat):
 ```
@@ -323,42 +331,61 @@ SQL> @install_utils_tt
 
 ## Unit Testing
 - [In this README...](https://github.com/BrenPatF/oracle_plsql_utils#in-this-readme)
-- [Wrapper Function Diagram](https://github.com/BrenPatF/oracle_plsql_utils#wrapper-function-diagram)
-- [Unit Test Summary Page](https://github.com/BrenPatF/oracle_plsql_utils#unit-test-summary-page)
+- [Unit Testing Process](https://github.com/BrenPatF/oracle_plsql_utils#unit-testing-process)
+- [Wrapper Function Signature Diagram](https://github.com/BrenPatF/oracle_plsql_utils#wrapper-function-signature-diagram)
+- [Scenarios](https://github.com/BrenPatF/oracle_plsql_utils#scenarios)
 
-The unit test program (if installed) may be run from the Oracle lib subfolder:
+### Unit Testing Process
+- [Unit Testing](https://github.com/BrenPatF/oracle_plsql_utils#unit-testing)
+
+The package is tested using the Math Function Unit Testing design pattern, described here: [The Math Function Unit Testing design pattern, implemented in nodejs](https://github.com/BrenPatF/trapit_nodejs_tester#trapit). In this approach, a 'pure' wrapper function is constructed that takes input parameters and returns a value, and is tested within a loop over scenario records read from a JSON file.
+
+In this case, where we have a set of small independent methods, the wrapper function is designed to test all of them in a single generalised transaction.
+
+The program is data-driven from the input file tt_utils.purely_wrap_utils_inp.json and produces an output file, tt_utils.purely_wrap_utils_out.json (in the Oracle directory `INPUT_DIR`), that contains arrays of expected and actual records by group and scenario.
+
+The unit test program may be run from the Oracle lib subfolder:
 
 ```
 SQL> @r_tests
 ```
 
-The program is data-driven from the input file tt_utils.test_api_inp.json and produces an output file, tt_utils.test_api_out.json, that contains arrays of expected and actual records by group and scenario.
-
-The output file is processed by a nodejs program that has to be installed separately from the `npm` nodejs repository, as described in the Trapit install in `Install 4` above. The nodejs program produces listings of the results in HTML and/or text format, and a sample set of listings is included in the subfolder test_output. To run the processor (in Windows), open a DOS or Powershell window in the trapit package folder after placing the output JSON file, tt_utils.test_api_out.json, in the subfolder ./examples/externals and run:
+The output file is processed by a nodejs program that has to be installed separately from the `npm` nodejs repository, as described in the Trapit install in `Install 4` above. The nodejs program produces listings of the results in HTML and/or text format, and a sample set of listings is included in the subfolder test_output. To run the processor, open a powershell window in the npm trapit package folder after placing the output JSON file, tt_utils.purely_wrap_utils_out.json, in the subfolder ./examples/externals and run:
 
 ```
 $ node ./examples/externals/test-externals
 ```
 
-The three testing steps can easily be automated in Powershell (or Unix bash).
+This creates, or updates, a subfolder, oracle-pl_sql-utilities, with the formatted results output files. The three testing steps can easily be automated in Powershell (or Unix bash).
 
-The package is tested using the Math Function Unit Testing design pattern (`See also - Trapit` below). In this approach, a 'pure' wrapper function is constructed that takes input parameters and returns a value, and is tested within a loop over scenario records read from a JSON file.
+[An easy way to generate a starting point for the input JSON file is to use a powershell utility [Powershell Utilites module](https://github.com/BrenPatF/powershell_utils) to generate a template file with a single scenario with placeholder records from simple .csv files. See the script purely_wrap_utils.ps1 in the `test_data` subfolder for an example]
 
-In this case, where we have a set of small independent methods, most of which are pure functions, the wrapper function is designed to test all of them in a single generalised transaction. Four high level scenarios were identified (`Small`, `Large`, `Many`, `Bad SQL`).
-
-### Wrapper Function Diagram
+### Wrapper Function Signature Diagram
 - [Unit Testing](https://github.com/BrenPatF/oracle_plsql_utils#unit-testing)
 
-This diagram shows the input/output structure of the pure unit test wrapper function:
-<img src="oracle_plsql_utils.png">
+<img src="test_data\oracle_plsql_utils.png">
 
-### Unit Test Summary Page
+### Scenarios
 - [Unit Testing](https://github.com/BrenPatF/oracle_plsql_utils#unit-testing)
 
-This is an image of the unit test summary page, and it shows the scenarios tested.
-<img src="utils_oracle_ut_root.png">
+The art of unit testing lies in choosing a set of scenarios that will produce a high degree of confidence in the functioning of the unit under test across the often very large range of possible inputs.
 
-You can review the formatted unit test results obtained by the author here, [Unit Test Report: utils](http://htmlpreview.github.io/?https://github.com/BrenPatF/sandbox/blob/master/test_output/utils.html), and the files are available in the `test_output` subfolder [utils.html is the root page for the HTML version and utils.txt has the results in text format].
+A useful approach to this can be to think in terms of categories of inputs, where we reduce large ranges to representative categories. In our case we might consider the following category sets, and create scenarios accordingly:
+
+- Value Size: Small / Large : Apply to individual functions as applicable
+- Multiplicity: Few / Many : Apply to individual functions as applicable
+- Exceptions: Exception / No exception
+
+The summary report in text format shows the scenarios tested:
+
+      #    Scenario  Fails (of 15)  Status 
+      ---  --------  -------------  -------
+      1    Small     0              SUCCESS
+      2    Large     0              SUCCESS
+      3    Many      0              SUCCESS
+      4    Bad SQL   0              SUCCESS
+
+You can review the formatted unit test results obtained by the author here, [Unit Test Report: utils](http://htmlpreview.github.io/?https://github.com/BrenPatF/oracle_plsql_utils/blob/master/test_output/oracle-pl_sql-utilities.html), and the files are available in the `test_data\test_output` subfolder [oracle-pl_sql-utilities.html is the root page for the HTML version and oracle-pl_sql-utilities.txt has the results in text format].
 
 ## Operating System/Oracle Versions
 - [In this README...](https://github.com/BrenPatF/oracle_plsql_utils#in-this-readme)
