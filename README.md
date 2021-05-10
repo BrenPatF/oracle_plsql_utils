@@ -385,7 +385,7 @@ The summary report in text format shows the scenarios tested:
       3    Many      0              SUCCESS
       4    Bad SQL   0              SUCCESS
 
-You can review the formatted unit test results obtained by the author here, [Unit Test Report: utils](http://htmlpreview.github.io/?https://github.com/BrenPatF/oracle_plsql_utils/blob/master/test_output/oracle-pl_sql-utilities.html), and the files are available in the `test_data\test_output` subfolder [oracle-pl_sql-utilities.html is the root page for the HTML version and oracle-pl_sql-utilities.txt has the results in text format].
+You can review the formatted unit test results here, [Unit Test Report: Oracle PL/SQL Utilities](http://htmlpreview.github.io/?https://github.com/BrenPatF/oracle_plsql_utils/blob/master/test_data/test_output/oracle-pl_sql-utilities/oracle-pl_sql-utilities.html), and the files are available in the `test_data\test_output\oracle-pl_sql-utilities` subfolder [oracle-pl_sql-utilities.html is the root page for the HTML version and oracle-pl_sql-utilities.txt has the results in text format].
 
 ## Operating System/Oracle Versions
 - [In this README...](https://github.com/BrenPatF/oracle_plsql_utils#in-this-readme)
