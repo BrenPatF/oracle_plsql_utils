@@ -26,7 +26,7 @@ The module also comes with usage examples.
 - [Operating System/Oracle Versions](https://github.com/BrenPatF/oracle_plsql_utils#operating-systemoracle-versions)
 
 ## Usage (extract from main_col_group.sql)
-- [In this README...](https://github.com/BrenPatF/oracle_plsql_utils#in-this-readme)
+- [&uarr; In this README...](https://github.com/BrenPatF/oracle_plsql_utils#in-this-readme)
 
 ```sql
 DECLARE
@@ -74,7 +74,7 @@ SQL> @main_col_group
 There is also a separate [module](https://github.com/BrenPatF/oracle_plsql_api_demos) demonstrating instrumentation and logging, code timing and unit testing of Oracle PL/SQL APIs, which also uses this module.
 
 ## API - Utils
-- [In this README...](https://github.com/BrenPatF/oracle_plsql_utils#in-this-readme)
+- [&uarr; In this README...](https://github.com/BrenPatF/oracle_plsql_utils#in-this-readme)
 - [Heading(p_head)](https://github.com/BrenPatF/oracle_plsql_utils#l_heading_lis-l1_chr_arr--utilsheadingp_head)
 - [Utils.Col_Headers(p_value_lis)](https://github.com/BrenPatF/oracle_plsql_utils#l_headers_lis-l1_chr_arr--utilscol_headersp_value_lis)
 - [List_To_Line(p_value_lis)](https://github.com/BrenPatF/oracle_plsql_utils#l_line-varchar24000--utilslist_to_linep_value_lis)
@@ -108,7 +108,7 @@ Returns a 2-element string array consisting of a string containing the column he
   * `int_value`: field size for the column header, right-justify if < 0, else left-justify
 
 ### l_line VARCHAR2(4000) := Utils.List_To_Line(p_value_lis)
-- [API - Utils](https://github.com/BrenPatF/oracle_plsql_utils#api---utils)
+- [&uarr; API - Utils](https://github.com/BrenPatF/oracle_plsql_utils#api---utils)
 
 Returns a string containing the values passed in as a list of tuples, justified as specified in the second element of the tuple, with parameters as follows:
 * `p_value_lis`: chr_int_arr type, array of objects of type chr_int_rec:
@@ -123,7 +123,7 @@ Optional parameters:
 * `p_delim`: delimiter string, defaults to '|'
 
 ### l_line VARCHAR2(4000) := Utils.Join_Values(p_value1, `optional parameters`)
-- [API - Utils](https://github.com/BrenPatF/oracle_plsql_utils#api---utils)
+- [&uarr; API - Utils](https://github.com/BrenPatF/oracle_plsql_utils#api---utils)
 
 Returns a string containing the values passed in as distinct parameters, delimited by the optional p_delim parameter that defaults to '|', with parameters as follows:
 * `p_value1`: mandatory first value
@@ -151,7 +151,7 @@ Optional parameters:
 * `p_delim`: delimiter string, defaults to '|'
 
 ### l_row_lis L1_chr_arr := Utils.Cursor_To_List(x_csr, `optional parameters`)
-- [API - Utils](https://github.com/BrenPatF/oracle_plsql_utils#api---utils)
+- [&uarr; API - Utils](https://github.com/BrenPatF/oracle_plsql_utils#api---utils)
 
 Returns a list of rows returned from the ref cursor passed, delimiting values with specified delimiter, with filter clause applied via RegExp_Like to the delimited rows, with parameters as follows:
 
@@ -167,7 +167,7 @@ Returns the number of seconds in a day-to-second interval, with parameters as fo
 * `p_interval`: INTERVAL DAY TO SECOND
 
 ### Utils.Sleep(p_ela_seconds, `optional parameters`)
-- [API - Utils](https://github.com/BrenPatF/oracle_plsql_utils#api---utils)
+- [&uarr; API - Utils](https://github.com/BrenPatF/oracle_plsql_utils#api---utils)
 
 Sleeps for a given number of seconds elapsed time, including a given proportion of CPU time, with both numbers approximate, with parameters as follows:
 
@@ -187,7 +187,7 @@ Writes a line of text using DBMS_Output.Put_line, with parameters as follows:
 * `p_line`: line of text to write
 
 ### Utils.W(p_line_lis)
-- [API - Utils](https://github.com/BrenPatF/oracle_plsql_utils#api---utils)
+- [&uarr; API - Utils](https://github.com/BrenPatF/oracle_plsql_utils#api---utils)
 
 Writes a list of lines of text using DBMS_Output.Put_line, with parameters as follows:
 
@@ -214,7 +214,7 @@ Returns contents of a file on database server, in `input_dir`, into a list of li
 The file is opened and closed within the function.
 
 ### l_lines_lis L1_chr_arr := Utils.Get_XPlan(p_sql_marker, `optional parameters`)
-- [API - Utils](https://github.com/BrenPatF/oracle_plsql_utils#api---utils)
+- [&uarr; API - Utils](https://github.com/BrenPatF/oracle_plsql_utils#api---utils)
 
 Returns execution plan for a recently excuted query, identified by a marker string, into a list of lines, with parameters as follows:
 
@@ -226,7 +226,7 @@ Optional parameters:
 The executed query should contain a hint of the form /*+  gather_plan_statistics  `p_sql_marker` */. Check the  main_col_group.sql script for an example of usage.
 
 ## Installation
-- [In this README...](https://github.com/BrenPatF/oracle_plsql_utils#in-this-readme)
+- [&uarr; In this README...](https://github.com/BrenPatF/oracle_plsql_utils#in-this-readme)
 - [Install 1: Create lib and app schemas and Oracle directory (optional)](https://github.com/BrenPatF/oracle_plsql_utils#install-1-create-lib-and-app-schemas-and-oracle-directory-optional)
 - [Install 2: Create Utils components](https://github.com/BrenPatF/oracle_plsql_utils#install-2-create-utils-components)
 - [Install 3: Create components for example code](https://github.com/BrenPatF/oracle_plsql_utils#install-3-create-components-for-example-code)
@@ -236,7 +236,7 @@ The executed query should contain a hint of the form /*+  gather_plan_statistics
 You can install just the base module in an existing schema, or alternatively, install base module plus an example of usage, and unit testing code, in two new schemas, `lib` and `app`.
 
 ### Install 1: Create lib and app schemas and Oracle directory (optional)
-- [Installation](https://github.com/BrenPatF/oracle_plsql_utils#installation)
+- [&uarr; Installation](https://github.com/BrenPatF/oracle_plsql_utils#installation)
 #### [Schema: sys; Folder: (module root)]
 - install_sys.sql creates an Oracle directory, `input_dir`, pointing to 'c:\input'. Update this if necessary to a folder on the database server with read/write access for the Oracle OS user
 - Run script from slqplus:
@@ -247,7 +247,7 @@ SQL> @install_sys
 If you do not create new users, subsequent installs will be from whichever schemas are used instead of lib and app.
 
 ### Install 2: Create Utils components
-- [Installation](https://github.com/BrenPatF/oracle_plsql_utils#installation)
+- [&uarr; Installation](https://github.com/BrenPatF/oracle_plsql_utils#installation)
 #### [Schema: lib; Folder: lib]
 - Run script from slqplus:
 ```
@@ -260,7 +260,7 @@ SQL> @grant_utils_to_app schema
 ```
 
 ### Install 3: Create components for example code
-- [Installation](https://github.com/BrenPatF/oracle_plsql_utils#installation)
+- [&uarr; Installation](https://github.com/BrenPatF/oracle_plsql_utils#installation)
 #### [Folder: (module root)] Copy example csv to input folder
 - Copy the following file from the root folder to the server folder pointed to by the Oracle directory INPUT_DIR:
     - fantasy_premier_league_player_stats.csv
@@ -284,7 +284,7 @@ SQL> @c_utils_syns lib
 The remaining, optional, installs are for the unit testing code, and require a minimum Oracle database version of 12.2.
 
 ### Install 4: Install Trapit module
-- [Installation](https://github.com/BrenPatF/oracle_plsql_utils#installation)
+- [&uarr; Installation](https://github.com/BrenPatF/oracle_plsql_utils#installation)
 
 The module can be installed from its own Github page: [Trapit on GitHub](https://github.com/BrenPatF/trapit_oracle_tester). Alternatively, it can be installed directly here as follows:
 
@@ -310,7 +310,7 @@ $ npm install trapit
 This should install the trapit nodejs package in a subfolder .\node_modules\trapit
 
 ### Install 5: Install unit test code
-- [Installation](https://github.com/BrenPatF/oracle_plsql_utils#installation)
+- [&uarr; Installation](https://github.com/BrenPatF/oracle_plsql_utils#installation)
 
 This step requires the Trapit module option to have been installed via Install 4 above.
 
@@ -330,13 +330,13 @@ SQL> @install_utils_tt
 ```
 
 ## Unit Testing
-- [In this README...](https://github.com/BrenPatF/oracle_plsql_utils#in-this-readme)
+- [&uarr; In this README...](https://github.com/BrenPatF/oracle_plsql_utils#in-this-readme)
 - [Unit Testing Process](https://github.com/BrenPatF/oracle_plsql_utils#unit-testing-process)
 - [Wrapper Function Signature Diagram](https://github.com/BrenPatF/oracle_plsql_utils#wrapper-function-signature-diagram)
-- [Scenarios](https://github.com/BrenPatF/oracle_plsql_utils#scenarios)
+- [Unit Test Scenarios](https://github.com/BrenPatF/oracle_plsql_utils#unit-test-scenarios)
 
 ### Unit Testing Process
-- [Unit Testing](https://github.com/BrenPatF/oracle_plsql_utils#unit-testing)
+- [&uarr; Unit Testing](https://github.com/BrenPatF/oracle_plsql_utils#unit-testing)
 
 The package is tested using the Math Function Unit Testing design pattern, described here: [The Math Function Unit Testing design pattern, implemented in nodejs](https://github.com/BrenPatF/trapit_nodejs_tester#trapit). In this approach, a 'pure' wrapper function is constructed that takes input parameters and returns a value, and is tested within a loop over scenario records read from a JSON file.
 
@@ -361,20 +361,45 @@ This creates, or updates, a subfolder, oracle-pl_sql-utilities, with the formatt
 [An easy way to generate a starting point for the input JSON file is to use a powershell utility [Powershell Utilites module](https://github.com/BrenPatF/powershell_utils) to generate a template file with a single scenario with placeholder records from simple .csv files. See the script purely_wrap_utils.ps1 in the `test_data` subfolder for an example]
 
 ### Wrapper Function Signature Diagram
-- [Unit Testing](https://github.com/BrenPatF/oracle_plsql_utils#unit-testing)
+- [&uarr; Unit Testing](https://github.com/BrenPatF/oracle_plsql_utils#unit-testing)
 
 <img src="test_data\oracle_plsql_utils.png">
 
-### Scenarios
-- [Unit Testing](https://github.com/BrenPatF/oracle_plsql_utils#unit-testing)
+###  Unit Test Scenarios
+- [&uarr; Unit Testing](https://github.com/BrenPatF/oracle_plsql_utils#unit-testing)
 
 The art of unit testing lies in choosing a set of scenarios that will produce a high degree of confidence in the functioning of the unit under test across the often very large range of possible inputs.
 
-A useful approach to this can be to think in terms of categories of inputs, where we reduce large ranges to representative categories. In our case we might consider the following category sets, and create scenarios accordingly:
+A useful approach to this can be to think in terms of categories of inputs, where we reduce large ranges to representative categories. In our case we might consider the following category sets (applied to individual functions as applicable), and create scenarios accordingly:
 
-- Value Size: Small / Large : Apply to individual functions as applicable
-- Multiplicity: Few / Many : Apply to individual functions as applicable
-- Exceptions: Exception / No exception
+#### Input Data Category Sets
+- [&uarr; Unit Test Scenarios](https://github.com/BrenPatF/oracle_plsql_utils#unit-test-scenarios)
+- [Value Size](https://github.com/BrenPatF/oracle_plsql_utils#value-size)
+- [Multiplicity](https://github.com/BrenPatF/oracle_plsql_utils#multiplicity)
+- [Exceptions](https://github.com/BrenPatF/oracle_plsql_utils#exceptions)
+
+##### Value Size
+Check that utiilities work with both small and large parameter values
+- Small
+- Large
+
+##### Multiplicity
+Check that utiilities work with both few and many parameters passed
+- Few
+- Many
+
+##### Exceptions
+Check that validations return exceptions correctly
+- Exception
+- No exception
+
+#### Scenario Results
+- [&uarr; Unit Test Scenarios](https://github.com/BrenPatF/oracle_plsql_utils#unit-test-scenarios)
+- [Results Summary](https://github.com/BrenPatF/oracle_plsql_utils#results-summary)
+- [Results for Scenario 1: Small](https://github.com/BrenPatF/oracle_plsql_utils#results-for-scenario-1-small)
+
+##### Results Summary
+- [&uarr; Scenario Results](https://github.com/BrenPatF/oracle_plsql_utils#scenario-results)
 
 The summary report in text format shows the scenarios tested:
 
@@ -385,10 +410,343 @@ The summary report in text format shows the scenarios tested:
       3    Many      0              SUCCESS
       4    Bad SQL   0              SUCCESS
 
+##### Results for Scenario 1: Small
+- [&uarr; Scenario Results](https://github.com/BrenPatF/oracle_plsql_utils#scenario-results)
+
+<pre>
+SCENARIO 1: Small {
+===================
+
+   INPUTS
+   ======
+
+      GROUP 1: Heading {
+      ==================
+
+            #  Text     #Blanks Pre  #Blanks Post
+            -  -------  -----------  ------------
+            1  heading  0            0           
+
+      }
+      =
+
+      GROUP 2: Col Headers {
+      ======================
+
+            #  Text  Length
+            -  ----  ------
+            1  col1  6     
+
+      }
+      =
+
+      GROUP 3: List To Line {
+      =======================
+
+            #  Text    Length
+            -  ------  ------
+            1  value1  8     
+
+      }
+      =
+
+      GROUP 4: Join Values (list) {
+      =============================
+
+            #  Value
+            -  -----
+            1  value
+
+      }
+      =
+
+      GROUP 5: Join Values (scalars) {
+      ================================
+
+            #  Value 1  Value 2  Value 3  Value 4  Value 5  Value 6  Value 7  Value 8  Value 9  Value 10  Value 11  Value 12  Value 13  Value 14  Value 15  Value 16  Value 17
+            -  -------  -------  -------  -------  -------  -------  -------  -------  -------  --------  --------  --------  --------  --------  --------  --------  --------
+            1  value1                                                                                                                                                         
+
+      }
+      =
+
+      GROUP 6: Split Values {
+      =======================
+
+            #  Delimited String
+            -  ----------------
+            1  value1          
+
+      }
+      =
+
+      GROUP 7: View To List {
+      =======================
+
+            #  Select Column Name
+            -  ------------------
+            1  type_name         
+
+      }
+      =
+
+      GROUP 8: Cursor To List {
+      =========================
+
+            #  Cursor Text                                  Filter              
+            -  -------------------------------------------  --------------------
+            1  select type_name from user_types order by 1  (CHR|L\d).+(ARR|REC)
+
+      }
+      =
+
+      GROUP 9: Interval To Seconds {
+      ==============================
+
+            #  Interval String
+            -  ---------------
+            1  0 00:00:00     
+
+      }
+      =
+
+      GROUP 10: Sleep {
+      =================
+
+            #  Elapsed Seconds  Fraction CPU
+            -  ---------------  ------------
+            1  1                0.5         
+
+      }
+      =
+
+      GROUP 11: Raise Error {
+      =======================
+
+            #  Message     
+            -  ------------
+            1  Test message
+
+      }
+      =
+
+      GROUP 12: Scalars {
+      ===================
+
+            #  Delimiter  View Name   View Where                                      View Order By   W Line   
+            -  ---------  ----------  ----------------------------------------------  --------------  ---------
+            1  ,          user_types  regexp_like(type_name, '(CHR|L\d).+(ARR|REC)')  type_name DESC  text line
+
+      }
+      =
+
+      GROUP 13: W (List) {
+      ====================
+
+            #  Line            
+            -  ----------------
+            1  1-line text list
+
+      }
+      =
+
+      GROUP 14: File I/O {
+      ====================
+
+            #  File Name      #Lines  Line 1  Line 2
+            -  -------------  ------  ------  ------
+            1  test_file.tmp  0                     
+
+      }
+      =
+
+      GROUP 15: XPlan Cursor {
+      ========================
+
+            #  Cursor Text                                                    Marker        Outline Y/N
+            -  -------------------------------------------------------------  ------------  -----------
+            1  SELECT /*+ gather_plan_statistics XPLAN_MARKER */ 1 FROM DUAL  XPLAN_MARKER             
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Heading {
+      ==================
+
+            #  Line   
+            -  -------
+            1  heading
+            2  =======
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 2: Col Headers {
+      ======================
+
+            #  Line  
+            -  ------
+            1  col1  
+            2  ------
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 3: List To Line {
+      =======================
+
+            #  Line    
+            -  --------
+            1  value1  
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 4: Join Values (list) {
+      =============================
+
+            #  Delimited String
+            -  ----------------
+            1  value           
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 5: Join Values (scalars) {
+      ================================
+
+            #  Delimited String
+            -  ----------------
+            1  value1          
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 6: Split Values {
+      =======================
+
+            #  Value 
+            -  ------
+            1  value1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 7: View To List {
+      =======================
+
+            #  Delimited String
+            -  ----------------
+            1  L4_CHR_ARR      
+            2  L3_CHR_ARR      
+            3  L2_CHR_ARR      
+            4  L1_NUM_ARR      
+            5  L1_CHR_ARR      
+            6  CHR_INT_REC     
+            7  CHR_INT_ARR     
+
+      } 0 failed of 7: SUCCESS
+      ========================
+
+      GROUP 8: Cursor To List {
+      =========================
+
+            #  Delimited String
+            -  ----------------
+            1  CHR_INT_ARR     
+            2  CHR_INT_REC     
+            3  L1_CHR_ARR      
+            4  L1_NUM_ARR      
+            5  L2_CHR_ARR      
+            6  L3_CHR_ARR      
+            7  L4_CHR_ARR      
+
+      } 0 failed of 7: SUCCESS
+      ========================
+
+      GROUP 9: Interval To Seconds {
+      ==============================
+
+            #  Seconds
+            -  -------
+            1  0      
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 10: Sleep {
+      =================
+
+            #  Elapsed Seconds     CPU Seconds     
+            -  ------------------  ----------------
+            1  IN [0.9,1.1]: .999  IN [0.4,0.6]: .5
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 11: Exception {
+      =====================
+
+            #  Source       Message                
+            -  -----------  -----------------------
+            1  Raise_Error  ORA-20000: Test message
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 12: W (Line) {
+      ====================
+
+            #  Line     
+            -  ---------
+            1  text line
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 13: W (List) {
+      ====================
+
+            #  Line            
+            -  ----------------
+            1  1-line text list
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 14: File I/O {
+      ====================
+
+            #  #Lines  Line 1  Line 2
+            -  ------  ------  ------
+            1  0                     
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 15: XPlan List (keyword extract) {
+      ========================================
+
+            #  XPlan Line                                                            
+            -  ----------------------------------------------------------------------
+            1  LIKE /SQL_ID.+, child number.+/: SQL_ID  62unzfghvzfw4, child number 0
+            2  SELECT /*+ gather_plan_statistics XPLAN_MARKER */ 1 FROM DUAL         
+            3  LIKE /Plan hash value: .+/: Plan hash value: 1388734953               
+
+      } 0 failed of 3: SUCCESS
+      ========================
+
+} 0 failed of 15: SUCCESS
+=========================
+</pre>
+
 You can review the formatted unit test results here, [Unit Test Report: Oracle PL/SQL Utilities](http://htmlpreview.github.io/?https://github.com/BrenPatF/oracle_plsql_utils/blob/master/test_data/test_output/oracle-pl_sql-utilities/oracle-pl_sql-utilities.html), and the files are available in the `test_data\test_output\oracle-pl_sql-utilities` subfolder [oracle-pl_sql-utilities.html is the root page for the HTML version and oracle-pl_sql-utilities.txt has the results in text format].
 
 ## Operating System/Oracle Versions
-- [In this README...](https://github.com/BrenPatF/oracle_plsql_utils#in-this-readme)
+- [&uarr; In this README...](https://github.com/BrenPatF/oracle_plsql_utils#in-this-readme)
 ### Windows
 Tested on Windows 10, should be OS-independent
 ### Oracle
