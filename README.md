@@ -367,6 +367,8 @@ This creates, or updates, a subfolder, oracle-pl_sql-utilities, with the formatt
 
 ###  Unit Test Scenarios
 - [&uarr; Unit Testing](https://github.com/BrenPatF/oracle_plsql_utils#unit-testing)
+- [Input Data Category Sets](https://github.com/BrenPatF/oracle_plsql_utils#input-data-category-sets)
+- [Scenario Results](https://github.com/BrenPatF/oracle_plsql_utils#scenario-results)
 
 The art of unit testing lies in choosing a set of scenarios that will produce a high degree of confidence in the functioning of the unit under test across the often very large range of possible inputs.
 
