@@ -1,7 +1,7 @@
 
 Database             Time                 Version
 -------------------- -------------------- ------------------------------
-Start: ORCL          09-MAY-2021 17:50:05 Version 19.3.0.0.0
+Start: ORCL          26-JUN-2021 15:54:28 Version 19.3.0.0.0
 
 Create Utils synonyms
 =====================
@@ -34,8 +34,11 @@ Synonym created.
 External table creation
 =======================
 Create lines_et
+CREATE TABLE lines_et (
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
 
-Table created.
 
 Packages creation
 =================
@@ -51,5 +54,5 @@ No errors.
 
 'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
 ----------------------------------
-End: 09-MAY-2021 17:50:05
+End: 26-JUN-2021 15:54:28
 
