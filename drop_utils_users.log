@@ -1,7 +1,7 @@
 
 Database             Time                 Version
 -------------------- -------------------- ------------------------------
-Start: ORCL          09-MAY-2021 17:48:56 Version 19.3.0.0.0
+Start: ORCL          27-JUN-2021 12:14:44 Version 19.3.0.0.0
 
 Drop lib and app
 old   1: DROP USER &LIB_USER CASCADE
@@ -21,5 +21,5 @@ Directory dropped.
 
 'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
 ----------------------------------
-End: 09-MAY-2021 17:48:59
+End: 27-JUN-2021 12:14:48
 

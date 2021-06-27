@@ -405,7 +405,7 @@ Check that validations return exceptions correctly
 
 The summary report in text format shows the scenarios tested:
 
-      #    Scenario  Fails (of 15)  Status 
+      #    Scenario  Fails (of 16)  Status 
       ---  --------  -------------  -------
       1    Small     0              SUCCESS
       2    Large     0              SUCCESS
@@ -741,7 +741,10 @@ SCENARIO 1: Small {
       } 0 failed of 3: SUCCESS
       ========================
 
-} 0 failed of 15: SUCCESS
+      GROUP 16: Unhandled Exception: Empty as expected: SUCCESS
+      =========================================================
+
+} 0 failed of 16: SUCCESS
 =========================
 </pre>
 
