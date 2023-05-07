@@ -1,4 +1,1 @@
-# Auto detect text files and perform LF normalization
-* text=auto
-test_output/* linguist-vendored
-./* linguist-vendored
+*.html linguist-vendored

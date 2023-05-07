@@ -1,0 +1,7 @@
+Category Set,Scenario,Active
+Defaulting,Defaulted,Y
+Defaulting,Not Defaulted,Y
+Size,Small,Y
+Size,Large,Y
+Multiplicity,Few,Y
+Multiplicity,Many,Y

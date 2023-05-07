@@ -1,0 +1,5 @@
+Group,Field,Value
+Log,Line,
+Scalars,Delimiter,","
+Scalars,Column,col_1
+Lines,Line,"col_0,col_1,col_2"

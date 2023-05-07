@@ -1,0 +1,1 @@
+node .\test-getutresults  > .\test-getutresults.out 2> .\test-getutresults.err

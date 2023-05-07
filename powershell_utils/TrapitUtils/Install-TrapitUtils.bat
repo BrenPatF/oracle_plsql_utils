@@ -1,0 +1,1 @@
+pwsh .\Install-TrapitUtils.ps1 > .\Install-TrapitUtils.out 2> .\Install-TrapitUtils.err

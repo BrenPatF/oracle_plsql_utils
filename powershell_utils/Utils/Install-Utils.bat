@@ -1,0 +1,1 @@
+pwsh .\Install-Utils.ps1 > .\Install-Utils.out 2> .\Install-Utils.err

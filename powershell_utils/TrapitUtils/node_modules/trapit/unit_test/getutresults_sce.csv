@@ -1,0 +1,38 @@
+Category Set,Scenario,Active
+Input Group Multiplicity,No input groups,Y
+Input Group Multiplicity,One input group,N
+Input Group Multiplicity,Multiple input groups,N
+Output Group Multiplicity,No output groups,N
+Output Group Multiplicity,One output group,N
+Output Group Multiplicity,Multiple output groups,N
+Input Field Multiplicity,One input group field,N
+Input Field Multiplicity,Multiple input fields,N
+Output Field Multiplicity,One output group field,N
+Output Field Multiplicity,Multiple output fields,N
+Input Record Multiplicity,No input group records,N
+Input Record Multiplicity,One input group record,N
+Input Record Multiplicity,Multiple input group records,N
+Output Record Multiplicity,No output group records,N
+Output Record Multiplicity,One output group record,N
+Output Record Multiplicity,Multiple output group records,N
+Scenario Multiplicity,No scenarios,N
+Scenario Multiplicity,One scenario,N
+Scenario Multiplicity,Multiple scenarios,N
+Test Status,All scenarios pass,N
+Test Status,At least one scenario fails,N
+Match Type String,Exact string pass,N
+Match Type String,Exact string fail,N
+Match Type String,Inexact (regex) pass,N
+Match Type String,Inexact (regex) fail,N
+Match Type String,Untested,N
+Match Type Number,Exact number pass,N
+Match Type Number,Exact number fail,N
+Match Type Number,Inexact (range) just pass,N
+Match Type Number,Inexact (range) just fail,N
+Match Type Number,Number (range) fail null,N
+Exception,Groups number mismatch,N
+Exception,Fields number mismatch,N
+Category Set,Category sets undefined,N
+Category Set,Category sets null,N
+Category Set,Multiple category sets with the same value,N
+Category Set,Multiple category sets with null and not null values,N

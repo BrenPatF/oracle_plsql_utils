@@ -99,6 +99,35 @@ BEGIN
 
 END Run_Tests;
 
+/***************************************************************************************************
+
+Run_Tests: Run tests for the unit test group
+
+***************************************************************************************************/
+FUNCTION Test_Output_Files(
+            p_group_nm                     VARCHAR2) RETURN L1_chr_arr IS
+
+  l_ttu_lis                    L1_chr_arr;
+  l_file_lis                   L1_chr_arr := L1_chr_arr();
+  l_input_dir                  VARCHAR2(300);
+BEGIN
+
+  DBMS_Session.Set_NLS('nls_date_format', '''DD-MON-YYYY''');--c_date_fmt); - constant did not work
+  SELECT directory_path INTO l_input_dir FROM all_directories WHERE directory_name = 'INPUT_DIR';
+
+  FOR r IN (SELECT COLUMN_VALUE FROM TABLE(Trapit.Get_Active_TT_Units(p_group_nm => p_group_nm))) LOOP
+
+    l_ttu_lis := Utils.Split_Values(p_string => r.COLUMN_VALUE, 
+                                    p_delim  => '|');
+    run_A_Test(p_package_function => l_ttu_lis(1), p_title => l_ttu_lis(2));
+    COMMIT;
+    l_file_lis.Extend;
+    l_file_lis(l_file_lis.Count) := Lower(l_input_dir || '\' || l_ttu_lis(1)) || '_out.json';
+
+  END LOOP;
+  RETURN l_file_lis;
+END Test_Output_Files;
+
 END Trapit_Run;
 /
 SHO ERR

@@ -1,0 +1,7 @@
+Debug starting, 03/10/2023 10:18:19: 
+pwu type is: 
+
+IsPublic IsSerial Name                                     BaseType
+-------- -------- ----                                     --------
+True     True     ScriptBlock                              System.Object
+

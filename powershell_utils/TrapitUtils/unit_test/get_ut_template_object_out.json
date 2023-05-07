@@ -1,0 +1,1218 @@
+{
+  "meta": {
+    "title": "Get UT Template Object",
+    "delimiter": ";",
+    "inp": {
+      "Scalars": [
+        "Delimiter"
+      ],
+      "Scenarios": [
+        "Category Set",
+        "Scenario",
+        "Active"
+      ],
+      "Input Group": [
+        "Group Name",
+        "Field Name",
+        "Value"
+      ],
+      "Output Group": [
+        "Group Name",
+        "Field Name",
+        "Value"
+      ]
+    },
+    "out": {
+      "Meta Input Group": [
+        "Group Name",
+        "Field Name"
+      ],
+      "Meta Output Group": [
+        "Group Name",
+        "Field Name"
+      ],
+      "Scenarios": [
+        "Category Set",
+        "Scenario",
+        "Active"
+      ],
+      "Scenario Input Group": [
+        "Scenario",
+        "Group Name",
+        "Record"
+      ],
+      "Scenario Output Group": [
+        "Scenario",
+        "Group Name",
+        "Record"
+      ],
+      "Unhandled Exception": [
+        "Error Message",
+        "Stack"
+      ]
+    }
+  },
+  "scenarios": {
+    "No input groups": {
+      "category_set": "Input Group Multiplicity",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Input Group": [],
+        "Output Group": [
+          "Output Group 1;Output Field 1;Output Value 1"
+        ]
+      },
+      "out": {
+        "Meta Input Group": {
+          "exp": [],
+          "act": []
+        },
+        "Meta Output Group": {
+          "exp": [
+            "Output Group 1;Output Field 1"
+          ],
+          "act": [
+            "Output Group 1;Output Field 1"
+          ]
+        },
+        "Scenarios": {
+          "exp": [
+            "Generic;Scenario one;N"
+          ],
+          "act": [
+            "Generic;Scenario one;N"
+          ]
+        },
+        "Scenario Input Group": {
+          "exp": [],
+          "act": []
+        },
+        "Scenario Output Group": {
+          "exp": [
+            "Scenario one;Output Group 1;Output Value 1"
+          ],
+          "act": [
+            "Scenario one;Output Group 1;Output Value 1"
+          ]
+        },
+        "Unhandled Exception": {
+          "exp": [],
+          "act": []
+        }
+      }
+    },
+    "One input group": {
+      "category_set": "Input Group Multiplicity",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1;Input Value 1"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1;Output Value 1"
+        ]
+      },
+      "out": {
+        "Meta Input Group": {
+          "exp": [
+            "Input Group 1;Input Field 1"
+          ],
+          "act": [
+            "Input Group 1;Input Field 1"
+          ]
+        },
+        "Meta Output Group": {
+          "exp": [
+            "Output Group 1;Output Field 1"
+          ],
+          "act": [
+            "Output Group 1;Output Field 1"
+          ]
+        },
+        "Scenarios": {
+          "exp": [
+            "Generic;Scenario one;N"
+          ],
+          "act": [
+            "Generic;Scenario one;N"
+          ]
+        },
+        "Scenario Input Group": {
+          "exp": [
+            "Scenario one;Input Group 1;Input Value 1"
+          ],
+          "act": [
+            "Scenario one;Input Group 1;Input Value 1"
+          ]
+        },
+        "Scenario Output Group": {
+          "exp": [
+            "Scenario one;Output Group 1;Output Value 1"
+          ],
+          "act": [
+            "Scenario one;Output Group 1;Output Value 1"
+          ]
+        },
+        "Unhandled Exception": {
+          "exp": [],
+          "act": []
+        }
+      }
+    },
+    "Multiple input groups": {
+      "category_set": "Input Group Multiplicity",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1-1;Input Value 1-1",
+          "Input Group 2;Input Field 2-1;Input Value 2-1"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1;Output Value 1"
+        ]
+      },
+      "out": {
+        "Meta Input Group": {
+          "exp": [
+            "Input Group 1;Input Field 1-1",
+            "Input Group 2;Input Field 2-1"
+          ],
+          "act": [
+            "Input Group 1;Input Field 1-1",
+            "Input Group 2;Input Field 2-1"
+          ]
+        },
+        "Meta Output Group": {
+          "exp": [
+            "Output Group 1;Output Field 1"
+          ],
+          "act": [
+            "Output Group 1;Output Field 1"
+          ]
+        },
+        "Scenarios": {
+          "exp": [
+            "Generic;Scenario one;N"
+          ],
+          "act": [
+            "Generic;Scenario one;N"
+          ]
+        },
+        "Scenario Input Group": {
+          "exp": [
+            "Scenario one;Input Group 1;Input Value 1-1",
+            "Scenario one;Input Group 2;Input Value 2-1"
+          ],
+          "act": [
+            "Scenario one;Input Group 1;Input Value 1-1",
+            "Scenario one;Input Group 2;Input Value 2-1"
+          ]
+        },
+        "Scenario Output Group": {
+          "exp": [
+            "Scenario one;Output Group 1;Output Value 1"
+          ],
+          "act": [
+            "Scenario one;Output Group 1;Output Value 1"
+          ]
+        },
+        "Unhandled Exception": {
+          "exp": [],
+          "act": []
+        }
+      }
+    },
+    "No output groups": {
+      "category_set": "Output Group Multiplicity",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1;Input Value 1"
+        ],
+        "Output Group": []
+      },
+      "out": {
+        "Meta Input Group": {
+          "exp": [
+            "Input Group 1;Input Field 1"
+          ],
+          "act": [
+            "Input Group 1;Input Field 1"
+          ]
+        },
+        "Meta Output Group": {
+          "exp": [],
+          "act": []
+        },
+        "Scenarios": {
+          "exp": [
+            "Generic;Scenario one;N"
+          ],
+          "act": [
+            "Generic;Scenario one;N"
+          ]
+        },
+        "Scenario Input Group": {
+          "exp": [
+            "Scenario one;Input Group 1;Input Value 1"
+          ],
+          "act": [
+            "Scenario one;Input Group 1;Input Value 1"
+          ]
+        },
+        "Scenario Output Group": {
+          "exp": [],
+          "act": []
+        },
+        "Unhandled Exception": {
+          "exp": [],
+          "act": []
+        }
+      }
+    },
+    "One output group": {
+      "category_set": "Output Group Multiplicity",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1;Input Value 1"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1;Output Value 1"
+        ]
+      },
+      "out": {
+        "Meta Input Group": {
+          "exp": [
+            "Input Group 1;Input Field 1"
+          ],
+          "act": [
+            "Input Group 1;Input Field 1"
+          ]
+        },
+        "Meta Output Group": {
+          "exp": [
+            "Output Group 1;Output Field 1"
+          ],
+          "act": [
+            "Output Group 1;Output Field 1"
+          ]
+        },
+        "Scenarios": {
+          "exp": [
+            "Generic;Scenario one;N"
+          ],
+          "act": [
+            "Generic;Scenario one;N"
+          ]
+        },
+        "Scenario Input Group": {
+          "exp": [
+            "Scenario one;Input Group 1;Input Value 1"
+          ],
+          "act": [
+            "Scenario one;Input Group 1;Input Value 1"
+          ]
+        },
+        "Scenario Output Group": {
+          "exp": [
+            "Scenario one;Output Group 1;Output Value 1"
+          ],
+          "act": [
+            "Scenario one;Output Group 1;Output Value 1"
+          ]
+        },
+        "Unhandled Exception": {
+          "exp": [],
+          "act": []
+        }
+      }
+    },
+    "Multiple output groups": {
+      "category_set": "Output Group Multiplicity",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1;Input Value 1"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1-1;Output Value 1-1",
+          "Output Group 2;Output Field 2-1;Output Value 2-1"
+        ]
+      },
+      "out": {
+        "Meta Input Group": {
+          "exp": [
+            "Input Group 1;Input Field 1"
+          ],
+          "act": [
+            "Input Group 1;Input Field 1"
+          ]
+        },
+        "Meta Output Group": {
+          "exp": [
+            "Output Group 1;Output Field 1-1",
+            "Output Group 2;Output Field 2-1"
+          ],
+          "act": [
+            "Output Group 1;Output Field 1-1",
+            "Output Group 2;Output Field 2-1"
+          ]
+        },
+        "Scenarios": {
+          "exp": [
+            "Generic;Scenario one;N"
+          ],
+          "act": [
+            "Generic;Scenario one;N"
+          ]
+        },
+        "Scenario Input Group": {
+          "exp": [
+            "Scenario one;Input Group 1;Input Value 1"
+          ],
+          "act": [
+            "Scenario one;Input Group 1;Input Value 1"
+          ]
+        },
+        "Scenario Output Group": {
+          "exp": [
+            "Scenario one;Output Group 1;Output Value 1-1",
+            "Scenario one;Output Group 2;Output Value 2-1"
+          ],
+          "act": [
+            "Scenario one;Output Group 1;Output Value 1-1",
+            "Scenario one;Output Group 2;Output Value 2-1"
+          ]
+        },
+        "Unhandled Exception": {
+          "exp": [],
+          "act": []
+        }
+      }
+    },
+    "One input field": {
+      "category_set": "Input Field Multiplicity",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1;Input Value 1"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1;Output Value 1"
+        ]
+      },
+      "out": {
+        "Meta Input Group": {
+          "exp": [
+            "Input Group 1;Input Field 1"
+          ],
+          "act": [
+            "Input Group 1;Input Field 1"
+          ]
+        },
+        "Meta Output Group": {
+          "exp": [
+            "Output Group 1;Output Field 1"
+          ],
+          "act": [
+            "Output Group 1;Output Field 1"
+          ]
+        },
+        "Scenarios": {
+          "exp": [
+            "Generic;Scenario one;N"
+          ],
+          "act": [
+            "Generic;Scenario one;N"
+          ]
+        },
+        "Scenario Input Group": {
+          "exp": [
+            "Scenario one;Input Group 1;Input Value 1"
+          ],
+          "act": [
+            "Scenario one;Input Group 1;Input Value 1"
+          ]
+        },
+        "Scenario Output Group": {
+          "exp": [
+            "Scenario one;Output Group 1;Output Value 1"
+          ],
+          "act": [
+            "Scenario one;Output Group 1;Output Value 1"
+          ]
+        },
+        "Unhandled Exception": {
+          "exp": [],
+          "act": []
+        }
+      }
+    },
+    "Multiple input fields": {
+      "category_set": "Input Field Multiplicity",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1;Input Value 1-1",
+          "Input Group 1;Input Field 2;Input Value 1-2"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1;Output Value 1"
+        ]
+      },
+      "out": {
+        "Meta Input Group": {
+          "exp": [
+            "Input Group 1;Input Field 1",
+            "Input Group 1;Input Field 2"
+          ],
+          "act": [
+            "Input Group 1;Input Field 1",
+            "Input Group 1;Input Field 2"
+          ]
+        },
+        "Meta Output Group": {
+          "exp": [
+            "Output Group 1;Output Field 1"
+          ],
+          "act": [
+            "Output Group 1;Output Field 1"
+          ]
+        },
+        "Scenarios": {
+          "exp": [
+            "Generic;Scenario one;N"
+          ],
+          "act": [
+            "Generic;Scenario one;N"
+          ]
+        },
+        "Scenario Input Group": {
+          "exp": [
+            "Scenario one;Input Group 1;Input Value 1-1~Input Value 1-2"
+          ],
+          "act": [
+            "Scenario one;Input Group 1;Input Value 1-1~Input Value 1-2"
+          ]
+        },
+        "Scenario Output Group": {
+          "exp": [
+            "Scenario one;Output Group 1;Output Value 1"
+          ],
+          "act": [
+            "Scenario one;Output Group 1;Output Value 1"
+          ]
+        },
+        "Unhandled Exception": {
+          "exp": [],
+          "act": []
+        }
+      }
+    },
+    "One output field": {
+      "category_set": "Output Field Multiplicity",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1;Input Value 1"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1;Output Value 1"
+        ]
+      },
+      "out": {
+        "Meta Input Group": {
+          "exp": [
+            "Input Group 1;Input Field 1"
+          ],
+          "act": [
+            "Input Group 1;Input Field 1"
+          ]
+        },
+        "Meta Output Group": {
+          "exp": [
+            "Output Group 1;Output Field 1"
+          ],
+          "act": [
+            "Output Group 1;Output Field 1"
+          ]
+        },
+        "Scenarios": {
+          "exp": [
+            "Generic;Scenario one;N"
+          ],
+          "act": [
+            "Generic;Scenario one;N"
+          ]
+        },
+        "Scenario Input Group": {
+          "exp": [
+            "Scenario one;Input Group 1;Input Value 1"
+          ],
+          "act": [
+            "Scenario one;Input Group 1;Input Value 1"
+          ]
+        },
+        "Scenario Output Group": {
+          "exp": [
+            "Scenario one;Output Group 1;Output Value 1"
+          ],
+          "act": [
+            "Scenario one;Output Group 1;Output Value 1"
+          ]
+        },
+        "Unhandled Exception": {
+          "exp": [],
+          "act": []
+        }
+      }
+    },
+    "Multiple output fields": {
+      "category_set": "Output Field Multiplicity",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1;Input Value 1"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1;Output Value 1-1",
+          "Output Group 1;Output Field 2;Output Value 1-2"
+        ]
+      },
+      "out": {
+        "Meta Input Group": {
+          "exp": [
+            "Input Group 1;Input Field 1"
+          ],
+          "act": [
+            "Input Group 1;Input Field 1"
+          ]
+        },
+        "Meta Output Group": {
+          "exp": [
+            "Output Group 1;Output Field 1",
+            "Output Group 1;Output Field 2"
+          ],
+          "act": [
+            "Output Group 1;Output Field 1",
+            "Output Group 1;Output Field 2"
+          ]
+        },
+        "Scenarios": {
+          "exp": [
+            "Generic;Scenario one;N"
+          ],
+          "act": [
+            "Generic;Scenario one;N"
+          ]
+        },
+        "Scenario Input Group": {
+          "exp": [
+            "Scenario one;Input Group 1;Input Value 1"
+          ],
+          "act": [
+            "Scenario one;Input Group 1;Input Value 1"
+          ]
+        },
+        "Scenario Output Group": {
+          "exp": [
+            "Scenario one;Output Group 1;Output Value 1-1~Output Value 1-2"
+          ],
+          "act": [
+            "Scenario one;Output Group 1;Output Value 1-1~Output Value 1-2"
+          ]
+        },
+        "Unhandled Exception": {
+          "exp": [],
+          "act": []
+        }
+      }
+    },
+    "One-character delimiter": {
+      "category_set": "Delimiter Multiplicity",
+      "inp": {
+        "Scalars": [
+          "?"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1;Input Value 1"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1;Output Value 1-1",
+          "Output Group 1;Output Field 2;Output Value 1-2"
+        ]
+      },
+      "out": {
+        "Meta Input Group": {
+          "exp": [
+            "Input Group 1;Input Field 1"
+          ],
+          "act": [
+            "Input Group 1;Input Field 1"
+          ]
+        },
+        "Meta Output Group": {
+          "exp": [
+            "Output Group 1;Output Field 1",
+            "Output Group 1;Output Field 2"
+          ],
+          "act": [
+            "Output Group 1;Output Field 1",
+            "Output Group 1;Output Field 2"
+          ]
+        },
+        "Scenarios": {
+          "exp": [
+            "Generic;Scenario one;N"
+          ],
+          "act": [
+            "Generic;Scenario one;N"
+          ]
+        },
+        "Scenario Input Group": {
+          "exp": [
+            "Scenario one;Input Group 1;Input Value 1"
+          ],
+          "act": [
+            "Scenario one;Input Group 1;Input Value 1"
+          ]
+        },
+        "Scenario Output Group": {
+          "exp": [
+            "Scenario one;Output Group 1;Output Value 1-1?Output Value 1-2"
+          ],
+          "act": [
+            "Scenario one;Output Group 1;Output Value 1-1?Output Value 1-2"
+          ]
+        },
+        "Unhandled Exception": {
+          "exp": [],
+          "act": []
+        }
+      }
+    },
+    "Multi-character delimiter": {
+      "category_set": "Delimiter Multiplicity",
+      "inp": {
+        "Scalars": [
+          "??"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1;Input Value 1"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1;Output Value 1-1",
+          "Output Group 1;Output Field 2;Output Value 1-2"
+        ]
+      },
+      "out": {
+        "Meta Input Group": {
+          "exp": [
+            "Input Group 1;Input Field 1"
+          ],
+          "act": [
+            "Input Group 1;Input Field 1"
+          ]
+        },
+        "Meta Output Group": {
+          "exp": [
+            "Output Group 1;Output Field 1",
+            "Output Group 1;Output Field 2"
+          ],
+          "act": [
+            "Output Group 1;Output Field 1",
+            "Output Group 1;Output Field 2"
+          ]
+        },
+        "Scenarios": {
+          "exp": [
+            "Generic;Scenario one;N"
+          ],
+          "act": [
+            "Generic;Scenario one;N"
+          ]
+        },
+        "Scenario Input Group": {
+          "exp": [
+            "Scenario one;Input Group 1;Input Value 1"
+          ],
+          "act": [
+            "Scenario one;Input Group 1;Input Value 1"
+          ]
+        },
+        "Scenario Output Group": {
+          "exp": [
+            "Scenario one;Output Group 1;Output Value 1-1??Output Value 1-2"
+          ],
+          "act": [
+            "Scenario one;Output Group 1;Output Value 1-1??Output Value 1-2"
+          ]
+        },
+        "Unhandled Exception": {
+          "exp": [],
+          "act": []
+        }
+      }
+    },
+    "Scenarios file not present": {
+      "category_set": "Scenarios Multiplicity",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [],
+        "Input Group": [
+          "Input Group 1;Input Field 1;Input Value 1"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1;Output Value 1"
+        ]
+      },
+      "out": {
+        "Meta Input Group": {
+          "exp": [
+            "Input Group 1;Input Field 1"
+          ],
+          "act": [
+            "Input Group 1;Input Field 1"
+          ]
+        },
+        "Meta Output Group": {
+          "exp": [
+            "Output Group 1;Output Field 1"
+          ],
+          "act": [
+            "Output Group 1;Output Field 1"
+          ]
+        },
+        "Scenarios": {
+          "exp": [
+            ";scenario 1;Y"
+          ],
+          "act": [
+            ";scenario 1;Y"
+          ]
+        },
+        "Scenario Input Group": {
+          "exp": [
+            "scenario 1;Input Group 1;Input Value 1"
+          ],
+          "act": [
+            "scenario 1;Input Group 1;Input Value 1"
+          ]
+        },
+        "Scenario Output Group": {
+          "exp": [
+            "scenario 1;Output Group 1;Output Value 1"
+          ],
+          "act": [
+            "scenario 1;Output Group 1;Output Value 1"
+          ]
+        },
+        "Unhandled Exception": {
+          "exp": [],
+          "act": []
+        }
+      }
+    },
+    "Multiple scenarios": {
+      "category_set": "Scenarios Multiplicity",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [
+          "Generic;Scenario One;Y",
+          "Generic;Scenario Two;Y"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1;Input Value 1"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1;Output Value 1"
+        ]
+      },
+      "out": {
+        "Meta Input Group": {
+          "exp": [
+            "Input Group 1;Input Field 1"
+          ],
+          "act": [
+            "Input Group 1;Input Field 1"
+          ]
+        },
+        "Meta Output Group": {
+          "exp": [
+            "Output Group 1;Output Field 1"
+          ],
+          "act": [
+            "Output Group 1;Output Field 1"
+          ]
+        },
+        "Scenarios": {
+          "exp": [
+            "Generic;Scenario One;Y",
+            "Generic;Scenario Two;Y"
+          ],
+          "act": [
+            "Generic;Scenario One;Y",
+            "Generic;Scenario Two;Y"
+          ]
+        },
+        "Scenario Input Group": {
+          "exp": [
+            "Scenario One;Input Group 1;Input Value 1",
+            "Scenario Two;Input Group 1;Input Value 1"
+          ],
+          "act": [
+            "Scenario One;Input Group 1;Input Value 1",
+            "Scenario Two;Input Group 1;Input Value 1"
+          ]
+        },
+        "Scenario Output Group": {
+          "exp": [
+            "Scenario One;Output Group 1;Output Value 1",
+            "Scenario Two;Output Group 1;Output Value 1"
+          ],
+          "act": [
+            "Scenario One;Output Group 1;Output Value 1",
+            "Scenario Two;Output Group 1;Output Value 1"
+          ]
+        },
+        "Unhandled Exception": {
+          "exp": [],
+          "act": []
+        }
+      }
+    },
+    "All field values null": {
+      "category_set": "Initial Field Values",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1;"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1;"
+        ]
+      },
+      "out": {
+        "Meta Input Group": {
+          "exp": [
+            "Input Group 1;Input Field 1"
+          ],
+          "act": [
+            "Input Group 1;Input Field 1"
+          ]
+        },
+        "Meta Output Group": {
+          "exp": [
+            "Output Group 1;Output Field 1"
+          ],
+          "act": [
+            "Output Group 1;Output Field 1"
+          ]
+        },
+        "Scenarios": {
+          "exp": [
+            "Generic;Scenario one;N"
+          ],
+          "act": [
+            "Generic;Scenario one;N"
+          ]
+        },
+        "Scenario Input Group": {
+          "exp": [
+            "Scenario one;Input Group 1;"
+          ],
+          "act": [
+            "Scenario one;Input Group 1;"
+          ]
+        },
+        "Scenario Output Group": {
+          "exp": [
+            "Scenario one;Output Group 1;"
+          ],
+          "act": [
+            "Scenario one;Output Group 1;"
+          ]
+        },
+        "Unhandled Exception": {
+          "exp": [],
+          "act": []
+        }
+      }
+    },
+    "Some field values null, some not null": {
+      "category_set": "Initial Field Values",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1;",
+          "Input Group 1;Input Field 2;Input Value 2"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1;Output Value 1",
+          "Output Group 1;Output Field 2;"
+        ]
+      },
+      "out": {
+        "Meta Input Group": {
+          "exp": [
+            "Input Group 1;Input Field 1",
+            "Input Group 1;Input Field 2"
+          ],
+          "act": [
+            "Input Group 1;Input Field 1",
+            "Input Group 1;Input Field 2"
+          ]
+        },
+        "Meta Output Group": {
+          "exp": [
+            "Output Group 1;Output Field 1",
+            "Output Group 1;Output Field 2"
+          ],
+          "act": [
+            "Output Group 1;Output Field 1",
+            "Output Group 1;Output Field 2"
+          ]
+        },
+        "Scenarios": {
+          "exp": [
+            "Generic;Scenario one;N"
+          ],
+          "act": [
+            "Generic;Scenario one;N"
+          ]
+        },
+        "Scenario Input Group": {
+          "exp": [
+            "Scenario one;Input Group 1;~Input Value 2"
+          ],
+          "act": [
+            "Scenario one;Input Group 1;~Input Value 2"
+          ]
+        },
+        "Scenario Output Group": {
+          "exp": [
+            "Scenario one;Output Group 1;Output Value 1~"
+          ],
+          "act": [
+            "Scenario one;Output Group 1;Output Value 1~"
+          ]
+        },
+        "Unhandled Exception": {
+          "exp": [],
+          "act": []
+        }
+      }
+    },
+    "Scenarios with null and not null category sets": {
+      "category_set": "Category Set",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [
+          "Generic;Scenario One;Y",
+          ";Scenario Two;Y"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1;Input Value 1"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1;Output Value 1"
+        ]
+      },
+      "out": {
+        "Meta Input Group": {
+          "exp": [
+            "Input Group 1;Input Field 1"
+          ],
+          "act": [
+            "Input Group 1;Input Field 1"
+          ]
+        },
+        "Meta Output Group": {
+          "exp": [
+            "Output Group 1;Output Field 1"
+          ],
+          "act": [
+            "Output Group 1;Output Field 1"
+          ]
+        },
+        "Scenarios": {
+          "exp": [
+            "Generic;Scenario One;Y",
+            ";Scenario Two;Y"
+          ],
+          "act": [
+            "Generic;Scenario One;Y",
+            ";Scenario Two;Y"
+          ]
+        },
+        "Scenario Input Group": {
+          "exp": [
+            "Scenario One;Input Group 1;Input Value 1",
+            "Scenario Two;Input Group 1;Input Value 1"
+          ],
+          "act": [
+            "Scenario One;Input Group 1;Input Value 1",
+            "Scenario Two;Input Group 1;Input Value 1"
+          ]
+        },
+        "Scenario Output Group": {
+          "exp": [
+            "Scenario One;Output Group 1;Output Value 1",
+            "Scenario Two;Output Group 1;Output Value 1"
+          ],
+          "act": [
+            "Scenario One;Output Group 1;Output Value 1",
+            "Scenario Two;Output Group 1;Output Value 1"
+          ]
+        },
+        "Unhandled Exception": {
+          "exp": [],
+          "act": []
+        }
+      }
+    },
+    "Scenarios with Y and N active flag": {
+      "category_set": "Active Flag",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [
+          "Generic;Scenario One;N",
+          ";Scenario Two;Y"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1;Input Value 1"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1;Output Value 1"
+        ]
+      },
+      "out": {
+        "Meta Input Group": {
+          "exp": [
+            "Input Group 1;Input Field 1"
+          ],
+          "act": [
+            "Input Group 1;Input Field 1"
+          ]
+        },
+        "Meta Output Group": {
+          "exp": [
+            "Output Group 1;Output Field 1"
+          ],
+          "act": [
+            "Output Group 1;Output Field 1"
+          ]
+        },
+        "Scenarios": {
+          "exp": [
+            "Generic;Scenario One;N",
+            ";Scenario Two;Y"
+          ],
+          "act": [
+            "Generic;Scenario One;N",
+            ";Scenario Two;Y"
+          ]
+        },
+        "Scenario Input Group": {
+          "exp": [
+            "Scenario One;Input Group 1;Input Value 1",
+            "Scenario Two;Input Group 1;Input Value 1"
+          ],
+          "act": [
+            "Scenario One;Input Group 1;Input Value 1",
+            "Scenario Two;Input Group 1;Input Value 1"
+          ]
+        },
+        "Scenario Output Group": {
+          "exp": [
+            "Scenario One;Output Group 1;Output Value 1",
+            "Scenario Two;Output Group 1;Output Value 1"
+          ],
+          "act": [
+            "Scenario One;Output Group 1;Output Value 1",
+            "Scenario Two;Output Group 1;Output Value 1"
+          ]
+        },
+        "Unhandled Exception": {
+          "exp": [],
+          "act": []
+        }
+      }
+    }
+  }
+}

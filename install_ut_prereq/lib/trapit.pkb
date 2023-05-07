@@ -185,6 +185,7 @@ BEGIN
 
     i_act := i_act + 1;
     l_scenario_out_obj := JSON_Object_T();
+    l_scenario_out_obj.put('category_set', l_sce_obj.get_Object(l_scenarios(i)).get_String('category_set'));
     l_scenario_out_obj.put(INP, l_sce_obj.get_Object(l_scenarios(i)).get_Object(INP));
     l_groups := l_sce_obj.get_Object(l_scenarios(i)).get_Object(OUT).get_Keys;
     l_groups.EXTEND();

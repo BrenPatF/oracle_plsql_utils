@@ -1,0 +1,21 @@
+Group,Field,Value
+Heading,Line,Heading
+Col Headers,Line,Col 1
+List To Line,Line,Value 1
+Join Values (list),Delimited String,Value 1
+Join Values (scalars),Delimited String,Value 1
+Split Values,Value,Value 1
+View To List,Delimited String,L4_CHR_ARR
+Cursor To List,Delimited String,L4_CHR_ARR
+Cursor To Pipe,Delimited String,L4_CHR_ARR
+Interval To Seconds,Seconds,0
+Sleep,Elapsed Seconds,"IN [0.9,1.1]"
+Sleep,CPU Seconds,"IN [0.4,0.6]"
+Exception,Source,
+Exception,Message,
+W (Line),Line,text line
+W (List),Line,1-line text list
+File I/O,#Lines,0
+File I/O,Line 1,
+File I/O,Line 2,
+XPlan List (keyword extract),XPlan Line,"LIKE /SQL_ID.+, child number.+/"

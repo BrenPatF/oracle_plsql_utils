@@ -1,0 +1,24 @@
+Group,Field,Value
+Summaries,Type,Report
+Summaries,Scenario,
+Summaries,Group,
+Summaries,Header 1,Unit Test Report: UUT
+Summaries,Header 2,Category Set
+Summaries,Footer,Test scenarios: 0 failed of 1: SUCCESS
+Summaries,# Records,1
+Summaries,# Fails,0
+Summaries,Status,SUCCESS
+Input Fields,Scenario,Scenario 1
+Input Fields,Group,Input group 1
+Input Fields,Name,#
+Input Fields,Length,1
+Output Fields,Scenario,Scenario 1
+Output Fields,Group,Output group 1
+Output Fields,Name,#
+Output Fields,Length,1
+Input Values,Scenario,Scenario 1
+Input Values,Group,Input group 1
+Input Values,Row CSV,1~Input Value 1
+Output Values,Scenario,Scenario 1
+Output Values,Group,Output group 1
+Output Values,Row CSV,1~Output Value 1

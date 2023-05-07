@@ -1,0 +1,1 @@
+pwsh .\Format-JSON-Utils.ps1  > .\Format-JSON-Utils.out 2> .\Format-JSON-Utils.err

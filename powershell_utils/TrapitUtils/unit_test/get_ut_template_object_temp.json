@@ -1,0 +1,561 @@
+{
+  "meta": {
+    "title": "title",
+    "delimiter": ";",
+    "inp": {
+      "Scalars": [
+        "Delimiter"
+      ],
+      "Input Group": [
+        "Group Name",
+        "Field Name"
+      ],
+      "Output Group": [
+        "Group Name",
+        "Field Name"
+      ]
+    },
+    "out": {
+      "Meta Input Group": [
+        "Group Name",
+        "Field Name"
+      ],
+      "Meta Output Group": [
+        "Group Name",
+        "Field Name"
+      ],
+      "Scenario Input Group": [
+        "Group Name",
+        "Delimiters"
+      ],
+      "Scenario Output Group": [
+        "Group Name",
+        "Delimiters"
+      ]
+    }
+  },
+  "scenarios": {
+    "No input groups": {
+      "active_yn": "Y",
+      "category_set": "Input Group Multiplicity",
+      "inp": {
+        "Scalars": [
+          ""
+        ],
+        "Input Group": [
+          ";"
+        ],
+        "Output Group": [
+          ";"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          ";"
+        ],
+        "Meta Output Group": [
+          ";"
+        ],
+        "Scenario Input Group": [
+          ";"
+        ],
+        "Scenario Output Group": [
+          ";"
+        ]
+      }
+    },
+    "One input group": {
+      "active_yn": "N",
+      "category_set": "Input Group Multiplicity",
+      "inp": {
+        "Scalars": [
+          ""
+        ],
+        "Input Group": [
+          ";"
+        ],
+        "Output Group": [
+          ";"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          ";"
+        ],
+        "Meta Output Group": [
+          ";"
+        ],
+        "Scenario Input Group": [
+          ";"
+        ],
+        "Scenario Output Group": [
+          ";"
+        ]
+      }
+    },
+    "Multiple input groups": {
+      "active_yn": "N",
+      "category_set": "Input Group Multiplicity",
+      "inp": {
+        "Scalars": [
+          ""
+        ],
+        "Input Group": [
+          ";"
+        ],
+        "Output Group": [
+          ";"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          ";"
+        ],
+        "Meta Output Group": [
+          ";"
+        ],
+        "Scenario Input Group": [
+          ";"
+        ],
+        "Scenario Output Group": [
+          ";"
+        ]
+      }
+    },
+    "No output groups": {
+      "active_yn": "N",
+      "category_set": "Output Group Multiplicity",
+      "inp": {
+        "Scalars": [
+          ""
+        ],
+        "Input Group": [
+          ";"
+        ],
+        "Output Group": [
+          ";"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          ";"
+        ],
+        "Meta Output Group": [
+          ";"
+        ],
+        "Scenario Input Group": [
+          ";"
+        ],
+        "Scenario Output Group": [
+          ";"
+        ]
+      }
+    },
+    "One output group": {
+      "active_yn": "N",
+      "category_set": "Output Group Multiplicity",
+      "inp": {
+        "Scalars": [
+          ""
+        ],
+        "Input Group": [
+          ";"
+        ],
+        "Output Group": [
+          ";"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          ";"
+        ],
+        "Meta Output Group": [
+          ";"
+        ],
+        "Scenario Input Group": [
+          ";"
+        ],
+        "Scenario Output Group": [
+          ";"
+        ]
+      }
+    },
+    "Multiple output groups": {
+      "active_yn": "N",
+      "category_set": "Output Group Multiplicity",
+      "inp": {
+        "Scalars": [
+          ""
+        ],
+        "Input Group": [
+          ";"
+        ],
+        "Output Group": [
+          ";"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          ";"
+        ],
+        "Meta Output Group": [
+          ";"
+        ],
+        "Scenario Input Group": [
+          ";"
+        ],
+        "Scenario Output Group": [
+          ";"
+        ]
+      }
+    },
+    "One input field": {
+      "active_yn": "N",
+      "category_set": "Input Field Multiplicity",
+      "inp": {
+        "Scalars": [
+          ""
+        ],
+        "Input Group": [
+          ";"
+        ],
+        "Output Group": [
+          ";"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          ";"
+        ],
+        "Meta Output Group": [
+          ";"
+        ],
+        "Scenario Input Group": [
+          ";"
+        ],
+        "Scenario Output Group": [
+          ";"
+        ]
+      }
+    },
+    "Multiple input fields": {
+      "active_yn": "N",
+      "category_set": "Input Field Multiplicity",
+      "inp": {
+        "Scalars": [
+          ""
+        ],
+        "Input Group": [
+          ";"
+        ],
+        "Output Group": [
+          ";"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          ";"
+        ],
+        "Meta Output Group": [
+          ";"
+        ],
+        "Scenario Input Group": [
+          ";"
+        ],
+        "Scenario Output Group": [
+          ";"
+        ]
+      }
+    },
+    "One output field": {
+      "active_yn": "N",
+      "category_set": "Output Field Multiplicity",
+      "inp": {
+        "Scalars": [
+          ""
+        ],
+        "Input Group": [
+          ";"
+        ],
+        "Output Group": [
+          ";"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          ";"
+        ],
+        "Meta Output Group": [
+          ";"
+        ],
+        "Scenario Input Group": [
+          ";"
+        ],
+        "Scenario Output Group": [
+          ";"
+        ]
+      }
+    },
+    "Multiple output fields": {
+      "active_yn": "N",
+      "category_set": "Output Field Multiplicity",
+      "inp": {
+        "Scalars": [
+          ""
+        ],
+        "Input Group": [
+          ";"
+        ],
+        "Output Group": [
+          ";"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          ";"
+        ],
+        "Meta Output Group": [
+          ";"
+        ],
+        "Scenario Input Group": [
+          ";"
+        ],
+        "Scenario Output Group": [
+          ";"
+        ]
+      }
+    },
+    "One-character delimiter": {
+      "active_yn": "N",
+      "category_set": "Delimiter Multiplicity",
+      "inp": {
+        "Scalars": [
+          ""
+        ],
+        "Input Group": [
+          ";"
+        ],
+        "Output Group": [
+          ";"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          ";"
+        ],
+        "Meta Output Group": [
+          ";"
+        ],
+        "Scenario Input Group": [
+          ";"
+        ],
+        "Scenario Output Group": [
+          ";"
+        ]
+      }
+    },
+    "Multi-character delimiter": {
+      "active_yn": "N",
+      "category_set": "Delimiter Multiplicity",
+      "inp": {
+        "Scalars": [
+          ""
+        ],
+        "Input Group": [
+          ";"
+        ],
+        "Output Group": [
+          ";"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          ";"
+        ],
+        "Meta Output Group": [
+          ";"
+        ],
+        "Scenario Input Group": [
+          ";"
+        ],
+        "Scenario Output Group": [
+          ";"
+        ]
+      }
+    },
+    "Scenarios file not present": {
+      "active_yn": "N",
+      "category_set": "Scenarios Multiplicity",
+      "inp": {
+        "Scalars": [
+          ""
+        ],
+        "Input Group": [
+          ";"
+        ],
+        "Output Group": [
+          ";"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          ";"
+        ],
+        "Meta Output Group": [
+          ";"
+        ],
+        "Scenario Input Group": [
+          ";"
+        ],
+        "Scenario Output Group": [
+          ";"
+        ]
+      }
+    },
+    "Multiple scenarios": {
+      "active_yn": "N",
+      "category_set": "Scenarios Multiplicity",
+      "inp": {
+        "Scalars": [
+          ""
+        ],
+        "Input Group": [
+          ";"
+        ],
+        "Output Group": [
+          ";"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          ";"
+        ],
+        "Meta Output Group": [
+          ";"
+        ],
+        "Scenario Input Group": [
+          ";"
+        ],
+        "Scenario Output Group": [
+          ";"
+        ]
+      }
+    },
+    "All field values null": {
+      "active_yn": "N",
+      "category_set": "Initial Field Values",
+      "inp": {
+        "Scalars": [
+          ""
+        ],
+        "Input Group": [
+          ";"
+        ],
+        "Output Group": [
+          ";"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          ";"
+        ],
+        "Meta Output Group": [
+          ";"
+        ],
+        "Scenario Input Group": [
+          ";"
+        ],
+        "Scenario Output Group": [
+          ";"
+        ]
+      }
+    },
+    "Some field values null, some not null": {
+      "active_yn": "N",
+      "category_set": "Initial Field Values",
+      "inp": {
+        "Scalars": [
+          ""
+        ],
+        "Input Group": [
+          ";"
+        ],
+        "Output Group": [
+          ";"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          ";"
+        ],
+        "Meta Output Group": [
+          ";"
+        ],
+        "Scenario Input Group": [
+          ";"
+        ],
+        "Scenario Output Group": [
+          ";"
+        ]
+      }
+    },
+    "Scenarios with null and not null category sets": {
+      "active_yn": "N",
+      "category_set": "Category Set",
+      "inp": {
+        "Scalars": [
+          ""
+        ],
+        "Input Group": [
+          ";"
+        ],
+        "Output Group": [
+          ";"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          ";"
+        ],
+        "Meta Output Group": [
+          ";"
+        ],
+        "Scenario Input Group": [
+          ";"
+        ],
+        "Scenario Output Group": [
+          ";"
+        ]
+      }
+    },
+    "Scenarios with Y and N active flag": {
+      "active_yn": "N",
+      "category_set": "Active Flag",
+      "inp": {
+        "Scalars": [
+          ""
+        ],
+        "Input Group": [
+          ";"
+        ],
+        "Output Group": [
+          ";"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          ";"
+        ],
+        "Meta Output Group": [
+          ";"
+        ],
+        "Scenario Input Group": [
+          ";"
+        ],
+        "Scenario Output Group": [
+          ";"
+        ]
+      }
+    }
+  }
+}

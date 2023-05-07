@@ -34,6 +34,8 @@ schema do not require execute privilege to be granted to owning schema (if diffe
 
 PROCEDURE Run_Tests(
             p_group_nm                     VARCHAR2);
+FUNCTION Test_Output_Files(
+            p_group_nm                     VARCHAR2) RETURN L1_chr_arr;
 
 END Trapit_Run;
 /

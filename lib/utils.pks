@@ -22,7 +22,9 @@ methods execute SQL using the rights of the calling schema, not the lib schema (
 
 PRMS_END             CONSTANT VARCHAR2(30) := 'PRMS_END';
 DELIM                         VARCHAR2(30) := '|';
-
+TYPE cursor_rec IS RECORD(
+            csr_id                         PLS_INTEGER,
+            col_type_lis                   L1_num_arr);
 FUNCTION Heading(
             p_head                         VARCHAR2,
             p_num_blanks_pre               PLS_INTEGER := 0,
@@ -66,6 +68,15 @@ FUNCTION Cursor_To_List(
             p_filter                       VARCHAR2 := NULL,
             p_delim                        VARCHAR2 := DELIM)
             RETURN                         L1_chr_arr;
+FUNCTION Prep_Cursor(  
+            x_csr                   IN OUT SYS_REFCURSOR)
+            RETURN                         cursor_rec;
+FUNCTION Pipe_Cursor(  
+            p_cursor_rec                   cursor_rec,
+            p_filter                       VARCHAR2 := NULL,
+            p_delim                        VARCHAR2 := DELIM)
+            RETURN                         L1_chr_arr
+            PIPELINED;
 FUNCTION IntervalDS_To_Seconds(
             p_interval                     INTERVAL DAY TO SECOND) 
             RETURN                         NUMBER;

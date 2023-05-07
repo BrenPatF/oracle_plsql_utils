@@ -1,0 +1,561 @@
+{
+  "meta": {
+    "title": "ColGroup - Powershell",
+    "delimiter": "|",
+    "inp": {
+      "Log": [
+        "Line"
+      ],
+      "Scalars": [
+        "Delimiter",
+        "Column"
+      ],
+      "Lines": [
+        "Line"
+      ]
+    },
+    "out": {
+      "Log": [
+        "#Lines",
+        "Date Offset",
+        "Text"
+      ],
+      "listAsIs": [
+        "#Instances"
+      ],
+      "sortByKey": [
+        "Key",
+        "Value"
+      ],
+      "sortByValue": [
+        "Key",
+        "Value"
+      ]
+    }
+  },
+  "scenarios": {
+    "No lines": {
+      "active_yn": "Y",
+      "category_set": "Lines Multiplicity",
+      "inp": {
+        "Log": [
+          ""
+        ],
+        "Scalars": [
+          ",|col_1"
+        ],
+        "Lines": [
+          "col_0,col_1,col_2"
+        ]
+      },
+      "out": {
+        "Log": [
+          "1|IN [0,2000]|LIKE /.*: File .*ut_group.csv, delimiter ',', column col_1/"
+        ],
+        "listAsIs": [
+          "0"
+        ],
+        "sortByKey": [
+        ],
+        "sortByValue": [
+        ]
+      }
+    },
+    "One line": {
+      "active_yn": "Y",
+      "category_set": "Lines Multiplicity",
+      "inp": {
+        "Log": [
+          ""
+        ],
+        "Scalars": [
+          ",|col_1"
+        ],
+        "Lines": [
+          "col_0,col_1,col_2",
+          "val_0,val_1,val_2"
+        ]
+      },
+      "out": {
+        "Log": [
+          "1|IN [0,2000]|LIKE /.*: File .*ut_group.csv, delimiter ',', column col_1/"
+        ],
+        "listAsIs": [
+          "1"
+        ],
+        "sortByKey": [
+          "val_1|1"
+        ],
+        "sortByValue": [
+          "val_1|1"
+        ]
+      }
+    },
+    "Multiple lines": {
+      "active_yn": "Y",
+      "category_set": "Lines Multiplicity",
+      "inp": {
+        "Log": [
+          ""
+        ],
+        "Scalars": [
+          ",|col_1"
+        ],
+        "Lines": [
+          "col_0,col_1,col_2",
+          "val_0,val_1,val_2",
+          "val_0,val_1,val_2"
+        ]
+      },
+      "out": {
+        "Log": [
+          "1|IN [0,2000]|LIKE /.*: File .*ut_group.csv, delimiter ',', column col_1/"
+        ],
+        "listAsIs": [
+          "1"
+        ],
+        "sortByKey": [
+          "val_1|2"
+        ],
+        "sortByValue": [
+          "val_1|2"
+        ]
+      }
+    },
+    "One column in file": {
+      "active_yn": "Y",
+      "category_set": "File Column Multiplicity",
+      "inp": {
+        "Log": [
+          ""
+        ],
+        "Scalars": [
+          ",|col_0"
+        ],
+        "Lines": [
+          "col_0",
+          "val_0"
+        ]
+      },
+      "out": {
+        "Log": [
+          "1|IN [0,2000]|LIKE /.*: File .*ut_group.csv, delimiter ',', column col_0/"
+        ],
+        "listAsIs": [
+          "1"
+        ],
+        "sortByKey": [
+          "val_0|1"
+        ],
+        "sortByValue": [
+          "val_0|1"
+        ]
+      }
+    },
+    "Multiple columns in file": {
+      "active_yn": "Y",
+      "category_set": "File Column Multiplicity",
+      "inp": {
+        "Log": [
+          ""
+        ],
+        "Scalars": [
+          ",|col_1"
+        ],
+        "Lines": [
+          "col_0,col_1,col_2",
+          "val_0,val_1,val_2"
+        ]
+      },
+      "out": {
+        "Log": [
+          "1|IN [0,2000]|LIKE /.*: File .*ut_group.csv, delimiter ',', column col_1/"
+        ],
+        "listAsIs": [
+          "1"
+        ],
+        "sortByKey": [
+          "val_1|1"
+        ],
+        "sortByValue": [
+          "val_1|1"
+        ]
+      }
+    },
+    "One key instance": {
+      "active_yn": "Y",
+      "category_set": "Key Instance Multiplicity",
+      "inp": {
+        "Log": [
+          ""
+        ],
+        "Scalars": [
+          ",|col_1"
+        ],
+        "Lines": [
+          "col_0,col_1,col_2",
+          "val_0,val_1,val_2"
+        ]
+      },
+      "out": {
+        "Log": [
+          "1|IN [0,2000]|LIKE /.*: File .*ut_group.csv, delimiter ',', column col_1/"
+        ],
+        "listAsIs": [
+          "1"
+        ],
+        "sortByKey": [
+          "val_1|1"
+        ],
+        "sortByValue": [
+          "val_1|1"
+        ]
+      }
+    },
+    "Multiple key instances": {
+      "active_yn": "Y",
+      "category_set": "Key Instance Multiplicity",
+      "inp": {
+        "Log": [
+          ""
+        ],
+        "Scalars": [
+          ",|col_1"
+        ],
+        "Lines": [
+          "col_0,col_1,col_2",
+          "val_0,val_10,val_2",
+          "val_0,val_11,val_2",
+          "val_0,val_10,val_2"
+        ]
+      },
+      "out": {
+        "Log": [
+          "1|IN [0,2000]|LIKE /.*: File .*ut_group.csv, delimiter ',', column col_1/"
+        ],
+        "listAsIs": [
+          "2"
+        ],
+        "sortByKey": [
+          "val_10|2",
+          "val_11|1"
+        ],
+        "sortByValue": [
+          "val_11|1",
+          "val_10|2"
+        ]
+      }
+    },
+    "One delimiter character": {
+      "active_yn": "Y",
+      "category_set": "Delimiter Multiplicity",
+      "inp": {
+        "Log": [
+          ""
+        ],
+        "Scalars": [
+          ",|col_1"
+        ],
+        "Lines": [
+          "col_0,col_1,col_2",
+          "val_0,val_1,val_2"
+        ]
+      },
+      "out": {
+        "Log": [
+          "1|IN [0,2000]|LIKE /.*: File .*ut_group.csv, delimiter ',', column col_1/"
+        ],
+        "listAsIs": [
+          "1"
+        ],
+        "sortByKey": [
+          "val_1|1"
+        ],
+        "sortByValue": [
+          "val_1|1"
+        ]
+      }
+    },
+    "Multiple delimiter characters": {
+      "active_yn": "Y",
+      "category_set": "Delimiter Multiplicity",
+      "inp": {
+        "Log": [
+          ""
+        ],
+        "Scalars": [
+          ";;|col_1"
+        ],
+        "Lines": [
+          "col_0;;col_1;;col_2",
+          "val_0;;val_1;;val_2"
+        ]
+      },
+      "out": {
+        "Log": [
+          "1|IN [0,2000]|LIKE /.*: File .*ut_group.csv, delimiter ',', column col_1/"
+        ],
+        "listAsIs": [
+          "1"
+        ],
+        "sortByKey": [
+          "val_1|1"
+        ],
+        "sortByValue": [
+          "val_1|1"
+        ]
+      }
+    },
+    "Short key": {
+      "active_yn": "Y",
+      "category_set": "Key Size",
+      "inp": {
+        "Log": [
+        ],
+        "Scalars": [
+          ",|col_1"
+        ],
+        "Lines": [
+          "col_0,col_1,col_2",
+          "val_0,val_1,val_2"
+        ]
+      },
+      "out": {
+        "Log": [
+          "1|IN [0,2000]|LIKE /.*: File .*ut_group.csv, delimiter ',', column col_1/"
+        ],
+        "listAsIs": [
+          "1"
+        ],
+        "sortByKey": [
+          "val_1|1"
+        ],
+        "sortByValue": [
+          "val_1|1"
+        ]
+      }
+    },
+    "Long key": {
+      "active_yn": "Y",
+      "category_set": "Key Size",
+      "inp": {
+        "Log": [
+        ],
+        "Scalars": [
+          ",|col_1"
+        ],
+        "Lines": [
+          "col_0,col_1,col_2",
+          "val_0,val45678901234567890123456789012345678901234567890,val_2"
+        ]
+      },
+      "out": {
+        "Log": [
+          "1|IN [0,2000]|LIKE /.*: File .*ut_group.csv, delimiter ',', column col_1/"
+        ],
+        "listAsIs": [
+          "1"
+        ],
+        "sortByKey": [
+          "val45678901234567890123456789012345678901234567890|1"
+        ],
+        "sortByValue": [
+          "val45678901234567890123456789012345678901234567890|1"
+        ]
+      }
+    },
+    "Log file does not exist at time of call": {
+      "active_yn": "Y",
+      "category_set": "Log file existence",
+      "inp": {
+        "Log": [
+        ],
+        "Scalars": [
+          ",|col_1"
+        ],
+        "Lines": [
+          "col_0,col_1,col_2",
+          "val_0,val_1,val_2"
+        ]
+      },
+      "out": {
+        "Log": [
+          "1|IN [0,2000]|LIKE /.*: File .*ut_group.csv, delimiter ',', column col_1/"
+        ],
+        "listAsIs": [
+          "1"
+        ],
+        "sortByKey": [
+          "val_1|1"
+        ],
+        "sortByValue": [
+          "val_1|1"
+        ]
+      }
+    },
+    "Log file exists at time of call": {
+      "active_yn": "Y",
+      "category_set": "Log file existence",
+      "inp": {
+        "Log": [
+          "Log line 1"
+        ],
+        "Scalars": [
+          ",|col_1"
+        ],
+        "Lines": [
+          "col_0,col_1,col_2",
+          "val_0,val_1,val_2"
+        ]
+      },
+      "out": {
+        "Log": [
+          "1|IN [0,2000]|LIKE /.*: File .*ut_group.csv, delimiter ',', column col_1/"
+        ],
+        "listAsIs": [
+          "1"
+        ],
+        "sortByKey": [
+          "val_1|1"
+        ],
+        "sortByValue": [
+          "val_1|1"
+        ]
+      }
+    },
+    "Order by key differs from order by value": {
+      "active_yn": "Y",
+      "category_set": "Key/Value Ordering",
+      "inp": {
+        "Log": [
+          ""
+        ],
+        "Scalars": [
+          ",|col_1"
+        ],
+        "Lines": [
+          "col_0,col_1,col_2",
+          "val_0,val_10,val_2",
+          "val_0,val_11,val_2",
+          "val_0,val_10,val_2"
+        ]
+      },
+      "out": {
+        "Log": [
+          "1|IN [0,2000]|LIKE /.*: File .*ut_group.csv, delimiter ',', column col_1/"
+        ],
+        "listAsIs": [
+          "2"
+        ],
+        "sortByKey": [
+          "val_10|2",
+          "val_11|1"
+        ],
+        "sortByValue": [
+          "val_11|1",
+          "val_10|2"
+        ]
+      }
+    },
+    "Order by key same as order by value": {
+      "active_yn": "Y",
+      "category_set": "Key/Value Ordering",
+      "inp": {
+        "Log": [
+          ""
+        ],
+        "Scalars": [
+          ",|col_1"
+        ],
+        "Lines": [
+          "col_0,col_1,col_2",
+          "val_0,val_11,val_2",
+          "val_0,val_10,val_2",
+          "val_0,val_11,val_2"
+        ]
+      },
+      "out": {
+        "Log": [
+          "1|IN [0,2000]|LIKE /.*: File .*ut_group.csv, delimiter ',', column col_1/"
+        ],
+        "listAsIs": [
+          "2"
+        ],
+        "sortByKey": [
+          "val_10|1",
+          "val_11|2"
+        ],
+        "sortByValue": [
+          "val_10|1",
+          "val_11|2"
+        ]
+      }
+    },
+    "Actual/expected mismatch": {
+      "active_yn": "Y",
+      "category_set": "Errors",
+      "inp": {
+        "Log": [
+          ""
+        ],
+        "Scalars": [
+          ",|col_1"
+        ],
+        "Lines": [
+          "col_0,col_1,col_2",
+          "val_0,val_11,val_2",
+          "val_0,val_10,val_2",
+          "val_0,val_11,val_2"
+        ]
+      },
+      "out": {
+        "Log": [
+          "2|IN [0,2000]|LIKE /.*: File .*ut_group.csv, delimiter ',', column col_1/"
+        ],
+        "listAsIs": [
+          "2"
+        ],
+        "sortByKey": [
+          "val_10|1",
+          "val_11|2"
+        ],
+        "sortByValue": [
+          "val_10|1",
+          "val_11|9999"
+        ]
+      }
+    },
+    "Unhandled exception": {
+      "active_yn": "Y",
+      "category_set": "Errors",
+      "inp": {
+        "Log": [
+          ""
+        ],
+        "Scalars": [
+          ";;|col_1"
+        ],
+        "Lines": [
+          "col_0,col_1,col_2",
+          "val_0,val_11,val_2",
+          "val_0,val_10,val_2",
+          "val_0,val_11,val_2"
+        ]
+      },
+      "out": {
+        "Log": [
+          "1|IN [0,2000]|LIKE /.*: File .*ut_group.csv, delimiter ',', column col_1/"
+        ],
+        "listAsIs": [
+          "1"
+        ],
+        "sortByKey": [
+          "val_1|1"
+        ],
+        "sortByValue": [
+          "val_1|1"
+        ]
+      }
+    }
+  }
+}

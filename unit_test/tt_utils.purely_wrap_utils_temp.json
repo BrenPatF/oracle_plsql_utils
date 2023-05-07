@@ -1,0 +1,664 @@
+{
+  "meta": {
+    "title": "title",
+    "delimiter": ";",
+    "inp": {
+      "Heading": [
+        "Text",
+        "#Blanks Pre",
+        "#Blanks Post"
+      ],
+      "Col Headers": [
+        "Text",
+        "Length"
+      ],
+      "List To Line": [
+        "Text",
+        "Length"
+      ],
+      "Join Values (list)": [
+        "Value"
+      ],
+      "Join Values (scalars)": [
+        "Value 1",
+        "Value 2",
+        "Value 3",
+        "Value 4",
+        "Value 5",
+        "Value 6",
+        "Value 7",
+        "Value 8",
+        "Value 9",
+        "Value 10",
+        "Value 11",
+        "Value 12",
+        "Value 13",
+        "Value 14",
+        "Value 15",
+        "Value 16",
+        "Value 17"
+      ],
+      "Split Values": [
+        "Delimited String"
+      ],
+      "View To List": [
+        "Select Column Name"
+      ],
+      "Cursor To List": [
+        "Cursor Text",
+        "Filter"
+      ],
+      "Cursor To Pipe": [
+        "Cursor Text",
+        "Filter"
+      ],
+      "Interval To Seconds": [
+        "Interval String"
+      ],
+      "Sleep": [
+        "Elapsed Seconds",
+        "Fraction CPU"
+      ],
+      "Raise Error": [
+        "Message"
+      ],
+      "Scalars": [
+        "Delimiter",
+        "View Name",
+        "View Where",
+        "View Order By",
+        "W Line"
+      ],
+      "W (List)": [
+        "Line"
+      ],
+      "File I/O": [
+        "File Name",
+        "#Lines",
+        "Line 1",
+        "Line 2"
+      ],
+      "XPlan Cursor": [
+        "Cursor Text",
+        "Marker",
+        "Outline Y/N"
+      ]
+    },
+    "out": {
+      "Heading": [
+        "Line"
+      ],
+      "Col Headers": [
+        "Line"
+      ],
+      "List To Line": [
+        "Line"
+      ],
+      "Join Values (list)": [
+        "Delimited String"
+      ],
+      "Join Values (scalars)": [
+        "Delimited String"
+      ],
+      "Split Values": [
+        "Value"
+      ],
+      "View To List": [
+        "Delimited String"
+      ],
+      "Cursor To List": [
+        "Delimited String"
+      ],
+      "Cursor To Pipe": [
+        "Delimited String"
+      ],
+      "Interval To Seconds": [
+        "Seconds"
+      ],
+      "Sleep": [
+        "Elapsed Seconds",
+        "CPU Seconds"
+      ],
+      "Exception": [
+        "Source",
+        "Message"
+      ],
+      "W (Line)": [
+        "Line"
+      ],
+      "W (List)": [
+        "Line"
+      ],
+      "File I/O": [
+        "#Lines",
+        "Line 1",
+        "Line 2"
+      ],
+      "XPlan List (keyword extract)": [
+        "XPlan Line"
+      ]
+    }
+  },
+  "scenarios": {
+    "Small values": {
+      "active_yn": "Y",
+      "category_set": "Value Size",
+      "inp": {
+        "Heading": [
+          "Heading;0;0"
+        ],
+        "Col Headers": [
+          "Col 1;6"
+        ],
+        "List To Line": [
+          "Value 1;8"
+        ],
+        "Join Values (list)": [
+          "Value"
+        ],
+        "Join Values (scalars)": [
+          "Value 1;;;;;;;;;;;;;;;;"
+        ],
+        "Split Values": [
+          "Value 1"
+        ],
+        "View To List": [
+          "type_name"
+        ],
+        "Cursor To List": [
+          "select type_name from user_types order by 1;(CHR|L\\\\d).+(ARR|REC)"
+        ],
+        "Cursor To Pipe": [
+          "select type_name from user_types order by 1;(CHR|L\\\\d).+(ARR|REC)"
+        ],
+        "Interval To Seconds": [
+          "0 00:00:00"
+        ],
+        "Sleep": [
+          "1;0.5"
+        ],
+        "Raise Error": [
+          "Test message"
+        ],
+        "Scalars": [
+          ",;user_types;regexp_like(type_name, '(CHR|L\\\\d).+(ARR|REC)');type_name DESC;text line"
+        ],
+        "W (List)": [
+          "1-line text list"
+        ],
+        "File I/O": [
+          "test_file.tmp;0;;"
+        ],
+        "XPlan Cursor": [
+          "SELECT /*+ gather_plan_statistics XPLAN_MARKER */ 1 FROM DUAL;XPLAN_MARKER;"
+        ]
+      },
+      "out": {
+        "Heading": [
+          "Heading"
+        ],
+        "Col Headers": [
+          "Col 1"
+        ],
+        "List To Line": [
+          "Value 1"
+        ],
+        "Join Values (list)": [
+          "Value 1"
+        ],
+        "Join Values (scalars)": [
+          "Value 1"
+        ],
+        "Split Values": [
+          "Value 1"
+        ],
+        "View To List": [
+          "L4_CHR_ARR"
+        ],
+        "Cursor To List": [
+          "L4_CHR_ARR"
+        ],
+        "Cursor To Pipe": [
+          "L4_CHR_ARR"
+        ],
+        "Interval To Seconds": [
+          "0"
+        ],
+        "Sleep": [
+          "IN [0.9,1.1];IN [0.4,0.6]"
+        ],
+        "Exception": [
+          ";"
+        ],
+        "W (Line)": [
+          "text line"
+        ],
+        "W (List)": [
+          "1-line text list"
+        ],
+        "File I/O": [
+          "0;;"
+        ],
+        "XPlan List (keyword extract)": [
+          "LIKE /SQL_ID.+, child number.+/"
+        ]
+      }
+    },
+    "Large values": {
+      "active_yn": "Y",
+      "category_set": "Value Size",
+      "inp": {
+        "Heading": [
+          "Heading;0;0"
+        ],
+        "Col Headers": [
+          "Col 1;6"
+        ],
+        "List To Line": [
+          "Value 1;8"
+        ],
+        "Join Values (list)": [
+          "Value"
+        ],
+        "Join Values (scalars)": [
+          "Value 1;;;;;;;;;;;;;;;;"
+        ],
+        "Split Values": [
+          "Value 1"
+        ],
+        "View To List": [
+          "type_name"
+        ],
+        "Cursor To List": [
+          "select type_name from user_types order by 1;(CHR|L\\\\d).+(ARR|REC)"
+        ],
+        "Cursor To Pipe": [
+          "select type_name from user_types order by 1;(CHR|L\\\\d).+(ARR|REC)"
+        ],
+        "Interval To Seconds": [
+          "0 00:00:00"
+        ],
+        "Sleep": [
+          "1;0.5"
+        ],
+        "Raise Error": [
+          "Test message"
+        ],
+        "Scalars": [
+          ",;user_types;regexp_like(type_name, '(CHR|L\\\\d).+(ARR|REC)');type_name DESC;text line"
+        ],
+        "W (List)": [
+          "1-line text list"
+        ],
+        "File I/O": [
+          "test_file.tmp;0;;"
+        ],
+        "XPlan Cursor": [
+          "SELECT /*+ gather_plan_statistics XPLAN_MARKER */ 1 FROM DUAL;XPLAN_MARKER;"
+        ]
+      },
+      "out": {
+        "Heading": [
+          "Heading"
+        ],
+        "Col Headers": [
+          "Col 1"
+        ],
+        "List To Line": [
+          "Value 1"
+        ],
+        "Join Values (list)": [
+          "Value 1"
+        ],
+        "Join Values (scalars)": [
+          "Value 1"
+        ],
+        "Split Values": [
+          "Value 1"
+        ],
+        "View To List": [
+          "L4_CHR_ARR"
+        ],
+        "Cursor To List": [
+          "L4_CHR_ARR"
+        ],
+        "Cursor To Pipe": [
+          "L4_CHR_ARR"
+        ],
+        "Interval To Seconds": [
+          "0"
+        ],
+        "Sleep": [
+          "IN [0.9,1.1];IN [0.4,0.6]"
+        ],
+        "Exception": [
+          ";"
+        ],
+        "W (Line)": [
+          "text line"
+        ],
+        "W (List)": [
+          "1-line text list"
+        ],
+        "File I/O": [
+          "0;;"
+        ],
+        "XPlan List (keyword extract)": [
+          "LIKE /SQL_ID.+, child number.+/"
+        ]
+      }
+    },
+    "One value": {
+      "active_yn": "Y",
+      "category_set": "Multiplicity",
+      "inp": {
+        "Heading": [
+          "Heading;0;0"
+        ],
+        "Col Headers": [
+          "Col 1;6"
+        ],
+        "List To Line": [
+          "Value 1;8"
+        ],
+        "Join Values (list)": [
+          "Value"
+        ],
+        "Join Values (scalars)": [
+          "Value 1;;;;;;;;;;;;;;;;"
+        ],
+        "Split Values": [
+          "Value 1"
+        ],
+        "View To List": [
+          "type_name"
+        ],
+        "Cursor To List": [
+          "select type_name from user_types order by 1;(CHR|L\\\\d).+(ARR|REC)"
+        ],
+        "Cursor To Pipe": [
+          "select type_name from user_types order by 1;(CHR|L\\\\d).+(ARR|REC)"
+        ],
+        "Interval To Seconds": [
+          "0 00:00:00"
+        ],
+        "Sleep": [
+          "1;0.5"
+        ],
+        "Raise Error": [
+          "Test message"
+        ],
+        "Scalars": [
+          ",;user_types;regexp_like(type_name, '(CHR|L\\\\d).+(ARR|REC)');type_name DESC;text line"
+        ],
+        "W (List)": [
+          "1-line text list"
+        ],
+        "File I/O": [
+          "test_file.tmp;0;;"
+        ],
+        "XPlan Cursor": [
+          "SELECT /*+ gather_plan_statistics XPLAN_MARKER */ 1 FROM DUAL;XPLAN_MARKER;"
+        ]
+      },
+      "out": {
+        "Heading": [
+          "Heading"
+        ],
+        "Col Headers": [
+          "Col 1"
+        ],
+        "List To Line": [
+          "Value 1"
+        ],
+        "Join Values (list)": [
+          "Value 1"
+        ],
+        "Join Values (scalars)": [
+          "Value 1"
+        ],
+        "Split Values": [
+          "Value 1"
+        ],
+        "View To List": [
+          "L4_CHR_ARR"
+        ],
+        "Cursor To List": [
+          "L4_CHR_ARR"
+        ],
+        "Cursor To Pipe": [
+          "L4_CHR_ARR"
+        ],
+        "Interval To Seconds": [
+          "0"
+        ],
+        "Sleep": [
+          "IN [0.9,1.1];IN [0.4,0.6]"
+        ],
+        "Exception": [
+          ";"
+        ],
+        "W (Line)": [
+          "text line"
+        ],
+        "W (List)": [
+          "1-line text list"
+        ],
+        "File I/O": [
+          "0;;"
+        ],
+        "XPlan List (keyword extract)": [
+          "LIKE /SQL_ID.+, child number.+/"
+        ]
+      }
+    },
+    "Many values": {
+      "active_yn": "Y",
+      "category_set": "Multiplicity",
+      "inp": {
+        "Heading": [
+          "Heading;0;0"
+        ],
+        "Col Headers": [
+          "Col 1;6"
+        ],
+        "List To Line": [
+          "Value 1;8"
+        ],
+        "Join Values (list)": [
+          "Value"
+        ],
+        "Join Values (scalars)": [
+          "Value 1;;;;;;;;;;;;;;;;"
+        ],
+        "Split Values": [
+          "Value 1"
+        ],
+        "View To List": [
+          "type_name"
+        ],
+        "Cursor To List": [
+          "select type_name from user_types order by 1;(CHR|L\\\\d).+(ARR|REC)"
+        ],
+        "Cursor To Pipe": [
+          "select type_name from user_types order by 1;(CHR|L\\\\d).+(ARR|REC)"
+        ],
+        "Interval To Seconds": [
+          "0 00:00:00"
+        ],
+        "Sleep": [
+          "1;0.5"
+        ],
+        "Raise Error": [
+          "Test message"
+        ],
+        "Scalars": [
+          ",;user_types;regexp_like(type_name, '(CHR|L\\\\d).+(ARR|REC)');type_name DESC;text line"
+        ],
+        "W (List)": [
+          "1-line text list"
+        ],
+        "File I/O": [
+          "test_file.tmp;0;;"
+        ],
+        "XPlan Cursor": [
+          "SELECT /*+ gather_plan_statistics XPLAN_MARKER */ 1 FROM DUAL;XPLAN_MARKER;"
+        ]
+      },
+      "out": {
+        "Heading": [
+          "Heading"
+        ],
+        "Col Headers": [
+          "Col 1"
+        ],
+        "List To Line": [
+          "Value 1"
+        ],
+        "Join Values (list)": [
+          "Value 1"
+        ],
+        "Join Values (scalars)": [
+          "Value 1"
+        ],
+        "Split Values": [
+          "Value 1"
+        ],
+        "View To List": [
+          "L4_CHR_ARR"
+        ],
+        "Cursor To List": [
+          "L4_CHR_ARR"
+        ],
+        "Cursor To Pipe": [
+          "L4_CHR_ARR"
+        ],
+        "Interval To Seconds": [
+          "0"
+        ],
+        "Sleep": [
+          "IN [0.9,1.1];IN [0.4,0.6]"
+        ],
+        "Exception": [
+          ";"
+        ],
+        "W (Line)": [
+          "text line"
+        ],
+        "W (List)": [
+          "1-line text list"
+        ],
+        "File I/O": [
+          "0;;"
+        ],
+        "XPlan List (keyword extract)": [
+          "LIKE /SQL_ID.+, child number.+/"
+        ]
+      }
+    },
+    "SQL exception raised": {
+      "active_yn": "Y",
+      "category_set": "Exception Raised",
+      "inp": {
+        "Heading": [
+          "Heading;0;0"
+        ],
+        "Col Headers": [
+          "Col 1;6"
+        ],
+        "List To Line": [
+          "Value 1;8"
+        ],
+        "Join Values (list)": [
+          "Value"
+        ],
+        "Join Values (scalars)": [
+          "Value 1;;;;;;;;;;;;;;;;"
+        ],
+        "Split Values": [
+          "Value 1"
+        ],
+        "View To List": [
+          "type_name"
+        ],
+        "Cursor To List": [
+          "select type_name from user_types order by 1;(CHR|L\\\\d).+(ARR|REC)"
+        ],
+        "Cursor To Pipe": [
+          "select type_name from user_types order by 1;(CHR|L\\\\d).+(ARR|REC)"
+        ],
+        "Interval To Seconds": [
+          "0 00:00:00"
+        ],
+        "Sleep": [
+          "1;0.5"
+        ],
+        "Raise Error": [
+          "Test message"
+        ],
+        "Scalars": [
+          ",;user_types;regexp_like(type_name, '(CHR|L\\\\d).+(ARR|REC)');type_name DESC;text line"
+        ],
+        "W (List)": [
+          "1-line text list"
+        ],
+        "File I/O": [
+          "test_file.tmp;0;;"
+        ],
+        "XPlan Cursor": [
+          "SELECT /*+ gather_plan_statistics XPLAN_MARKER */ 1 FROM DUAL;XPLAN_MARKER;"
+        ]
+      },
+      "out": {
+        "Heading": [
+          "Heading"
+        ],
+        "Col Headers": [
+          "Col 1"
+        ],
+        "List To Line": [
+          "Value 1"
+        ],
+        "Join Values (list)": [
+          "Value 1"
+        ],
+        "Join Values (scalars)": [
+          "Value 1"
+        ],
+        "Split Values": [
+          "Value 1"
+        ],
+        "View To List": [
+          "L4_CHR_ARR"
+        ],
+        "Cursor To List": [
+          "L4_CHR_ARR"
+        ],
+        "Cursor To Pipe": [
+          "L4_CHR_ARR"
+        ],
+        "Interval To Seconds": [
+          "0"
+        ],
+        "Sleep": [
+          "IN [0.9,1.1];IN [0.4,0.6]"
+        ],
+        "Exception": [
+          ";"
+        ],
+        "W (Line)": [
+          "text line"
+        ],
+        "W (List)": [
+          "1-line text list"
+        ],
+        "File I/O": [
+          "0;;"
+        ],
+        "XPlan List (keyword extract)": [
+          "LIKE /SQL_ID.+, child number.+/"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+
+Unit Test Results Summary for Folder C:\Users\Brend\Dropbox\Home\WIP\github_stage\node_modules\trapit\externals\oracle_plsql
+============================================================================================================================
+ File                                         Title                           Inp Groups  Out Groups  Tests  Fails  Folder                        
+--------------------------------------------  ------------------------------  ----------  ----------  -----  -----  ------------------------------
+ tt_log_set.purely_wrap_log_set_out.json      Oracle PL/SQL Log Set                    6           6     21      0  oracle-pl_sql-log-set         
+ tt_net_pipe.purely_wrap_all_nets_out.json    Oracle PL/SQL Network Analysis           1           2      3      0  oracle-pl_sql-network-analysis
+ tt_timer_set.purely_wrap_timer_set_out.json  Oracle PL/SQL Timer Set                  2           9      8      0  oracle-pl_sql-timer-set       
+*tt_utils.purely_wrap_utils_out.json          Oracle PL/SQL Utilities                 16          17      5      2  oracle-pl_sql-utilities       
+
+1 externals failed, see C:\Users\Brend\Dropbox\Home\WIP\github_stage\node_modules\trapit\externals\oracle_plsql for scenario listings
+tt_utils.purely_wrap_utils_out.json

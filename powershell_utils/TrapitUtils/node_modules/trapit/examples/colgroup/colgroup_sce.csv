@@ -1,0 +1,18 @@
+Category Set,Scenario,Active
+Lines Multiplicity,No lines,Y
+Lines Multiplicity,One line,Y
+Lines Multiplicity,Multiple lines,Y
+File Column Multiplicity,One column in file,Y
+File Column Multiplicity,Multiple columns in file,Y
+Key Instance Multiplicity,One key instance,Y
+Key Instance Multiplicity,Multiple key instances,Y
+Delimiter Multiplicity,One delimiter character,Y
+Delimiter Multiplicity,Multiple delimiter characters,Y
+Key Size,Short key,Y
+Key Size,Long key,Y
+Log file existence,Log file does not exist at time of call,Y
+Log file existence,Log file exists at time of call,Y
+Key/Value Ordering,Order by key same as order by value,Y
+Key/Value Ordering,Order by key differs from order by value,Y
+Errors,Actual/expected mismatch,Y
+Errors,Unhandled exception,Y

@@ -1,0 +1,11 @@
+
+Results summary for file: C:/Users/Brend/Dropbox/Home/WIP/github_stage/powershell_utils/TrapitUtils/unit_test/get_ut_template_object_out.json
+=============================================================================================================================================
+
+File:          get_ut_template_object_out.json
+Title:         Get UT Template Object
+Inp Groups:    4
+Out Groups:    6
+Tests:         18
+Fails:         0
+Folder:        get-ut-template-object

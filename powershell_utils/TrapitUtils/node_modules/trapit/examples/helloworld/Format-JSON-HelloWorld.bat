@@ -1,0 +1,1 @@
+pwsh .\Format-JSON-HelloWorld.ps1  > .\Format-JSON-HelloWorld.out 2> .\Format-JSON-HelloWorld.err

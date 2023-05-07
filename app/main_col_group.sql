@@ -62,6 +62,7 @@ DECLARE
   l_csr         SYS_REFCURSOR;
   l_res_lis     L1_chr_arr;
   l_line_1_lis  L1_chr_arr;
+  l_cursor_rec  Utils.cursor_rec;
   PROCEDURE Heading(p_head VARCHAR2) IS
   BEGIN
     Utils.W(p_line => '.');
@@ -72,6 +73,16 @@ BEGIN
   Heading(p_head => 'Utils.Cursor_To_List on user_objects...');
   OPEN l_csr FOR 'SELECT object_name, object_id, created, timestamp FROM user_objects';
   l_res_lis := Utils.Cursor_To_List(x_csr => l_csr);
+  Utils.W(p_line_lis => l_res_lis);
+
+  Heading(p_head => 'Utils.Prep_Cursor on user_objects...');
+  OPEN l_csr FOR 'SELECT object_name, object_id, created, timestamp FROM user_objects';
+  l_cursor_rec := Utils.Prep_Cursor(x_csr => l_csr);
+  Utils.W('Cursor prepared, now fetch...');
+  SELECT COLUMN_VALUE
+    BULK COLLECT INTO l_res_lis
+    FROM TABLE(Utils.Pipe_Cursor(p_cursor_rec => l_cursor_rec));
+  DBMS_SQL.Close_Cursor(l_cursor_rec.csr_id);
   Utils.W(p_line_lis => l_res_lis);
 
   Heading(p_head => 'Utils.Split_Values on first line...');

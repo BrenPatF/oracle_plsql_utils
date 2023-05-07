@@ -1,0 +1,1 @@
+pwsh .\Format-JSON-GetUTResults.ps1  > .\Format-JSON-GetUTResults.out 2> .\Format-JSON-GetUTResults.err

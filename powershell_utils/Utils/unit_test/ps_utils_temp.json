@@ -1,0 +1,423 @@
+{
+  "meta": {
+    "title": "title",
+    "delimiter": "|",
+    "inp": {
+      "Scalars": [
+        "Delimiter",
+        "Indent"
+      ],
+      "Write-Debug": [
+        "Message",
+        "New Y/N",
+        "File Name"
+      ],
+      "Get-ObjLisFromCsv": [
+        "Line"
+      ],
+      "Get-Heading": [
+        "Title"
+      ],
+      "Get-ColHeaders": [
+        "Value",
+        "Length"
+      ],
+      "Get-2LisAsLine": [
+        "Value",
+        "Length"
+      ],
+      "Get-StrLisFromObjLis": [
+        "Line"
+      ],
+      "Remove-ExtraLF": [
+        "Line"
+      ],
+      "Install-Module": [
+        "Source Folder",
+        "Module Name"
+      ]
+    },
+    "out": {
+      "Write-Debug": [
+        "Line"
+      ],
+      "Get-ObjLisFromCsv": [
+        "Line"
+      ],
+      "Get-Heading": [
+        "Line"
+      ],
+      "Get-ColHeaders": [
+        "Line"
+      ],
+      "Get-2LisAsLine": [
+        "Line"
+      ],
+      "Get-StrLisFromObjLis": [
+        "Line"
+      ],
+      "Remove-ExtraLF": [
+        "Line"
+      ],
+      "Install-Module": [
+        "File Path"
+      ]
+    }
+  },
+  "scenarios": {
+    "Defaulted": {
+      "active_yn": "Y",
+      "category_set": "Defaulting",
+      "inp": {
+        "Scalars": [
+          "|"
+        ],
+        "Write-Debug": [
+          "|Y|"
+        ],
+        "Get-ObjLisFromCsv": [
+          "Field1,Field2"
+        ],
+        "Get-Heading": [
+          "Heading"
+        ],
+        "Get-ColHeaders": [
+          "Header 1|8"
+        ],
+        "Get-2LisAsLine": [
+          "Field1|8"
+        ],
+        "Get-StrLisFromObjLis": [
+          "Field1,Field2"
+        ],
+        "Remove-ExtraLF": [
+          "Line 1"
+        ],
+        "Install-Module": [
+          "./|TestModule"
+        ]
+      },
+      "out": {
+        "Write-Debug": [
+          "Debug starting, "
+        ],
+        "Get-ObjLisFromCsv": [
+          "Field1,Field2"
+        ],
+        "Get-Heading": [
+          "Heading"
+        ],
+        "Get-ColHeaders": [
+          "Header 1"
+        ],
+        "Get-2LisAsLine": [
+          "Field 1"
+        ],
+        "Get-StrLisFromObjLis": [
+          "Field 1|Field 2"
+        ],
+        "Remove-ExtraLF": [
+          "Line 1"
+        ],
+        "Install-Module": [
+          "TestModule"
+        ]
+      }
+    },
+    "Not Defaulted": {
+      "active_yn": "Y",
+      "category_set": "Defaulting",
+      "inp": {
+        "Scalars": [
+          "|"
+        ],
+        "Write-Debug": [
+          "|Y|"
+        ],
+        "Get-ObjLisFromCsv": [
+          "Field1,Field2"
+        ],
+        "Get-Heading": [
+          "Heading"
+        ],
+        "Get-ColHeaders": [
+          "Header 1|8"
+        ],
+        "Get-2LisAsLine": [
+          "Field1|8"
+        ],
+        "Get-StrLisFromObjLis": [
+          "Field1,Field2"
+        ],
+        "Remove-ExtraLF": [
+          "Line 1"
+        ],
+        "Install-Module": [
+          "./|TestModule"
+        ]
+      },
+      "out": {
+        "Write-Debug": [
+          "Debug starting, "
+        ],
+        "Get-ObjLisFromCsv": [
+          "Field1,Field2"
+        ],
+        "Get-Heading": [
+          "Heading"
+        ],
+        "Get-ColHeaders": [
+          "Header 1"
+        ],
+        "Get-2LisAsLine": [
+          "Field 1"
+        ],
+        "Get-StrLisFromObjLis": [
+          "Field 1|Field 2"
+        ],
+        "Remove-ExtraLF": [
+          "Line 1"
+        ],
+        "Install-Module": [
+          "TestModule"
+        ]
+      }
+    },
+    "Small": {
+      "active_yn": "Y",
+      "category_set": "Size",
+      "inp": {
+        "Scalars": [
+          "|"
+        ],
+        "Write-Debug": [
+          "|Y|"
+        ],
+        "Get-ObjLisFromCsv": [
+          "Field1,Field2"
+        ],
+        "Get-Heading": [
+          "Heading"
+        ],
+        "Get-ColHeaders": [
+          "Header 1|8"
+        ],
+        "Get-2LisAsLine": [
+          "Field1|8"
+        ],
+        "Get-StrLisFromObjLis": [
+          "Field1,Field2"
+        ],
+        "Remove-ExtraLF": [
+          "Line 1"
+        ],
+        "Install-Module": [
+          "./|TestModule"
+        ]
+      },
+      "out": {
+        "Write-Debug": [
+          "Debug starting, "
+        ],
+        "Get-ObjLisFromCsv": [
+          "Field1,Field2"
+        ],
+        "Get-Heading": [
+          "Heading"
+        ],
+        "Get-ColHeaders": [
+          "Header 1"
+        ],
+        "Get-2LisAsLine": [
+          "Field 1"
+        ],
+        "Get-StrLisFromObjLis": [
+          "Field 1|Field 2"
+        ],
+        "Remove-ExtraLF": [
+          "Line 1"
+        ],
+        "Install-Module": [
+          "TestModule"
+        ]
+      }
+    },
+    "Large": {
+      "active_yn": "Y",
+      "category_set": "Size",
+      "inp": {
+        "Scalars": [
+          "|"
+        ],
+        "Write-Debug": [
+          "|Y|"
+        ],
+        "Get-ObjLisFromCsv": [
+          "Field1,Field2"
+        ],
+        "Get-Heading": [
+          "Heading"
+        ],
+        "Get-ColHeaders": [
+          "Header 1|8"
+        ],
+        "Get-2LisAsLine": [
+          "Field1|8"
+        ],
+        "Get-StrLisFromObjLis": [
+          "Field1,Field2"
+        ],
+        "Remove-ExtraLF": [
+          "Line 1"
+        ],
+        "Install-Module": [
+          "./|TestModule"
+        ]
+      },
+      "out": {
+        "Write-Debug": [
+          "Debug starting, "
+        ],
+        "Get-ObjLisFromCsv": [
+          "Field1,Field2"
+        ],
+        "Get-Heading": [
+          "Heading"
+        ],
+        "Get-ColHeaders": [
+          "Header 1"
+        ],
+        "Get-2LisAsLine": [
+          "Field 1"
+        ],
+        "Get-StrLisFromObjLis": [
+          "Field 1|Field 2"
+        ],
+        "Remove-ExtraLF": [
+          "Line 1"
+        ],
+        "Install-Module": [
+          "TestModule"
+        ]
+      }
+    },
+    "Few": {
+      "active_yn": "Y",
+      "category_set": "Multiplicity",
+      "inp": {
+        "Scalars": [
+          "|"
+        ],
+        "Write-Debug": [
+          "|Y|"
+        ],
+        "Get-ObjLisFromCsv": [
+          "Field1,Field2"
+        ],
+        "Get-Heading": [
+          "Heading"
+        ],
+        "Get-ColHeaders": [
+          "Header 1|8"
+        ],
+        "Get-2LisAsLine": [
+          "Field1|8"
+        ],
+        "Get-StrLisFromObjLis": [
+          "Field1,Field2"
+        ],
+        "Remove-ExtraLF": [
+          "Line 1"
+        ],
+        "Install-Module": [
+          "./|TestModule"
+        ]
+      },
+      "out": {
+        "Write-Debug": [
+          "Debug starting, "
+        ],
+        "Get-ObjLisFromCsv": [
+          "Field1,Field2"
+        ],
+        "Get-Heading": [
+          "Heading"
+        ],
+        "Get-ColHeaders": [
+          "Header 1"
+        ],
+        "Get-2LisAsLine": [
+          "Field 1"
+        ],
+        "Get-StrLisFromObjLis": [
+          "Field 1|Field 2"
+        ],
+        "Remove-ExtraLF": [
+          "Line 1"
+        ],
+        "Install-Module": [
+          "TestModule"
+        ]
+      }
+    },
+    "Many": {
+      "active_yn": "Y",
+      "category_set": "Multiplicity",
+      "inp": {
+        "Scalars": [
+          "|"
+        ],
+        "Write-Debug": [
+          "|Y|"
+        ],
+        "Get-ObjLisFromCsv": [
+          "Field1,Field2"
+        ],
+        "Get-Heading": [
+          "Heading"
+        ],
+        "Get-ColHeaders": [
+          "Header 1|8"
+        ],
+        "Get-2LisAsLine": [
+          "Field1|8"
+        ],
+        "Get-StrLisFromObjLis": [
+          "Field1,Field2"
+        ],
+        "Remove-ExtraLF": [
+          "Line 1"
+        ],
+        "Install-Module": [
+          "./|TestModule"
+        ]
+      },
+      "out": {
+        "Write-Debug": [
+          "Debug starting, "
+        ],
+        "Get-ObjLisFromCsv": [
+          "Field1,Field2"
+        ],
+        "Get-Heading": [
+          "Heading"
+        ],
+        "Get-ColHeaders": [
+          "Header 1"
+        ],
+        "Get-2LisAsLine": [
+          "Field 1"
+        ],
+        "Get-StrLisFromObjLis": [
+          "Field 1|Field 2"
+        ],
+        "Remove-ExtraLF": [
+          "Line 1"
+        ],
+        "Install-Module": [
+          "TestModule"
+        ]
+      }
+    }
+  }
+}

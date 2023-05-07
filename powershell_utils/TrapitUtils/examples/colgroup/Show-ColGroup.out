@@ -1,0 +1,84 @@
+
+Counts sorted by (as is)
+========================
+Team         #apps
+-----------  -----
+Blackburn       33
+Swansea       1180
+Man City      1099
+Newcastle     1247
+Wolves          31
+Sunderland    1162
+Liverpool     1227
+Chelsea       1147
+Fulham        1209
+Everton       1147
+West Brom     1219
+Norwich       1229
+Tottenham     1288
+Bolton          37
+Arsenal        534
+QPR           1517
+West Ham      1126
+Southampton   1110
+Reading       1167
+Wigan         1036
+Aston Villa    685
+Stoke City    1170
+Man Utd       1231
+
+Counts sorted by key
+====================
+Team         #apps
+-----------  -----
+Arsenal        534
+Aston Villa    685
+Blackburn       33
+Bolton          37
+Chelsea       1147
+Everton       1147
+Fulham        1209
+Liverpool     1227
+Man City      1099
+Man Utd       1231
+Newcastle     1247
+Norwich       1229
+QPR           1517
+Reading       1167
+Southampton   1110
+Stoke City    1170
+Sunderland    1162
+Swansea       1180
+Tottenham     1288
+West Brom     1219
+West Ham      1126
+Wigan         1036
+Wolves          31
+
+Counts sorted by value
+======================
+Team         #apps
+-----------  -----
+Wolves          31
+Blackburn       33
+Bolton          37
+Arsenal        534
+Aston Villa    685
+Wigan         1036
+Man City      1099
+Southampton   1110
+West Ham      1126
+Chelsea       1147
+Everton       1147
+Sunderland    1162
+Reading       1167
+Stoke City    1170
+Swansea       1180
+Fulham        1209
+West Brom     1219
+Liverpool     1227
+Norwich       1229
+Man Utd       1231
+Newcastle     1247
+Tottenham     1288
+QPR           1517

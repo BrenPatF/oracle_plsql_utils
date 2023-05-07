@@ -1,0 +1,21 @@
+{ "meta": {
+    "title": "Hello World - JavaScript",
+    "inp": {},
+    "out": {
+        "Group": [
+            "Greeting"
+        ]
+    }
+},
+"scenarios" : { 
+   "Scenario": 
+   {
+    "active_yn" : "Y",
+    "inp": {},
+    "out": {
+        "Group": [
+            "Hello World!"
+        ]
+    }
+}
+}}

@@ -1,0 +1,7 @@
+File:          helloworld_out.json
+Title:         Hello World - Powershell
+Inp Groups:    0
+Out Groups:    2
+Tests:         1
+Fails:         0
+Folder:        hello-world---powershell

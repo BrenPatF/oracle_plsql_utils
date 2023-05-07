@@ -1,0 +1,1938 @@
+{
+  "meta": {
+    "title": "getUTResults",
+    "delimiter": "|",
+    "inp": {
+      "Report": [
+        "Title",
+        "Include Category Set"
+      ],
+      "Input Fields": [
+        "Group",
+        "Field"
+      ],
+      "Output Fields": [
+        "Group",
+        "Field"
+      ],
+      "Scenarios": [
+        "Scenario",
+        "Category Set"
+      ],
+      "Input Values": [
+        "Scenario",
+        "Group",
+        "Row CSV"
+      ],
+      "Expected Values": [
+        "Scenario",
+        "Group",
+        "Row CSV"
+      ],
+      "Actual Values": [
+        "Scenario",
+        "Group",
+        "Row CSV"
+      ]
+    },
+    "out": {
+      "Summaries": [
+        "Type",
+        "Scenario",
+        "Group",
+        "Header 1",
+        "Header 2",
+        "Footer",
+        "# Records",
+        "# Fails",
+        "Status"
+      ],
+      "Input Fields": [
+        "Scenario",
+        "Group",
+        "Name",
+        "Length"
+      ],
+      "Output Fields": [
+        "Scenario",
+        "Group",
+        "Name",
+        "Length"
+      ],
+      "Input Values": [
+        "Scenario",
+        "Group",
+        "Row CSV"
+      ],
+      "Output Values": [
+        "Scenario",
+        "Group",
+        "Row CSV"
+      ]
+    }
+  },
+  "scenarios": {
+    "No input groups": {
+      "active_yn": "Y",
+      "category_set": "Input Group Multiplicity",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1"
+        ],
+        "Input Values": [
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT|Category Set|Test scenarios: 0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1 [Category Set: Category set 1]|INPUTS-OUTPUTS|0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1||0 failed of 1: SUCCESS|1|0|SUCCESS"
+        ],
+        "Input Fields": [
+        ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|1",
+          "Scenario 1|Output group 1|Output field 1|14"
+        ],
+        "Input Values": [
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|1~Output Value 1"
+        ]
+      }
+    },
+    "One input group": {
+      "active_yn": "Y",
+      "category_set": "Input Group Multiplicity",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1"
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT|Category Set|Test scenarios: 0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1 [Category Set: Category set 1]|INPUTS-OUTPUTS|0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1||0 failed of 1: SUCCESS|1|0|SUCCESS"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1|13"
+        ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|1",
+          "Scenario 1|Output group 1|Output field 1|14"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|1~Input Value 1"
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|1~Output Value 1"
+        ]
+      }
+    },
+    "Multiple input groups": {
+      "active_yn": "Y",
+      "category_set": "Input Group Multiplicity",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1-1",
+          "Input group 2|Input field 2-1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1-1",
+          "Scenario 1|Input group 2|Input Value 2-1"
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT|Category Set|Test scenarios: 0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1 [Category Set: Category set 1]|INPUTS-OUTPUTS|0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1|||||",
+          "Input group|Scenario 1|Input group 2|GROUP 2: Input group 2|||||",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1||0 failed of 1: SUCCESS|1|0|SUCCESS"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1-1|15",
+          "Scenario 1|Input group 2|#|1",
+          "Scenario 1|Input group 2|Input field 2-1|15"
+       ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|1",
+          "Scenario 1|Output group 1|Output field 1|14"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|1~Input Value 1-1",
+          "Scenario 1|Input group 2|1~Input Value 2-1"
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|1~Output Value 1"
+        ]
+      }
+    },
+    "No output groups": {
+      "active_yn": "Y",
+      "category_set": "Output Group Multiplicity",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1"
+        ],
+        "Expected Values": [
+        ],
+        "Actual Values": [
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT|Category Set|Test scenarios: 0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1 [Category Set: Category set 1]|INPUTS-OUTPUTS|0 failed of 0: SUCCESS|0|0|SUCCESS",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1|||||"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1|13"
+        ],
+        "Output Fields": [
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|1~Input Value 1"
+        ],
+        "Output Values": [
+        ]
+      }
+    },
+    "One output group": {
+      "active_yn": "Y",
+      "category_set": "Output Group Multiplicity",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1"
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT|Category Set|Test scenarios: 0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1 [Category Set: Category set 1]|INPUTS-OUTPUTS|0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1||0 failed of 1: SUCCESS|1|0|SUCCESS"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1|13"
+        ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|1",
+          "Scenario 1|Output group 1|Output field 1|14"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|1~Input Value 1"
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|1~Output Value 1"
+        ]
+      }
+    },
+    "Multiple output groups": {
+      "active_yn": "Y",
+      "category_set": "Output Group Multiplicity",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1-1",
+          "Output group 2|Output field 2-1"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1"
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|Output Value 1-1",
+          "Scenario 1|Output group 2|Output Value 2-1"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|Output Value 1-1",
+          "Scenario 1|Output group 2|Output Value 2-1"
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT|Category Set|Test scenarios: 0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1 [Category Set: Category set 1]|INPUTS-OUTPUTS|0 failed of 2: SUCCESS|2|0|SUCCESS",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1||0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Output group|Scenario 1|Output group 2|GROUP 2: Output group 2||0 failed of 1: SUCCESS|1|0|SUCCESS"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1|13"
+        ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|1",
+          "Scenario 1|Output group 1|Output field 1-1|16",
+          "Scenario 1|Output group 2|#|1",
+          "Scenario 1|Output group 2|Output field 2-1|16"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|1~Input Value 1"
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|1~Output Value 1-1",
+          "Scenario 1|Output group 2|1~Output Value 2-1"
+        ]
+      }
+    },
+    "One input group field": {
+      "active_yn": "Y",
+      "category_set": "Input Field Multiplicity",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1"
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT|Category Set|Test scenarios: 0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1 [Category Set: Category set 1]|INPUTS-OUTPUTS|0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1||0 failed of 1: SUCCESS|1|0|SUCCESS"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1|13"
+        ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|1",
+          "Scenario 1|Output group 1|Output field 1|14"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|1~Input Value 1"
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|1~Output Value 1"
+        ]
+      }
+    },
+    "Multiple input fields": {
+      "active_yn": "Y",
+      "category_set": "Input Field Multiplicity",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1-1~Input field 1-2"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1-1",
+          "Scenario 1|Input group 1|Input Value 1-2"
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT|Category Set|Test scenarios: 0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1 [Category Set: Category set 1]|INPUTS-OUTPUTS|0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1||0 failed of 1: SUCCESS|1|0|SUCCESS"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1-1~Input field 1-2|31"
+        ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|1",
+          "Scenario 1|Output group 1|Output field 1|14"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|1~Input Value 1-1",
+          "Scenario 1|Input group 1|2~Input Value 1-2"
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|1~Output Value 1"
+        ]
+      }
+    },
+    "One output group field": {
+      "active_yn": "Y",
+      "category_set": "Output Field Multiplicity",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1"
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT|Category Set|Test scenarios: 0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1 [Category Set: Category set 1]|INPUTS-OUTPUTS|0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1||0 failed of 1: SUCCESS|1|0|SUCCESS"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1|13"
+        ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|1",
+          "Scenario 1|Output group 1|Output field 1|14"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|1~Input Value 1"
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|1~Output Value 1"
+        ]
+      }
+    },
+    "Multiple output fields": {
+      "active_yn": "Y",
+      "category_set": "Output Field Multiplicity",
+      "active_yn": "Y",
+      "category_set": "Output Field Multiplicity",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1",
+          "Output group 1|Output field 2"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1"
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|Output Value 1~Output Value 2"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|Output Value 1~Output Value 2"
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT|Category Set|Test scenarios: 0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1 [Category Set: Category set 1]|INPUTS-OUTPUTS|0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1||0 failed of 1: SUCCESS|1|0|SUCCESS"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1|13"
+        ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|1",
+          "Scenario 1|Output group 1|Output field 1|14",
+          "Scenario 1|Output group 1|Output field 2|14"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|1~Input Value 1"
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|1~Output Value 1~Output Value 2"
+        ]
+      }
+    },
+    "No input group records": {
+      "active_yn": "Y",
+      "category_set": "Input Record Multiplicity",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1"
+        ],
+        "Input Values": [
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT|Category Set|Test scenarios: 0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1 [Category Set: Category set 1]|INPUTS-OUTPUTS|0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1: Empty|||||",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1||0 failed of 1: SUCCESS|1|0|SUCCESS"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1|13"
+        ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|1",
+          "Scenario 1|Output group 1|Output field 1|14"
+        ],
+        "Input Values": [
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|1~Output Value 1"
+        ]
+      }
+    },
+    "One input group record": {
+      "active_yn": "Y",
+      "category_set": "Input Record Multiplicity",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1"
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT|Category Set|Test scenarios: 0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1 [Category Set: Category set 1]|INPUTS-OUTPUTS|0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1||0 failed of 1: SUCCESS|1|0|SUCCESS"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1|13"
+        ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|1",
+          "Scenario 1|Output group 1|Output field 1|14"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|1~Input Value 1"
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|1~Output Value 1"
+        ]
+      }
+    },
+    "Multiple input group records": {
+      "active_yn": "Y",
+      "category_set": "Input Record Multiplicity",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1"
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT|Category Set|Test scenarios: 0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1 [Category Set: Category set 1]|INPUTS-OUTPUTS|0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1||0 failed of 1: SUCCESS|1|0|SUCCESS"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1|13"
+        ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|1",
+          "Scenario 1|Output group 1|Output field 1|14"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|1~Input Value 1"
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|1~Output Value 1"
+        ]
+      }
+    },
+    "No output group records": {
+      "active_yn": "Y",
+      "category_set": "Output Record Multiplicity",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1"
+        ],
+        "Expected Values": [
+        ],
+        "Actual Values": [
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT|Category Set|Test scenarios: 0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1 [Category Set: Category set 1]|INPUTS-OUTPUTS|0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1: Empty as expected: SUCCESS||0 failed of 0: SUCCESS|0|0|SUCCESS"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1|13"
+        ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|",
+          "Scenario 1|Output group 1|Output field 1|"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|1~Input Value 1"
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|"
+        ]
+      }
+    },
+    "One output group record": {
+      "active_yn": "Y",
+      "category_set": "Output Record Multiplicity",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1"
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT|Category Set|Test scenarios: 0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1 [Category Set: Category set 1]|INPUTS-OUTPUTS|0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1||0 failed of 1: SUCCESS|1|0|SUCCESS"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1|13"
+        ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|1",
+          "Scenario 1|Output group 1|Output field 1|14"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|1~Input Value 1"
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|1~Output Value 1"
+        ]
+      }
+    },
+    "Multiple output group records": {
+      "active_yn": "Y",
+      "category_set": "Output Record Multiplicity",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1"
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|Output Value 1",
+          "Scenario 1|Output group 1|Output Value 2"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|Output Value 1",
+          "Scenario 1|Output group 1|Output Value 2"
+       ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT|Category Set|Test scenarios: 0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1 [Category Set: Category set 1]|INPUTS-OUTPUTS|0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1||0 failed of 2: SUCCESS|2|0|SUCCESS"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1|13"
+        ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|1",
+          "Scenario 1|Output group 1|Output field 1|14"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|1~Input Value 1"
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|1~Output Value 1",
+          "Scenario 1|Output group 1|2~Output Value 2"
+        ]
+      }
+    },
+    "No scenarios": {
+      "active_yn": "Y",
+      "category_set": "Scenario Multiplicity",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+        ],
+        "Input Values": [
+        ],
+        "Expected Values": [
+        ],
+        "Actual Values": [
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT||Test scenarios: 0 failed of 0: SUCCESS|0|0|SUCCESS"
+        ],
+        "Input Fields": [
+        ],
+        "Output Fields": [
+        ],
+        "Input Values": [
+        ],
+        "Output Values": [
+        ]
+      }
+    },
+    "One scenario": {
+      "active_yn": "Y",
+      "category_set": "Scenario Multiplicity",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1"
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT|Category Set|Test scenarios: 0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1 [Category Set: Category set 1]|INPUTS-OUTPUTS|0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1||0 failed of 1: SUCCESS|1|0|SUCCESS"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1|13"
+        ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|1",
+          "Scenario 1|Output group 1|Output field 1|14"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|1~Input Value 1"
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|1~Output Value 1"
+        ]
+      }
+    },
+    "Multiple scenarios": {
+      "active_yn": "Y",
+      "category_set": "Scenario Multiplicity",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1",
+          "Scenario 2|Category set 1"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1-1",
+          "Scenario 2|Input group 1|Input Value 2-1"
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|Output Value 1-1",
+          "Scenario 2|Output group 1|Output Value 2-1"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|Output Value 1-1",
+          "Scenario 2|Output group 1|Output Value 2-1"
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT|Category Set|Test scenarios: 0 failed of 2: SUCCESS|2|0|SUCCESS",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1 [Category Set: Category set 1]|INPUTS-OUTPUTS|0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1||0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Scenario|Scenario 2||SCENARIO 2: Scenario 2 [Category Set: Category set 1]|INPUTS-OUTPUTS|0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Input group|Scenario 2|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 2|Output group 1|GROUP 1: Output group 1||0 failed of 1: SUCCESS|1|0|SUCCESS"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1|15",
+          "Scenario 2|Input group 1|#|1",
+          "Scenario 2|Input group 1|Input field 1|15"
+        ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|1",
+          "Scenario 1|Output group 1|Output field 1|16",
+          "Scenario 2|Output group 1|#|1",
+          "Scenario 2|Output group 1|Output field 1|16"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|1~Input Value 1-1",
+          "Scenario 2|Input group 1|1~Input Value 2-1"
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|1~Output Value 1-1",
+          "Scenario 2|Output group 1|1~Output Value 2-1"
+        ]
+      }
+    },
+    "All scenarios pass": {
+      "active_yn": "Y",
+      "category_set": "Test Status",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1",
+          "Scenario 2|Category set 1"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1-1",
+          "Scenario 2|Input group 1|Input Value 2-1"
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|Output Value 1-1",
+          "Scenario 2|Output group 1|Output Value 2-1"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|Output Value 1-1",
+          "Scenario 2|Output group 1|Output Value 2-1"
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT|Category Set|Test scenarios: 0 failed of 2: SUCCESS|2|0|SUCCESS",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1 [Category Set: Category set 1]|INPUTS-OUTPUTS|0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1||0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Scenario|Scenario 2||SCENARIO 2: Scenario 2 [Category Set: Category set 1]|INPUTS-OUTPUTS|0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Input group|Scenario 2|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 2|Output group 1|GROUP 1: Output group 1||0 failed of 1: SUCCESS|1|0|SUCCESS"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1|15",
+          "Scenario 2|Input group 1|#|1",
+          "Scenario 2|Input group 1|Input field 1|15"
+        ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|1",
+          "Scenario 1|Output group 1|Output field 1|16",
+          "Scenario 2|Output group 1|#|1",
+          "Scenario 2|Output group 1|Output field 1|16"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|1~Input Value 1-1",
+          "Scenario 2|Input group 1|1~Input Value 2-1"
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|1~Output Value 1-1",
+          "Scenario 2|Output group 1|1~Output Value 2-1"
+        ]
+      }
+    },
+    "At least one scenario fails": {
+      "active_yn": "Y",
+      "category_set": "Test Status",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1",
+          "Scenario 2|Category set 1"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1-1",
+          "Scenario 2|Input group 1|Input Value 2-1"
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|Output Value 1-1",
+          "Scenario 2|Output group 1|Output Value 2-1"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|Output Value 1-1",
+          "Scenario 2|Output group 1|Incorrect Output Value 2-1"
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT|Category Set|Test scenarios: 1 failed of 2: FAILURE|2|1|FAILURE",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1 [Category Set: Category set 1]|INPUTS-OUTPUTS|0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1||0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Scenario|Scenario 2||SCENARIO 2: Scenario 2 [Category Set: Category set 1]|INPUTS-OUTPUTS|1 failed of 1: FAILURE|1|1|FAILURE",
+          "Input group|Scenario 2|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 2|Output group 1|GROUP 1: Output group 1||1 failed of 1: FAILURE|1|1|FAILURE"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1|15",
+          "Scenario 2|Input group 1|#|1",
+          "Scenario 2|Input group 1|Input field 1|15"
+        ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|1",
+          "Scenario 1|Output group 1|Output field 1|16",
+          "Scenario 2|Output group 1|#|2",
+          "Scenario 2|Output group 1|Output field 1|26"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|1~Input Value 1-1",
+          "Scenario 2|Input group 1|1~Input Value 2-1"
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|1~Output Value 1-1",
+          "Scenario 2|Output group 1|1~Output Value 2-1",
+          "Scenario 2|Output group 1|1*~Incorrect Output Value 2-1"
+        ]
+      }
+    },
+    "Exact string pass": {
+      "active_yn": "Y",
+      "category_set": "Match Type String",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1"
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT|Category Set|Test scenarios: 0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1 [Category Set: Category set 1]|INPUTS-OUTPUTS|0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1||0 failed of 1: SUCCESS|1|0|SUCCESS"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1|13"
+        ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|1",
+          "Scenario 1|Output group 1|Output field 1|14"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|1~Input Value 1"
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|1~Output Value 1"
+        ]
+      }
+    },
+    "Exact string fail": {
+      "active_yn": "Y",
+      "category_set": "Match Type String",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1"
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|Output Value 2"
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT|Category Set|Test scenarios: 1 failed of 1: FAILURE|1|1|FAILURE",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1 [Category Set: Category set 1]|INPUTS-OUTPUTS|1 failed of 1: FAILURE|1|1|FAILURE",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1||1 failed of 1: FAILURE|1|1|FAILURE"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1|13"
+        ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|2",
+          "Scenario 1|Output group 1|Output field 1|14"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|1~Input Value 1"
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|1~Output Value 1",
+          "Scenario 1|Output group 1|1*~Output Value 2"
+        ]
+      }
+    },
+    "Inexact (regex) pass": {
+      "active_yn": "Y",
+      "category_set": "Match Type String",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1"
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|LIKE /ab\\[c\\].*/"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|ab[c]def"
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT|Category Set|Test scenarios: 0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1 [Category Set: Category set 1]|INPUTS-OUTPUTS|0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1||0 failed of 1: SUCCESS|1|0|SUCCESS"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1|13"
+        ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|1",
+          "Scenario 1|Output group 1|Output field 1|26"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|1~Input Value 1"
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|1~LIKE /ab\\[c\\].*/: ab[c]def"
+        ]
+      }
+    },
+    "Inexact (regex) fail": {
+      "active_yn": "Y",
+      "category_set": "Match Type String",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1"
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|LIKE /ab\\[c\\].*/"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|Ab[c]def"
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT|Category Set|Test scenarios: 1 failed of 1: FAILURE|1|1|FAILURE",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1 [Category Set: Category set 1]|INPUTS-OUTPUTS|1 failed of 1: FAILURE|1|1|FAILURE",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1||1 failed of 1: FAILURE|1|1|FAILURE"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1|13"
+        ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|2",
+          "Scenario 1|Output group 1|Output field 1|30"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|1~Input Value 1"
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|1~LIKE /ab\\[c\\].*/: Ab[c]def",
+          "Scenario 1|Output group 1|1*~NOT LIKE /ab\\[c\\].*/: Ab[c]def"
+        ]
+      }
+    },
+    "Untested": {
+      "active_yn": "Y",
+      "category_set": "Match Type String",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1"
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|UNTESTED"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT|Category Set|Test scenarios: 0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1 [Category Set: Category set 1]|INPUTS-OUTPUTS|0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1||0 failed of 1: SUCCESS|1|0|SUCCESS"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1|13"
+        ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|1",
+          "Scenario 1|Output group 1|Output field 1|24"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|1~Input Value 1"
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|1~UNTESTED: Output Value 1"
+        ]
+      }
+    },
+    "Exact number pass": {
+      "active_yn": "Y",
+      "category_set": "Match Type Number",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1"
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|1.123"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|1.123"
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT|Category Set|Test scenarios: 0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1 [Category Set: Category set 1]|INPUTS-OUTPUTS|0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1||0 failed of 1: SUCCESS|1|0|SUCCESS"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1|13"
+        ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|1",
+          "Scenario 1|Output group 1|Output field 1|14"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|1~Input Value 1"
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|1~1.123"
+        ]
+      }
+    },
+    "Exact number fail": {
+      "active_yn": "Y",
+      "category_set": "Match Type Number",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1"
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|1.123"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|1.124"
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT|Category Set|Test scenarios: 1 failed of 1: FAILURE|1|1|FAILURE",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1 [Category Set: Category set 1]|INPUTS-OUTPUTS|1 failed of 1: FAILURE|1|1|FAILURE",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1||1 failed of 1: FAILURE|1|1|FAILURE"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1|13"
+        ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|2",
+          "Scenario 1|Output group 1|Output field 1|14"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|1~Input Value 1"
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|1~1.123",
+          "Scenario 1|Output group 1|1*~1.124"
+        ]
+      }
+    },
+    "Inexact (range) just pass": {
+      "active_yn": "Y",
+      "category_set": "Match Type Number",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1"
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|IN [1,2]"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|2.0"
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT|Category Set|Test scenarios: 0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1 [Category Set: Category set 1]|INPUTS-OUTPUTS|0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1||0 failed of 1: SUCCESS|1|0|SUCCESS"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1|13"
+        ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|1",
+          "Scenario 1|Output group 1|Output field 1|14"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|1~Input Value 1"
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|1~IN [1,2]: 2.0"
+        ]
+      }
+    },
+    "Inexact (range) just fail": {
+      "active_yn": "Y",
+      "category_set": "Match Type Number",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1"
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|IN [1,2]"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|2.001"
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT|Category Set|Test scenarios: 1 failed of 1: FAILURE|1|1|FAILURE",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1 [Category Set: Category set 1]|INPUTS-OUTPUTS|1 failed of 1: FAILURE|1|1|FAILURE",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1||1 failed of 1: FAILURE|1|1|FAILURE"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1|13"
+        ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|2",
+          "Scenario 1|Output group 1|Output field 1|19"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|1~Input Value 1"
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|1~IN [1,2]: 2.001",
+          "Scenario 1|Output group 1|1*~NOT IN [1,2]: 2.001"
+        ]
+      }
+    },
+    "Number (range) fail null": {
+      "active_yn": "Y",
+      "category_set": "Match Type Number",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1"
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|IN [1,2]"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|"
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT|Category Set|Test scenarios: 1 failed of 1: FAILURE|1|1|FAILURE",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1 [Category Set: Category set 1]|INPUTS-OUTPUTS|1 failed of 1: FAILURE|1|1|FAILURE",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1||1 failed of 1: FAILURE|1|1|FAILURE"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1|13"
+        ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|2",
+          "Scenario 1|Output group 1|Output field 1|14"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|1~Input Value 1"
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|1~IN [1,2]: ",
+          "Scenario 1|Output group 1|1*~NOT IN [1,2]: "
+        ]
+      }
+    },
+    "Groups number mismatch": {
+      "active_yn": "Y",
+      "category_set": "Exception",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1"
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|Output Value 1",
+          "Scenario 1|Output group 2|Output Value 1"
+        ]
+      },
+      "out": {
+        "Summaries": [
+        ],
+        "Input Fields": [
+        ],
+        "Output Fields": [
+        ],
+        "Input Values": [
+        ],
+        "Output Values": [
+           "Scenario 1|Exception Message|Error, s: Out: Scenario 1: expected #groups = 1, actual #groups = 2",
+           "Scenario 1|Exception Stack|UNTESTED"
+        ]
+      }
+    },
+    "Fields number mismatch": {
+      "active_yn": "Y",
+      "category_set": "Exception",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1",
+          "Output group 1|Output field 2"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1"
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ]
+      },
+      "out": {
+        "Summaries": [
+        ],
+        "Input Fields": [
+        ],
+        "Output Fields": [
+        ],
+        "Input Values": [
+        ],
+        "Output Values": [
+           "Scenario 1|Exception Message|Error, exp #fields 1, expected 2 [s: Scenario 1, g: Output group 1, r: Output Value 1]",
+           "Scenario 1|Exception Stack|UNTESTED"
+        ]
+      }
+    },
+    "Category sets undefined": {
+      "active_yn": "Y",
+      "category_set": "Category Set",
+      "inp": {
+        "Report": [
+          "UUT|N"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1"
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT||Test scenarios: 0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1|INPUTS-OUTPUTS|0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1||0 failed of 1: SUCCESS|1|0|SUCCESS"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1|13"
+        ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|1",
+          "Scenario 1|Output group 1|Output field 1|14"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|1~Input Value 1"
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|1~Output Value 1"
+        ]
+      }
+    },
+    "Category sets null": {
+      "active_yn": "Y",
+      "category_set": "Category Set",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+          "Scenario 1|"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1"
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|Output Value 1"
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT||Test scenarios: 0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1|INPUTS-OUTPUTS|0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1||0 failed of 1: SUCCESS|1|0|SUCCESS"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1|13"
+        ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|1",
+          "Scenario 1|Output group 1|Output field 1|14"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|1~Input Value 1"
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|1~Output Value 1"
+        ]
+      }
+    },
+    "Multiple category sets with the same value": {
+      "active_yn": "Y",
+      "category_set": "Category Set",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1",
+          "Scenario 2|Category set 1"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1-1",
+          "Scenario 2|Input group 1|Input Value 2-1"
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|Output Value 1-1",
+          "Scenario 2|Output group 1|Output Value 2-1"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|Output Value 1-1",
+          "Scenario 2|Output group 1|Output Value 2-1"
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT|Category Set|Test scenarios: 0 failed of 2: SUCCESS|2|0|SUCCESS",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1 [Category Set: Category set 1]|INPUTS-OUTPUTS|0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1||0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Scenario|Scenario 2||SCENARIO 2: Scenario 2 [Category Set: Category set 1]|INPUTS-OUTPUTS|0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Input group|Scenario 2|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 2|Output group 1|GROUP 1: Output group 1||0 failed of 1: SUCCESS|1|0|SUCCESS"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1|15",
+          "Scenario 2|Input group 1|#|1",
+          "Scenario 2|Input group 1|Input field 1|15"
+        ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|1",
+          "Scenario 1|Output group 1|Output field 1|16",
+          "Scenario 2|Output group 1|#|1",
+          "Scenario 2|Output group 1|Output field 1|16"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|1~Input Value 1-1",
+          "Scenario 2|Input group 1|1~Input Value 2-1"
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|1~Output Value 1-1",
+          "Scenario 2|Output group 1|1~Output Value 2-1"
+        ]
+      }
+    },
+    "Multiple category sets with null and not null values": {
+      "active_yn": "Y",
+      "category_set": "Category Set",
+      "inp": {
+        "Report": [
+          "UUT|Y"
+        ],
+        "Input Fields": [
+          "Input group 1|Input field 1"
+        ],
+        "Output Fields": [
+          "Output group 1|Output field 1"
+        ],
+        "Scenarios": [
+          "Scenario 1|Category set 1",
+          "Scenario 2|"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|Input Value 1-1",
+          "Scenario 2|Input group 1|Input Value 2-1"
+        ],
+        "Expected Values": [
+          "Scenario 1|Output group 1|Output Value 1-1",
+          "Scenario 2|Output group 1|Output Value 2-1"
+        ],
+        "Actual Values": [
+          "Scenario 1|Output group 1|Output Value 1-1",
+          "Scenario 2|Output group 1|Output Value 2-1"
+        ]
+      },
+      "out": {
+        "Summaries": [
+          "Report|||Unit Test Report: UUT|Category Set|Test scenarios: 0 failed of 2: SUCCESS|2|0|SUCCESS",
+          "Scenario|Scenario 1||SCENARIO 1: Scenario 1 [Category Set: Category set 1]|INPUTS-OUTPUTS|0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Input group|Scenario 1|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 1|Output group 1|GROUP 1: Output group 1||0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Scenario|Scenario 2||SCENARIO 2: Scenario 2|INPUTS-OUTPUTS|0 failed of 1: SUCCESS|1|0|SUCCESS",
+          "Input group|Scenario 2|Input group 1|GROUP 1: Input group 1|||||",
+          "Output group|Scenario 2|Output group 1|GROUP 1: Output group 1||0 failed of 1: SUCCESS|1|0|SUCCESS"
+        ],
+        "Input Fields": [
+          "Scenario 1|Input group 1|#|1",
+          "Scenario 1|Input group 1|Input field 1|15",
+          "Scenario 2|Input group 1|#|1",
+          "Scenario 2|Input group 1|Input field 1|15"
+        ],
+        "Output Fields": [
+          "Scenario 1|Output group 1|#|1",
+          "Scenario 1|Output group 1|Output field 1|16",
+          "Scenario 2|Output group 1|#|1",
+          "Scenario 2|Output group 1|Output field 1|16"
+        ],
+        "Input Values": [
+          "Scenario 1|Input group 1|1~Input Value 1-1",
+          "Scenario 2|Input group 1|1~Input Value 2-1"
+        ],
+        "Output Values": [
+          "Scenario 1|Output group 1|1~Output Value 1-1",
+          "Scenario 2|Output group 1|1~Output Value 2-1"
+        ]
+      }
+    }
+  }
+}

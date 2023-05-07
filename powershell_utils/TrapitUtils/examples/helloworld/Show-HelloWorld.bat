@@ -1,0 +1,1 @@
+pwsh .\Show-HelloWorld.ps1  > .\Show-HelloWorld.out 2> .\Show-HelloWorld.err

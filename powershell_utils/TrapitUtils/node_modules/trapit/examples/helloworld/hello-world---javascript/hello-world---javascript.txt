@@ -1,0 +1,35 @@
+Unit Test Report: Hello World - JavaScript
+==========================================
+
+      #    Scenario  Fails (of 2)  Status 
+      ---  --------  ------------  -------
+      1    Scenario  0             SUCCESS
+
+Test scenarios: 0 failed of 1: SUCCESS
+======================================
+Formatted: 2023-04-09 13:49:09
+
+SCENARIO 1: Scenario {
+======================
+
+   INPUTS
+   ======
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Group {
+      ================
+
+            #  Greeting    
+            -  ------------
+            1  Hello World!
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 2: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 2: SUCCESS
+========================

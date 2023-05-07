@@ -1,0 +1,1 @@
+pwsh ./Main-Examples.ps1 > .\main-examples.out 2> .\main-examples.err

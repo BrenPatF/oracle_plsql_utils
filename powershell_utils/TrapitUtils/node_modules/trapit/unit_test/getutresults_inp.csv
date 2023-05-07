@@ -1,0 +1,18 @@
+Group,Field,Value
+Report,Title,UUT
+Report,Include Category Set,Y
+Input Fields,Group,Input group 1
+Input Fields,Field,Input field 1
+Output Fields,Group,Output group 1
+Output Fields,Field,Output field 1
+Scenarios,Scenario,Scenario 1
+Scenarios,Category Set,Category set 1
+Input Values,Scenario,Scenario 1
+Input Values,Group,Input group 1
+Input Values,Row CSV,Input Value 1
+Expected Values,Scenario,Scenario 1
+Expected Values,Group,Output group 1
+Expected Values,Row CSV,Output Value 1
+Actual Values,Scenario,Scenario 1
+Actual Values,Group,Output group 1
+Actual Values,Row CSV,Output Value 1

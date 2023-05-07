@@ -1,0 +1,49 @@
+Group,Field,Value
+Heading,Text,Heading
+Heading,#Blanks Pre,0
+Heading,#Blanks Post,0
+Col Headers,Text,Col 1
+Col Headers,Length,6
+List To Line,Text,Value 1
+List To Line,Length,8
+Join Values (list),Value,Value
+Join Values (scalars),Value 1,Value 1
+Join Values (scalars),Value 2,
+Join Values (scalars),Value 3,
+Join Values (scalars),Value 4,
+Join Values (scalars),Value 5,
+Join Values (scalars),Value 6,
+Join Values (scalars),Value 7,
+Join Values (scalars),Value 8,
+Join Values (scalars),Value 9,
+Join Values (scalars),Value 10,
+Join Values (scalars),Value 11,
+Join Values (scalars),Value 12,
+Join Values (scalars),Value 13,
+Join Values (scalars),Value 14,
+Join Values (scalars),Value 15,
+Join Values (scalars),Value 16,
+Join Values (scalars),Value 17,
+Split Values,Delimited String,Value 1
+View To List,Select Column Name,type_name
+Cursor To List,Cursor Text,select type_name from user_types order by 1
+Cursor To List,Filter,(CHR|L\\d).+(ARR|REC)
+Cursor To Pipe,Cursor Text,select type_name from user_types order by 1
+Cursor To Pipe,Filter,(CHR|L\\d).+(ARR|REC)
+Interval To Seconds,Interval String,0 00:00:00
+Sleep,Elapsed Seconds,1
+Sleep,Fraction CPU,0.5
+Raise Error,Message,Test message
+Scalars,Delimiter,","
+Scalars,View Name,user_types
+Scalars,View Where,"regexp_like(type_name, '(CHR|L\\d).+(ARR|REC)')"
+Scalars,View Order By,type_name DESC
+Scalars,W Line,text line
+W (List),Line,1-line text list
+File I/O,File Name,test_file.tmp
+File I/O,#Lines,0
+File I/O,Line 1,
+File I/O,Line 2,
+XPlan Cursor,Cursor Text,SELECT /*+ gather_plan_statistics XPLAN_MARKER */ 1 FROM DUAL
+XPlan Cursor,Marker,XPLAN_MARKER
+XPlan Cursor,Outline Y/N,

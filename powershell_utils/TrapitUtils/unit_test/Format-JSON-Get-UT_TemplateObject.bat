@@ -1,0 +1,1 @@
+pwsh .\Format-JSON-Get-UT_TemplateObject.ps1  > .\Format-JSON-Get-UT_TemplateObject.out 2> .\Format-JSON-Get-UT_TemplateObject.err

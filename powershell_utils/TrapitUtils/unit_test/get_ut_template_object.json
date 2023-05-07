@@ -1,0 +1,741 @@
+{
+  "meta": {
+    "title": "Get UT Template Object",
+    "delimiter": ";",
+    "inp": {
+      "Scalars": [
+        "Delimiter"
+      ],
+      "Scenarios": [
+        "Category Set",
+        "Scenario",
+        "Active"
+      ],
+      "Input Group": [
+        "Group Name",
+        "Field Name",
+        "Value"
+      ],
+      "Output Group": [
+        "Group Name",
+        "Field Name",
+        "Value"
+      ]
+    },
+    "out": {
+      "Meta Input Group": [
+        "Group Name",
+        "Field Name"
+      ],
+      "Meta Output Group": [
+        "Group Name",
+        "Field Name"
+      ],
+      "Scenarios": [
+        "Category Set",
+        "Scenario",
+        "Active"
+      ],
+      "Scenario Input Group": [
+        "Scenario",
+        "Group Name",
+        "Record"
+      ],
+      "Scenario Output Group": [
+        "Scenario",
+        "Group Name",
+        "Record"
+      ]
+    }
+  },
+  "scenarios": {
+    "No input groups": {
+      "active_yn": "Y",
+      "category_set": "Input Group Multiplicity",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Input Group": [
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1;Output Value 1"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+        ],
+        "Meta Output Group": [
+          "Output Group 1;Output Field 1"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Scenario Input Group": [
+        ],
+        "Scenario Output Group": [
+          "Scenario one;Output Group 1;Output Value 1"
+        ]
+      }
+    },
+    "One input group": {
+      "active_yn": "Y",
+      "category_set": "Input Group Multiplicity",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1;Input Value 1"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1;Output Value 1"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          "Input Group 1;Input Field 1"
+        ],
+        "Meta Output Group": [
+          "Output Group 1;Output Field 1"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Scenario Input Group": [
+          "Scenario one;Input Group 1;Input Value 1"
+        ],
+        "Scenario Output Group": [
+          "Scenario one;Output Group 1;Output Value 1"
+        ]
+      }
+    },
+    "Multiple input groups": {
+      "active_yn": "Y",
+      "category_set": "Input Group Multiplicity",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1-1;Input Value 1-1",
+          "Input Group 2;Input Field 2-1;Input Value 2-1"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1;Output Value 1"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          "Input Group 1;Input Field 1-1",
+          "Input Group 2;Input Field 2-1"
+        ],
+        "Meta Output Group": [
+          "Output Group 1;Output Field 1"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Scenario Input Group": [
+          "Scenario one;Input Group 1;Input Value 1-1",
+          "Scenario one;Input Group 2;Input Value 2-1"
+        ],
+        "Scenario Output Group": [
+          "Scenario one;Output Group 1;Output Value 1"
+        ]
+      }
+    },
+    "No output groups": {
+      "active_yn": "Y",
+      "category_set": "Output Group Multiplicity",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1;Input Value 1"
+        ],
+        "Output Group": [
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          "Input Group 1;Input Field 1"
+        ],
+        "Meta Output Group": [
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Scenario Input Group": [
+          "Scenario one;Input Group 1;Input Value 1"
+        ],
+        "Scenario Output Group": [
+        ]
+      }
+    },
+    "One output group": {
+      "active_yn": "Y",
+      "category_set": "Output Group Multiplicity",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1;Input Value 1"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1;Output Value 1"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          "Input Group 1;Input Field 1"
+        ],
+        "Meta Output Group": [
+          "Output Group 1;Output Field 1"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Scenario Input Group": [
+          "Scenario one;Input Group 1;Input Value 1"
+        ],
+        "Scenario Output Group": [
+          "Scenario one;Output Group 1;Output Value 1"
+        ]
+      }
+    },
+    "Multiple output groups": {
+      "active_yn": "Y",
+      "category_set": "Output Group Multiplicity",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1;Input Value 1"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1-1;Output Value 1-1",
+          "Output Group 2;Output Field 2-1;Output Value 2-1"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          "Input Group 1;Input Field 1"
+        ],
+        "Meta Output Group": [
+          "Output Group 1;Output Field 1-1",
+          "Output Group 2;Output Field 2-1"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Scenario Input Group": [
+          "Scenario one;Input Group 1;Input Value 1"
+        ],
+        "Scenario Output Group": [
+          "Scenario one;Output Group 1;Output Value 1-1",
+          "Scenario one;Output Group 2;Output Value 2-1"
+        ]
+      }
+    },
+    "One input field": {
+      "active_yn": "Y",
+      "category_set": "Input Field Multiplicity",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1;Input Value 1"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1;Output Value 1"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          "Input Group 1;Input Field 1"
+        ],
+        "Meta Output Group": [
+          "Output Group 1;Output Field 1"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Scenario Input Group": [
+          "Scenario one;Input Group 1;Input Value 1"
+        ],
+        "Scenario Output Group": [
+          "Scenario one;Output Group 1;Output Value 1"
+        ]
+      }
+    },
+    "Multiple input fields": {
+      "active_yn": "Y",
+      "category_set": "Input Field Multiplicity",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1;Input Value 1-1",
+          "Input Group 1;Input Field 2;Input Value 1-2"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1;Output Value 1"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          "Input Group 1;Input Field 1",
+          "Input Group 1;Input Field 2"
+        ],
+        "Meta Output Group": [
+          "Output Group 1;Output Field 1"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Scenario Input Group": [
+          "Scenario one;Input Group 1;Input Value 1-1~Input Value 1-2"
+        ],
+        "Scenario Output Group": [
+          "Scenario one;Output Group 1;Output Value 1"
+        ]
+      }
+    },
+    "One output field": {
+      "active_yn": "Y",
+      "category_set": "Output Field Multiplicity",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1;Input Value 1"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1;Output Value 1"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          "Input Group 1;Input Field 1"
+        ],
+        "Meta Output Group": [
+          "Output Group 1;Output Field 1"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Scenario Input Group": [
+          "Scenario one;Input Group 1;Input Value 1"
+        ],
+        "Scenario Output Group": [
+          "Scenario one;Output Group 1;Output Value 1"
+        ]
+      }
+    },
+    "Multiple output fields": {
+      "active_yn": "Y",
+      "category_set": "Output Field Multiplicity",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1;Input Value 1"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1;Output Value 1-1",
+          "Output Group 1;Output Field 2;Output Value 1-2"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          "Input Group 1;Input Field 1"
+        ],
+        "Meta Output Group": [
+          "Output Group 1;Output Field 1",
+          "Output Group 1;Output Field 2"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Scenario Input Group": [
+          "Scenario one;Input Group 1;Input Value 1"
+        ],
+        "Scenario Output Group": [
+          "Scenario one;Output Group 1;Output Value 1-1~Output Value 1-2"
+        ]
+      }
+    },
+    "One-character delimiter": {
+      "active_yn": "Y",
+      "category_set": "Delimiter Multiplicity",
+      "inp": {
+        "Scalars": [
+          "?"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1;Input Value 1"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1;Output Value 1-1",
+          "Output Group 1;Output Field 2;Output Value 1-2"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          "Input Group 1;Input Field 1"
+        ],
+        "Meta Output Group": [
+          "Output Group 1;Output Field 1",
+          "Output Group 1;Output Field 2"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Scenario Input Group": [
+          "Scenario one;Input Group 1;Input Value 1"
+        ],
+        "Scenario Output Group": [
+          "Scenario one;Output Group 1;Output Value 1-1?Output Value 1-2"
+        ]
+      }
+    },
+    "Multi-character delimiter": {
+      "active_yn": "Y",
+      "category_set": "Delimiter Multiplicity",
+      "inp": {
+        "Scalars": [
+          "??"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1;Input Value 1"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1;Output Value 1-1",
+          "Output Group 1;Output Field 2;Output Value 1-2"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          "Input Group 1;Input Field 1"
+        ],
+        "Meta Output Group": [
+          "Output Group 1;Output Field 1",
+          "Output Group 1;Output Field 2"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Scenario Input Group": [
+          "Scenario one;Input Group 1;Input Value 1"
+        ],
+        "Scenario Output Group": [
+          "Scenario one;Output Group 1;Output Value 1-1??Output Value 1-2"
+        ]
+      }
+    },
+    "Field value column undefined": {
+      "active_yn": "N",
+      "category_set": "Initial Field Values",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1;Input Value 1"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1;Output Value 1"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          "Input Group 1;Input Field 1"
+        ],
+        "Meta Output Group": [
+          "Output Group 1;Output Field 1"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Scenario Input Group": [
+          "Scenario one;Input Group 1;Input Value 1"
+        ],
+        "Scenario Output Group": [
+          "Scenario one;Output Group 1;Output Value 1"
+        ]
+      }
+    },
+    "Scenarios file not present": {
+      "active_yn": "Y",
+      "category_set": "Scenarios Multiplicity",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1;Input Value 1"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1;Output Value 1"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          "Input Group 1;Input Field 1"
+        ],
+        "Meta Output Group": [
+          "Output Group 1;Output Field 1"
+        ],
+        "Scenarios": [
+          ";scenario 1;Y"
+        ],
+        "Scenario Input Group": [
+          "scenario 1;Input Group 1;Input Value 1"
+        ],
+        "Scenario Output Group": [
+          "scenario 1;Output Group 1;Output Value 1"
+        ]
+      }
+    },
+    "Multiple scenarios": {
+      "active_yn": "Y",
+      "category_set": "Scenarios Multiplicity",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [
+          "Generic;Scenario One;Y",
+          "Generic;Scenario Two;Y"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1;Input Value 1"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1;Output Value 1"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          "Input Group 1;Input Field 1"
+        ],
+        "Meta Output Group": [
+          "Output Group 1;Output Field 1"
+        ],
+        "Scenarios": [
+          "Generic;Scenario One;Y",
+          "Generic;Scenario Two;Y"
+        ],
+        "Scenario Input Group": [
+          "Scenario One;Input Group 1;Input Value 1",
+          "Scenario Two;Input Group 1;Input Value 1"
+        ],
+        "Scenario Output Group": [
+          "Scenario One;Output Group 1;Output Value 1",
+          "Scenario Two;Output Group 1;Output Value 1"
+        ]
+      }
+    },
+    "All field values null": {
+      "active_yn": "Y",
+      "category_set": "Initial Field Values",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1;"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1;"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          "Input Group 1;Input Field 1"
+        ],
+        "Meta Output Group": [
+          "Output Group 1;Output Field 1"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Scenario Input Group": [
+          "Scenario one;Input Group 1;"
+        ],
+        "Scenario Output Group": [
+          "Scenario one;Output Group 1;"
+        ]
+      }
+    },
+    "Some field values null, some not null": {
+      "active_yn": "Y",
+      "category_set": "Initial Field Values",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1;",
+          "Input Group 1;Input Field 2;Input Value 2"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1;Output Value 1",
+          "Output Group 1;Output Field 2;"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          "Input Group 1;Input Field 1",
+          "Input Group 1;Input Field 2"
+        ],
+        "Meta Output Group": [
+          "Output Group 1;Output Field 1",
+          "Output Group 1;Output Field 2"
+        ],
+        "Scenarios": [
+          "Generic;Scenario one;N"
+        ],
+        "Scenario Input Group": [
+          "Scenario one;Input Group 1;~Input Value 2"
+        ],
+        "Scenario Output Group": [
+          "Scenario one;Output Group 1;Output Value 1~"
+        ]
+      }
+    },
+    "Scenarios with null and not null category sets": {
+      "active_yn": "Y",
+      "category_set": "Category Set",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [
+          "Generic;Scenario One;Y",
+          ";Scenario Two;Y"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1;Input Value 1"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1;Output Value 1"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          "Input Group 1;Input Field 1"
+        ],
+        "Meta Output Group": [
+          "Output Group 1;Output Field 1"
+        ],
+        "Scenarios": [
+          "Generic;Scenario One;Y",
+          ";Scenario Two;Y"
+        ],
+        "Scenario Input Group": [
+          "Scenario One;Input Group 1;Input Value 1",
+          "Scenario Two;Input Group 1;Input Value 1"
+        ],
+        "Scenario Output Group": [
+          "Scenario One;Output Group 1;Output Value 1",
+          "Scenario Two;Output Group 1;Output Value 1"
+        ]
+      }
+    },
+    "Scenarios with Y and N active flag": {
+      "active_yn": "Y",
+      "category_set": "Active Flag",
+      "inp": {
+        "Scalars": [
+          "~"
+        ],
+        "Scenarios": [
+          "Generic;Scenario One;N",
+          ";Scenario Two;Y"
+        ],
+        "Input Group": [
+          "Input Group 1;Input Field 1;Input Value 1"
+        ],
+        "Output Group": [
+          "Output Group 1;Output Field 1;Output Value 1"
+        ]
+      },
+      "out": {
+        "Meta Input Group": [
+          "Input Group 1;Input Field 1"
+        ],
+        "Meta Output Group": [
+          "Output Group 1;Output Field 1"
+        ],
+        "Scenarios": [
+          "Generic;Scenario One;N",
+          ";Scenario Two;Y"
+        ],
+        "Scenario Input Group": [
+          "Scenario One;Input Group 1;Input Value 1",
+          "Scenario Two;Input Group 1;Input Value 1"
+        ],
+        "Scenario Output Group": [
+          "Scenario One;Output Group 1;Output Value 1",
+          "Scenario Two;Output Group 1;Output Value 1"
+        ]
+      }
+    }
+  }
+}

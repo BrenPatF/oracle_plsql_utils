@@ -1,0 +1,5119 @@
+Unit Test Report: getUTResults
+==============================
+
+      #    Category Set                Scenario                                              Fails (of 6)  Status 
+      ---  --------------------------  ----------------------------------------------------  ------------  -------
+      1    Input Group Multiplicity    No input groups                                       0             SUCCESS
+      2    Input Group Multiplicity    One input group                                       0             SUCCESS
+      3    Input Group Multiplicity    Multiple input groups                                 0             SUCCESS
+      4    Output Group Multiplicity   No output groups                                      0             SUCCESS
+      5    Output Group Multiplicity   One output group                                      0             SUCCESS
+      6    Output Group Multiplicity   Multiple output groups                                0             SUCCESS
+      7    Input Field Multiplicity    One input group field                                 0             SUCCESS
+      8    Input Field Multiplicity    Multiple input fields                                 0             SUCCESS
+      9    Output Field Multiplicity   One output group field                                0             SUCCESS
+      10   Output Field Multiplicity   Multiple output fields                                0             SUCCESS
+      11   Input Record Multiplicity   No input group records                                0             SUCCESS
+      12   Input Record Multiplicity   One input group record                                0             SUCCESS
+      13   Input Record Multiplicity   Multiple input group records                          0             SUCCESS
+      14   Output Record Multiplicity  No output group records                               0             SUCCESS
+      15   Output Record Multiplicity  One output group record                               0             SUCCESS
+      16   Output Record Multiplicity  Multiple output group records                         0             SUCCESS
+      17   Scenario Multiplicity       No scenarios                                          0             SUCCESS
+      18   Scenario Multiplicity       One scenario                                          0             SUCCESS
+      19   Scenario Multiplicity       Multiple scenarios                                    0             SUCCESS
+      20   Test Status                 All scenarios pass                                    0             SUCCESS
+      21   Test Status                 At least one scenario fails                           0             SUCCESS
+      22   Match Type String           Exact string pass                                     0             SUCCESS
+      23   Match Type String           Exact string fail                                     0             SUCCESS
+      24   Match Type String           Inexact (regex) pass                                  0             SUCCESS
+      25   Match Type String           Inexact (regex) fail                                  0             SUCCESS
+      26   Match Type String           Untested                                              0             SUCCESS
+      27   Match Type Number           Exact number pass                                     0             SUCCESS
+      28   Match Type Number           Exact number fail                                     0             SUCCESS
+      29   Match Type Number           Inexact (range) just pass                             0             SUCCESS
+      30   Match Type Number           Inexact (range) just fail                             0             SUCCESS
+      31   Match Type Number           Number (range) fail null                              0             SUCCESS
+      32   Exception                   Groups number mismatch                                0             SUCCESS
+      33   Exception                   Fields number mismatch                                0             SUCCESS
+      34   Category Set                Category sets undefined                               0             SUCCESS
+      35   Category Set                Category sets null                                    0             SUCCESS
+      36   Category Set                Multiple category sets with the same value            0             SUCCESS
+      37   Category Set                Multiple category sets with null and not null values  0             SUCCESS
+
+Test scenarios: 0 failed of 37: SUCCESS
+=======================================
+Formatted: 2023-04-09 14:47:58
+
+SCENARIO 1: No input groups [Category Set: Input Group Multiplicity] {
+======================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields: Empty
+      ============================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values: Empty
+      ============================
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                                               Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------------------------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                                  Category Set    Test scenarios: 0 failed of 1: SUCCESS  1          0        SUCCESS
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1 [Category Set: Category set 1]  INPUTS-OUTPUTS  0 failed of 1: SUCCESS                  1          0        SUCCESS
+            3  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1                                                0 failed of 1: SUCCESS                  1          0        SUCCESS
+
+      } 0 failed of 3: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields: Empty as expected: SUCCESS
+      =================================================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name            Length
+            -  ----------  --------------  --------------  ------
+            1  Scenario 1  Output group 1  #               1     
+            2  Scenario 1  Output group 1  Output field 1  14    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 4: Input Values: Empty as expected: SUCCESS
+      =================================================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV         
+            -  ----------  --------------  ----------------
+            1  Scenario 1  Output group 1  1~Output Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 2: One input group [Category Set: Input Group Multiplicity] {
+======================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV      
+            -  ----------  -------------  -------------
+            1  Scenario 1  Input group 1  Input Value 1
+
+      }
+      =
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                                               Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------------------------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                                  Category Set    Test scenarios: 0 failed of 1: SUCCESS  1          0        SUCCESS
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1 [Category Set: Category set 1]  INPUTS-OUTPUTS  0 failed of 1: SUCCESS                  1          0        SUCCESS
+            3  Input group   Scenario 1  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            4  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1                                                0 failed of 1: SUCCESS                  1          0        SUCCESS
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name           Length
+            -  ----------  -------------  -------------  ------
+            1  Scenario 1  Input group 1  #              1     
+            2  Scenario 1  Input group 1  Input field 1  13    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name            Length
+            -  ----------  --------------  --------------  ------
+            1  Scenario 1  Output group 1  #               1     
+            2  Scenario 1  Output group 1  Output field 1  14    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 4: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV        
+            -  ----------  -------------  ---------------
+            1  Scenario 1  Input group 1  1~Input Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV         
+            -  ----------  --------------  ----------------
+            1  Scenario 1  Output group 1  1~Output Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 3: Multiple input groups [Category Set: Input Group Multiplicity] {
+============================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field          
+            -  -------------  ---------------
+            1  Input group 1  Input field 1-1
+            2  Input group 2  Input field 2-1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV        
+            -  ----------  -------------  ---------------
+            1  Scenario 1  Input group 1  Input Value 1-1
+            2  Scenario 1  Input group 2  Input Value 2-1
+
+      }
+      =
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                                               Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------------------------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                                  Category Set    Test scenarios: 0 failed of 1: SUCCESS  1          0        SUCCESS
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1 [Category Set: Category set 1]  INPUTS-OUTPUTS  0 failed of 1: SUCCESS                  1          0        SUCCESS
+            3  Input group   Scenario 1  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            4  Input group   Scenario 1  Input group 2   GROUP 2: Input group 2                                                                                                                    
+            5  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1                                                0 failed of 1: SUCCESS                  1          0        SUCCESS
+
+      } 0 failed of 5: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name             Length
+            -  ----------  -------------  ---------------  ------
+            1  Scenario 1  Input group 1  #                1     
+            2  Scenario 1  Input group 1  Input field 1-1  15    
+            3  Scenario 1  Input group 2  #                1     
+            4  Scenario 1  Input group 2  Input field 2-1  15    
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name            Length
+            -  ----------  --------------  --------------  ------
+            1  Scenario 1  Output group 1  #               1     
+            2  Scenario 1  Output group 1  Output field 1  14    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 4: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV          
+            -  ----------  -------------  -----------------
+            1  Scenario 1  Input group 1  1~Input Value 1-1
+            2  Scenario 1  Input group 2  1~Input Value 2-1
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV         
+            -  ----------  --------------  ----------------
+            1  Scenario 1  Output group 1  1~Output Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 4: No output groups [Category Set: Output Group Multiplicity] {
+========================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields: Empty
+      =============================
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV      
+            -  ----------  -------------  -------------
+            1  Scenario 1  Input group 1  Input Value 1
+
+      }
+      =
+
+      GROUP 6: Expected Values: Empty
+      ===============================
+
+      GROUP 7: Actual Values: Empty
+      =============================
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type         Scenario    Group          Header 1                                               Header 2        Footer                                  # Records  # Fails  Status 
+            -  -----------  ----------  -------------  -----------------------------------------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                  Unit Test Report: UUT                                  Category Set    Test scenarios: 0 failed of 1: SUCCESS  1          0        SUCCESS
+            2  Scenario     Scenario 1                 SCENARIO 1: Scenario 1 [Category Set: Category set 1]  INPUTS-OUTPUTS  0 failed of 0: SUCCESS                  0          0        SUCCESS
+            3  Input group  Scenario 1  Input group 1  GROUP 1: Input group 1                                                                                                                    
+
+      } 0 failed of 3: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name           Length
+            -  ----------  -------------  -------------  ------
+            1  Scenario 1  Input group 1  #              1     
+            2  Scenario 1  Input group 1  Input field 1  13    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields: Empty as expected: SUCCESS
+      ==================================================
+
+      GROUP 4: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV        
+            -  ----------  -------------  ---------------
+            1  Scenario 1  Input group 1  1~Input Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 5: Output Values: Empty as expected: SUCCESS
+      ==================================================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 5: One output group [Category Set: Output Group Multiplicity] {
+========================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV      
+            -  ----------  -------------  -------------
+            1  Scenario 1  Input group 1  Input Value 1
+
+      }
+      =
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                                               Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------------------------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                                  Category Set    Test scenarios: 0 failed of 1: SUCCESS  1          0        SUCCESS
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1 [Category Set: Category set 1]  INPUTS-OUTPUTS  0 failed of 1: SUCCESS                  1          0        SUCCESS
+            3  Input group   Scenario 1  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            4  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1                                                0 failed of 1: SUCCESS                  1          0        SUCCESS
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name           Length
+            -  ----------  -------------  -------------  ------
+            1  Scenario 1  Input group 1  #              1     
+            2  Scenario 1  Input group 1  Input field 1  13    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name            Length
+            -  ----------  --------------  --------------  ------
+            1  Scenario 1  Output group 1  #               1     
+            2  Scenario 1  Output group 1  Output field 1  14    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 4: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV        
+            -  ----------  -------------  ---------------
+            1  Scenario 1  Input group 1  1~Input Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV         
+            -  ----------  --------------  ----------------
+            1  Scenario 1  Output group 1  1~Output Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 6: Multiple output groups [Category Set: Output Group Multiplicity] {
+==============================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field           
+            -  --------------  ----------------
+            1  Output group 1  Output field 1-1
+            2  Output group 2  Output field 2-1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV      
+            -  ----------  -------------  -------------
+            1  Scenario 1  Input group 1  Input Value 1
+
+      }
+      =
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV         
+            -  ----------  --------------  ----------------
+            1  Scenario 1  Output group 1  Output Value 1-1
+            2  Scenario 1  Output group 2  Output Value 2-1
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV         
+            -  ----------  --------------  ----------------
+            1  Scenario 1  Output group 1  Output Value 1-1
+            2  Scenario 1  Output group 2  Output Value 2-1
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                                               Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------------------------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                                  Category Set    Test scenarios: 0 failed of 1: SUCCESS  1          0        SUCCESS
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1 [Category Set: Category set 1]  INPUTS-OUTPUTS  0 failed of 2: SUCCESS                  2          0        SUCCESS
+            3  Input group   Scenario 1  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            4  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1                                                0 failed of 1: SUCCESS                  1          0        SUCCESS
+            5  Output group  Scenario 1  Output group 2  GROUP 2: Output group 2                                                0 failed of 1: SUCCESS                  1          0        SUCCESS
+
+      } 0 failed of 5: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name           Length
+            -  ----------  -------------  -------------  ------
+            1  Scenario 1  Input group 1  #              1     
+            2  Scenario 1  Input group 1  Input field 1  13    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name              Length
+            -  ----------  --------------  ----------------  ------
+            1  Scenario 1  Output group 1  #                 1     
+            2  Scenario 1  Output group 1  Output field 1-1  16    
+            3  Scenario 1  Output group 2  #                 1     
+            4  Scenario 1  Output group 2  Output field 2-1  16    
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 4: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV        
+            -  ----------  -------------  ---------------
+            1  Scenario 1  Input group 1  1~Input Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV           
+            -  ----------  --------------  ------------------
+            1  Scenario 1  Output group 1  1~Output Value 1-1
+            2  Scenario 1  Output group 2  1~Output Value 2-1
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 7: One input group field [Category Set: Input Field Multiplicity] {
+============================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV      
+            -  ----------  -------------  -------------
+            1  Scenario 1  Input group 1  Input Value 1
+
+      }
+      =
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                                               Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------------------------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                                  Category Set    Test scenarios: 0 failed of 1: SUCCESS  1          0        SUCCESS
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1 [Category Set: Category set 1]  INPUTS-OUTPUTS  0 failed of 1: SUCCESS                  1          0        SUCCESS
+            3  Input group   Scenario 1  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            4  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1                                                0 failed of 1: SUCCESS                  1          0        SUCCESS
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name           Length
+            -  ----------  -------------  -------------  ------
+            1  Scenario 1  Input group 1  #              1     
+            2  Scenario 1  Input group 1  Input field 1  13    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name            Length
+            -  ----------  --------------  --------------  ------
+            1  Scenario 1  Output group 1  #               1     
+            2  Scenario 1  Output group 1  Output field 1  14    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 4: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV        
+            -  ----------  -------------  ---------------
+            1  Scenario 1  Input group 1  1~Input Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV         
+            -  ----------  --------------  ----------------
+            1  Scenario 1  Output group 1  1~Output Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 8: Multiple input fields [Category Set: Input Field Multiplicity] {
+============================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field                          
+            -  -------------  -------------------------------
+            1  Input group 1  Input field 1-1~Input field 1-2
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV        
+            -  ----------  -------------  ---------------
+            1  Scenario 1  Input group 1  Input Value 1-1
+            2  Scenario 1  Input group 1  Input Value 1-2
+
+      }
+      =
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                                               Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------------------------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                                  Category Set    Test scenarios: 0 failed of 1: SUCCESS  1          0        SUCCESS
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1 [Category Set: Category set 1]  INPUTS-OUTPUTS  0 failed of 1: SUCCESS                  1          0        SUCCESS
+            3  Input group   Scenario 1  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            4  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1                                                0 failed of 1: SUCCESS                  1          0        SUCCESS
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name                             Length
+            -  ----------  -------------  -------------------------------  ------
+            1  Scenario 1  Input group 1  #                                1     
+            2  Scenario 1  Input group 1  Input field 1-1~Input field 1-2  31    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name            Length
+            -  ----------  --------------  --------------  ------
+            1  Scenario 1  Output group 1  #               1     
+            2  Scenario 1  Output group 1  Output field 1  14    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 4: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV          
+            -  ----------  -------------  -----------------
+            1  Scenario 1  Input group 1  1~Input Value 1-1
+            2  Scenario 1  Input group 1  2~Input Value 1-2
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV         
+            -  ----------  --------------  ----------------
+            1  Scenario 1  Output group 1  1~Output Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 9: One output group field [Category Set: Output Field Multiplicity] {
+==============================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV      
+            -  ----------  -------------  -------------
+            1  Scenario 1  Input group 1  Input Value 1
+
+      }
+      =
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                                               Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------------------------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                                  Category Set    Test scenarios: 0 failed of 1: SUCCESS  1          0        SUCCESS
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1 [Category Set: Category set 1]  INPUTS-OUTPUTS  0 failed of 1: SUCCESS                  1          0        SUCCESS
+            3  Input group   Scenario 1  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            4  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1                                                0 failed of 1: SUCCESS                  1          0        SUCCESS
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name           Length
+            -  ----------  -------------  -------------  ------
+            1  Scenario 1  Input group 1  #              1     
+            2  Scenario 1  Input group 1  Input field 1  13    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name            Length
+            -  ----------  --------------  --------------  ------
+            1  Scenario 1  Output group 1  #               1     
+            2  Scenario 1  Output group 1  Output field 1  14    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 4: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV        
+            -  ----------  -------------  ---------------
+            1  Scenario 1  Input group 1  1~Input Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV         
+            -  ----------  --------------  ----------------
+            1  Scenario 1  Output group 1  1~Output Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 10: Multiple output fields [Category Set: Output Field Multiplicity] {
+===============================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+            2  Output group 1  Output field 2
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV      
+            -  ----------  -------------  -------------
+            1  Scenario 1  Input group 1  Input Value 1
+
+      }
+      =
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV                      
+            -  ----------  --------------  -----------------------------
+            1  Scenario 1  Output group 1  Output Value 1~Output Value 2
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV                      
+            -  ----------  --------------  -----------------------------
+            1  Scenario 1  Output group 1  Output Value 1~Output Value 2
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                                               Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------------------------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                                  Category Set    Test scenarios: 0 failed of 1: SUCCESS  1          0        SUCCESS
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1 [Category Set: Category set 1]  INPUTS-OUTPUTS  0 failed of 1: SUCCESS                  1          0        SUCCESS
+            3  Input group   Scenario 1  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            4  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1                                                0 failed of 1: SUCCESS                  1          0        SUCCESS
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name           Length
+            -  ----------  -------------  -------------  ------
+            1  Scenario 1  Input group 1  #              1     
+            2  Scenario 1  Input group 1  Input field 1  13    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name            Length
+            -  ----------  --------------  --------------  ------
+            1  Scenario 1  Output group 1  #               1     
+            2  Scenario 1  Output group 1  Output field 1  14    
+            3  Scenario 1  Output group 1  Output field 2  14    
+
+      } 0 failed of 3: SUCCESS
+      ========================
+
+      GROUP 4: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV        
+            -  ----------  -------------  ---------------
+            1  Scenario 1  Input group 1  1~Input Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV                        
+            -  ----------  --------------  -------------------------------
+            1  Scenario 1  Output group 1  1~Output Value 1~Output Value 2
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 11: No input group records [Category Set: Input Record Multiplicity] {
+===============================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values: Empty
+      ============================
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                                               Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------------------------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                                  Category Set    Test scenarios: 0 failed of 1: SUCCESS  1          0        SUCCESS
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1 [Category Set: Category set 1]  INPUTS-OUTPUTS  0 failed of 1: SUCCESS                  1          0        SUCCESS
+            3  Input group   Scenario 1  Input group 1   GROUP 1: Input group 1: Empty                                                                                                             
+            4  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1                                                0 failed of 1: SUCCESS                  1          0        SUCCESS
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name           Length
+            -  ----------  -------------  -------------  ------
+            1  Scenario 1  Input group 1  #              1     
+            2  Scenario 1  Input group 1  Input field 1  13    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name            Length
+            -  ----------  --------------  --------------  ------
+            1  Scenario 1  Output group 1  #               1     
+            2  Scenario 1  Output group 1  Output field 1  14    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 4: Input Values: Empty as expected: SUCCESS
+      =================================================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV         
+            -  ----------  --------------  ----------------
+            1  Scenario 1  Output group 1  1~Output Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 12: One input group record [Category Set: Input Record Multiplicity] {
+===============================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV      
+            -  ----------  -------------  -------------
+            1  Scenario 1  Input group 1  Input Value 1
+
+      }
+      =
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                                               Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------------------------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                                  Category Set    Test scenarios: 0 failed of 1: SUCCESS  1          0        SUCCESS
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1 [Category Set: Category set 1]  INPUTS-OUTPUTS  0 failed of 1: SUCCESS                  1          0        SUCCESS
+            3  Input group   Scenario 1  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            4  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1                                                0 failed of 1: SUCCESS                  1          0        SUCCESS
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name           Length
+            -  ----------  -------------  -------------  ------
+            1  Scenario 1  Input group 1  #              1     
+            2  Scenario 1  Input group 1  Input field 1  13    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name            Length
+            -  ----------  --------------  --------------  ------
+            1  Scenario 1  Output group 1  #               1     
+            2  Scenario 1  Output group 1  Output field 1  14    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 4: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV        
+            -  ----------  -------------  ---------------
+            1  Scenario 1  Input group 1  1~Input Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV         
+            -  ----------  --------------  ----------------
+            1  Scenario 1  Output group 1  1~Output Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 13: Multiple input group records [Category Set: Input Record Multiplicity] {
+=====================================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV      
+            -  ----------  -------------  -------------
+            1  Scenario 1  Input group 1  Input Value 1
+
+      }
+      =
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                                               Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------------------------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                                  Category Set    Test scenarios: 0 failed of 1: SUCCESS  1          0        SUCCESS
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1 [Category Set: Category set 1]  INPUTS-OUTPUTS  0 failed of 1: SUCCESS                  1          0        SUCCESS
+            3  Input group   Scenario 1  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            4  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1                                                0 failed of 1: SUCCESS                  1          0        SUCCESS
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name           Length
+            -  ----------  -------------  -------------  ------
+            1  Scenario 1  Input group 1  #              1     
+            2  Scenario 1  Input group 1  Input field 1  13    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name            Length
+            -  ----------  --------------  --------------  ------
+            1  Scenario 1  Output group 1  #               1     
+            2  Scenario 1  Output group 1  Output field 1  14    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 4: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV        
+            -  ----------  -------------  ---------------
+            1  Scenario 1  Input group 1  1~Input Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV         
+            -  ----------  --------------  ----------------
+            1  Scenario 1  Output group 1  1~Output Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 14: No output group records [Category Set: Output Record Multiplicity] {
+=================================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV      
+            -  ----------  -------------  -------------
+            1  Scenario 1  Input group 1  Input Value 1
+
+      }
+      =
+
+      GROUP 6: Expected Values: Empty
+      ===============================
+
+      GROUP 7: Actual Values: Empty
+      =============================
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                                               Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------------------------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                                  Category Set    Test scenarios: 0 failed of 1: SUCCESS  1          0        SUCCESS
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1 [Category Set: Category set 1]  INPUTS-OUTPUTS  0 failed of 1: SUCCESS                  1          0        SUCCESS
+            3  Input group   Scenario 1  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            4  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1: Empty as expected: SUCCESS                    0 failed of 0: SUCCESS                  0          0        SUCCESS
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name           Length
+            -  ----------  -------------  -------------  ------
+            1  Scenario 1  Input group 1  #              1     
+            2  Scenario 1  Input group 1  Input field 1  13    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name            Length
+            -  ----------  --------------  --------------  ------
+            1  Scenario 1  Output group 1  #                     
+            2  Scenario 1  Output group 1  Output field 1        
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 4: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV        
+            -  ----------  -------------  ---------------
+            1  Scenario 1  Input group 1  1~Input Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV
+            -  ----------  --------------  -------
+            1  Scenario 1  Output group 1         
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 15: One output group record [Category Set: Output Record Multiplicity] {
+=================================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV      
+            -  ----------  -------------  -------------
+            1  Scenario 1  Input group 1  Input Value 1
+
+      }
+      =
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                                               Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------------------------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                                  Category Set    Test scenarios: 0 failed of 1: SUCCESS  1          0        SUCCESS
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1 [Category Set: Category set 1]  INPUTS-OUTPUTS  0 failed of 1: SUCCESS                  1          0        SUCCESS
+            3  Input group   Scenario 1  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            4  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1                                                0 failed of 1: SUCCESS                  1          0        SUCCESS
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name           Length
+            -  ----------  -------------  -------------  ------
+            1  Scenario 1  Input group 1  #              1     
+            2  Scenario 1  Input group 1  Input field 1  13    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name            Length
+            -  ----------  --------------  --------------  ------
+            1  Scenario 1  Output group 1  #               1     
+            2  Scenario 1  Output group 1  Output field 1  14    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 4: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV        
+            -  ----------  -------------  ---------------
+            1  Scenario 1  Input group 1  1~Input Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV         
+            -  ----------  --------------  ----------------
+            1  Scenario 1  Output group 1  1~Output Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 16: Multiple output group records [Category Set: Output Record Multiplicity] {
+=======================================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV      
+            -  ----------  -------------  -------------
+            1  Scenario 1  Input group 1  Input Value 1
+
+      }
+      =
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+            2  Scenario 1  Output group 1  Output Value 2
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+            2  Scenario 1  Output group 1  Output Value 2
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                                               Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------------------------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                                  Category Set    Test scenarios: 0 failed of 1: SUCCESS  1          0        SUCCESS
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1 [Category Set: Category set 1]  INPUTS-OUTPUTS  0 failed of 1: SUCCESS                  1          0        SUCCESS
+            3  Input group   Scenario 1  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            4  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1                                                0 failed of 2: SUCCESS                  2          0        SUCCESS
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name           Length
+            -  ----------  -------------  -------------  ------
+            1  Scenario 1  Input group 1  #              1     
+            2  Scenario 1  Input group 1  Input field 1  13    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name            Length
+            -  ----------  --------------  --------------  ------
+            1  Scenario 1  Output group 1  #               1     
+            2  Scenario 1  Output group 1  Output field 1  14    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 4: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV        
+            -  ----------  -------------  ---------------
+            1  Scenario 1  Input group 1  1~Input Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV         
+            -  ----------  --------------  ----------------
+            1  Scenario 1  Output group 1  1~Output Value 1
+            2  Scenario 1  Output group 1  2~Output Value 2
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 17: No scenarios [Category Set: Scenario Multiplicity] {
+=================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios: Empty
+      =========================
+
+      GROUP 5: Input Values: Empty
+      ============================
+
+      GROUP 6: Expected Values: Empty
+      ===============================
+
+      GROUP 7: Actual Values: Empty
+      =============================
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type    Scenario  Group  Header 1               Header 2  Footer                                  # Records  # Fails  Status 
+            -  ------  --------  -----  ---------------------  --------  --------------------------------------  ---------  -------  -------
+            1  Report                   Unit Test Report: UUT            Test scenarios: 0 failed of 0: SUCCESS  0          0        SUCCESS
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields: Empty as expected: SUCCESS
+      =================================================
+
+      GROUP 3: Output Fields: Empty as expected: SUCCESS
+      ==================================================
+
+      GROUP 4: Input Values: Empty as expected: SUCCESS
+      =================================================
+
+      GROUP 5: Output Values: Empty as expected: SUCCESS
+      ==================================================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 18: One scenario [Category Set: Scenario Multiplicity] {
+=================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV      
+            -  ----------  -------------  -------------
+            1  Scenario 1  Input group 1  Input Value 1
+
+      }
+      =
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                                               Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------------------------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                                  Category Set    Test scenarios: 0 failed of 1: SUCCESS  1          0        SUCCESS
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1 [Category Set: Category set 1]  INPUTS-OUTPUTS  0 failed of 1: SUCCESS                  1          0        SUCCESS
+            3  Input group   Scenario 1  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            4  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1                                                0 failed of 1: SUCCESS                  1          0        SUCCESS
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name           Length
+            -  ----------  -------------  -------------  ------
+            1  Scenario 1  Input group 1  #              1     
+            2  Scenario 1  Input group 1  Input field 1  13    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name            Length
+            -  ----------  --------------  --------------  ------
+            1  Scenario 1  Output group 1  #               1     
+            2  Scenario 1  Output group 1  Output field 1  14    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 4: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV        
+            -  ----------  -------------  ---------------
+            1  Scenario 1  Input group 1  1~Input Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV         
+            -  ----------  --------------  ----------------
+            1  Scenario 1  Output group 1  1~Output Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 19: Multiple scenarios [Category Set: Scenario Multiplicity] {
+=======================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+            2  Scenario 2  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV        
+            -  ----------  -------------  ---------------
+            1  Scenario 1  Input group 1  Input Value 1-1
+            2  Scenario 2  Input group 1  Input Value 2-1
+
+      }
+      =
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV         
+            -  ----------  --------------  ----------------
+            1  Scenario 1  Output group 1  Output Value 1-1
+            2  Scenario 2  Output group 1  Output Value 2-1
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV         
+            -  ----------  --------------  ----------------
+            1  Scenario 1  Output group 1  Output Value 1-1
+            2  Scenario 2  Output group 1  Output Value 2-1
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                                               Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------------------------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                                  Category Set    Test scenarios: 0 failed of 2: SUCCESS  2          0        SUCCESS
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1 [Category Set: Category set 1]  INPUTS-OUTPUTS  0 failed of 1: SUCCESS                  1          0        SUCCESS
+            3  Input group   Scenario 1  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            4  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1                                                0 failed of 1: SUCCESS                  1          0        SUCCESS
+            5  Scenario      Scenario 2                  SCENARIO 2: Scenario 2 [Category Set: Category set 1]  INPUTS-OUTPUTS  0 failed of 1: SUCCESS                  1          0        SUCCESS
+            6  Input group   Scenario 2  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            7  Output group  Scenario 2  Output group 1  GROUP 1: Output group 1                                                0 failed of 1: SUCCESS                  1          0        SUCCESS
+
+      } 0 failed of 7: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name           Length
+            -  ----------  -------------  -------------  ------
+            1  Scenario 1  Input group 1  #              1     
+            2  Scenario 1  Input group 1  Input field 1  15    
+            3  Scenario 2  Input group 1  #              1     
+            4  Scenario 2  Input group 1  Input field 1  15    
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name            Length
+            -  ----------  --------------  --------------  ------
+            1  Scenario 1  Output group 1  #               1     
+            2  Scenario 1  Output group 1  Output field 1  16    
+            3  Scenario 2  Output group 1  #               1     
+            4  Scenario 2  Output group 1  Output field 1  16    
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 4: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV          
+            -  ----------  -------------  -----------------
+            1  Scenario 1  Input group 1  1~Input Value 1-1
+            2  Scenario 2  Input group 1  1~Input Value 2-1
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV           
+            -  ----------  --------------  ------------------
+            1  Scenario 1  Output group 1  1~Output Value 1-1
+            2  Scenario 2  Output group 1  1~Output Value 2-1
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 20: All scenarios pass [Category Set: Test Status] {
+=============================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+            2  Scenario 2  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV        
+            -  ----------  -------------  ---------------
+            1  Scenario 1  Input group 1  Input Value 1-1
+            2  Scenario 2  Input group 1  Input Value 2-1
+
+      }
+      =
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV         
+            -  ----------  --------------  ----------------
+            1  Scenario 1  Output group 1  Output Value 1-1
+            2  Scenario 2  Output group 1  Output Value 2-1
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV         
+            -  ----------  --------------  ----------------
+            1  Scenario 1  Output group 1  Output Value 1-1
+            2  Scenario 2  Output group 1  Output Value 2-1
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                                               Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------------------------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                                  Category Set    Test scenarios: 0 failed of 2: SUCCESS  2          0        SUCCESS
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1 [Category Set: Category set 1]  INPUTS-OUTPUTS  0 failed of 1: SUCCESS                  1          0        SUCCESS
+            3  Input group   Scenario 1  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            4  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1                                                0 failed of 1: SUCCESS                  1          0        SUCCESS
+            5  Scenario      Scenario 2                  SCENARIO 2: Scenario 2 [Category Set: Category set 1]  INPUTS-OUTPUTS  0 failed of 1: SUCCESS                  1          0        SUCCESS
+            6  Input group   Scenario 2  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            7  Output group  Scenario 2  Output group 1  GROUP 1: Output group 1                                                0 failed of 1: SUCCESS                  1          0        SUCCESS
+
+      } 0 failed of 7: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name           Length
+            -  ----------  -------------  -------------  ------
+            1  Scenario 1  Input group 1  #              1     
+            2  Scenario 1  Input group 1  Input field 1  15    
+            3  Scenario 2  Input group 1  #              1     
+            4  Scenario 2  Input group 1  Input field 1  15    
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name            Length
+            -  ----------  --------------  --------------  ------
+            1  Scenario 1  Output group 1  #               1     
+            2  Scenario 1  Output group 1  Output field 1  16    
+            3  Scenario 2  Output group 1  #               1     
+            4  Scenario 2  Output group 1  Output field 1  16    
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 4: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV          
+            -  ----------  -------------  -----------------
+            1  Scenario 1  Input group 1  1~Input Value 1-1
+            2  Scenario 2  Input group 1  1~Input Value 2-1
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV           
+            -  ----------  --------------  ------------------
+            1  Scenario 1  Output group 1  1~Output Value 1-1
+            2  Scenario 2  Output group 1  1~Output Value 2-1
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 21: At least one scenario fails [Category Set: Test Status] {
+======================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+            2  Scenario 2  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV        
+            -  ----------  -------------  ---------------
+            1  Scenario 1  Input group 1  Input Value 1-1
+            2  Scenario 2  Input group 1  Input Value 2-1
+
+      }
+      =
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV         
+            -  ----------  --------------  ----------------
+            1  Scenario 1  Output group 1  Output Value 1-1
+            2  Scenario 2  Output group 1  Output Value 2-1
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV                   
+            -  ----------  --------------  --------------------------
+            1  Scenario 1  Output group 1  Output Value 1-1          
+            2  Scenario 2  Output group 1  Incorrect Output Value 2-1
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                                               Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------------------------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                                  Category Set    Test scenarios: 1 failed of 2: FAILURE  2          1        FAILURE
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1 [Category Set: Category set 1]  INPUTS-OUTPUTS  0 failed of 1: SUCCESS                  1          0        SUCCESS
+            3  Input group   Scenario 1  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            4  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1                                                0 failed of 1: SUCCESS                  1          0        SUCCESS
+            5  Scenario      Scenario 2                  SCENARIO 2: Scenario 2 [Category Set: Category set 1]  INPUTS-OUTPUTS  1 failed of 1: FAILURE                  1          1        FAILURE
+            6  Input group   Scenario 2  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            7  Output group  Scenario 2  Output group 1  GROUP 1: Output group 1                                                1 failed of 1: FAILURE                  1          1        FAILURE
+
+      } 0 failed of 7: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name           Length
+            -  ----------  -------------  -------------  ------
+            1  Scenario 1  Input group 1  #              1     
+            2  Scenario 1  Input group 1  Input field 1  15    
+            3  Scenario 2  Input group 1  #              1     
+            4  Scenario 2  Input group 1  Input field 1  15    
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name            Length
+            -  ----------  --------------  --------------  ------
+            1  Scenario 1  Output group 1  #               1     
+            2  Scenario 1  Output group 1  Output field 1  16    
+            3  Scenario 2  Output group 1  #               2     
+            4  Scenario 2  Output group 1  Output field 1  26    
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 4: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV          
+            -  ----------  -------------  -----------------
+            1  Scenario 1  Input group 1  1~Input Value 1-1
+            2  Scenario 2  Input group 1  1~Input Value 2-1
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV                      
+            -  ----------  --------------  -----------------------------
+            1  Scenario 1  Output group 1  1~Output Value 1-1           
+            2  Scenario 2  Output group 1  1~Output Value 2-1           
+            3  Scenario 2  Output group 1  1*~Incorrect Output Value 2-1
+
+      } 0 failed of 3: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 22: Exact string pass [Category Set: Match Type String] {
+==================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV      
+            -  ----------  -------------  -------------
+            1  Scenario 1  Input group 1  Input Value 1
+
+      }
+      =
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                                               Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------------------------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                                  Category Set    Test scenarios: 0 failed of 1: SUCCESS  1          0        SUCCESS
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1 [Category Set: Category set 1]  INPUTS-OUTPUTS  0 failed of 1: SUCCESS                  1          0        SUCCESS
+            3  Input group   Scenario 1  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            4  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1                                                0 failed of 1: SUCCESS                  1          0        SUCCESS
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name           Length
+            -  ----------  -------------  -------------  ------
+            1  Scenario 1  Input group 1  #              1     
+            2  Scenario 1  Input group 1  Input field 1  13    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name            Length
+            -  ----------  --------------  --------------  ------
+            1  Scenario 1  Output group 1  #               1     
+            2  Scenario 1  Output group 1  Output field 1  14    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 4: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV        
+            -  ----------  -------------  ---------------
+            1  Scenario 1  Input group 1  1~Input Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV         
+            -  ----------  --------------  ----------------
+            1  Scenario 1  Output group 1  1~Output Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 23: Exact string fail [Category Set: Match Type String] {
+==================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV      
+            -  ----------  -------------  -------------
+            1  Scenario 1  Input group 1  Input Value 1
+
+      }
+      =
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 2
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                                               Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------------------------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                                  Category Set    Test scenarios: 1 failed of 1: FAILURE  1          1        FAILURE
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1 [Category Set: Category set 1]  INPUTS-OUTPUTS  1 failed of 1: FAILURE                  1          1        FAILURE
+            3  Input group   Scenario 1  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            4  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1                                                1 failed of 1: FAILURE                  1          1        FAILURE
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name           Length
+            -  ----------  -------------  -------------  ------
+            1  Scenario 1  Input group 1  #              1     
+            2  Scenario 1  Input group 1  Input field 1  13    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name            Length
+            -  ----------  --------------  --------------  ------
+            1  Scenario 1  Output group 1  #               2     
+            2  Scenario 1  Output group 1  Output field 1  14    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 4: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV        
+            -  ----------  -------------  ---------------
+            1  Scenario 1  Input group 1  1~Input Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV          
+            -  ----------  --------------  -----------------
+            1  Scenario 1  Output group 1  1~Output Value 1 
+            2  Scenario 1  Output group 1  1*~Output Value 2
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 24: Inexact (regex) pass [Category Set: Match Type String] {
+=====================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV      
+            -  ----------  -------------  -------------
+            1  Scenario 1  Input group 1  Input Value 1
+
+      }
+      =
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV         
+            -  ----------  --------------  ----------------
+            1  Scenario 1  Output group 1  LIKE /ab\[c\].*/
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV 
+            -  ----------  --------------  --------
+            1  Scenario 1  Output group 1  ab[c]def
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                                               Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------------------------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                                  Category Set    Test scenarios: 0 failed of 1: SUCCESS  1          0        SUCCESS
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1 [Category Set: Category set 1]  INPUTS-OUTPUTS  0 failed of 1: SUCCESS                  1          0        SUCCESS
+            3  Input group   Scenario 1  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            4  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1                                                0 failed of 1: SUCCESS                  1          0        SUCCESS
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name           Length
+            -  ----------  -------------  -------------  ------
+            1  Scenario 1  Input group 1  #              1     
+            2  Scenario 1  Input group 1  Input field 1  13    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name            Length
+            -  ----------  --------------  --------------  ------
+            1  Scenario 1  Output group 1  #               1     
+            2  Scenario 1  Output group 1  Output field 1  26    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 4: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV        
+            -  ----------  -------------  ---------------
+            1  Scenario 1  Input group 1  1~Input Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV                     
+            -  ----------  --------------  ----------------------------
+            1  Scenario 1  Output group 1  1~LIKE /ab\[c\].*/: ab[c]def
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 25: Inexact (regex) fail [Category Set: Match Type String] {
+=====================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV      
+            -  ----------  -------------  -------------
+            1  Scenario 1  Input group 1  Input Value 1
+
+      }
+      =
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV         
+            -  ----------  --------------  ----------------
+            1  Scenario 1  Output group 1  LIKE /ab\[c\].*/
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV 
+            -  ----------  --------------  --------
+            1  Scenario 1  Output group 1  Ab[c]def
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                                               Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------------------------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                                  Category Set    Test scenarios: 1 failed of 1: FAILURE  1          1        FAILURE
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1 [Category Set: Category set 1]  INPUTS-OUTPUTS  1 failed of 1: FAILURE                  1          1        FAILURE
+            3  Input group   Scenario 1  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            4  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1                                                1 failed of 1: FAILURE                  1          1        FAILURE
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name           Length
+            -  ----------  -------------  -------------  ------
+            1  Scenario 1  Input group 1  #              1     
+            2  Scenario 1  Input group 1  Input field 1  13    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name            Length
+            -  ----------  --------------  --------------  ------
+            1  Scenario 1  Output group 1  #               2     
+            2  Scenario 1  Output group 1  Output field 1  30    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 4: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV        
+            -  ----------  -------------  ---------------
+            1  Scenario 1  Input group 1  1~Input Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV                          
+            -  ----------  --------------  ---------------------------------
+            1  Scenario 1  Output group 1  1~LIKE /ab\[c\].*/: Ab[c]def     
+            2  Scenario 1  Output group 1  1*~NOT LIKE /ab\[c\].*/: Ab[c]def
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 26: Untested [Category Set: Match Type String] {
+=========================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV      
+            -  ----------  -------------  -------------
+            1  Scenario 1  Input group 1  Input Value 1
+
+      }
+      =
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV 
+            -  ----------  --------------  --------
+            1  Scenario 1  Output group 1  UNTESTED
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                                               Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------------------------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                                  Category Set    Test scenarios: 0 failed of 1: SUCCESS  1          0        SUCCESS
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1 [Category Set: Category set 1]  INPUTS-OUTPUTS  0 failed of 1: SUCCESS                  1          0        SUCCESS
+            3  Input group   Scenario 1  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            4  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1                                                0 failed of 1: SUCCESS                  1          0        SUCCESS
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name           Length
+            -  ----------  -------------  -------------  ------
+            1  Scenario 1  Input group 1  #              1     
+            2  Scenario 1  Input group 1  Input field 1  13    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name            Length
+            -  ----------  --------------  --------------  ------
+            1  Scenario 1  Output group 1  #               1     
+            2  Scenario 1  Output group 1  Output field 1  24    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 4: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV        
+            -  ----------  -------------  ---------------
+            1  Scenario 1  Input group 1  1~Input Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV                   
+            -  ----------  --------------  --------------------------
+            1  Scenario 1  Output group 1  1~UNTESTED: Output Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 27: Exact number pass [Category Set: Match Type Number] {
+==================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV      
+            -  ----------  -------------  -------------
+            1  Scenario 1  Input group 1  Input Value 1
+
+      }
+      =
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV
+            -  ----------  --------------  -------
+            1  Scenario 1  Output group 1  1.123  
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV
+            -  ----------  --------------  -------
+            1  Scenario 1  Output group 1  1.123  
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                                               Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------------------------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                                  Category Set    Test scenarios: 0 failed of 1: SUCCESS  1          0        SUCCESS
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1 [Category Set: Category set 1]  INPUTS-OUTPUTS  0 failed of 1: SUCCESS                  1          0        SUCCESS
+            3  Input group   Scenario 1  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            4  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1                                                0 failed of 1: SUCCESS                  1          0        SUCCESS
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name           Length
+            -  ----------  -------------  -------------  ------
+            1  Scenario 1  Input group 1  #              1     
+            2  Scenario 1  Input group 1  Input field 1  13    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name            Length
+            -  ----------  --------------  --------------  ------
+            1  Scenario 1  Output group 1  #               1     
+            2  Scenario 1  Output group 1  Output field 1  14    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 4: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV        
+            -  ----------  -------------  ---------------
+            1  Scenario 1  Input group 1  1~Input Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV
+            -  ----------  --------------  -------
+            1  Scenario 1  Output group 1  1~1.123
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 28: Exact number fail [Category Set: Match Type Number] {
+==================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV      
+            -  ----------  -------------  -------------
+            1  Scenario 1  Input group 1  Input Value 1
+
+      }
+      =
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV
+            -  ----------  --------------  -------
+            1  Scenario 1  Output group 1  1.123  
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV
+            -  ----------  --------------  -------
+            1  Scenario 1  Output group 1  1.124  
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                                               Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------------------------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                                  Category Set    Test scenarios: 1 failed of 1: FAILURE  1          1        FAILURE
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1 [Category Set: Category set 1]  INPUTS-OUTPUTS  1 failed of 1: FAILURE                  1          1        FAILURE
+            3  Input group   Scenario 1  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            4  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1                                                1 failed of 1: FAILURE                  1          1        FAILURE
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name           Length
+            -  ----------  -------------  -------------  ------
+            1  Scenario 1  Input group 1  #              1     
+            2  Scenario 1  Input group 1  Input field 1  13    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name            Length
+            -  ----------  --------------  --------------  ------
+            1  Scenario 1  Output group 1  #               2     
+            2  Scenario 1  Output group 1  Output field 1  14    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 4: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV        
+            -  ----------  -------------  ---------------
+            1  Scenario 1  Input group 1  1~Input Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV 
+            -  ----------  --------------  --------
+            1  Scenario 1  Output group 1  1~1.123 
+            2  Scenario 1  Output group 1  1*~1.124
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 29: Inexact (range) just pass [Category Set: Match Type Number] {
+==========================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV      
+            -  ----------  -------------  -------------
+            1  Scenario 1  Input group 1  Input Value 1
+
+      }
+      =
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV 
+            -  ----------  --------------  --------
+            1  Scenario 1  Output group 1  IN [1,2]
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV
+            -  ----------  --------------  -------
+            1  Scenario 1  Output group 1  2.0    
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                                               Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------------------------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                                  Category Set    Test scenarios: 0 failed of 1: SUCCESS  1          0        SUCCESS
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1 [Category Set: Category set 1]  INPUTS-OUTPUTS  0 failed of 1: SUCCESS                  1          0        SUCCESS
+            3  Input group   Scenario 1  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            4  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1                                                0 failed of 1: SUCCESS                  1          0        SUCCESS
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name           Length
+            -  ----------  -------------  -------------  ------
+            1  Scenario 1  Input group 1  #              1     
+            2  Scenario 1  Input group 1  Input field 1  13    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name            Length
+            -  ----------  --------------  --------------  ------
+            1  Scenario 1  Output group 1  #               1     
+            2  Scenario 1  Output group 1  Output field 1  14    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 4: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV        
+            -  ----------  -------------  ---------------
+            1  Scenario 1  Input group 1  1~Input Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV        
+            -  ----------  --------------  ---------------
+            1  Scenario 1  Output group 1  1~IN [1,2]: 2.0
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 30: Inexact (range) just fail [Category Set: Match Type Number] {
+==========================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV      
+            -  ----------  -------------  -------------
+            1  Scenario 1  Input group 1  Input Value 1
+
+      }
+      =
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV 
+            -  ----------  --------------  --------
+            1  Scenario 1  Output group 1  IN [1,2]
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV
+            -  ----------  --------------  -------
+            1  Scenario 1  Output group 1  2.001  
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                                               Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------------------------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                                  Category Set    Test scenarios: 1 failed of 1: FAILURE  1          1        FAILURE
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1 [Category Set: Category set 1]  INPUTS-OUTPUTS  1 failed of 1: FAILURE                  1          1        FAILURE
+            3  Input group   Scenario 1  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            4  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1                                                1 failed of 1: FAILURE                  1          1        FAILURE
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name           Length
+            -  ----------  -------------  -------------  ------
+            1  Scenario 1  Input group 1  #              1     
+            2  Scenario 1  Input group 1  Input field 1  13    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name            Length
+            -  ----------  --------------  --------------  ------
+            1  Scenario 1  Output group 1  #               2     
+            2  Scenario 1  Output group 1  Output field 1  19    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 4: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV        
+            -  ----------  -------------  ---------------
+            1  Scenario 1  Input group 1  1~Input Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV               
+            -  ----------  --------------  ----------------------
+            1  Scenario 1  Output group 1  1~IN [1,2]: 2.001     
+            2  Scenario 1  Output group 1  1*~NOT IN [1,2]: 2.001
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 31: Number (range) fail null [Category Set: Match Type Number] {
+=========================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV      
+            -  ----------  -------------  -------------
+            1  Scenario 1  Input group 1  Input Value 1
+
+      }
+      =
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV 
+            -  ----------  --------------  --------
+            1  Scenario 1  Output group 1  IN [1,2]
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV
+            -  ----------  --------------  -------
+            1  Scenario 1  Output group 1         
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                                               Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------------------------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                                  Category Set    Test scenarios: 1 failed of 1: FAILURE  1          1        FAILURE
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1 [Category Set: Category set 1]  INPUTS-OUTPUTS  1 failed of 1: FAILURE                  1          1        FAILURE
+            3  Input group   Scenario 1  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            4  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1                                                1 failed of 1: FAILURE                  1          1        FAILURE
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name           Length
+            -  ----------  -------------  -------------  ------
+            1  Scenario 1  Input group 1  #              1     
+            2  Scenario 1  Input group 1  Input field 1  13    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name            Length
+            -  ----------  --------------  --------------  ------
+            1  Scenario 1  Output group 1  #               2     
+            2  Scenario 1  Output group 1  Output field 1  14    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 4: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV        
+            -  ----------  -------------  ---------------
+            1  Scenario 1  Input group 1  1~Input Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV          
+            -  ----------  --------------  -----------------
+            1  Scenario 1  Output group 1  1~IN [1,2]:      
+            2  Scenario 1  Output group 1  1*~NOT IN [1,2]: 
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 32: Groups number mismatch [Category Set: Exception] {
+===============================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV      
+            -  ----------  -------------  -------------
+            1  Scenario 1  Input group 1  Input Value 1
+
+      }
+      =
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+            2  Scenario 1  Output group 2  Output Value 1
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries: Empty as expected: SUCCESS
+      ==============================================
+
+      GROUP 2: Input Fields: Empty as expected: SUCCESS
+      =================================================
+
+      GROUP 3: Output Fields: Empty as expected: SUCCESS
+      ==================================================
+
+      GROUP 4: Input Values: Empty as expected: SUCCESS
+      =================================================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group              Row CSV                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+            -  ----------  -----------------  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            1  Scenario 1  Exception Message  Error, s: Out: Scenario 1: expected #groups = 1, actual #groups = 2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+            2  Scenario 1  Exception Stack    UNTESTED: Error: Error, s: Out: Scenario 1: expected #groups = 1, actual #groups = 2
+    at chkGrpLen (C:\Users\Brend\Dropbox\Home\WIP\github_stage\node_modules\trapit\lib\trapit.js:268:11)
+    at chkInputs (C:\Users\Brend\Dropbox\Home\WIP\github_stage\node_modules\trapit\lib\trapit.js:302:5)
+    at Object.getUTResults (C:\Users\Brend\Dropbox\Home\WIP\github_stage\node_modules\trapit\lib\trapit.js:384:5)
+    at purelyWrapUnit (C:\Users\Brend\Dropbox\Home\WIP\github_stage\node_modules\trapit\unit_test\test-getutresults.js:229:23)
+    at callPWU (C:\Users\Brend\Dropbox\Home\WIP\github_stage\node_modules\trapit\lib\trapit-utils.js:81:14)
+    at Object.testUnit (C:\Users\Brend\Dropbox\Home\WIP\github_stage\node_modules\trapit\lib\trapit-utils.js:212:62)
+    at Object.fmtTestUnit (C:\Users\Brend\Dropbox\Home\WIP\github_stage\node_modules\trapit\lib\trapit-utils.js:223:20)
+    at Object.<anonymous> (C:\Users\Brend\Dropbox\Home\WIP\github_stage\node_modules\trapit\unit_test\test-getutresults.js:235:8)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 33: Fields number mismatch [Category Set: Exception] {
+===============================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+            2  Output group 1  Output field 2
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV      
+            -  ----------  -------------  -------------
+            1  Scenario 1  Input group 1  Input Value 1
+
+      }
+      =
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries: Empty as expected: SUCCESS
+      ==============================================
+
+      GROUP 2: Input Fields: Empty as expected: SUCCESS
+      =================================================
+
+      GROUP 3: Output Fields: Empty as expected: SUCCESS
+      ==================================================
+
+      GROUP 4: Input Values: Empty as expected: SUCCESS
+      =================================================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group              Row CSV                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+            -  ----------  -----------------  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            1  Scenario 1  Exception Message  Error, exp #fields 1, expected 2 [s: Scenario 1, g: Output group 1, r: Output Value 1]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+            2  Scenario 1  Exception Stack    UNTESTED: Error: Error, exp #fields 1, expected 2 [s: Scenario 1, g: Output group 1, r: Output Value 1]
+    at chkRec (C:\Users\Brend\Dropbox\Home\WIP\github_stage\node_modules\trapit\lib\trapit.js:256:11)
+    at chkInputs (C:\Users\Brend\Dropbox\Home\WIP\github_stage\node_modules\trapit\lib\trapit.js:317:9)
+    at Object.getUTResults (C:\Users\Brend\Dropbox\Home\WIP\github_stage\node_modules\trapit\lib\trapit.js:384:5)
+    at purelyWrapUnit (C:\Users\Brend\Dropbox\Home\WIP\github_stage\node_modules\trapit\unit_test\test-getutresults.js:229:23)
+    at callPWU (C:\Users\Brend\Dropbox\Home\WIP\github_stage\node_modules\trapit\lib\trapit-utils.js:81:14)
+    at Object.testUnit (C:\Users\Brend\Dropbox\Home\WIP\github_stage\node_modules\trapit\lib\trapit-utils.js:212:62)
+    at Object.fmtTestUnit (C:\Users\Brend\Dropbox\Home\WIP\github_stage\node_modules\trapit\lib\trapit-utils.js:223:20)
+    at Object.<anonymous> (C:\Users\Brend\Dropbox\Home\WIP\github_stage\node_modules\trapit\unit_test\test-getutresults.js:235:8)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 34: Category sets undefined [Category Set: Category Set] {
+===================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    N                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV      
+            -  ----------  -------------  -------------
+            1  Scenario 1  Input group 1  Input Value 1
+
+      }
+      =
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                 Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                    Test scenarios: 0 failed of 1: SUCCESS  1          0        SUCCESS
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1   INPUTS-OUTPUTS  0 failed of 1: SUCCESS                  1          0        SUCCESS
+            3  Input group   Scenario 1  Input group 1   GROUP 1: Input group 1                                                                                      
+            4  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1                  0 failed of 1: SUCCESS                  1          0        SUCCESS
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name           Length
+            -  ----------  -------------  -------------  ------
+            1  Scenario 1  Input group 1  #              1     
+            2  Scenario 1  Input group 1  Input field 1  13    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name            Length
+            -  ----------  --------------  --------------  ------
+            1  Scenario 1  Output group 1  #               1     
+            2  Scenario 1  Output group 1  Output field 1  14    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 4: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV        
+            -  ----------  -------------  ---------------
+            1  Scenario 1  Input group 1  1~Input Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV         
+            -  ----------  --------------  ----------------
+            1  Scenario 1  Output group 1  1~Output Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 35: Category sets null [Category Set: Category Set] {
+==============================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set
+            -  ----------  ------------
+            1  Scenario 1              
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV      
+            -  ----------  -------------  -------------
+            1  Scenario 1  Input group 1  Input Value 1
+
+      }
+      =
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV       
+            -  ----------  --------------  --------------
+            1  Scenario 1  Output group 1  Output Value 1
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                 Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                    Test scenarios: 0 failed of 1: SUCCESS  1          0        SUCCESS
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1   INPUTS-OUTPUTS  0 failed of 1: SUCCESS                  1          0        SUCCESS
+            3  Input group   Scenario 1  Input group 1   GROUP 1: Input group 1                                                                                      
+            4  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1                  0 failed of 1: SUCCESS                  1          0        SUCCESS
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name           Length
+            -  ----------  -------------  -------------  ------
+            1  Scenario 1  Input group 1  #              1     
+            2  Scenario 1  Input group 1  Input field 1  13    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name            Length
+            -  ----------  --------------  --------------  ------
+            1  Scenario 1  Output group 1  #               1     
+            2  Scenario 1  Output group 1  Output field 1  14    
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 4: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV        
+            -  ----------  -------------  ---------------
+            1  Scenario 1  Input group 1  1~Input Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV         
+            -  ----------  --------------  ----------------
+            1  Scenario 1  Output group 1  1~Output Value 1
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 36: Multiple category sets with the same value [Category Set: Category Set] {
+======================================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+            2  Scenario 2  Category set 1
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV        
+            -  ----------  -------------  ---------------
+            1  Scenario 1  Input group 1  Input Value 1-1
+            2  Scenario 2  Input group 1  Input Value 2-1
+
+      }
+      =
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV         
+            -  ----------  --------------  ----------------
+            1  Scenario 1  Output group 1  Output Value 1-1
+            2  Scenario 2  Output group 1  Output Value 2-1
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV         
+            -  ----------  --------------  ----------------
+            1  Scenario 1  Output group 1  Output Value 1-1
+            2  Scenario 2  Output group 1  Output Value 2-1
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                                               Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------------------------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                                  Category Set    Test scenarios: 0 failed of 2: SUCCESS  2          0        SUCCESS
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1 [Category Set: Category set 1]  INPUTS-OUTPUTS  0 failed of 1: SUCCESS                  1          0        SUCCESS
+            3  Input group   Scenario 1  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            4  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1                                                0 failed of 1: SUCCESS                  1          0        SUCCESS
+            5  Scenario      Scenario 2                  SCENARIO 2: Scenario 2 [Category Set: Category set 1]  INPUTS-OUTPUTS  0 failed of 1: SUCCESS                  1          0        SUCCESS
+            6  Input group   Scenario 2  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            7  Output group  Scenario 2  Output group 1  GROUP 1: Output group 1                                                0 failed of 1: SUCCESS                  1          0        SUCCESS
+
+      } 0 failed of 7: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name           Length
+            -  ----------  -------------  -------------  ------
+            1  Scenario 1  Input group 1  #              1     
+            2  Scenario 1  Input group 1  Input field 1  15    
+            3  Scenario 2  Input group 1  #              1     
+            4  Scenario 2  Input group 1  Input field 1  15    
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name            Length
+            -  ----------  --------------  --------------  ------
+            1  Scenario 1  Output group 1  #               1     
+            2  Scenario 1  Output group 1  Output field 1  16    
+            3  Scenario 2  Output group 1  #               1     
+            4  Scenario 2  Output group 1  Output field 1  16    
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 4: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV          
+            -  ----------  -------------  -----------------
+            1  Scenario 1  Input group 1  1~Input Value 1-1
+            2  Scenario 2  Input group 1  1~Input Value 2-1
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV           
+            -  ----------  --------------  ------------------
+            1  Scenario 1  Output group 1  1~Output Value 1-1
+            2  Scenario 2  Output group 1  1~Output Value 2-1
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================
+
+SCENARIO 37: Multiple category sets with null and not null values [Category Set: Category Set] {
+================================================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Report {
+      =================
+
+            #  Title  Include Category Set
+            -  -----  --------------------
+            1  UUT    Y                   
+
+      }
+      =
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Group          Field        
+            -  -------------  -------------
+            1  Input group 1  Input field 1
+
+      }
+      =
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Group           Field         
+            -  --------------  --------------
+            1  Output group 1  Output field 1
+
+      }
+      =
+
+      GROUP 4: Scenarios {
+      ====================
+
+            #  Scenario    Category Set  
+            -  ----------  --------------
+            1  Scenario 1  Category set 1
+            2  Scenario 2                
+
+      }
+      =
+
+      GROUP 5: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV        
+            -  ----------  -------------  ---------------
+            1  Scenario 1  Input group 1  Input Value 1-1
+            2  Scenario 2  Input group 1  Input Value 2-1
+
+      }
+      =
+
+      GROUP 6: Expected Values {
+      ==========================
+
+            #  Scenario    Group           Row CSV         
+            -  ----------  --------------  ----------------
+            1  Scenario 1  Output group 1  Output Value 1-1
+            2  Scenario 2  Output group 1  Output Value 2-1
+
+      }
+      =
+
+      GROUP 7: Actual Values {
+      ========================
+
+            #  Scenario    Group           Row CSV         
+            -  ----------  --------------  ----------------
+            1  Scenario 1  Output group 1  Output Value 1-1
+            2  Scenario 2  Output group 1  Output Value 2-1
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Summaries {
+      ====================
+
+            #  Type          Scenario    Group           Header 1                                               Header 2        Footer                                  # Records  # Fails  Status 
+            -  ------------  ----------  --------------  -----------------------------------------------------  --------------  --------------------------------------  ---------  -------  -------
+            1  Report                                    Unit Test Report: UUT                                  Category Set    Test scenarios: 0 failed of 2: SUCCESS  2          0        SUCCESS
+            2  Scenario      Scenario 1                  SCENARIO 1: Scenario 1 [Category Set: Category set 1]  INPUTS-OUTPUTS  0 failed of 1: SUCCESS                  1          0        SUCCESS
+            3  Input group   Scenario 1  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            4  Output group  Scenario 1  Output group 1  GROUP 1: Output group 1                                                0 failed of 1: SUCCESS                  1          0        SUCCESS
+            5  Scenario      Scenario 2                  SCENARIO 2: Scenario 2                                 INPUTS-OUTPUTS  0 failed of 1: SUCCESS                  1          0        SUCCESS
+            6  Input group   Scenario 2  Input group 1   GROUP 1: Input group 1                                                                                                                    
+            7  Output group  Scenario 2  Output group 1  GROUP 1: Output group 1                                                0 failed of 1: SUCCESS                  1          0        SUCCESS
+
+      } 0 failed of 7: SUCCESS
+      ========================
+
+      GROUP 2: Input Fields {
+      =======================
+
+            #  Scenario    Group          Name           Length
+            -  ----------  -------------  -------------  ------
+            1  Scenario 1  Input group 1  #              1     
+            2  Scenario 1  Input group 1  Input field 1  15    
+            3  Scenario 2  Input group 1  #              1     
+            4  Scenario 2  Input group 1  Input field 1  15    
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 3: Output Fields {
+      ========================
+
+            #  Scenario    Group           Name            Length
+            -  ----------  --------------  --------------  ------
+            1  Scenario 1  Output group 1  #               1     
+            2  Scenario 1  Output group 1  Output field 1  16    
+            3  Scenario 2  Output group 1  #               1     
+            4  Scenario 2  Output group 1  Output field 1  16    
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 4: Input Values {
+      =======================
+
+            #  Scenario    Group          Row CSV          
+            -  ----------  -------------  -----------------
+            1  Scenario 1  Input group 1  1~Input Value 1-1
+            2  Scenario 2  Input group 1  1~Input Value 2-1
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 5: Output Values {
+      ========================
+
+            #  Scenario    Group           Row CSV           
+            -  ----------  --------------  ------------------
+            1  Scenario 1  Output group 1  1~Output Value 1-1
+            2  Scenario 2  Output group 1  1~Output Value 2-1
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 6: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 6: SUCCESS
+========================

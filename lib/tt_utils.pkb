@@ -370,6 +370,58 @@ BEGIN
   RETURN l_ret_value_lis;
 
 END cursor_To_List;
+/***************************************************************************************************
+
+cursor_To_Pipe: Call Utils Cursor_To_Pipe function, passing an open cursor, regex filter, and,
+                optionally, delimiter, and return the resulting list of delimited records.
+                Input group array count zero means omit group
+
+***************************************************************************************************/
+FUNCTION cursor_To_Pipe(
+            p_cursor_text                  VARCHAR2,     -- cursor text
+            p_filter                       VARCHAR2,     -- regex filter
+            p_delim                        VARCHAR2)     -- delimiter
+            RETURN                         L1_chr_arr IS -- list of delimited records
+  l_csr             SYS_REFCURSOR;
+  l_cursor_rec      Utils.cursor_rec;
+  l_ret_value_lis   L1_chr_arr;
+BEGIN
+
+  IF p_cursor_text IS NULL THEN
+    RETURN l_ret_value_lis;
+  END IF;
+
+  OPEN l_csr FOR p_cursor_text;
+  l_cursor_rec := Utils.Prep_Cursor(x_csr => l_csr);
+
+  IF p_filter IS NULL THEN
+    IF p_delim IS NULL THEN
+      SELECT COLUMN_VALUE
+        BULK COLLECT INTO l_ret_value_lis
+        FROM TABLE(Utils.Pipe_Cursor(p_cursor_rec => l_cursor_rec));
+    ELSE
+      SELECT COLUMN_VALUE
+        BULK COLLECT INTO l_ret_value_lis
+        FROM TABLE(Utils.Pipe_Cursor(p_cursor_rec => l_cursor_rec, p_delim  => p_delim));
+    END IF;
+  ELSE
+    IF p_delim IS NULL THEN
+      SELECT COLUMN_VALUE
+        BULK COLLECT INTO l_ret_value_lis
+        FROM TABLE(Utils.Pipe_Cursor(p_cursor_rec => l_cursor_rec, p_filter => p_filter));
+    ELSE
+      SELECT COLUMN_VALUE
+        BULK COLLECT INTO l_ret_value_lis
+        FROM TABLE(Utils.Pipe_Cursor(p_cursor_rec => l_cursor_rec, 
+                                     p_filter     => p_filter,
+                                     p_delim      => p_delim));
+    END IF;
+  END IF;
+  DBMS_SQL.Close_Cursor(l_cursor_rec.csr_id);
+
+  RETURN l_ret_value_lis;
+
+END cursor_To_Pipe;
 
 /***************************************************************************************************
 
@@ -661,6 +713,7 @@ BEGIN
 
     IF RegExp_Like(l_xplan_lis(i), l_searches(l_ind)) THEN
 
+      EXIT WHEN RegExp_Like(l_xplan_lis(i), '.*child number [1-9]'); -- child cursors break test so ignore
       l_ret_lis.EXTEND;
       l_ret_lis(l_ret_lis.COUNT) := l_xplan_lis(i);
       l_ind := l_ind + 1;
@@ -697,58 +750,70 @@ FUNCTION Purely_Wrap_Utils(
   l_message                      VARCHAR2(4000);
 BEGIN
 
-  l_act_2lis.EXTEND(15);
+  l_act_2lis.EXTEND(16);
   l_act_2lis(1) := heading(              p_value_2lis     => p_inp_3lis(1));
   l_act_2lis(2) := col_Headers(          p_value_2lis     => p_inp_3lis(2));
   l_act_2lis(3) := list_To_Line(         p_value_2lis     => p_inp_3lis(3));
   l_act_2lis(4) := join_Values(          p_value_2lis     => p_inp_3lis(4),
-                                         p_delim          => p_inp_3lis(12)(1)(1));
+                                         p_delim          => p_inp_3lis(13)(1)(1));
   l_act_2lis(5) := join_Values_S(        p_value_2lis     => p_inp_3lis(5),
-                                         p_delim          => p_inp_3lis(12)(1)(1));
+                                         p_delim          => p_inp_3lis(13)(1)(1));
   l_act_2lis(6) := Split_Values(         p_value_2lis     => p_inp_3lis(6),
-                                         p_delim          => p_inp_3lis(12)(1)(1));
-  l_act_2lis(11) := L1_chr_arr();
+                                         p_delim          => p_inp_3lis(13)(1)(1));
+  l_act_2lis(12) := L1_chr_arr();
   BEGIN
-    l_act_2lis(7) := view_To_List(       p_view_name      => p_inp_3lis(12)(1)(2),
+    l_act_2lis(7) := view_To_List(       p_view_name      => p_inp_3lis(13)(1)(2),
                                          p_sel_value_2lis => p_inp_3lis(7),
-                                         p_where          => p_inp_3lis(12)(1)(3),
-                                         p_order_by       => p_inp_3lis(12)(1)(4),
-                                         p_delim          => p_inp_3lis(12)(1)(1));
+                                         p_where          => p_inp_3lis(13)(1)(3),
+                                         p_order_by       => p_inp_3lis(13)(1)(4),
+                                         p_delim          => p_inp_3lis(13)(1)(1));
   EXCEPTION
     WHEN OTHERS THEN
-      l_act_2lis(11) := add_Exception(   p_source         => 'view_To_List',
+      l_act_2lis(12) := add_Exception(   p_source         => 'view_To_List',
                                          p_message        => SQLERRM,
-                                         p_act_lis        => l_act_2lis(11),
+                                         p_act_lis        => l_act_2lis(12),
                                          p_delim          => c_delim);
   END;
 
   BEGIN
     l_act_2lis(8) := cursor_To_List(     p_cursor_text    => p_inp_3lis(8)(1)(1),
                                          p_filter         => p_inp_3lis(8)(1)(2),
-                                         p_delim          => p_inp_3lis(12)(1)(1));
+                                         p_delim          => p_inp_3lis(13)(1)(1));
   EXCEPTION
     WHEN OTHERS THEN
-      l_act_2lis(11) := add_Exception(   p_source         => 'cursor_To_List',
+      l_act_2lis(12) := add_Exception(   p_source         => 'cursor_To_List',
                                          p_message        => SQLERRM,
-                                         p_act_lis        => l_act_2lis(11),
+                                         p_act_lis        => l_act_2lis(12),
                                          p_delim          => c_delim);
   END;
 
-  l_act_2lis(9) := intervalDS_To_Seconds(p_value_2lis     => p_inp_3lis(9));
-  l_act_2lis(10) := sleep(               p_value_2lis     => p_inp_3lis(10),
+  BEGIN
+    l_act_2lis(9) := cursor_To_Pipe(     p_cursor_text    => p_inp_3lis(9)(1)(1),
+                                         p_filter         => p_inp_3lis(9)(1)(2),
+                                         p_delim          => p_inp_3lis(13)(1)(1));
+  EXCEPTION
+    WHEN OTHERS THEN
+      l_act_2lis(12) := add_Exception(   p_source         => 'cursor_To_Pipe',
+                                         p_message        => SQLERRM,
+                                         p_act_lis        => l_act_2lis(12),
                                          p_delim          => c_delim);
-  l_message := raise_Error(              p_value_2lis     => p_inp_3lis(11));
+  END;
+
+  l_act_2lis(10) := intervalDS_To_Seconds(p_value_2lis     => p_inp_3lis(10));
+  l_act_2lis(11) := sleep(               p_value_2lis     => p_inp_3lis(11),
+                                         p_delim          => c_delim);
+  l_message := raise_Error(              p_value_2lis     => p_inp_3lis(12));
   IF l_message IS NOT NULL THEN
-    l_act_2lis(11) := add_Exception(     p_source         => 'Raise_Error',
+    l_act_2lis(12) := add_Exception(     p_source         => 'Raise_Error',
                                          p_message        => l_message,
-                                         p_act_lis        => l_act_2lis(11),
+                                         p_act_lis        => l_act_2lis(12),
                                          p_delim          => c_delim);
   END IF;
-  l_act_2lis(12) := w(                   p_line           => p_inp_3lis(12)(1)(5));
-  l_act_2lis(13) := w(                   p_line_2lis      => p_inp_3lis(13));
-  l_act_2lis(14) := file_IO(             p_value_2lis     => p_inp_3lis(14),
+  l_act_2lis(13) := w(                   p_line           => p_inp_3lis(13)(1)(5));
+  l_act_2lis(14) := w(                   p_line_2lis      => p_inp_3lis(14));
+  l_act_2lis(15) := file_IO(             p_value_2lis     => p_inp_3lis(15),
                                          p_delim          => c_delim);
-  l_act_2lis(15) := xPlan(               p_value_2lis     => p_inp_3lis(15));
+  l_act_2lis(16) := xPlan(               p_value_2lis     => p_inp_3lis(16));
   RETURN l_act_2lis;
 
 END Purely_Wrap_Utils;

@@ -1,0 +1,1 @@
+pwsh .\Format-JSON-ColGroup.ps1  > .\Format-JSON-ColGroup.out 2> .\Format-JSON-ColGroup.err

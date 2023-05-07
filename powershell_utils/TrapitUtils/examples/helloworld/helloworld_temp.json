@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "title": "title",
+    "delimiter": "|",
+    "inp": {},
+    "out": {
+      "Group": [
+        "Greeting"
+      ]
+    }
+  },
+  "scenarios": {
+    "No input": {
+      "active_yn": "Y",
+      "category_set": "Global",
+      "inp": {},
+      "out": {
+        "Group": [
+          "Hello World!"
+        ]
+      }
+    }
+  }
+}

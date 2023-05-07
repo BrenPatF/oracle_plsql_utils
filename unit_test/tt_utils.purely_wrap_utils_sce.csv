@@ -1,0 +1,6 @@
+Category Set,Scenario,Active
+Value Size,Small values,Y
+Value Size,Large values,Y
+Multiplicity,One value,Y
+Multiplicity,Many values,Y
+Exception Raised,SQL exception raised,Y

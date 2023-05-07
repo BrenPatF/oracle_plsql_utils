@@ -1,0 +1,1 @@
+pwsh .\Run-Test-HelloWorld.ps1  > .\Run-Test-HelloWorld.out 2> .\Run-Test-HelloWorld.err

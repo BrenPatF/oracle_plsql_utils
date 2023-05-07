@@ -1,0 +1,18 @@
+
+Unit Test Results Summary for Folder C:\Users\Brend\Dropbox\Home\WIP\github_stage\node_modules\trapit\externals\oracle_unit_test_examples
+=========================================================================================================================================
+ File                                                         Title                           Inp Groups  Out Groups  Tests  Fails  Folder                        
+------------------------------------------------------------  ------------------------------  ----------  ----------  -----  -----  ------------------------------
+*tt_feuertips_13.purely_wrap_feuertips_13_poc_out.json        Feuertips 13 - Base                      3           3     15     11  feuertips-13---base           
+*tt_feuertips_13_v1.purely_wrap_feuertips_13_poc_out.json     Feuertips 13 - v1                        3           3     15      7  feuertips-13---v1             
+ tt_feuertips_13_v2.purely_wrap_feuertips_13_poc_out.json     Feuertips 13 - v2                        3           3     15      0  feuertips-13---v2             
+ tt_investigation_mgr.purely_wrap_investigation_mgr_out.json  EPA Investigations                       2           2      9      0  epa-investigations            
+*tt_login_bursts.purely_wrap_view_ana_out.json                Login Bursts - Analytics                 1           2      3      2  login-bursts---analytics      
+ tt_login_bursts.purely_wrap_view_mod_out.json                Login Bursts - Model                     1           2      3      0  login-bursts---model          
+ tt_login_bursts.purely_wrap_view_mre_out.json                Login Bursts - Match_Recognize           1           2      3      0  login-bursts---match_recognize
+ tt_login_bursts.purely_wrap_view_rsf_out.json                Login Bursts - Recursive                 1           2      3      0  login-bursts---recursive      
+
+3 externals failed, see C:\Users\Brend\Dropbox\Home\WIP\github_stage\node_modules\trapit\externals\oracle_unit_test_examples for scenario listings
+tt_feuertips_13.purely_wrap_feuertips_13_poc_out.json
+tt_feuertips_13_v1.purely_wrap_feuertips_13_poc_out.json
+tt_login_bursts.purely_wrap_view_ana_out.json
