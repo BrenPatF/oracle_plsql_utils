@@ -851,11 +851,14 @@ Test-FormatDB($unpw, $conn, $utGroup, $testRoot)
 Automates the running of Oracle PL/SQL unit tests and formatting of the results via the JavaScript formatter. It has parameters:
 
 * `$unpw`: Oracle user name / password string
-* `$conn`:  Oracle connection string (such as the TNS alias)
-* `$utGroup`:  Oracle unit test group
-* `$testRoot`:  unit testing root folder, where results folders will be placed
+* `$conn`: Oracle connection string (such as the TNS alias)
+* `$utGroup`: Oracle unit test group
+* `$testRoot`: Unit testing root folder, where results folders will be placed
+* `$preSQL`: SQL to execute first (optional)
 
 Runs a SQL*Plus session calling the Oracle unit test driving function, with the test group passed as a parameter. The unit test driving function returns a list of the output JSON files created, which are then processed in a loop by the JavaScript formatter, which writes the formatted results files to subfolders based on the titles, and returns a summary of the results.
+
+If $preSQL is set the SQL statement it contains will be executed first. It can be used, for example, to point a view to a particular table.
 ## Installation
 [&uarr; In This README...](#in-this-readme)<br />
 [&darr; Install Prerequisites](#install-prerequisites)<br />
