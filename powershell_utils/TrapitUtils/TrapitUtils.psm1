@@ -395,6 +395,7 @@ Test-FormatDB($unpw, $conn, $utGroup, $testRoot): Run Oracle unit tests for a gi
            $conn        - Oracle connection string (such as the TNS alias)
            $utGroup     - Oracle unit test group
            $testRoot    - unit testing root folder, where results folders will be placed
+           $preSQL      - SQL to execute first
                              
     Return: Results summary for each unit tested as a string
 
@@ -413,7 +414,9 @@ function Test-FormatDB {
         [Parameter(Mandatory=$true)]
         [string]$utGroup, # Oracle unit test group
         [Parameter(Mandatory=$true)]
-        [string]$testRoot # unit testing root folder, where results folders will be placed
+        [string]$testRoot, # unit testing root folder, where results folders will be placed
+        [Parameter(Mandatory=$false)]
+        [string]$preSQL # SQL to execute first
     )
 
     $sqlPlusCommands = @"
@@ -432,6 +435,7 @@ END;
 EXIT;
 "@
     $fullConn = $unpw + '@' + $conn
+    if ($preSQL) {$output = $preSQL | sqlplus $fullConn}
     $output = $sqlPlusCommands -Replace 'GROUP', $utGroup | sqlplus $fullConn
     $output
     $arr = $output.Split([Environment]::NewLine)

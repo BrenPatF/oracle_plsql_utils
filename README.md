@@ -489,7 +489,7 @@ Test-FormatDB 'lib/lib' 'orclpdb' 'lib' $PSScriptRoot
 [&darr; Step 2: Create Results Object](#step-2-create-results-object)<br />
 [&darr; Step 3: Format Results](#step-3-format-results)<br />
 
-The package is tested using the Math Function Unit Testing design pattern, described here: [The Math Function Unit Testing design pattern, implemented in JavaScript](https://github.com/BrenPatF/trapit_nodejs_tester#trapit). In this approach, a 'pure' wrapper function is constructed that takes input parameters and returns a value, and is tested within a loop over scenario records read from a JSON file.
+The package is tested using the Math Function Unit Testing design pattern, described here: [Trapit - Oracle PL/SQL Unit Testing Module](https://github.com/BrenPatF/trapit_oracle_tester). In this approach, a 'pure' wrapper function is constructed that takes input parameters and returns a value, and is tested within a loop over scenario records read from a JSON file.
 
 In this case, where we have a set of small independent procedures and functions, the wrapper function is designed to test all of them in a single generalised transaction (per scenario).
 
