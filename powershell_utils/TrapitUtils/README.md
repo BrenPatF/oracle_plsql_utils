@@ -753,7 +753,7 @@ Import-Module TrapitUtils
 
 ### Write-UT_Template
 [&uarr; API - TrapitUtils](#api---trapitutils)<br />
-```
+```powershell
 Write-UT_Template($stem, $delimiter)
 ```
 Writes a unit testing template JSON file in the format of the Math Function Unit Testing design pattern, with parameters:
@@ -776,7 +776,7 @@ If there is a scenario list CSV file present, then the output file will contain 
 
 ### Get-UT_TemplateObject
 [&uarr; API - TrapitUtils](#api---trapitutils)<br />
-```
+```powershell
 Get-UT_TemplateObject($inpGroupLis, $outGroupLis, $delimiter, $sceLis)
 ```
 Gets an object with the same structure as the unit testing template JSON file, from input lists of objects for input and output groups, with parameters:
@@ -791,7 +791,7 @@ This is a pure function that is called by Write-UT_Template, which writes its re
 ### Test-Unit
 [&uarr; API - TrapitUtils](#api---trapitutils)<br />
 [&darr; $purelyWrapUnit](#purelywrapunit)<br />
-```
+```powershell
 Test-Unit($inpFile, $outFile, $purelyWrapUnit)
 ```
 Unit tests a unit using the Math Function Unit Testing design pattern with input data read from a JSON file, and output results written to an output JSON file, with parameters:
@@ -802,7 +802,7 @@ Unit tests a unit using the Math Function Unit Testing design pattern with input
 
 #### $purelyWrapUnit
 [&uarr; Test-Unit](#test-unit)<br />
-```
+```powershell
 $purelyWrapUnit($inpGroups)
 ```
 Processes unit test for a single scenario, taking inputs as an object with input group data, making calls to the unit under test, and returning the actual outputs as an object with output group data, with parameters:
@@ -824,7 +824,7 @@ This function acts as a 'pure' wrapper around calls to the unit under test. It i
 
 ### Test-Format
 [&uarr; API - TrapitUtils](#api---trapitutils)<br />
-```
+```powershell
 Test-Format($psScript, $npmRoot)
 ```
 Calls a powershell unit test driver script, then calls the JavaScript formatter, which writes the formatted results files to a subfolder in the script folder, based on the title, returning a summary. It has parameters:
@@ -834,7 +834,7 @@ Calls a powershell unit test driver script, then calls the JavaScript formatter,
 
 ### Test-FormatFolder
 [&uarr; API - TrapitUtils](#api---trapitutils)<br />
-```
+```powershell
 Test-FormatFolder($psScriptLis, $jsonFolder, $npmRoot)
 ```
 Calls each of a list of powershell unit test driver scripts, then calls the JavaScript formatter, which writes the formatted results files to a subfolder within a results folder, based on the titles, returning a summary. It has parameters:
@@ -845,8 +845,8 @@ Calls each of a list of powershell unit test driver scripts, then calls the Java
 
 ### Test-FormatDB
 [&uarr; API - TrapitUtils](#api---trapitutils)<br />
-```
-Test-FormatDB($unpw, $conn, $utGroup, $testRoot)
+```powershell
+Test-FormatDB($unpw, $conn, $utGroup, $testRoot, $preSQL)
 ```
 Automates the running of Oracle PL/SQL unit tests and formatting of the results via the JavaScript formatter. It has parameters:
 

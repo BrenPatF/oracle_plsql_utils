@@ -389,7 +389,7 @@ function Test-FormatFolder {
     node ($npmRoot + '/node_modules/trapit/externals/format-external-folder') ($jsonFolder -Replace '\\', '/')
 }
 <#**************************************************************************************************
-Test-FormatDB($unpw, $conn, $utGroup, $testRoot): Run Oracle unit tests for a given test group
+Test-FormatDB($unpw, $conn, $utGroup, $testRoot, $preSQL): Run Oracle unit tests for a given test group
 
     Input: $unpw        - Oracle user name / password string
            $conn        - Oracle connection string (such as the TNS alias)

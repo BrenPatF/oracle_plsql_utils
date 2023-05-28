@@ -370,7 +370,7 @@ You can install just the base module in an existing schema, or alternatively, in
 #### [Schema: sys; Folder: (module root)]
 - install_sys.sql creates an Oracle directory, `input_dir`, pointing to 'c:\input'. Update this if necessary to a folder on the database server with read/write access for the Oracle OS user
 - Run script from slqplus:
-```
+```sql
 SQL> @install_sys
 ```
 
@@ -380,12 +380,12 @@ If you do not create new users, subsequent installs will be from whichever schem
 [&uarr; Oracle Installs](#oracle-installs)<br />
 #### [Schema: lib; Folder: lib]
 - Run script from slqplus:
-```
+```sql
 SQL> @install_utils app
 ```
 
 This creates the required components for the base install along with grants for them to the app schema (passing none instead of app will bypass the grants). This install is all that is required to use the package and object types within the lib schema and app (if passed). To grant privileges to any `schema`, run the grants script directly, passing `schema`:
-```
+```sql
 SQL> @grant_utils_to_app schema
 ```
 
@@ -398,19 +398,19 @@ SQL> @grant_utils_to_app schema
 - There is also a Powershell script to do this (it also copies the unit test JSON file), assuming C:\input as INPUT_DIR:
 
 ##### Copy-DataFilesInput.ps1
-```ps
+```powershell
 Copy-Item ./unit_test/tt_utils.purely_wrap_utils_inp.json c:/input
 Copy-Item ./fantasy_premier_league_player_stats.csv c:/input
 ```
 
 #### [Schema: app; Folder: app] Install example code
 - Run script from slqplus:
-```
+```sql
 SQL> @install_col_group lib
 ```
 
 You can review the results from the example code in the `app` subfolder without doing this install. This install creates private synonyms to the lib schema. To create synonyms within another schema, run the synonyms script directly from that schema, passing lib schema:
-```
+```sql
 SQL> @c_utils_syns lib
 ```
 
@@ -423,13 +423,13 @@ The module can be installed from its own Github page: [Trapit on GitHub](https:/
 
 #### [Schema: lib; Folder: install_ut_prereq\lib] Create lib components
 - Run script from slqplus:
-```
+```sql
 SQL> @install_lib_all
 ```
 
 #### [Schema: app; Folder: install_ut_prereq\app] Create app synonyms
 - Run script from slqplus:
-```
+```sql
 SQL> @c_syns_all
 ```
 
@@ -446,7 +446,7 @@ This step requires the Trapit module option to have been installed via Install 4
 
 #### [Schema: lib; Folder: lib] Install unit test code
 - Run script from slqplus:
-```
+```sql
 SQL> @install_utils_tt
 ```
 
@@ -469,19 +469,17 @@ There are two main entry points, whose usage can be seen in the current project.
 #### Format-JSON-Utils.ps1
 [&uarr; Powershell and JavaScript Packages](#powershell-and-javascript-packages)<br />
 
-This is used to generate a template input JSON file for the Oracle PL/SQL general utilities module.
-```sql
-Import-Module ..\powershell_utils\TrapitUtils\TrapitUtils
-Write-UT_Template 'tt_utils.purely_wrap_utils' ';'
+This is used to generate a template input JSON file for the unit under test, using a function from the Powershell package TrapitUtils, with signature:
+```powershell
+Write-UT_Template($stem, $delimiter)
 ```
 
 #### Test-Format-Utils.ps1
 [&uarr; Powershell and JavaScript Packages](#powershell-and-javascript-packages)<br />
 
-This run Oracle unit tests for a given test group ('lib' here) for the Oracle PL/SQL general utilities module, and includes the formatting step by means of a call to the JavaScript formatter.
-```sql
-Import-Module ..\powershell_utils\TrapitUtils\TrapitUtils
-Test-FormatDB 'lib/lib' 'orclpdb' 'lib' $PSScriptRoot
+This runs Oracle unit tests for a given test group, and includes the formatting step by means of a call to the JavaScript formatter, using a function from the Powershell package TrapitUtils, with signature:
+```powershell
+Test-FormatDB($unpw, $conn, $utGroup, $testRoot)
 ```
 ## Unit Testing
 [&uarr; In this README...](#in-this-readme)<br />
@@ -587,7 +585,7 @@ From the scenarios identified we can construct the following CSV file (`tt_utils
 The powershell API to generate the template JSON file can be run with the following powershell in the folder of the CSV files:
 
 ```powershell
-Import-Module TrapitUtils
+Import-Module ..\powershell_utils\TrapitUtils\TrapitUtils
 Write-UT_Template 'tt_utils.purely_wrap_utils' ';'
 ```
 This creates the template JSON file, tt_utils.purely_wrap_utils_temp.json, in which , for each scenario element, we need to update the values to reflect the scenario to be tested, in the actual input JSON file, tt_utils.purely_wrap_utils_inp.json.
@@ -610,14 +608,14 @@ In non-database languages, such as JavaScript or Python, the wrapper function ca
 
 Unit tests are run by making a call to one of two library packaged program units that run all tests for a group name passed in as a parameter, 'lib' in this case.
 
-```
+```sql
 PROCEDURE Run_Tests(p_group_nm VARCHAR2);
 ```
 This procedure runs the tests for the input group leaving the output JSON files in the assigned directory on the database server.
 
 This version was originally used to execute step 3 separately from step 2.
 
-```
+```sql
 FUNCTION Test_Output_Files(p_group_nm VARCHAR2) RETURN L1_chr_arr;
 ```
 This function runs the tests for the input group leaving the output JSON files in the assigned directory on the database server, and returns the full file paths in an array.
@@ -628,7 +626,7 @@ This version is used by a Powershell script that combines steps 2 and 3, as show
 [&uarr; Step 2: Create Results Object](#step-2-create-results-object)<br />
 
 Here is the fixed function specification, with the header comment text:
-```
+```sql
 /***************************************************************************************************
 Purely_Wrap_Utils: Unit test wrapper function for Utils package procedures and functions
 
@@ -647,7 +645,7 @@ FUNCTION Purely_Wrap_Utils(
 ```
 
 Here is an extract from the function body:
-```
+```sql
 FUNCTION Purely_Wrap_Utils(
             p_inp_3lis                     L3_chr_arr)   -- input list of lists (group, record, field)
             RETURN                         L2_chr_arr IS -- output list of lists (group, record)
@@ -665,7 +663,7 @@ BEGIN
   l_act_2lis(3) := list_To_Line(         p_value_2lis     => p_inp_3lis(3));
   l_act_2lis(4) := join_Values(          p_value_2lis     => p_inp_3lis(4),
                                          p_delim          => p_inp_3lis(13)(1)(1));
-''' [continues]
+... [continues]
   RETURN l_act_2lis;
 
 END Purely_Wrap_Utils;
