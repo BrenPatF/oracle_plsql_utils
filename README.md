@@ -16,7 +16,7 @@ This module is a prerequisite for these other Oracle GitHub modules:
 - [Log_Set - Oracle logging module](https://github.com/BrenPatF/log_set_oracle)
 - [Timer_Set - Oracle PL/SQL code timing module](https://github.com/BrenPatF/timer_set_oracle)
 
-The package is tested using the Math Function Unit Testing design pattern, with test results in HTML and text format included.
+The package is tested using [The Math Function Unit Testing Design Pattern](https://brenpatf.github.io/2023/06/05/the-math-function-unit-testing-design-pattern.html), with test results in HTML and text format included.
 
 The module also comes with examples of usage.
 
@@ -487,17 +487,17 @@ Test-FormatDB($unpw, $conn, $utGroup, $testRoot)
 [&darr; Step 2: Create Results Object](#step-2-create-results-object)<br />
 [&darr; Step 3: Format Results](#step-3-format-results)<br />
 
-The package is tested using the Math Function Unit Testing design pattern, described here: [Trapit - Oracle PL/SQL Unit Testing Module](https://github.com/BrenPatF/trapit_oracle_tester). In this approach, a 'pure' wrapper function is constructed that takes input parameters and returns a value, and is tested within a loop over scenario records read from a JSON file.
+The package is tested using [The Math Function Unit Testing Design Pattern](https://brenpatf.github.io/2023/06/05/the-math-function-unit-testing-design-pattern.html) (general overview), described in its Oracle version here: [Trapit - Oracle PL/SQL Unit Testing Module](https://github.com/BrenPatF/trapit_oracle_tester). In this approach, a 'pure' wrapper function is constructed that takes input parameters and returns a value, and is tested within a loop over scenario records read from a JSON file.
 
 In this case, where we have a set of small independent procedures and functions, the wrapper function is designed to test all of them in a single generalised transaction (per scenario).
 
-At a high level the Math Function Unit Testing design pattern involves three main steps:
+At a high level [The Math Function Unit Testing Design Pattern](https://brenpatf.github.io/2023/06/05/the-math-function-unit-testing-design-pattern.html) involves three main steps:
 
 1. Create an input file containing all test scenarios with input data and expected output data for each scenario
 2. Create a results object based on the input file, but with actual outputs merged in
 3. Use the results object to generate unit test results files formatted in HTML and/or text
 
-<img src="png/Math Function UT DP - HL Flow.png">
+<img src="png/HLS.png">
 
 #### Step 1: Create JSON File
 [&uarr; Unit Testing](#unit-testing)<br />
@@ -782,6 +782,7 @@ There are six subfolders below the trapit root folder:
 - [Oracle Instant Client Downloads for Microsoft Windows (x64) 64-bit](https://www.oracle.com/ie/database/technologies/instant-client/winx64-64-downloads.html)
 - [Node.js Downloads](https://nodejs.org/en/download)
 - [Installing Windows PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/windows-powershell/install/installing-windows-powershell)
+- [The Math Function Unit Testing Design Pattern](https://brenpatf.github.io/2023/06/05/the-math-function-unit-testing-design-pattern.html)
 - [Trapit - Oracle PL/SQL Unit Testing Module](https://github.com/BrenPatF/trapit_oracle_tester)
 - [Trapit - JavaScript Unit Tester/Formatter](https://github.com/BrenPatF/trapit_nodejs_tester)
 - [Powershell Utilities Module](https://github.com/BrenPatF/powershell_utils)
