@@ -1,0 +1,87 @@
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  background-color: #dddddd;
+  border: 1px solid #030303;
+  text-align: left;
+  padding: 8px;
+}
+    td {
+      font-weight: bold;
+      border: 1px solid #030303;
+      text-align: left;
+      padding: 8px;
+      white-space: pre;
+      font-family: "Courier New", Courier, monospace
+    }
+h1 {margin-top: 0em; margin-bottom: 0em;
+  font-family: arial, sans-serif;
+  width: 100%;
+  font-size: 300%;
+  background-color: #FFFF00;
+}
+h2 {margin-top: 0em; margin-bottom: 0em;
+  font-family: arial, sans-serif;
+  width: 100%;
+  font-size: 200%;
+  background-color: #2AE6C1;
+}
+h3 {margin-top: 0em; margin-bottom: 0em;
+  font-family: arial, sans-serif;
+  width: 100%;
+  font-size: 150%;
+  background-color: #33F0FF;
+}
+h4 {margin-top: 0em; margin-bottom: 0em;
+  font-family: arial, sans-serif;
+  width: 100%;
+  font-size: 125%;
+  background-color: #7DFF33;
+}
+</style>
+</head>
+<body>
+<h2>SCENARIO 7: MBK - ACC / ACT / REP = 2 / 1 / 1 ; SHK / SIZ = Y / S</h2>
+<h3>INPUTS</h3>
+<h4>GROUP 1: Room Access</h4>
+<table>
+<tr><th>#</th><th>Key Id</th><th>Room Name</th><th>Character Name</th></tr>
+<tr><td>1</td><td>1</td><td>Room 1</td><td>Peter</td></tr>
+<tr><td>2</td><td>1</td><td>Room 1</td><td>Paul</td></tr>
+</table>
+<h4></h4>
+<h4>GROUP 2: Room Action</h4>
+<table>
+<tr><th>#</th><th>Key Id</th><th>Action</th><th>Done By</th></tr>
+<tr><td>1</td><td>1</td><td>Enter</td><td>Steve</td></tr>
+</table>
+<h4></h4>
+<h4>GROUP 3: Room Repair</h4>
+<table>
+<tr><th>#</th><th>Key Id</th><th>Action</th><th>Completion</th><th>Repaired By</th></tr>
+<tr><td>1</td><td>1</td><td>Inspect</td><td>10%</td><td>Stephanie</td></tr>
+</table>
+<h4></h4>
+<h3>OUTPUTS</h3>
+<h4>GROUP 1: File room_action.log</h4>
+<table>
+<tr><th>#</th><th>Line</th></tr>
+<tr><td>1</td><td>1|Room 1|Steve|Enter</td></tr>
+</table>
+<h4>0 failed of 1: SUCCESS</h4>
+<h4>GROUP 2: File room_repair.log</h4>
+<table>
+<tr><th>#</th><th>Line</th></tr>
+<tr><td>1</td><td>1|Room 1|10%|Stephanie|Inspect</td></tr>
+</table>
+<h4>0 failed of 1: SUCCESS</h4>
+<h4>GROUP 3: Unhandled Exception: Empty as expected: SUCCESS</h4>
+<h2>0 failed of 3: SUCCESS</h2>
+</body></html>

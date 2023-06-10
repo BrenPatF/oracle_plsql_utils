@@ -5,7 +5,7 @@
 
 :hammer_and_wrench: :detective:
 
-This module contains two powershell utility functions for unit testing following the Math Function Unit Testing design pattern. The first one supports the design pattern for testing in any language:
+This module contains two powershell utility functions for unit testing following [The Math Function Unit Testing Design Pattern](https://brenpatf.github.io/2023/06/05/the-math-function-unit-testing-design-pattern.html). The first one supports the design pattern for testing in any language:
 
 - `Write-UT_Template` creates a template for the JSON input file required by the design pattern, based on CSV files specifying the structure. The template file includes scenarios that may be assigned against category sets, with placeholder records to be updated manually
 
@@ -35,7 +35,7 @@ I explained the concepts for the unit testing design pattern in relation specifi
 
 - [The Database API Viewed As A Mathematical Function: Insights into Testing](https://www.slideshare.net/brendanfurey7/database-api-viewed-as-a-mathematical-function-insights-into-testing)
 
-I later named the approach 'The Math Function Unit Testing design pattern' when I applied it in Javascript and wrote a JavaScript program to format results both in plain text and as HTML pages:
+I later named the approach [The Math Function Unit Testing Design Pattern](https://brenpatf.github.io/2023/06/05/the-math-function-unit-testing-design-pattern.html) when I applied it in Javascript and wrote a JavaScript program to format results both in plain text and as HTML pages:
 - [Trapit - JavaScript Unit Tester/Formatter](https://github.com/BrenPatF/trapit_nodejs_tester)
 
 The module also allowed for the formatting of results obtained from testing in languages other than JavaScript by means of an intermediate output JSON file. In 2021 I developed a powershell module that included a utility to generate a template for the JSON input scenarios file required by the design pattern:
@@ -69,7 +69,7 @@ At a high level the Math Function Unit Testing design pattern involves three mai
 2. Create a results object based on the input file, but with actual outputs merged in, based on calls to the unit under test
 3. Use the results object to generate unit test results files formatted in HTML and/or text
 
-<img src="png/Math Function UT DP - HL Flow.png">
+<img src="png/HLS.png">
 
 The first and third of these steps are supported by generic utilities that can be used in unit testing in any language. The second step uses a language-specific unit test driver utility.
 
@@ -80,9 +80,9 @@ For non-JavaScript programs the results object is materialized using a library p
 This creates a subfolder with name based on the unit test title within the file, and also outputs a summary of the results. The processing is split between three code units:
 - Test Unit: External library function that drives the unit testing with a callback to a specific wrapper function
 - Specific Test Package: This has a 1-line main program to call the library driver function, passing in the callback wrapper function
-- Unit Under Test: Called by the wrapper function, which converts between its specific inputs and outputs and the generic version used by the library package
+- Unit Under Test (API): Called by the wrapper function, which converts between its specific inputs and outputs and the generic version used by the library package
 
-<img src="png/MFUTDP - Flow-Ext.png">
+<img src="png/PFD-Ext.png">
 
 In the first step the external program creates the output results JSON file, while in the second step the file is read into an object by the Trapit library package, which then formats the results.
 
@@ -252,7 +252,7 @@ Hello World!
 
 Here is a diagram of the input and output groups for this example:
 
-<img src="png/powershell_utils-JSD-HW.png">
+<img src="png/JSD-HW.png">
 
 From the input and output groups depicted we can construct CSV files with flattened group/field structures, and default values added, as follows (with `helloworld_inp.csv` left, `helloworld_out.csv` right):
 <img src="png/groups - helloworld.png">
@@ -496,7 +496,7 @@ The example illustrates how a wrapper function can handle `impure` features of t
 
 Here is a diagram of the input and output groups for this example:
 
-<img src="png/powershell_utils-JSD-CG.png">
+<img src="png/JSD-CG.png">
 
 From the input and output groups depicted we can construct CSV files with flattened group/field structures, and default values added, as follows (with `colgrp_inp.csv` left, `colgrp_out.csv` right):
 <img src="png/groups - colgroup.png">
@@ -794,7 +794,7 @@ This is a pure function that is called by Write-UT_Template, which writes its re
 ```powershell
 Test-Unit($inpFile, $outFile, $purelyWrapUnit)
 ```
-Unit tests a unit using the Math Function Unit Testing design pattern with input data read from a JSON file, and output results written to an output JSON file, with parameters:
+Unit tests a unit using [The Math Function Unit Testing Design Pattern](https://brenpatf.github.io/2023/06/05/the-math-function-unit-testing-design-pattern.html) with input data read from a JSON file, and output results written to an output JSON file, with parameters:
 
 * `$inpFile`: input JSON file, with input and expected output data
 * `$outFile`: output JSON file, with input, expected and actual output data
@@ -889,7 +889,7 @@ This will create a folder TrapitUtils under the first folder in your `psmodulepa
 [&darr; Step 2: Create Results Object](#step-2-create-results-object-1)<br />
 [&darr; Step 3: Format Results](#step-3-format-results-1)<br />
 
-In this section the unit testing core API function Get-UT_TemplateObject is itself tested using the Math Function Unit Testing design pattern. A 'pure' wrapper function is constructed that takes input parameters and returns a value, and is tested within a loop over scenario records read from a JSON file.
+In this section the unit testing core API function Get-UT_TemplateObject is itself tested using [The Math Function Unit Testing Design Pattern](https://brenpatf.github.io/2023/06/05/the-math-function-unit-testing-design-pattern.html). A 'pure' wrapper function is constructed that takes input parameters and returns a value, and is tested within a loop over scenario records read from a JSON file.
 
 ### Step 1: Create JSON File
 [&uarr; Unit Testing](#unit-testing)<br />
@@ -906,7 +906,7 @@ Get-UT_TemplateObject($inpGroupLis, $outGroupLis, $delimiter, $sceLis)
 ```
 where the parameters are described in the API section above. The diagram below shows the structure of the input and output of the wrapper function.
 
-<img src="png/powershell_utils-JSD-UT.png">
+<img src="png/JSD-TrapitUtils.png">
 
 From the input and output groups depicted we can construct CSV files with flattened group/field structures, and default values added, as follows (with `get_ut_template_object_inp.csv` left, `get_ut_template_object_out.csv` right):
 <img src="png/groups - ut.png">
@@ -954,7 +954,7 @@ Apply to:
 
 After analysis of the possible scenarios in terms of categories and category sets, we can depict them on a Category Structure diagram:
 
-<img src="png/CSD-UT.png">
+<img src="png/CSD-TrapitUtils.png">
 
 We can tabulate the results of the category analysis, and assign a scenario against each category set/category with a unique description:
 
@@ -1182,6 +1182,7 @@ There are four subfolders below the trapit root folder, which has README and mod
 
 ## See Also
 [&uarr; In This README...](#in-this-readme)<br />
+- [The Math Function Unit Testing Design Pattern](https://brenpatf.github.io/2023/06/05/the-math-function-unit-testing-design-pattern.html)
 - [Trapit - JavaScript Unit Tester/Formatter](https://github.com/BrenPatF/trapit_nodejs_tester)
 - [Unit Testing, Scenarios and Categories: The SCAN Method](https://brenpatf.github.io/jekyll/update/2021/10/17/unit-testing-scenarios-and-categories-the-scan-method.html)
 - [Powershell General Utilities Module](https://github.com/BrenPatF/powershell_utils/tree/master/Utils)

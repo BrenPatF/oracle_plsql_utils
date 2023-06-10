@@ -1,0 +1,32 @@
+Unit Test Report: Hello World
+=============================
+
+      #    Scenario  Fails (of 1)  Status 
+      ---  --------  ------------  -------
+      1    Scenario  0             SUCCESS
+
+Test scenarios: 0 failed of 1: SUCCESS
+======================================
+Tested: 2023-04-10 06:33:42, Formatted: 2023-04-10 06:33:42
+
+SCENARIO 1: Scenario {
+======================
+
+   INPUTS
+   ======
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Group {
+      ================
+
+            #  Greeting    
+            -  ------------
+            1  Hello World!
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+} 0 failed of 1: SUCCESS
+========================

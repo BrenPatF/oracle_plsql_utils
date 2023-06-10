@@ -1,0 +1,26 @@
+{
+    "meta": {
+        "title": "Hello World",
+        "inp": {},
+        "out": {
+            "Group": [
+                "Greeting"
+            ]
+        }
+    },
+    "scenarios": {
+        "Scenario": {
+            "inp": {},
+            "out": {
+                "Group": {
+                    "exp": [
+                        "Hello World!"
+                    ],
+                    "act": [
+                        "Hello World!"
+                    ]
+                }
+            }
+        }
+    }
+}

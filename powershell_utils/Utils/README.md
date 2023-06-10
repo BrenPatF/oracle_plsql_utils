@@ -9,7 +9,7 @@ This module comprises a set of generic powershell functions for 'pretty-printing
 
 Its use is demonstrated by examples including a simple file-reading and group-counting class module.
 
-It is unit tested using the Math Function Unit Testing design pattern, described here in general: [Trapit - JavaScript Unit Tester/Formatter](https://github.com/BrenPatF/trapit_nodejs_tester)
+The package is tested using [The Math Function Unit Testing Design Pattern](https://brenpatf.github.io/2023/06/05/the-math-function-unit-testing-design-pattern.html), with test results in HTML and text format included.
 
 # In this README...
 [&darr; Usage](#usage)<br />
@@ -240,7 +240,7 @@ The powershell package includes an npm package to format the unit test output JS
 [&darr; Step 2: Create Results Object](#step-2-create-results-object)<br />
 [&darr; Step 3: Format Results](#step-3-format-results)<br />
 
-The package is tested using the Math Function Unit Testing design pattern, described here:  [Trapit - JavaScript Unit Tester/Formatter](https://github.com/BrenPatF/trapit_nodejs_tester). In this approach, a 'pure' wrapper function is constructed that takes input parameters and returns a value, and is tested within a loop over scenario records read from a JSON file.
+The package is tested using [The Math Function Unit Testing Design Pattern](https://brenpatf.github.io/2023/06/05/the-math-function-unit-testing-design-pattern.html). In this approach, a 'pure' wrapper function is constructed that takes input parameters and returns a value, and is tested within a loop over scenario records read from a JSON file.
 
 In this case, where we have a set of small independent methods, most of which are pure functions, the wrapper function is designed to test all of them in a single generalised transaction.
 
@@ -250,7 +250,7 @@ At a high level the Math Function Unit Testing design pattern involves three mai
 2. Create a results object based on the input file, but with actual outputs merged in, based on calls to the unit under test
 3. Use the results object to generate unit test results files formatted in HTML and/or text
 
-<img src="png/Math Function UT DP - HL Flow.png">
+<img src="png/HLS.png">
 
 The first and third of these steps are supported by generic utilities that can be used in unit testing in any language. The second step uses a language-specific unit test driver utility.
 
@@ -264,7 +264,7 @@ The first and third of these steps are supported by generic utilities that can b
 
 The diagram below shows the structure of the input and output of the wrapper function.
 
-<img src="png/Utils-JSD.png">
+<img src="png/JSD-Utils.png">
 
 From the input and output groups depicted we can construct CSV files with flattened group/field structures, and default values added, as follows (with `ps_utils_inp.csv` left, `ps_utils_out.csv` right):
 <img src="png/groups - ut.png">
@@ -319,7 +319,7 @@ The generic category set of multiplicity is applicable very frequently, and we s
 
 After analysis of the possible scenarios in terms of categories and category sets, we can depict them on a Category Structure diagram:
 
-<img src="png/Utils-CSD.png">
+<img src="png/CSD-Utils.png">
 
 We can tabulate the results of the category analysis, and assign a scenario against each category set/category with a unique description:
 
@@ -451,6 +451,7 @@ There are three subfolders below the trapit root folder, which has README and mo
 
 ## See Also
 [&uarr; In this README...](#in-this-readme)<br />
+- [The Math Function Unit Testing Design Pattern](https://brenpatf.github.io/2023/06/05/the-math-function-unit-testing-design-pattern.html)
 - [Trapit - JavaScript Unit Tester/Formatter](https://github.com/BrenPatF/trapit_nodejs_tester)
 - [Unit Testing, Scenarios and Categories: The SCAN Method](https://brenpatf.github.io/jekyll/update/2021/10/17/unit-testing-scenarios-and-categories-the-scan-method.html)
 - [Powershell Trapit Unit Testing Utilities Module](https://github.com/BrenPatF/powershell_utils/tree/master/TrapitUtils)

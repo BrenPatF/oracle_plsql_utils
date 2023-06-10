@@ -1,0 +1,428 @@
+Unit Test Report: EPA Investigations
+====================================
+
+      #    Scenario                                                                      Fails (of 2)  Status 
+      ---  ----------------------------------------------------------------------------  ------------  -------
+      1    NPN-NPN: S, P - parameter null                                                0             SUCCESS
+      2    NVT-UPD: S - value in table, P - update slot                                  0             SUCCESS
+      3    NPN-IOR: S - parameter null, P - records for other investigation, with slots  0             SUCCESS
+      4    UPD-NPN: S - update slot, P - parameter null                                  0             SUCCESS
+      5    UPD-UPD: S, P - update slot                                                   0             SUCCESS
+      6    UPD-INS: S - update slot, P - records but no slots                            0             SUCCESS
+      7    INS-NVT: S - records but no slots, P - value in table                         0             SUCCESS
+      8    IOR-UPD: S, P - records for other investigation, with slots                   0             SUCCESS
+      9    INR-INR: S, P - no records                                                    0             SUCCESS
+
+Test scenarios: 0 failed of 9: SUCCESS
+======================================
+Tested: 2023-04-10 06:33:41, Formatted: 2023-04-10 06:33:41
+
+SCENARIO 1: NPN-NPN: S, P - parameter null {
+============================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Table {
+      ================
+
+            #  Investigation Id  Spray Id  Pesticide Id
+            -  ----------------  --------  ------------
+            1  100                         2002        
+
+      }
+      =
+
+      GROUP 2: Parameters {
+      =====================
+
+            #  Investigation Id  Spray Id  Pesticide Id
+            -  ----------------  --------  ------------
+            1  100                                     
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Table {
+      ================
+
+            #  Investigation Id  Spray Id  Pesticide Id
+            -  ----------------  --------  ------------
+            1  100                         2002        
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 2: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 2: SUCCESS
+========================
+
+SCENARIO 2: NVT-UPD: S - value in table, P - update slot {
+==========================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Table {
+      ================
+
+            #  Investigation Id  Spray Id  Pesticide Id
+            -  ----------------  --------  ------------
+            1  100               1001                  
+
+      }
+      =
+
+      GROUP 2: Parameters {
+      =====================
+
+            #  Investigation Id  Spray Id  Pesticide Id
+            -  ----------------  --------  ------------
+            1  100               1001      2001        
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Table {
+      ================
+
+            #  Investigation Id  Spray Id  Pesticide Id
+            -  ----------------  --------  ------------
+            1  100               1001      2001        
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 2: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 2: SUCCESS
+========================
+
+SCENARIO 3: NPN-IOR: S - parameter null, P - records for other investigation, with slots {
+==========================================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Table {
+      ================
+
+            #  Investigation Id  Spray Id  Pesticide Id
+            -  ----------------  --------  ------------
+            1  200                         2002        
+            2  300               2001                  
+
+      }
+      =
+
+      GROUP 2: Parameters {
+      =====================
+
+            #  Investigation Id  Spray Id  Pesticide Id
+            -  ----------------  --------  ------------
+            1  100                         2001        
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Table {
+      ================
+
+            #  Investigation Id  Spray Id  Pesticide Id
+            -  ----------------  --------  ------------
+            1  200                         2002        
+            2  300               2001                  
+            3  100                         2001        
+
+      } 0 failed of 3: SUCCESS
+      ========================
+
+      GROUP 2: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 2: SUCCESS
+========================
+
+SCENARIO 4: UPD-NPN: S - update slot, P - parameter null {
+==========================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Table {
+      ================
+
+            #  Investigation Id  Spray Id  Pesticide Id
+            -  ----------------  --------  ------------
+            1  100                         2001        
+
+      }
+      =
+
+      GROUP 2: Parameters {
+      =====================
+
+            #  Investigation Id  Spray Id  Pesticide Id
+            -  ----------------  --------  ------------
+            1  100               1001                  
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Table {
+      ================
+
+            #  Investigation Id  Spray Id  Pesticide Id
+            -  ----------------  --------  ------------
+            1  100               1001      2001        
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 2: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 2: SUCCESS
+========================
+
+SCENARIO 5: UPD-UPD: S, P - update slot {
+=========================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Table {
+      ================
+
+            #  Investigation Id  Spray Id  Pesticide Id
+            -  ----------------  --------  ------------
+            1  100                         2001        
+            2  100               1001                  
+
+      }
+      =
+
+      GROUP 2: Parameters {
+      =====================
+
+            #  Investigation Id  Spray Id  Pesticide Id
+            -  ----------------  --------  ------------
+            1  100               1002      2002        
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Table {
+      ================
+
+            #  Investigation Id  Spray Id  Pesticide Id
+            -  ----------------  --------  ------------
+            1  100               1002      2001        
+            2  100               1001      2002        
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 2: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 2: SUCCESS
+========================
+
+SCENARIO 6: UPD-INS: S - update slot, P - records but no slots {
+================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Table {
+      ================
+
+            #  Investigation Id  Spray Id  Pesticide Id
+            -  ----------------  --------  ------------
+            1  100                         2001        
+
+      }
+      =
+
+      GROUP 2: Parameters {
+      =====================
+
+            #  Investigation Id  Spray Id  Pesticide Id
+            -  ----------------  --------  ------------
+            1  100               1001      2002        
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Table {
+      ================
+
+            #  Investigation Id  Spray Id  Pesticide Id
+            -  ----------------  --------  ------------
+            1  100               1001      2001        
+            2  100                         2002        
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 2: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 2: SUCCESS
+========================
+
+SCENARIO 7: INS-NVT: S - records but no slots, P - value in table {
+===================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Table {
+      ================
+
+            #  Investigation Id  Spray Id  Pesticide Id
+            -  ----------------  --------  ------------
+            1  100               1001      2001        
+
+      }
+      =
+
+      GROUP 2: Parameters {
+      =====================
+
+            #  Investigation Id  Spray Id  Pesticide Id
+            -  ----------------  --------  ------------
+            1  100               1002      2001        
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Table {
+      ================
+
+            #  Investigation Id  Spray Id  Pesticide Id
+            -  ----------------  --------  ------------
+            1  100               1001      2001        
+            2  100               1002                  
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 2: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 2: SUCCESS
+========================
+
+SCENARIO 8: IOR-UPD: S, P - records for other investigation, with slots {
+=========================================================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Table {
+      ================
+
+            #  Investigation Id  Spray Id  Pesticide Id
+            -  ----------------  --------  ------------
+            1  100               1001                  
+            2  200                         2002        
+            3  300               2001                  
+
+      }
+      =
+
+      GROUP 2: Parameters {
+      =====================
+
+            #  Investigation Id  Spray Id  Pesticide Id
+            -  ----------------  --------  ------------
+            1  100               1002      2001        
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Table {
+      ================
+
+            #  Investigation Id  Spray Id  Pesticide Id
+            -  ----------------  --------  ------------
+            1  100               1001      2001        
+            2  200                         2002        
+            3  300               2001                  
+            4  100               1002                  
+
+      } 0 failed of 4: SUCCESS
+      ========================
+
+      GROUP 2: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 2: SUCCESS
+========================
+
+SCENARIO 9: INR-INR: S, P - no records {
+========================================
+
+   INPUTS
+   ======
+
+      GROUP 1: Table: Empty
+      =====================
+
+      GROUP 2: Parameters {
+      =====================
+
+            #  Investigation Id  Spray Id  Pesticide Id
+            -  ----------------  --------  ------------
+            1  100               1001      2001        
+
+      }
+      =
+
+   OUTPUTS
+   =======
+
+      GROUP 1: Table {
+      ================
+
+            #  Investigation Id  Spray Id  Pesticide Id
+            -  ----------------  --------  ------------
+            1  100               1001      2001        
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 2: Unhandled Exception: Empty as expected: SUCCESS
+      ========================================================
+
+} 0 failed of 2: SUCCESS
+========================

@@ -1,0 +1,141 @@
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  background-color: #dddddd;
+  border: 1px solid #030303;
+  text-align: left;
+  padding: 8px;
+}
+    td {
+      font-weight: bold;
+      border: 1px solid #030303;
+      text-align: left;
+      padding: 8px;
+      white-space: pre;
+      font-family: "Courier New", Courier, monospace
+    }
+h1 {margin-top: 0em; margin-bottom: 0em;
+  font-family: arial, sans-serif;
+  width: 100%;
+  font-size: 300%;
+  background-color: #FFFF00;
+}
+h2 {margin-top: 0em; margin-bottom: 0em;
+  font-family: arial, sans-serif;
+  width: 100%;
+  font-size: 200%;
+  background-color: #2AE6C1;
+}
+h3 {margin-top: 0em; margin-bottom: 0em;
+  font-family: arial, sans-serif;
+  width: 100%;
+  font-size: 150%;
+  background-color: #33F0FF;
+}
+h4 {margin-top: 0em; margin-bottom: 0em;
+  font-family: arial, sans-serif;
+  width: 100%;
+  font-size: 125%;
+  background-color: #7DFF33;
+}
+</style>
+</head>
+<body>
+<h2>SCENARIO 2: As scenario 1 but not mocked, and with SELFs</h2>
+<h3>INPUTS</h3>
+<h4>GROUP 1: Event Sequence</h4>
+<table>
+<tr><th>#</th><th>Set Name</th><th>Timer Name</th><th>Event</th><th>Elapsed Time</th><th>CPU Time</th></tr>
+<tr><td>1</td><td>Set 1</td><td></td><td>CON</td><td>0</td><td></td></tr>
+<tr><td>2</td><td>Set 1</td><td>Timer 1</td><td>INC</td><td>1.023</td><td></td></tr>
+<tr><td>3</td><td>Set 2</td><td></td><td>CON</td><td>0</td><td></td></tr>
+<tr><td>4</td><td>Set 1</td><td>Timer 2</td><td>INC</td><td>1.023</td><td></td></tr>
+<tr><td>5</td><td>Set 1</td><td>Timer 1</td><td>INC</td><td>1.023</td><td></td></tr>
+<tr><td>6</td><td>Set 2</td><td>Timer 1</td><td>INC</td><td>1.023</td><td></td></tr>
+<tr><td>7</td><td>Set 2</td><td></td><td>INI</td><td>1.023</td><td></td></tr>
+<tr><td>8</td><td>Set 2</td><td>Timer 1</td><td>INC</td><td>1.023</td><td></td></tr>
+<tr><td>9</td><td>Set 1</td><td></td><td>GET</td><td>1.023</td><td></td></tr>
+<tr><td>10</td><td>Set 1</td><td></td><td>GETF</td><td>0</td><td></td></tr>
+<tr><td>11</td><td>Set 1</td><td></td><td>RES</td><td>0</td><td></td></tr>
+<tr><td>12</td><td></td><td></td><td>SELF</td><td>0</td><td></td></tr>
+<tr><td>13</td><td></td><td></td><td>SELFF</td><td>0</td><td></td></tr>
+<tr><td>14</td><td>Set 2</td><td></td><td>GET</td><td>0</td><td></td></tr>
+</table>
+<h4></h4>
+<h4>GROUP 2: Scalars</h4>
+<table>
+<tr><th>#</th><th>Mock Flag</th><th>Time Width</th><th>Decimal Places (Totals)</th><th>Decimal Places (per call)</th><th>Calls Width</th></tr>
+<tr><td>1</td><td>N</td><td></td><td></td><td></td><td></td></tr>
+</table>
+<h4></h4>
+<h3>OUTPUTS</h3>
+<h4>GROUP 1: Set 1</h4>
+<table>
+<tr><th>#</th><th>Timer Name</th><th>Elapsed Time</th><th>CPU Time</th><th>#Calls</th></tr>
+<tr><td>1</td><td>Timer 1</td><td>IN [2.000,3.000]: 2.053</td><td>IN [0.5,1.5]: 1.031</td><td>2</td></tr>
+<tr><td>2</td><td>Timer 2</td><td>IN [1.000,3.000]: 1.033</td><td>IN [0.5,1.5]: 0.516</td><td>1</td></tr>
+<tr><td>3</td><td>(Other)</td><td>IN [4.000,5.000]: 4.097</td><td>IN [1.5,2.5]: 2.062</td><td>1</td></tr>
+<tr><td>4</td><td>Total</td><td>IN [6.000,8.000]: 7.183</td><td>IN [3.0,4.0]: 3.609</td><td>4</td></tr>
+</table>
+<h4>0 failed of 4: SUCCESS</h4>
+<h4>GROUP 2: Set 1 (formatted)</h4>
+<table>
+<tr><th>#</th><th>Line</th></tr>
+<tr><td>1</td><td>Timer       Elapsed         CPU       Calls       Ela/Call       CPU/Call</td></tr>
+<tr><td>2</td><td>-------  ----------  ----------  ----------  -------------  -------------</td></tr>
+<tr><td>3</td><td>LIKE /Timer 1.*/: Timer 1        2.05        1.03           2        1.02629        0.51562</td></tr>
+<tr><td>4</td><td>LIKE /Timer 2.*/: Timer 2        1.03        0.52           1        1.03305        0.51562</td></tr>
+<tr><td>5</td><td>LIKE /\(Other\).*/: (Other)        4.10        2.06           1        4.09698        2.06250</td></tr>
+<tr><td>6</td><td>-------  ----------  ----------  ----------  -------------  -------------</td></tr>
+<tr><td>7</td><td>LIKE /Total.*/: Total          7.18        3.61           4        1.79565        0.90234</td></tr>
+<tr><td>8</td><td>-------  ----------  ----------  ----------  -------------  -------------</td></tr>
+</table>
+<h4>0 failed of 8: SUCCESS</h4>
+<h4>GROUP 3: Set 2</h4>
+<table>
+<tr><th>#</th><th>Timer Name</th><th>Elapsed Time</th><th>CPU Time</th><th>#Calls</th></tr>
+<tr><td>1</td><td>Timer 1</td><td>IN [4.000,5.000]: 4.095</td><td>IN [1.5,2.5]: 2.062</td><td>2</td></tr>
+<tr><td>2</td><td>(Other)</td><td>IN [2.000,3.000]: 2.357</td><td>IN [0.5,1.5]: 1.328</td><td>1</td></tr>
+<tr><td>3</td><td>Total</td><td>IN [6.000,7000]: 6.452</td><td>IN [2.5,3.5]: 3.391</td><td>3</td></tr>
+</table>
+<h4>0 failed of 3: SUCCESS</h4>
+<h4>GROUP 4: Set 2 (formatted): Empty as expected: SUCCESS</h4>
+<h4>GROUP 5: Self (unmocked)</h4>
+<table>
+<tr><th>#</th><th>Elapsed Time</th><th>CPU Time</th></tr>
+<tr><td>1</td><td>IN [0,0.5]: 1.5504325581395315e-06</td><td>IN [0,0.05]: 1.4534883720930232e-06</td></tr>
+</table>
+<h4>0 failed of 1: SUCCESS</h4>
+<h4>GROUP 6: Self (unmocked, formatted)</h4>
+<table>
+<tr><th>#</th><th>Self Timing Ratios</th></tr>
+<tr><td>1</td><td>LIKE /\[Timer timed \(per call in ms\): Elapsed: .*\]/: [Timer timed (per call in ms): Elapsed: 0.00160, CPU: 0.00175]</td></tr>
+</table>
+<h4>0 failed of 1: SUCCESS</h4>
+<h4>GROUP 7: Results</h4>
+<table>
+<tr><th>#</th><th>Lines</th></tr>
+<tr><td>1</td><td>LIKE /Timer[^]*Timer 1[^]*\[Timer timed[^]*\]/: 
+Timer set: Set 1, constructed at 2022-10-10 17:12:05, written at 2022-10-10 17:12:05
+====================================================================================
+Timer       Elapsed         CPU       Calls       Ela/Call       CPU/Call
+-------  ----------  ----------  ----------  -------------  -------------
+Timer 1        2.05        1.03           2        1.02629        0.51562
+Timer 2        1.03        0.52           1        1.03305        0.51562
+(Other)        4.10        2.06           1        4.09698        2.06250
+-------  ----------  ----------  ----------  -------------  -------------
+Total          7.18        3.61           4        1.79565        0.90234
+-------  ----------  ----------  ----------  -------------  -------------
+[Timer timed (per call in ms): Elapsed: 0.00145, CPU: 0.00136]</td></tr>
+</table>
+<h4>0 failed of 1: SUCCESS</h4>
+<h4>GROUP 8: Exception: Empty as expected: SUCCESS</h4>
+<h2>0 failed of 8: SUCCESS</h2>
+</body></html>

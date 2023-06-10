@@ -1,0 +1,285 @@
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  background-color: #dddddd;
+  border: 1px solid #030303;
+  text-align: left;
+  padding: 8px;
+}
+    td {
+      font-weight: bold;
+      border: 1px solid #030303;
+      text-align: left;
+      padding: 8px;
+      white-space: pre;
+      font-family: "Courier New", Courier, monospace
+    }
+h1 {margin-top: 0em; margin-bottom: 0em;
+  font-family: arial, sans-serif;
+  width: 100%;
+  font-size: 300%;
+  background-color: #FFFF00;
+}
+h2 {margin-top: 0em; margin-bottom: 0em;
+  font-family: arial, sans-serif;
+  width: 100%;
+  font-size: 200%;
+  background-color: #2AE6C1;
+}
+h3 {margin-top: 0em; margin-bottom: 0em;
+  font-family: arial, sans-serif;
+  width: 100%;
+  font-size: 150%;
+  background-color: #33F0FF;
+}
+h4 {margin-top: 0em; margin-bottom: 0em;
+  font-family: arial, sans-serif;
+  width: 100%;
+  font-size: 125%;
+  background-color: #7DFF33;
+}
+</style>
+</head>
+<body>
+<h2>SCENARIO 2: Large values [Category Set: Value Size]</h2>
+<h3>INPUTS</h3>
+<h4>GROUP 1: Heading</h4>
+<table>
+<tr><th>#</th><th>Text</th><th>#Blanks Pre</th><th>#Blanks Post</th></tr>
+<tr><td>1</td><td>heading1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</td><td>1</td><td>2</td></tr>
+</table>
+<h4></h4>
+<h4>GROUP 2: Col Headers</h4>
+<table>
+<tr><th>#</th><th>Text</th><th>Length</th></tr>
+<tr><td>1</td><td>col1</td><td>6</td></tr>
+<tr><td>2</td><td>1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</td><td>100</td></tr>
+</table>
+<h4></h4>
+<h4>GROUP 3: List To Line</h4>
+<table>
+<tr><th>#</th><th>Text</th><th>Length</th></tr>
+<tr><td>1</td><td>value1</td><td>8</td></tr>
+<tr><td>2</td><td>1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</td><td>100</td></tr>
+</table>
+<h4></h4>
+<h4>GROUP 4: Join Values (list)</h4>
+<table>
+<tr><th>#</th><th>Value</th></tr>
+<tr><td>1</td><td>value</td></tr>
+<tr><td>2</td><td>1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</td></tr>
+</table>
+<h4></h4>
+<h4>GROUP 5: Join Values (scalars)</h4>
+<table>
+<tr><th>#</th><th>Value 1</th><th>Value 2</th><th>Value 3</th><th>Value 4</th><th>Value 5</th><th>Value 6</th><th>Value 7</th><th>Value 8</th><th>Value 9</th><th>Value 10</th><th>Value 11</th><th>Value 12</th><th>Value 13</th><th>Value 14</th><th>Value 15</th><th>Value 16</th><th>Value 17</th></tr>
+<tr><td>1</td><td>value1</td><td>1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</table>
+<h4></h4>
+<h4>GROUP 6: Split Values</h4>
+<table>
+<tr><th>#</th><th>Delimited String</th></tr>
+<tr><td>1</td><td>value1,1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</td></tr>
+</table>
+<h4></h4>
+<h4>GROUP 7: View To List</h4>
+<table>
+<tr><th>#</th><th>Select Column Name</th></tr>
+<tr><td>1</td><td>object_name</td></tr>
+<tr><td>2</td><td>object_id</td></tr>
+<tr><td>3</td><td>last_ddl_time</td></tr>
+<tr><td>4</td><td>timestamp</td></tr>
+</table>
+<h4></h4>
+<h4>GROUP 8: Cursor To List</h4>
+<table>
+<tr><th>#</th><th>Cursor Text</th><th>Filter</th></tr>
+<tr><td>1</td><td>select object_name, object_id, last_ddl_time, timestamp from user_objects order by 1</td><td>(CHR|L\d).+(ARR|REC)|TT_UNITS</td></tr>
+</table>
+<h4></h4>
+<h4>GROUP 9: Cursor To Pipe</h4>
+<table>
+<tr><th>#</th><th>Cursor Text</th><th>Filter</th></tr>
+<tr><td>1</td><td>select object_name, object_id, last_ddl_time, timestamp from user_objects order by 1</td><td>(CHR|L\d).+(ARR|REC)|TT_UNITS</td></tr>
+</table>
+<h4></h4>
+<h4>GROUP 10: Interval To Seconds</h4>
+<table>
+<tr><th>#</th><th>Interval String</th></tr>
+<tr><td>1</td><td>9 23:59:59.99</td></tr>
+</table>
+<h4></h4>
+<h4>GROUP 11: Sleep</h4>
+<table>
+<tr><th>#</th><th>Elapsed Seconds</th><th>Fraction CPU</th></tr>
+<tr><td>1</td><td>2</td><td>0.1</td></tr>
+</table>
+<h4></h4>
+<h4>GROUP 12: Raise Error</h4>
+<table>
+<tr><th>#</th><th>Message</th></tr>
+<tr><td>1</td><td>Test message1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</td></tr>
+</table>
+<h4></h4>
+<h4>GROUP 13: Scalars</h4>
+<table>
+<tr><th>#</th><th>Delimiter</th><th>View Name</th><th>View Where</th><th>View Order By</th><th>W Line</th></tr>
+<tr><td>1</td><td>,</td><td>user_objects</td><td>regexp_like(object_name, '(CHR|L\d).+(ARR|REC)|TT_UNITS')</td><td></td><td>text line1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</td></tr>
+</table>
+<h4></h4>
+<h4>GROUP 14: W (List)</h4>
+<table>
+<tr><th>#</th><th>Line</th></tr>
+<tr><td>1</td><td>1-line text list</td></tr>
+<tr><td>2</td><td>1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</td></tr>
+</table>
+<h4></h4>
+<h4>GROUP 15: File I/O</h4>
+<table>
+<tr><th>#</th><th>File Name</th><th>#Lines</th><th>Line 1</th><th>Line 2</th></tr>
+<tr><td>1</td><td>test_file.tmp</td><td>1</td><td>1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</td><td></td></tr>
+</table>
+<h4></h4>
+<h4>GROUP 16: XPlan Cursor</h4>
+<table>
+<tr><th>#</th><th>Cursor Text</th><th>Marker</th><th>Outline Y/N</th></tr>
+<tr><td>1</td><td>WITH row_gen AS (SELECT LEVEL rn FROM DUAL CONNECT BY LEVEL < 4) SELECT /*+ gather_plan_statistics XPLAN_MK_RGN */ rgn.rn, ttu.unit_test_package_nm, ttu.purely_wrap_api_function_nm, ttu.group_nm FROM tt_units ttu CROSS JOIN row_gen rgn</td><td>XPLAN_MK_RGN</td><td></td></tr>
+</table>
+<h4></h4>
+<h3>OUTPUTS</h3>
+<h4>GROUP 1: Heading</h4>
+<table>
+<tr><th>#</th><th>Line</th></tr>
+<tr><td>1</td><td></td></tr>
+<tr><td>2</td><td>heading1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</td></tr>
+<tr><td>3</td><td>===========================================================================================================</td></tr>
+<tr><td>4</td><td></td></tr>
+<tr><td>5</td><td></td></tr>
+</table>
+<h4>0 failed of 5: SUCCESS</h4>
+<h4>GROUP 2: Col Headers</h4>
+<table>
+<tr><th>#</th><th>Line</th></tr>
+<tr><td>1</td><td>col1    1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</td></tr>
+<tr><td>2</td><td>------  ----------------------------------------------------------------------------------------------------</td></tr>
+</table>
+<h4>0 failed of 2: SUCCESS</h4>
+<h4>GROUP 3: List To Line</h4>
+<table>
+<tr><th>#</th><th>Line</th></tr>
+<tr><td>1</td><td>value1    1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</td></tr>
+</table>
+<h4>0 failed of 1: SUCCESS</h4>
+<h4>GROUP 4: Join Values (list)</h4>
+<table>
+<tr><th>#</th><th>Delimited String</th></tr>
+<tr><td>1</td><td>value,1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</td></tr>
+</table>
+<h4>0 failed of 1: SUCCESS</h4>
+<h4>GROUP 5: Join Values (scalars)</h4>
+<table>
+<tr><th>#</th><th>Delimited String</th></tr>
+<tr><td>1</td><td>value1,1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</td></tr>
+</table>
+<h4>0 failed of 1: SUCCESS</h4>
+<h4>GROUP 6: Split Values</h4>
+<table>
+<tr><th>#</th><th>Value</th></tr>
+<tr><td>1</td><td>value1</td></tr>
+<tr><td>2</td><td>1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</td></tr>
+</table>
+<h4>0 failed of 2: SUCCESS</h4>
+<h4>GROUP 7: View To List</h4>
+<table>
+<tr><th>#</th><th>Delimited String</th></tr>
+<tr><td>1</td><td>LIKE /CHR_INT_ARR,\d+?,\d.+\d,\d.+\d/: CHR_INT_ARR,120971,20-DEC-2022,2022-12-20:11:45:27</td></tr>
+<tr><td>2</td><td>LIKE /CHR_INT_REC,\d+?,\d.+\d,\d.+\d/: CHR_INT_REC,120970,20-DEC-2022,2022-12-20:11:45:27</td></tr>
+<tr><td>3</td><td>LIKE /L1_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L1_CHR_ARR,120968,20-DEC-2022,2022-12-20:11:45:26</td></tr>
+<tr><td>4</td><td>LIKE /L1_NUM_ARR,\d+?,\d.+\d,\d.+\d/: L1_NUM_ARR,120969,20-DEC-2022,2022-12-20:11:45:27</td></tr>
+<tr><td>5</td><td>LIKE /L2_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L2_CHR_ARR,120974,20-DEC-2022,2022-12-20:11:46:45</td></tr>
+<tr><td>6</td><td>LIKE /L3_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L3_CHR_ARR,120975,20-DEC-2022,2022-12-20:11:46:45</td></tr>
+<tr><td>7</td><td>LIKE /L4_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L4_CHR_ARR,120976,20-DEC-2022,2022-12-20:11:46:45</td></tr>
+<tr><td>8</td><td>LIKE /TT_UNITS,\d+?,\d.+\d,\d.+\d/: TT_UNITS,120977,20-DEC-2022,2022-12-20:11:46:45</td></tr>
+</table>
+<h4>0 failed of 8: SUCCESS</h4>
+<h4>GROUP 8: Cursor To List</h4>
+<table>
+<tr><th>#</th><th>Delimited String</th></tr>
+<tr><td>1</td><td>LIKE /CHR_INT_ARR,\d+?,\d.+\d,\d.+\d/: CHR_INT_ARR,120971,20-DEC-2022,2022-12-20:11:45:27</td></tr>
+<tr><td>2</td><td>LIKE /CHR_INT_REC,\d+?,\d.+\d,\d.+\d/: CHR_INT_REC,120970,20-DEC-2022,2022-12-20:11:45:27</td></tr>
+<tr><td>3</td><td>LIKE /L1_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L1_CHR_ARR,120968,20-DEC-2022,2022-12-20:11:45:26</td></tr>
+<tr><td>4</td><td>LIKE /L1_NUM_ARR,\d+?,\d.+\d,\d.+\d/: L1_NUM_ARR,120969,20-DEC-2022,2022-12-20:11:45:27</td></tr>
+<tr><td>5</td><td>LIKE /L2_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L2_CHR_ARR,120974,20-DEC-2022,2022-12-20:11:46:45</td></tr>
+<tr><td>6</td><td>LIKE /L3_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L3_CHR_ARR,120975,20-DEC-2022,2022-12-20:11:46:45</td></tr>
+<tr><td>7</td><td>LIKE /L4_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L4_CHR_ARR,120976,20-DEC-2022,2022-12-20:11:46:45</td></tr>
+<tr><td>8</td><td>LIKE /TT_UNITS,\d+?,\d.+\d,\d.+\d/: TT_UNITS,120977,20-DEC-2022,2022-12-20:11:46:45</td></tr>
+</table>
+<h4>0 failed of 8: SUCCESS</h4>
+<h4>GROUP 9: Cursor To Pipe</h4>
+<table>
+<tr><th>#</th><th>Delimited String</th></tr>
+<tr><td>1</td><td>LIKE /CHR_INT_ARR,\d+?,\d.+\d,\d.+\d/: CHR_INT_ARR,120971,20-DEC-2022,2022-12-20:11:45:27</td></tr>
+<tr><td>2</td><td>LIKE /CHR_INT_REC,\d+?,\d.+\d,\d.+\d/: CHR_INT_REC,120970,20-DEC-2022,2022-12-20:11:45:27</td></tr>
+<tr><td>3</td><td>LIKE /L1_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L1_CHR_ARR,120968,20-DEC-2022,2022-12-20:11:45:26</td></tr>
+<tr><td>4</td><td>LIKE /L1_NUM_ARR,\d+?,\d.+\d,\d.+\d/: L1_NUM_ARR,120969,20-DEC-2022,2022-12-20:11:45:27</td></tr>
+<tr><td>5</td><td>LIKE /L2_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L2_CHR_ARR,120974,20-DEC-2022,2022-12-20:11:46:45</td></tr>
+<tr><td>6</td><td>LIKE /L3_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L3_CHR_ARR,120975,20-DEC-2022,2022-12-20:11:46:45</td></tr>
+<tr><td>7</td><td>LIKE /L4_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L4_CHR_ARR,120976,20-DEC-2022,2022-12-20:11:46:45</td></tr>
+<tr><td>8</td><td>LIKE /TT_UNITS,\d+?,\d.+\d,\d.+\d/: TT_UNITS,120977,20-DEC-2022,2022-12-20:11:46:45</td></tr>
+</table>
+<h4>0 failed of 8: SUCCESS</h4>
+<h4>GROUP 10: Interval To Seconds</h4>
+<table>
+<tr><th>#</th><th>Seconds</th></tr>
+<tr><td>1</td><td>86399.99</td></tr>
+</table>
+<h4>0 failed of 1: SUCCESS</h4>
+<h4>GROUP 11: Sleep</h4>
+<table>
+<tr><th>#</th><th>Elapsed Seconds</th><th>CPU Seconds</th></tr>
+<tr><td>1</td><td>IN [1.9,2.1]: 2.014</td><td>IN [0.15,0.25]: .15</td></tr>
+</table>
+<h4>0 failed of 1: SUCCESS</h4>
+<h4>GROUP 12: Exception</h4>
+<table>
+<tr><th>#</th><th>Source</th><th>Message</th></tr>
+<tr><td>1</td><td>Raise_Error</td><td>ORA-20000: Test message1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</td></tr>
+</table>
+<h4>0 failed of 1: SUCCESS</h4>
+<h4>GROUP 13: W (Line)</h4>
+<table>
+<tr><th>#</th><th>Line</th></tr>
+<tr><td>1</td><td>text line1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</td></tr>
+</table>
+<h4>0 failed of 1: SUCCESS</h4>
+<h4>GROUP 14: W (List)</h4>
+<table>
+<tr><th>#</th><th>Line</th></tr>
+<tr><td>1</td><td>1-line text list</td></tr>
+<tr><td>2</td><td>1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</td></tr>
+</table>
+<h4>0 failed of 2: SUCCESS</h4>
+<h4>GROUP 15: File I/O</h4>
+<table>
+<tr><th>#</th><th>#Lines</th><th>Line 1</th><th>Line 2</th></tr>
+<tr><td>1</td><td>1</td><td>1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</td><td></td></tr>
+</table>
+<h4>0 failed of 1: SUCCESS</h4>
+<h4>GROUP 16: XPlan List (keyword extract)</h4>
+<table>
+<tr><th>#</th><th>XPlan Line</th></tr>
+<tr><td>1</td><td>LIKE /SQL_ID.+, child number.+/: SQL_ID  9tmmb5rfzdvdd, child number 0</td></tr>
+<tr><td>2</td><td>LIKE /.* gather_plan_statistics XPLAN_MK_RGN .*/: /*+ gather_plan_statistics XPLAN_MK_RGN */ rgn.rn, </td></tr>
+<tr><td>3</td><td>LIKE /Plan hash value: .+/: Plan hash value: 2193768776</td></tr>
+</table>
+<h4>0 failed of 3: SUCCESS</h4>
+<h4>GROUP 17: Unhandled Exception: Empty as expected: SUCCESS</h4>
+<h2>0 failed of 17: SUCCESS</h2>
+</body></html>

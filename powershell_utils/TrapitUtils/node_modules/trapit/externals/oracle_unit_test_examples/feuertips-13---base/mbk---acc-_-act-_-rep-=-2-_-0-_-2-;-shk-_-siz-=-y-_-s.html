@@ -1,0 +1,95 @@
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  background-color: #dddddd;
+  border: 1px solid #030303;
+  text-align: left;
+  padding: 8px;
+}
+    td {
+      font-weight: bold;
+      border: 1px solid #030303;
+      text-align: left;
+      padding: 8px;
+      white-space: pre;
+      font-family: "Courier New", Courier, monospace
+    }
+h1 {margin-top: 0em; margin-bottom: 0em;
+  font-family: arial, sans-serif;
+  width: 100%;
+  font-size: 300%;
+  background-color: #FFFF00;
+}
+h2 {margin-top: 0em; margin-bottom: 0em;
+  font-family: arial, sans-serif;
+  width: 100%;
+  font-size: 200%;
+  background-color: #2AE6C1;
+}
+h3 {margin-top: 0em; margin-bottom: 0em;
+  font-family: arial, sans-serif;
+  width: 100%;
+  font-size: 150%;
+  background-color: #33F0FF;
+}
+h4 {margin-top: 0em; margin-bottom: 0em;
+  font-family: arial, sans-serif;
+  width: 100%;
+  font-size: 125%;
+  background-color: #7DFF33;
+}
+</style>
+</head>
+<body>
+<h2>SCENARIO 5: MBK - ACC / ACT / REP = 2 / 0 / 2 ; SHK / SIZ = Y / S</h2>
+<h3>INPUTS</h3>
+<h4>GROUP 1: Room Access</h4>
+<table>
+<tr><th>#</th><th>Key Id</th><th>Room Name</th><th>Character Name</th></tr>
+<tr><td>1</td><td>1</td><td>Room 1</td><td>Peter</td></tr>
+<tr><td>2</td><td>1</td><td>Room 1</td><td>Paul</td></tr>
+</table>
+<h4></h4>
+<h4>GROUP 2: Room Action: Empty</h4>
+<h4>GROUP 3: Room Repair</h4>
+<table>
+<tr><th>#</th><th>Key Id</th><th>Action</th><th>Completion</th><th>Repaired By</th></tr>
+<tr><td>1</td><td>1</td><td>Inspect</td><td>10%</td><td>Stephanie</td></tr>
+<tr><td>2</td><td>1</td><td>Analyse</td><td>20%</td><td>Samantha</td></tr>
+</table>
+<h4></h4>
+<h3>OUTPUTS</h3>
+<h4>GROUP 1: File room_action.log: Empty as expected: SUCCESS</h4>
+<h4>GROUP 2: File room_repair.log</h4>
+<table>
+<tr><th>#</th><th>Line</th></tr>
+<tr><td>1</td><td>1|Room 1|10%|Stephanie|Inspect</td></tr>
+<tr style="background-color: #E62A3E"><td>1*</td><td>*NO RECORD*</td></tr>
+<tr><td>2</td><td>1|Room 1|20%|Samantha|Analyse</td></tr>
+<tr style="background-color: #E62A3E"><td>2*</td><td>*NO RECORD*</td></tr>
+</table>
+<h4>2 failed of 2: FAILURE</h4>
+<h4>GROUP 3: Unhandled Exception</h4>
+<table>
+<tr><th>#</th><th>Line</th></tr>
+<tr><td>1</td><td>*NO RECORD*</td></tr>
+<tr style="background-color: #E62A3E"><td>1*</td><td>ORA-06502: PL/SQL: numeric or value error</td></tr>
+<tr><td>2</td><td>*NO RECORD*</td></tr>
+<tr style="background-color: #E62A3E"><td>2*</td><td>ORA-06512: at "APP.TT_FEUERTIPS_13", line 116
+ORA-06512: at "APP.FEUERTIPS_13", line 33
+ORA-06512: at "APP.FEUERTIPS_13", line 94
+ORA-06512: at "APP.TT_FEUERTIPS_13", line 106
+ORA-06512: at line 1
+ORA-06512: at "LIB.TRAPIT_RUN", line 62
+</td></tr>
+</table>
+<h4>2 failed of 2: FAILURE</h4>
+<h2>2 failed of 3: FAILURE</h2>
+</body></html>

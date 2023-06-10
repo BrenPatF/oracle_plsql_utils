@@ -1,0 +1,462 @@
+{
+    "meta": {
+        "title": "Python Unit Tester",
+        "delimiter": "|",
+        "inp": {
+            "Unit Test": [
+                "Title",
+                "Delimiter"
+            ],
+            "Input Fields": [
+                "Group",
+                "Field"
+            ],
+            "Output Fields": [
+                "Group",
+                "Field"
+            ],
+            "Scenario": [
+                "Scenario",
+                "Active Y/N"
+            ],
+            "Input Values": [
+                "Scenario",
+                "Group",
+                "Row CSV"
+            ],
+            "Expected Values": [
+                "Scenario",
+                "Group",
+                "Row CSV"
+            ],
+            "Actual Values": [
+                "Scenario",
+                "Group",
+                "Row CSV"
+            ]
+        },
+        "out": {
+            "Unit Test": [
+                "Title",
+                "Delimiter"
+            ],
+            "Input Fields": [
+                "Group",
+                "Field"
+            ],
+            "Output Fields": [
+                "Group",
+                "Field"
+            ],
+            "Input Values": [
+                "Scenario",
+                "Group",
+                "Row CSV"
+            ],
+            "Expected Values": [
+                "Scenario",
+                "Group",
+                "Row CSV"
+            ],
+            "Actual Values": [
+                "Scenario",
+                "Group",
+                "Row CSV"
+            ]
+        }
+    },
+    "scenarios": {
+        "Zero input groups, 1 of other entities where possible; active scenario; valid": {
+            "inp": {
+                "Unit Test": [
+                    "Inner title|;"
+                ],
+                "Input Fields": [],
+                "Output Fields": [
+                    "Output Group 1|Output Field 1"
+                ],
+                "Scenario": [
+                    "Inner scenario 1|Y"
+                ],
+                "Input Values": [],
+                "Expected Values": [
+                    "Inner scenario 1|Output Group 1|Expected value 1"
+                ],
+                "Actual Values": [
+                    "Inner scenario 1|Output Group 1|Actual value 1"
+                ]
+            },
+            "out": {
+                "Unit Test": {
+                    "exp": [
+                        "Inner title|;"
+                    ],
+                    "act": [
+                        "Inner title|;"
+                    ]
+                },
+                "Input Fields": {
+                    "exp": [],
+                    "act": []
+                },
+                "Output Fields": {
+                    "exp": [
+                        "Output Group 1|Output Field 1"
+                    ],
+                    "act": [
+                        "Output Group 1|Output Field 1"
+                    ]
+                },
+                "Input Values": {
+                    "exp": [],
+                    "act": []
+                },
+                "Expected Values": {
+                    "exp": [
+                        "Inner scenario 1|Output Group 1|Expected value 1"
+                    ],
+                    "act": [
+                        "Inner scenario 1|Output Group 1|Expected value 1"
+                    ]
+                },
+                "Actual Values": {
+                    "exp": [
+                        "Inner scenario 1|Output Group 1|Actual value 1"
+                    ],
+                    "act": [
+                        "Inner scenario 1|Output Group 1|Actual value 1"
+                    ]
+                }
+            }
+        },
+        "Zero output groups, 1 of other entities where possible; active scenario; valid": {
+            "inp": {
+                "Unit Test": [
+                    "Inner title 2|:"
+                ],
+                "Input Fields": [
+                    "Input Group 1|Input Field 1"
+                ],
+                "Output Fields": [],
+                "Scenario": [
+                    "Inner scenario 1|Y"
+                ],
+                "Input Values": [
+                    "Inner scenario 1|Input Group 1|Input value 1"
+                ],
+                "Expected Values": [],
+                "Actual Values": []
+            },
+            "out": {
+                "Unit Test": {
+                    "exp": [
+                        "Inner title 2|:"
+                    ],
+                    "act": [
+                        "Inner title 2|:"
+                    ]
+                },
+                "Input Fields": {
+                    "exp": [
+                        "Input Group 1|Input Field 1"
+                    ],
+                    "act": [
+                        "Input Group 1|Input Field 1"
+                    ]
+                },
+                "Output Fields": {
+                    "exp": [],
+                    "act": []
+                },
+                "Input Values": {
+                    "exp": [
+                        "Inner scenario 1|Input Group 1|Input value 1"
+                    ],
+                    "act": [
+                        "Inner scenario 1|Input Group 1|Input value 1"
+                    ]
+                },
+                "Expected Values": {
+                    "exp": [],
+                    "act": []
+                },
+                "Actual Values": {
+                    "exp": [],
+                    "act": []
+                }
+            }
+        },
+        "Multiple entities; one inactive scenario; all valid": {
+            "inp": {
+                "Unit Test": [
+                    "Inner title 3|;;"
+                ],
+                "Input Fields": [
+                    "Input Group 1|Input Field 1-1",
+                    "Input Group 1|Input Field 1-2",
+                    "Input Group 2|Input Field 2-1",
+                    "Input Group 2|Input Field 2-2"
+                ],
+                "Output Fields": [
+                    "Output Group 1|Output Field 1-1",
+                    "Output Group 1|Output Field 1-2",
+                    "Output Group 2|Output Field 2-1",
+                    "Output Group 2|Output Field 2-2"
+                ],
+                "Scenario": [
+                    "Inner scenario 1|Y",
+                    "Inner scenario 2|N",
+                    "Inner scenario 3|Y"
+                ],
+                "Input Values": [
+                    "Inner scenario 1|Input Group 1|S1R1 IV-11;;R1 IV-12",
+                    "Inner scenario 1|Input Group 1|S1R2 IV-11;;R2 IV-12",
+                    "Inner scenario 1|Input Group 2|S1R1 IV-21;;R1 IV-22",
+                    "Inner scenario 1|Input Group 2|S1R2 IV-21;;R2 IV-22",
+                    "Inner scenario 2|Input Group 2|S2R2 IV-21;;R2 IV-22",
+                    "Inner scenario 3|Input Group 1|S3R1 IV-11;;R1 IV-12",
+                    "Inner scenario 3|Input Group 1|S3R2 IV-11;;R2 IV-12",
+                    "Inner scenario 3|Input Group 2|S3R1 IV-21;;R1 IV-22",
+                    "Inner scenario 3|Input Group 2|S3R2 IV-21;;R2 IV-22"
+                ],
+                "Expected Values": [
+                    "Inner scenario 1|Output Group 1|S1R1 EV-11;;R1 EV-12",
+                    "Inner scenario 1|Output Group 1|S1R2 EV-11;;R2 EV-12",
+                    "Inner scenario 1|Output Group 2|S1R1 EV-21;;R1 EV-22",
+                    "Inner scenario 1|Output Group 2|S1R2 EV-21;;R2 EV-22",
+                    "Inner scenario 3|Output Group 1|S3R1 EV-11;;R1 EV-12",
+                    "Inner scenario 3|Output Group 1|S3R2 EV-11;;R2 EV-12",
+                    "Inner scenario 3|Output Group 2|S3R1 EV-21;;R1 EV-22",
+                    "Inner scenario 3|Output Group 2|S3R2 EV-21;;R2 EV-22"
+                ],
+                "Actual Values": [
+                    "Inner scenario 1|Output Group 1|S1R1 EV-11;;R1 EV-12",
+                    "Inner scenario 1|Output Group 1|S1R2 EV-11;;R2 EV-12",
+                    "Inner scenario 1|Output Group 2|S1R1 EV-21;;R1 EV-22",
+                    "Inner scenario 1|Output Group 2|S1R2 EV-21;;R2 EV-22",
+                    "Inner scenario 3|Output Group 1|S3R1 EV-11;;R1 EV-12",
+                    "Inner scenario 3|Output Group 1|S3R2 EV-11;;R2 EV-12",
+                    "Inner scenario 3|Output Group 2|S3R1 EV-21;;R1 EV-22",
+                    "Inner scenario 3|Output Group 2|S3R2 EV-21;;R2 EV-22"
+                ]
+            },
+            "out": {
+                "Unit Test": {
+                    "exp": [
+                        "Inner title 3|;;"
+                    ],
+                    "act": [
+                        "Inner title 3|;;"
+                    ]
+                },
+                "Input Fields": {
+                    "exp": [
+                        "Input Group 1|Input Field 1-1",
+                        "Input Group 1|Input Field 1-2",
+                        "Input Group 2|Input Field 2-1",
+                        "Input Group 2|Input Field 2-2"
+                    ],
+                    "act": [
+                        "Input Group 1|Input Field 1-1",
+                        "Input Group 1|Input Field 1-2",
+                        "Input Group 2|Input Field 2-1",
+                        "Input Group 2|Input Field 2-2"
+                    ]
+                },
+                "Output Fields": {
+                    "exp": [
+                        "Output Group 1|Output Field 1-1",
+                        "Output Group 1|Output Field 1-2",
+                        "Output Group 2|Output Field 2-1",
+                        "Output Group 2|Output Field 2-2"
+                    ],
+                    "act": [
+                        "Output Group 1|Output Field 1-1",
+                        "Output Group 1|Output Field 1-2",
+                        "Output Group 2|Output Field 2-1",
+                        "Output Group 2|Output Field 2-2"
+                    ]
+                },
+                "Input Values": {
+                    "exp": [
+                        "Inner scenario 1|Input Group 1|S1R1 IV-11;;R1 IV-12",
+                        "Inner scenario 1|Input Group 1|S1R2 IV-11;;R2 IV-12",
+                        "Inner scenario 1|Input Group 2|S1R1 IV-21;;R1 IV-22",
+                        "Inner scenario 1|Input Group 2|S1R2 IV-21;;R2 IV-22",
+                        "Inner scenario 3|Input Group 1|S3R1 IV-11;;R1 IV-12",
+                        "Inner scenario 3|Input Group 1|S3R2 IV-11;;R2 IV-12",
+                        "Inner scenario 3|Input Group 2|S3R1 IV-21;;R1 IV-22",
+                        "Inner scenario 3|Input Group 2|S3R2 IV-21;;R2 IV-22"
+                    ],
+                    "act": [
+                        "Inner scenario 1|Input Group 1|S1R1 IV-11;;R1 IV-12",
+                        "Inner scenario 1|Input Group 1|S1R2 IV-11;;R2 IV-12",
+                        "Inner scenario 1|Input Group 2|S1R1 IV-21;;R1 IV-22",
+                        "Inner scenario 1|Input Group 2|S1R2 IV-21;;R2 IV-22",
+                        "Inner scenario 3|Input Group 1|S3R1 IV-11;;R1 IV-12",
+                        "Inner scenario 3|Input Group 1|S3R2 IV-11;;R2 IV-12",
+                        "Inner scenario 3|Input Group 2|S3R1 IV-21;;R1 IV-22",
+                        "Inner scenario 3|Input Group 2|S3R2 IV-21;;R2 IV-22"
+                    ]
+                },
+                "Expected Values": {
+                    "exp": [
+                        "Inner scenario 1|Output Group 1|S1R1 EV-11;;R1 EV-12",
+                        "Inner scenario 1|Output Group 1|S1R2 EV-11;;R2 EV-12",
+                        "Inner scenario 1|Output Group 2|S1R1 EV-21;;R1 EV-22",
+                        "Inner scenario 1|Output Group 2|S1R2 EV-21;;R2 EV-22",
+                        "Inner scenario 3|Output Group 1|S3R1 EV-11;;R1 EV-12",
+                        "Inner scenario 3|Output Group 1|S3R2 EV-11;;R2 EV-12",
+                        "Inner scenario 3|Output Group 2|S3R1 EV-21;;R1 EV-22",
+                        "Inner scenario 3|Output Group 2|S3R2 EV-21;;R2 EV-22"
+                    ],
+                    "act": [
+                        "Inner scenario 1|Output Group 1|S1R1 EV-11;;R1 EV-12",
+                        "Inner scenario 1|Output Group 1|S1R2 EV-11;;R2 EV-12",
+                        "Inner scenario 1|Output Group 2|S1R1 EV-21;;R1 EV-22",
+                        "Inner scenario 1|Output Group 2|S1R2 EV-21;;R2 EV-22",
+                        "Inner scenario 3|Output Group 1|S3R1 EV-11;;R1 EV-12",
+                        "Inner scenario 3|Output Group 1|S3R2 EV-11;;R2 EV-12",
+                        "Inner scenario 3|Output Group 2|S3R1 EV-21;;R1 EV-22",
+                        "Inner scenario 3|Output Group 2|S3R2 EV-21;;R2 EV-22"
+                    ]
+                },
+                "Actual Values": {
+                    "exp": [
+                        "Inner scenario 1|Output Group 1|S1R1 EV-11;;R1 EV-12",
+                        "Inner scenario 1|Output Group 1|S1R2 EV-11;;R2 EV-12",
+                        "Inner scenario 1|Output Group 2|S1R1 EV-21;;R1 EV-22",
+                        "Inner scenario 1|Output Group 2|S1R2 EV-21;;R2 EV-22",
+                        "Inner scenario 3|Output Group 1|S3R1 EV-11;;R1 EV-12",
+                        "Inner scenario 3|Output Group 1|S3R2 EV-11;;R2 EV-12",
+                        "Inner scenario 3|Output Group 2|S3R1 EV-21;;R1 EV-22",
+                        "Inner scenario 3|Output Group 2|S3R2 EV-21;;R2 EV-22"
+                    ],
+                    "act": [
+                        "Inner scenario 1|Output Group 1|S1R1 EV-11;;R1 EV-12",
+                        "Inner scenario 1|Output Group 1|S1R2 EV-11;;R2 EV-12",
+                        "Inner scenario 1|Output Group 2|S1R1 EV-21;;R1 EV-22",
+                        "Inner scenario 1|Output Group 2|S1R2 EV-21;;R2 EV-22",
+                        "Inner scenario 3|Output Group 1|S3R1 EV-11;;R1 EV-12",
+                        "Inner scenario 3|Output Group 1|S3R2 EV-11;;R2 EV-12",
+                        "Inner scenario 3|Output Group 2|S3R1 EV-21;;R1 EV-22",
+                        "Inner scenario 3|Output Group 2|S3R2 EV-21;;R2 EV-22"
+                    ]
+                }
+            }
+        },
+        "One input and output groups; multiple other entities; active scenarios; each type of invalid scenario": {
+            "inp": {
+                "Unit Test": [
+                    "Invalidity Types|;;"
+                ],
+                "Input Fields": [
+                    "Input Group 1|Input Field 1-1",
+                    "Input Group 1|Input Field 1-2"
+                ],
+                "Output Fields": [
+                    "Output Group 1|Output Field 1-1",
+                    "Output Group 1|Output Field 1-2"
+                ],
+                "Scenario": [
+                    "E=A|Y",
+                    "E>A|Y",
+                    "E<A|Y"
+                ],
+                "Input Values": [
+                    "E=A|Input Group 1|S1R1 IV-11;;R1 IV-12",
+                    "E>A|Input Group 1|S2R1 IV-11;;R1 IV-12",
+                    "E<A|Input Group 1|S3R1 IV-11;;R1 IV-12"
+                ],
+                "Expected Values": [
+                    "E=A|Output Group 1|S1R1 EV-11;;R1 EV-12",
+                    "E=A|Output Group 1|S1R2 EV-11;;R2 EV-12",
+                    "E>A|Output Group 1|S2R1 EV-11;;R1 EV-12",
+                    "E>A|Output Group 1|S2R2 EV-21;;R1 EV-22",
+                    "E<A|Output Group 1|S3R1 EV-11;;R1 EV-12"
+                ],
+                "Actual Values": [
+                    "E=A|Output Group 1|S1R1 EV-11;;R1 EV-12",
+                    "E=A|Output Group 1|S1R2 EV-11;;R2 EV-12XXX",
+                    "E>A|Output Group 1|S2R1 EV-11;;R1 EV-12",
+                    "E<A|Output Group 1|S3R1 EV-21;;R2 EV-12",
+                    "E<A|Output Group 1|S3R2 EV-21;;R2 EV-22"
+                ]
+            },
+            "out": {
+                "Unit Test": {
+                    "exp": [
+                        "Invalidity Types|;;"
+                    ],
+                    "act": [
+                        "Invalidity Types|;;"
+                    ]
+                },
+                "Input Fields": {
+                    "exp": [
+                        "Input Group 1|Input Field 1-1",
+                        "Input Group 1|Input Field 1-2"
+                    ],
+                    "act": [
+                        "Input Group 1|Input Field 1-1",
+                        "Input Group 1|Input Field 1-2"
+                    ]
+                },
+                "Output Fields": {
+                    "exp": [
+                        "Output Group 1|Output Field 1-1",
+                        "Output Group 1|Output Field 1-2"
+                    ],
+                    "act": [
+                        "Output Group 1|Output Field 1-1",
+                        "Output Group 1|Output Field 1-2"
+                    ]
+                },
+                "Input Values": {
+                    "exp": [
+                        "E=A|Input Group 1|S1R1 IV-11;;R1 IV-12",
+                        "E>A|Input Group 1|S2R1 IV-11;;R1 IV-12",
+                        "E<A|Input Group 1|S3R1 IV-11;;R1 IV-12"
+                    ],
+                    "act": [
+                        "E=A|Input Group 1|S1R1 IV-11;;R1 IV-12",
+                        "E>A|Input Group 1|S2R1 IV-11;;R1 IV-12",
+                        "E<A|Input Group 1|S3R1 IV-11;;R1 IV-12"
+                    ]
+                },
+                "Expected Values": {
+                    "exp": [
+                        "E=A|Output Group 1|S1R1 EV-11;;R1 EV-12",
+                        "E=A|Output Group 1|S1R2 EV-11;;R2 EV-12",
+                        "E>A|Output Group 1|S2R1 EV-11;;R1 EV-12",
+                        "E>A|Output Group 1|S2R2 EV-21;;R1 EV-22",
+                        "E<A|Output Group 1|S3R1 EV-11;;R1 EV-12"
+                    ],
+                    "act": [
+                        "E=A|Output Group 1|S1R1 EV-11;;R1 EV-12",
+                        "E=A|Output Group 1|S1R2 EV-11;;R2 EV-12",
+                        "E>A|Output Group 1|S2R1 EV-11;;R1 EV-12",
+                        "E>A|Output Group 1|S2R2 EV-21;;R1 EV-22",
+                        "E<A|Output Group 1|S3R1 EV-11;;R1 EV-12"
+                    ]
+                },
+                "Actual Values": {
+                    "exp": [
+                        "E=A|Output Group 1|S1R1 EV-11;;R1 EV-12",
+                        "E=A|Output Group 1|S1R2 EV-11;;R2 EV-12XXX",
+                        "E>A|Output Group 1|S2R1 EV-11;;R1 EV-12",
+                        "E<A|Output Group 1|S3R1 EV-21;;R2 EV-12",
+                        "E<A|Output Group 1|S3R2 EV-21;;R2 EV-22"
+                    ],
+                    "act": [
+                        "E=A|Output Group 1|S1R1 EV-11;;R1 EV-12",
+                        "E=A|Output Group 1|S1R2 EV-11;;R2 EV-12XXX",
+                        "E>A|Output Group 1|S2R1 EV-11;;R1 EV-12",
+                        "E<A|Output Group 1|S3R1 EV-21;;R2 EV-12",
+                        "E<A|Output Group 1|S3R2 EV-21;;R2 EV-22"
+                    ]
+                }
+            }
+        }
+    }
+}

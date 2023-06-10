@@ -8,9 +8,10 @@
     }
 },
 "scenarios" : { 
-   "Scenario": 
+   "No input": 
    {
     "active_yn" : "Y",
+    "category_set": "Global",
     "inp": {},
     "out": {
         "Group": [

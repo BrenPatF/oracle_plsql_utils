@@ -1,16 +1,16 @@
 Unit Test Report: Hello World - JavaScript
 ==========================================
 
-      #    Scenario  Fails (of 2)  Status 
-      ---  --------  ------------  -------
-      1    Scenario  0             SUCCESS
+      #    Category Set  Scenario  Fails (of 2)  Status 
+      ---  ------------  --------  ------------  -------
+      1    Global        No input  0             SUCCESS
 
 Test scenarios: 0 failed of 1: SUCCESS
 ======================================
-Formatted: 2023-04-09 13:49:09
+Formatted: 2023-04-12 06:07:44
 
-SCENARIO 1: Scenario {
-======================
+SCENARIO 1: No input [Category Set: Global] {
+=============================================
 
    INPUTS
    ======

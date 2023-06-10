@@ -1,0 +1,561 @@
+{
+    "meta": {
+        "title": "Python Timer Set",
+        "inp": {
+            "Event Sequence": [
+                "Set Name",
+                "Timer Name",
+                "Event",
+                "Elapsed Time",
+                "CPU Time"
+            ],
+            "Scalars": [
+                "Mock Flag",
+                "Time Width",
+                "Decimal Places (Totals)",
+                "Decimal Places (per call)",
+                "Calls Width"
+            ]
+        },
+        "out": {
+            "Set 1": [
+                "Timer Name",
+                "Elapsed Time",
+                "CPU Time",
+                "#Calls"
+            ],
+            "Set 1 (formatted)": [
+                "Line"
+            ],
+            "Set 2": [
+                "Timer Name",
+                "Elapsed Time",
+                "CPU Time",
+                "#Calls"
+            ],
+            "Set 2 (formatted)": [
+                "Line"
+            ],
+            "Self (unmocked)": [
+                "Elapsed Time",
+                "CPU Time"
+            ],
+            "Self (unmocked, formatted)": [
+                "Self Timing Ratios"
+            ],
+            "Results": [
+                "Lines"
+            ],
+            "Exception": [
+                "1 Message, 2 Stack"
+            ]
+        }
+    },
+    "scenarios": {
+        "2 timer sets, ts-1: timer-1 called twice, timer-2 called in between; ts-2: timer-1 called twice, initTime called in between; all outputs; mocked": {
+            "inp": {
+                "Event Sequence": [
+                    "Set 1||CON|3.000|.800",
+                    "Set 1|Timer 1|INC|33.123|9.256",
+                    "Set 2||CON|33.123|9.256",
+                    "Set 1|Timer 2|INC|63.246|17.712",
+                    "Set 1|Timer 1|INC|93.369|26.168",
+                    "Set 2|Timer 1|INC|123.492|34.624",
+                    "Set 2||INI|153.615|43.080",
+                    "Set 2|Timer 1|INC|183.738|51.536",
+                    "Set 1||GET|213.861|59.992",
+                    "Set 1||GETF|213.861|59.992",
+                    "Set 1||RES|213.861|59.992",
+                    "Set 2||GET|213.861|59.992"
+                ],
+                "Scalars": [
+                    "Y||||"
+                ]
+            },
+            "out": {
+                "Set 1": {
+                    "exp": [
+                        "Timer 1|60.246|16.912|2",
+                        "Timer 2|30.123|8.456|1",
+                        "(Other)|120.492|33.824|1",
+                        "Total|210.861|59.192|4"
+                    ],
+                    "act": [
+                        "Timer 1|60.246|16.912|2",
+                        "Timer 2|30.123|8.456|1",
+                        "(Other)|120.492|33.824|1",
+                        "Total|210.861|59.192|4"
+                    ]
+                },
+                "Set 1 (formatted)": {
+                    "exp": [
+                        "Timer       Elapsed         CPU       Calls       Ela/Call       CPU/Call",
+                        "-------  ----------  ----------  ----------  -------------  -------------",
+                        "Timer 1       60.25       16.91           2       30.12300        8.45600",
+                        "Timer 2       30.12        8.46           1       30.12300        8.45600",
+                        "(Other)      120.49       33.82           1      120.49200       33.82400",
+                        "-------  ----------  ----------  ----------  -------------  -------------",
+                        "Total        210.86       59.19           4       52.71525       14.79800",
+                        "-------  ----------  ----------  ----------  -------------  -------------"
+                    ],
+                    "act": [
+                        "Timer       Elapsed         CPU       Calls       Ela/Call       CPU/Call",
+                        "-------  ----------  ----------  ----------  -------------  -------------",
+                        "Timer 1       60.25       16.91           2       30.12300        8.45600",
+                        "Timer 2       30.12        8.46           1       30.12300        8.45600",
+                        "(Other)      120.49       33.82           1      120.49200       33.82400",
+                        "-------  ----------  ----------  ----------  -------------  -------------",
+                        "Total        210.86       59.19           4       52.71525       14.79800",
+                        "-------  ----------  ----------  ----------  -------------  -------------"
+                    ]
+                },
+                "Set 2": {
+                    "exp": [
+                        "Timer 1|120.492|33.824|2",
+                        "(Other)|60.246|16.912|1",
+                        "Total|180.738|50.736|3"
+                    ],
+                    "act": [
+                        "Timer 1|120.492|33.824|2",
+                        "(Other)|60.246|16.912|1",
+                        "Total|180.738|50.736|3"
+                    ]
+                },
+                "Set 2 (formatted)": {
+                    "exp": [],
+                    "act": []
+                },
+                "Self (unmocked)": {
+                    "exp": [],
+                    "act": []
+                },
+                "Self (unmocked, formatted)": {
+                    "exp": [],
+                    "act": []
+                },
+                "Results": {
+                    "exp": [
+                        "LIKE /Timer[^]*Timer 1[^]*\\[Timer timed[^]*\\]/"
+                    ],
+                    "act": [
+                        "\nTimer set: Set 1, constructed at 2022-10-10 17:12:05, written at 2022-10-10 17:12:05\n====================================================================================\nTimer       Elapsed         CPU       Calls       Ela/Call       CPU/Call\n-------  ----------  ----------  ----------  -------------  -------------\nTimer 1       60.25       16.91           2       30.12300        8.45600\nTimer 2       30.12        8.46           1       30.12300        8.45600\n(Other)      120.49       33.82           1      120.49200       33.82400\n-------  ----------  ----------  ----------  -------------  -------------\nTotal        210.86       59.19           4       52.71525       14.79800\n-------  ----------  ----------  ----------  -------------  -------------\n[Timer timed (per call in ms): Elapsed: 0.00199, CPU: 0.00186]"
+                    ]
+                },
+                "Exception": {
+                    "exp": [],
+                    "act": []
+                }
+            }
+        },
+        "As scenario 1 but not mocked, and with SELFs": {
+            "inp": {
+                "Event Sequence": [
+                    "Set 1||CON|0|",
+                    "Set 1|Timer 1|INC|1.023|",
+                    "Set 2||CON|0|",
+                    "Set 1|Timer 2|INC|1.023|",
+                    "Set 1|Timer 1|INC|1.023|",
+                    "Set 2|Timer 1|INC|1.023|",
+                    "Set 2||INI|1.023|",
+                    "Set 2|Timer 1|INC|1.023|",
+                    "Set 1||GET|1.023|",
+                    "Set 1||GETF|0|",
+                    "Set 1||RES|0|",
+                    "||SELF|0|",
+                    "||SELFF|0|",
+                    "Set 2||GET|0|"
+                ],
+                "Scalars": [
+                    "N||||"
+                ]
+            },
+            "out": {
+                "Set 1": {
+                    "exp": [
+                        "Timer 1|IN [2.000,3.000]|IN [0.5,1.5]|2",
+                        "Timer 2|IN [1.000,3.000]|IN [0.5,1.5]|1",
+                        "(Other)|IN [4.000,5.000]|IN [1.5,2.5]|1",
+                        "Total|IN [6.000,8.000]|IN [3.0,4.0]|4"
+                    ],
+                    "act": [
+                        "Timer 1|2.053|1.031|2",
+                        "Timer 2|1.033|0.516|1",
+                        "(Other)|4.097|2.062|1",
+                        "Total|7.183|3.609|4"
+                    ]
+                },
+                "Set 1 (formatted)": {
+                    "exp": [
+                        "Timer       Elapsed         CPU       Calls       Ela/Call       CPU/Call",
+                        "-------  ----------  ----------  ----------  -------------  -------------",
+                        "LIKE /Timer 1.*/",
+                        "LIKE /Timer 2.*/",
+                        "LIKE /\\(Other\\).*/",
+                        "-------  ----------  ----------  ----------  -------------  -------------",
+                        "LIKE /Total.*/",
+                        "-------  ----------  ----------  ----------  -------------  -------------"
+                    ],
+                    "act": [
+                        "Timer       Elapsed         CPU       Calls       Ela/Call       CPU/Call",
+                        "-------  ----------  ----------  ----------  -------------  -------------",
+                        "Timer 1        2.05        1.03           2        1.02629        0.51562",
+                        "Timer 2        1.03        0.52           1        1.03305        0.51562",
+                        "(Other)        4.10        2.06           1        4.09698        2.06250",
+                        "-------  ----------  ----------  ----------  -------------  -------------",
+                        "Total          7.18        3.61           4        1.79565        0.90234",
+                        "-------  ----------  ----------  ----------  -------------  -------------"
+                    ]
+                },
+                "Set 2": {
+                    "exp": [
+                        "Timer 1|IN [4.000,5.000]|IN [1.5,2.5]|2",
+                        "(Other)|IN [2.000,3.000]|IN [0.5,1.5]|1",
+                        "Total|IN [6.000,7000]|IN [2.5,3.5]|3"
+                    ],
+                    "act": [
+                        "Timer 1|4.095|2.062|2",
+                        "(Other)|2.357|1.328|1",
+                        "Total|6.452|3.391|3"
+                    ]
+                },
+                "Set 2 (formatted)": {
+                    "exp": [],
+                    "act": []
+                },
+                "Self (unmocked)": {
+                    "exp": [
+                        "IN [0,0.5]|IN [0,0.05]"
+                    ],
+                    "act": [
+                        "1.5504325581395315e-06|1.4534883720930232e-06"
+                    ]
+                },
+                "Self (unmocked, formatted)": {
+                    "exp": [
+                        "LIKE /\\[Timer timed \\(per call in ms\\): Elapsed: .*\\]/"
+                    ],
+                    "act": [
+                        "[Timer timed (per call in ms): Elapsed: 0.00160, CPU: 0.00175]"
+                    ]
+                },
+                "Results": {
+                    "exp": [
+                        "LIKE /Timer[^]*Timer 1[^]*\\[Timer timed[^]*\\]/"
+                    ],
+                    "act": [
+                        "\nTimer set: Set 1, constructed at 2022-10-10 17:12:05, written at 2022-10-10 17:12:05\n====================================================================================\nTimer       Elapsed         CPU       Calls       Ela/Call       CPU/Call\n-------  ----------  ----------  ----------  -------------  -------------\nTimer 1        2.05        1.03           2        1.02629        0.51562\nTimer 2        1.03        0.52           1        1.03305        0.51562\n(Other)        4.10        2.06           1        4.09698        2.06250\n-------  ----------  ----------  ----------  -------------  -------------\nTotal          7.18        3.61           4        1.79565        0.90234\n-------  ----------  ----------  ----------  -------------  -------------\n[Timer timed (per call in ms): Elapsed: 0.00145, CPU: 0.00136]"
+                    ]
+                },
+                "Exception": {
+                    "exp": [],
+                    "act": []
+                }
+            }
+        },
+        "Large numbers, mocked": {
+            "inp": {
+                "Event Sequence": [
+                    "Set 1||CON|3.000|.800",
+                    "Set 1|Timer 1|INC|10003.000|2000.800",
+                    "Set 1||GETF|20003.000|4000.800"
+                ],
+                "Scalars": [
+                    "Y||||"
+                ]
+            },
+            "out": {
+                "Set 1": {
+                    "exp": [],
+                    "act": []
+                },
+                "Set 1 (formatted)": {
+                    "exp": [
+                        "Timer       Elapsed         CPU       Calls       Ela/Call       CPU/Call",
+                        "-------  ----------  ----------  ----------  -------------  -------------",
+                        "Timer 1    10000.00     2000.00           1    10000.00000     2000.00000",
+                        "(Other)    10000.00     2000.00           1    10000.00000     2000.00000",
+                        "-------  ----------  ----------  ----------  -------------  -------------",
+                        "Total      20000.00     4000.00           2    10000.00000     2000.00000",
+                        "-------  ----------  ----------  ----------  -------------  -------------"
+                    ],
+                    "act": [
+                        "Timer       Elapsed         CPU       Calls       Ela/Call       CPU/Call",
+                        "-------  ----------  ----------  ----------  -------------  -------------",
+                        "Timer 1    10000.00     2000.00           1    10000.00000     2000.00000",
+                        "(Other)    10000.00     2000.00           1    10000.00000     2000.00000",
+                        "-------  ----------  ----------  ----------  -------------  -------------",
+                        "Total      20000.00     4000.00           2    10000.00000     2000.00000",
+                        "-------  ----------  ----------  ----------  -------------  -------------"
+                    ]
+                },
+                "Set 2": {
+                    "exp": [],
+                    "act": []
+                },
+                "Set 2 (formatted)": {
+                    "exp": [],
+                    "act": []
+                },
+                "Self (unmocked)": {
+                    "exp": [],
+                    "act": []
+                },
+                "Self (unmocked, formatted)": {
+                    "exp": [],
+                    "act": []
+                },
+                "Results": {
+                    "exp": [],
+                    "act": []
+                },
+                "Exception": {
+                    "exp": [],
+                    "act": []
+                }
+            }
+        },
+        "Small numbers, mocked": {
+            "inp": {
+                "Event Sequence": [
+                    "Set 1||CON|3.000|.800",
+                    "Set 1|Timer 1|INC|3.006|.802",
+                    "Set 1||GETF|3.012|.808"
+                ],
+                "Scalars": [
+                    "Y||||"
+                ]
+            },
+            "out": {
+                "Set 1": {
+                    "exp": [],
+                    "act": []
+                },
+                "Set 1 (formatted)": {
+                    "exp": [
+                        "Timer       Elapsed         CPU       Calls       Ela/Call       CPU/Call",
+                        "-------  ----------  ----------  ----------  -------------  -------------",
+                        "Timer 1        0.01        0.00           1        0.00600        0.00200",
+                        "(Other)        0.01        0.01           1        0.00600        0.00600",
+                        "-------  ----------  ----------  ----------  -------------  -------------",
+                        "Total          0.01        0.01           2        0.00600        0.00400",
+                        "-------  ----------  ----------  ----------  -------------  -------------"
+                    ],
+                    "act": [
+                        "Timer       Elapsed         CPU       Calls       Ela/Call       CPU/Call",
+                        "-------  ----------  ----------  ----------  -------------  -------------",
+                        "Timer 1        0.01        0.00           1        0.00600        0.00200",
+                        "(Other)        0.01        0.01           1        0.00600        0.00600",
+                        "-------  ----------  ----------  ----------  -------------  -------------",
+                        "Total          0.01        0.01           2        0.00600        0.00400",
+                        "-------  ----------  ----------  ----------  -------------  -------------"
+                    ]
+                },
+                "Set 2": {
+                    "exp": [],
+                    "act": []
+                },
+                "Set 2 (formatted)": {
+                    "exp": [],
+                    "act": []
+                },
+                "Self (unmocked)": {
+                    "exp": [],
+                    "act": []
+                },
+                "Self (unmocked, formatted)": {
+                    "exp": [],
+                    "act": []
+                },
+                "Results": {
+                    "exp": [],
+                    "act": []
+                },
+                "Exception": {
+                    "exp": [],
+                    "act": []
+                }
+            }
+        },
+        "Non-default DP, mocked": {
+            "inp": {
+                "Event Sequence": [
+                    "Set 1||CON|3.000|.800",
+                    "Set 1|Timer 1|INC|33.123|9.256",
+                    "Set 1||GETF|63.246|17.712",
+                    "Set 1||RES|63.246|17.712"
+                ],
+                "Scalars": [
+                    "Y|7|1|3|5"
+                ]
+            },
+            "out": {
+                "Set 1": {
+                    "exp": [],
+                    "act": []
+                },
+                "Set 1 (formatted)": {
+                    "exp": [
+                        "Timer     Elapsed       CPU  Calls    Ela/Call    CPU/Call",
+                        "-------  --------  --------  -----  ----------  ----------",
+                        "Timer 1      30.1       8.5      1      30.123       8.456",
+                        "(Other)      30.1       8.5      1      30.123       8.456",
+                        "-------  --------  --------  -----  ----------  ----------",
+                        "Total        60.2      16.9      2      30.123       8.456",
+                        "-------  --------  --------  -----  ----------  ----------"
+                    ],
+                    "act": [
+                        "Timer     Elapsed       CPU  Calls    Ela/Call    CPU/Call",
+                        "-------  --------  --------  -----  ----------  ----------",
+                        "Timer 1      30.1       8.5      1      30.123       8.456",
+                        "(Other)      30.1       8.5      1      30.123       8.456",
+                        "-------  --------  --------  -----  ----------  ----------",
+                        "Total        60.2      16.9      2      30.123       8.456",
+                        "-------  --------  --------  -----  ----------  ----------"
+                    ]
+                },
+                "Set 2": {
+                    "exp": [],
+                    "act": []
+                },
+                "Set 2 (formatted)": {
+                    "exp": [],
+                    "act": []
+                },
+                "Self (unmocked)": {
+                    "exp": [],
+                    "act": []
+                },
+                "Self (unmocked, formatted)": {
+                    "exp": [],
+                    "act": []
+                },
+                "Results": {
+                    "exp": [
+                        "LIKE /Timer[^]*Timer 1 +30.1 +8.5 +1 +30.123 +8.456[^]*\\[Timer timed[^]*\\]/"
+                    ],
+                    "act": [
+                        "\nTimer set: Set 1, constructed at 2022-10-10 17:12:12, written at 2022-10-10 17:12:05\n====================================================================================\nTimer     Elapsed       CPU  Calls    Ela/Call    CPU/Call\n-------  --------  --------  -----  ----------  ----------\nTimer 1      30.1       8.5      1      30.123       8.456\n(Other)      30.1       8.5      1      30.123       8.456\n-------  --------  --------  -----  ----------  ----------\nTotal        60.2      16.9      2      30.123       8.456\n-------  --------  --------  -----  ----------  ----------\n[Timer timed (per call in ms): Elapsed: 0.002, CPU: 0.001]"
+                    ]
+                },
+                "Exception": {
+                    "exp": [],
+                    "act": []
+                }
+            }
+        },
+        "Zero DP, mocked": {
+            "inp": {
+                "Event Sequence": [
+                    "Set 1||CON|3.000|.800",
+                    "Set 1|Timer 1|INC|33.123|9.256",
+                    "Set 1||GETF|63.246|17.712"
+                ],
+                "Scalars": [
+                    "Y|7|0|3|5"
+                ]
+            },
+            "out": {
+                "Set 1": {
+                    "exp": [],
+                    "act": []
+                },
+                "Set 1 (formatted)": {
+                    "exp": [
+                        "Timer    Elapsed      CPU  Calls    Ela/Call    CPU/Call",
+                        "-------  -------  -------  -----  ----------  ----------",
+                        "Timer 1       30        8      1      30.123       8.456",
+                        "(Other)       30        8      1      30.123       8.456",
+                        "-------  -------  -------  -----  ----------  ----------",
+                        "Total         60       17      2      30.123       8.456",
+                        "-------  -------  -------  -----  ----------  ----------"
+                    ],
+                    "act": [
+                        "Timer    Elapsed      CPU  Calls    Ela/Call    CPU/Call",
+                        "-------  -------  -------  -----  ----------  ----------",
+                        "Timer 1       30        8      1      30.123       8.456",
+                        "(Other)       30        8      1      30.123       8.456",
+                        "-------  -------  -------  -----  ----------  ----------",
+                        "Total         60       17      2      30.123       8.456",
+                        "-------  -------  -------  -----  ----------  ----------"
+                    ]
+                },
+                "Set 2": {
+                    "exp": [],
+                    "act": []
+                },
+                "Set 2 (formatted)": {
+                    "exp": [],
+                    "act": []
+                },
+                "Self (unmocked)": {
+                    "exp": [],
+                    "act": []
+                },
+                "Self (unmocked, formatted)": {
+                    "exp": [],
+                    "act": []
+                },
+                "Results": {
+                    "exp": [],
+                    "act": []
+                },
+                "Exception": {
+                    "exp": [],
+                    "act": []
+                }
+            }
+        },
+        "Error DP, mocked": {
+            "inp": {
+                "Event Sequence": [
+                    "Set 1||CON|3.000|.800",
+                    "Set 1|Timer 1|INC|33.123|9.256",
+                    "Set 1||GETF|63.246|17.712"
+                ],
+                "Scalars": [
+                    "Y|4|1|3|5"
+                ]
+            },
+            "out": {
+                "Set 1": {
+                    "exp": [],
+                    "act": []
+                },
+                "Set 1 (formatted)": {
+                    "exp": [],
+                    "act": []
+                },
+                "Set 2": {
+                    "exp": [],
+                    "act": []
+                },
+                "Set 2 (formatted)": {
+                    "exp": [],
+                    "act": []
+                },
+                "Self (unmocked)": {
+                    "exp": [],
+                    "act": []
+                },
+                "Self (unmocked, formatted)": {
+                    "exp": [],
+                    "act": []
+                },
+                "Results": {
+                    "exp": [],
+                    "act": []
+                },
+                "Exception": {
+                    "exp": [
+                        "Error, time_width + time_dp must be > 6, actual: 4 + 1",
+                        "UNTESTED"
+                    ],
+                    "act": [
+                        "Error, time_width + time_dp must be > 6, actual: 4 + 1",
+                        "Traceback (most recent call last):\n  File \"C:\\Users\\Brend\\Dropbox\\Home\\WIP\\timerset\\timerset\\unit_test\\testtimerset.py\", line 108, in purely_wrap_unit\n    out_arr_f[set_nm] = timer_set[set_nm].format_timers(time_width, dp_totals,\n  File \"C:\\Users\\Brend\\Dropbox\\Home\\WIP\\timerset\\timerset\\timerset.py\", line 168, in format_timers\n    time_width, time_dp, time_ratio_dp, calls_width = _val_widths(\n  File \"C:\\Users\\Brend\\Dropbox\\Home\\WIP\\timerset\\timerset\\timerset.py\", line 69, in _val_widths\n    raise ValueError(('Error, time_width + time_dp must be > 6, actual: {actual}').\nValueError: Error, time_width + time_dp must be > 6, actual: 4 + 1\n"
+                    ]
+                }
+            }
+        }
+    }
+}

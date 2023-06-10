@@ -1,0 +1,278 @@
+{
+    "meta": {
+        "title": "Col Group",
+        "inp": {
+            "Log": [
+                "Line"
+            ],
+            "Scalars": [
+                "Delimiter",
+                "Column#"
+            ],
+            "Lines": [
+                "Line"
+            ]
+        },
+        "out": {
+            "Log": [
+                "#Lines",
+                "Date Offset",
+                "Text"
+            ],
+            "listAsIs": [
+                "#Instances"
+            ],
+            "sortByKey": [
+                "Key",
+                "Value"
+            ],
+            "sortByValue": [
+                "Key",
+                "Value"
+            ]
+        }
+    },
+    "scenarios": {
+        "Lines: None; Key column: NA": {
+            "inp": {
+                "Log": [
+                    "Log line 1"
+                ],
+                "Scalars": [
+                    ",|9"
+                ],
+                "Lines": []
+            },
+            "out": {
+                "Log": {
+                    "exp": [
+                        "2|IN [0,2000]|LIKE /.*: File .*examples-colgroup-ut_group.csv, delimiter ',', column 9/"
+                    ],
+                    "act": [
+                        "2|718.025|2022-10-08 11:12:01: File C:-Users-Brend-OneDrive-Documents-GitHub-trapit_python_tester-examples-colgroup-ut_group.csv, delimiter ',', column 9"
+                    ]
+                },
+                "listAsIs": {
+                    "exp": [
+                        "0"
+                    ],
+                    "act": [
+                        "0"
+                    ]
+                },
+                "sortByKey": {
+                    "exp": [],
+                    "act": []
+                },
+                "sortByValue": {
+                    "exp": [],
+                    "act": []
+                }
+            }
+        },
+        "Lines: 1; Key column: First": {
+            "inp": {
+                "Log": [],
+                "Scalars": [
+                    ",|0"
+                ],
+                "Lines": [
+                    "X"
+                ]
+            },
+            "out": {
+                "Log": {
+                    "exp": [
+                        "1|IN [0,2000]|LIKE /.*: File .*examples-colgroup-ut_group.csv, delimiter ',', column 0/"
+                    ],
+                    "act": [
+                        "1|718.025|2022-10-08 11:12:01: File C:-Users-Brend-OneDrive-Documents-GitHub-trapit_python_tester-examples-colgroup-ut_group.csv, delimiter ',', column 0"
+                    ]
+                },
+                "listAsIs": {
+                    "exp": [
+                        "1"
+                    ],
+                    "act": [
+                        "1"
+                    ]
+                },
+                "sortByKey": {
+                    "exp": [
+                        "X|1"
+                    ],
+                    "act": [
+                        "X|1"
+                    ]
+                },
+                "sortByValue": {
+                    "exp": [
+                        "X|1"
+                    ],
+                    "act": [
+                        "X|1"
+                    ]
+                }
+            }
+        },
+        "Lines: Multiple; Key column: First": {
+            "inp": {
+                "Log": [
+                    "Log line 1"
+                ],
+                "Scalars": [
+                    ";;|0"
+                ],
+                "Lines": [
+                    "12345678901234567890123456789012345678901234567890;;0;;1;;2;;3;;4;;5;;6;;7;;8",
+                    "12345678901234567890123456789012345678901234567890;;0;;1;;2;;3;;4;;5;;6;;7;;8",
+                    "abc;;0;;1;;2;;3;;4;;5;;6;;7;;8"
+                ]
+            },
+            "out": {
+                "Log": {
+                    "exp": [
+                        "2|IN [0,2000]|LIKE /.*: File .*examples-colgroup-ut_group.csv, delimiter ';;', column 0/"
+                    ],
+                    "act": [
+                        "2|729.687|2022-10-08 11:12:01: File C:-Users-Brend-OneDrive-Documents-GitHub-trapit_python_tester-examples-colgroup-ut_group.csv, delimiter ';;', column 0"
+                    ]
+                },
+                "listAsIs": {
+                    "exp": [
+                        "2"
+                    ],
+                    "act": [
+                        "2"
+                    ]
+                },
+                "sortByKey": {
+                    "exp": [
+                        "12345678901234567890123456789012345678901234567890|2",
+                        "abc|1"
+                    ],
+                    "act": [
+                        "12345678901234567890123456789012345678901234567890|2",
+                        "abc|1"
+                    ]
+                },
+                "sortByValue": {
+                    "exp": [
+                        "abc|1",
+                        "12345678901234567890123456789012345678901234567890|2"
+                    ],
+                    "act": [
+                        "abc|1",
+                        "12345678901234567890123456789012345678901234567890|2"
+                    ]
+                }
+            }
+        },
+        "Lines: Multiple; Key column: Last": {
+            "inp": {
+                "Log": [
+                    "Log line 1"
+                ],
+                "Scalars": [
+                    ";;|9"
+                ],
+                "Lines": [
+                    "0;;1;;2;;3;;4;;5;;6;;7;;8;;12345678901234567890123456789012345678901234567890",
+                    "0;;1;;2;;3;;4;;5;;6;;7;;8;;abc",
+                    "0;;1;;2;;3;;4;;5;;6;;7;;8;;abc"
+                ]
+            },
+            "out": {
+                "Log": {
+                    "exp": [
+                        "2|IN [0,2000]|LIKE /.*: File .*examples-colgroup-ut_group.csv, delimiter ';;', column 9/"
+                    ],
+                    "act": [
+                        "2|749.277|2022-10-08 11:12:01: File C:-Users-Brend-OneDrive-Documents-GitHub-trapit_python_tester-examples-colgroup-ut_group.csv, delimiter ';;', column 9"
+                    ]
+                },
+                "listAsIs": {
+                    "exp": [
+                        "2"
+                    ],
+                    "act": [
+                        "2"
+                    ]
+                },
+                "sortByKey": {
+                    "exp": [
+                        "12345678901234567890123456789012345678901234567890|1",
+                        "abc|2"
+                    ],
+                    "act": [
+                        "12345678901234567890123456789012345678901234567890|1",
+                        "abc|2"
+                    ]
+                },
+                "sortByValue": {
+                    "exp": [
+                        "12345678901234567890123456789012345678901234567890|1",
+                        "abc|2"
+                    ],
+                    "act": [
+                        "12345678901234567890123456789012345678901234567890|1",
+                        "abc|2"
+                    ]
+                }
+            }
+        },
+        "Lines: Multiple; Key column: Middle": {
+            "inp": {
+                "Log": [
+                    "Log line 1"
+                ],
+                "Scalars": [
+                    ";;|5"
+                ],
+                "Lines": [
+                    "0;;1;;2;;3;;4;;12345678901234567890123456789012345678901234567890;;5;;6;;7;;8",
+                    "0;;1;;2;;3;;4;;abc;;5;;6;;7;;8",
+                    "0;;1;;2;;3;;4;;12345678901234567890123456789012345678901234567890;;5;;6;;7;;8"
+                ]
+            },
+            "out": {
+                "Log": {
+                    "exp": [
+                        "2|IN [0,2000]|LIKE /.*: File .*examples-colgroup-ut_group.csv, delimiter ';;', column 5/"
+                    ],
+                    "act": [
+                        "2|764.283|2022-10-08 11:12:01: File C:-Users-Brend-OneDrive-Documents-GitHub-trapit_python_tester-examples-colgroup-ut_group.csv, delimiter ';;', column 5"
+                    ]
+                },
+                "listAsIs": {
+                    "exp": [
+                        "3"
+                    ],
+                    "act": [
+                        "2"
+                    ]
+                },
+                "sortByKey": {
+                    "exp": [
+                        "12345678901234567890123456789012345678901234567890|2",
+                        "abc|1"
+                    ],
+                    "act": [
+                        "12345678901234567890123456789012345678901234567890|2",
+                        "abc|1"
+                    ]
+                },
+                "sortByValue": {
+                    "exp": [
+                        "abc|1",
+                        "12345678901234567890123456789012345678901234567890|2"
+                    ],
+                    "act": [
+                        "abc|1",
+                        "12345678901234567890123456789012345678901234567890|2"
+                    ]
+                }
+            }
+        }
+    }
+}
