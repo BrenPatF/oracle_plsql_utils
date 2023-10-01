@@ -426,6 +426,7 @@ DECLARE
 BEGIN
 
     l_file_lis := Trapit_Run.Test_Output_Files('GROUP');
+    Utils.g_w_is_active := TRUE;
     Utils.W('!');
     Utils.W(l_file_lis);
     Utils.W('!');
@@ -435,7 +436,7 @@ END;
 EXIT;
 "@
     $fullConn = $unpw + '@' + $conn
-    if ($preSQL) {$output = $preSQL | sqlplus $fullConn}
+    if ($preSQL) {$sqlPlusCommands = $preSQL + [Environment]::NewLine + $sqlPlusCommands}
     $output = $sqlPlusCommands -Replace 'GROUP', $utGroup | sqlplus $fullConn
     $output
     $arr = $output.Split([Environment]::NewLine)

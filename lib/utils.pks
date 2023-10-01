@@ -22,6 +22,7 @@ methods execute SQL using the rights of the calling schema, not the lib schema (
 
 PRMS_END             CONSTANT VARCHAR2(30) := 'PRMS_END';
 DELIM                         VARCHAR2(30) := '|';
+g_w_is_active                 BOOLEAN := TRUE;
 TYPE cursor_rec IS RECORD(
             csr_id                         PLS_INTEGER,
             col_type_lis                   L1_num_arr);

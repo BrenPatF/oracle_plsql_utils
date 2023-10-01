@@ -474,13 +474,15 @@ W: Overloaded procedure to write a line, or an array of lines, to output using D
 ***************************************************************************************************/
 PROCEDURE W(p_line                         VARCHAR2) IS -- line of text to write
 BEGIN
-  DBMS_Output.Put_line(p_line);
+  IF g_w_is_active THEN
+    DBMS_Output.Put_line(p_line);
+  END IF;
 END W;
 
 PROCEDURE W(p_line_lis                     L1_chr_arr) IS -- array of lines of text to write
 BEGIN
   FOR i IN 1..p_line_lis.COUNT LOOP
-    DBMS_Output.Put_line(p_line_lis(i));
+    W(p_line_lis(i));
   END LOOP;
 END W;
 
@@ -605,11 +607,15 @@ FUNCTION Get_XPlan(
 
 BEGIN
 
-  Ins_Plan ('ALLSTATS LAST');
-  IF p_add_outline THEN
-
-    Ins_Plan ('OUTLINE LAST');
-
+  IF l_sql_id IS NULL THEN
+    w('SQL id is null for marker ' || p_sql_marker);
+  ELSE
+    Ins_Plan ('ALLSTATS LAST');
+    IF p_add_outline THEN
+  
+      Ins_Plan ('OUTLINE LAST');
+  
+    END IF;
   END IF;
 
   RETURN l_xplan_lis;
