@@ -11,7 +11,7 @@ Unit Test Report: Oracle PL/SQL Utilities
 
 Test scenarios: 0 failed of 5: SUCCESS
 ======================================
-Tested: 2023-10-01 13:17:27, Formatted: 2023-10-01 13:17:27
+Tested: 2023-10-08 10:15:21, Formatted: 2023-10-08 10:15:21
 
 SCENARIO 1: Small values [Category Set: Value Size] {
 =====================================================
@@ -307,7 +307,7 @@ SCENARIO 1: Small values [Category Set: Value Size] {
 
             #  Elapsed Seconds      CPU Seconds       
             -  -------------------  ------------------
-            1  IN [0.9,1.1]: 1.004  IN [0.1,0.51]: .41
+            1  IN [0.9,1.1]: 1.015  IN [0.1,0.51]: .23
 
       } 0 failed of 1: SUCCESS
       ========================
@@ -676,9 +676,9 @@ SCENARIO 2: Large values [Category Set: Value Size] {
       GROUP 11: Sleep {
       =================
 
-            #  Elapsed Seconds  CPU Seconds        
-            -  ---------------  -------------------
-            1  IN [1.9,2.1]: 2  IN [0.02,0.21]: .17
+            #  Elapsed Seconds      CPU Seconds        
+            -  -------------------  -------------------
+            1  IN [1.9,2.1]: 2.013  IN [0.02,0.21]: .09
 
       } 0 failed of 1: SUCCESS
       ========================
@@ -1018,7 +1018,7 @@ SCENARIO 3: One value [Category Set: Multiplicity] {
 
             #  Elapsed Seconds      CPU Seconds        
             -  -------------------  -------------------
-            1  IN [0.9,1.1]: 1.009  IN [0.01,0.51]: .37
+            1  IN [0.9,1.1]: 1.003  IN [0.01,0.51]: .15
 
       } 0 failed of 1: SUCCESS
       ========================

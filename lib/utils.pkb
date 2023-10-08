@@ -562,18 +562,20 @@ get_SQL_Id: Given a marker string to match against in v$sql get the sql_id
 ***************************************************************************************************/
 FUNCTION get_SQL_Id(
             p_sql_marker                 VARCHAR2)          -- marker string
-                                         RETURN VARCHAR2 IS -- sql id
-  l_sql_id VARCHAR2(60);
+                                         RETURN L1_chr_arr IS -- sql id
+  l_sql_id          VARCHAR2(60);
+  l_child_number    PLS_INTEGER;
 BEGIN
 
-  SELECT Max(sql_id) KEEP (DENSE_RANK LAST ORDER BY last_load_time)
-    INTO l_sql_id
+  SELECT Max(sql_id) KEEP (DENSE_RANK LAST ORDER BY last_active_time),
+         Max(child_number) KEEP (DENSE_RANK LAST ORDER BY last_active_time)
+    INTO l_sql_id, l_child_number
     FROM v$sql
    WHERE sql_text LIKE '% ' || p_sql_marker || ' %' 
      AND UPPER(sql_text) NOT LIKE '%SQL_TEXT LIKE%' -- excludes this query
      AND plan_hash_value != 0;                      -- excludes PL/SQL blocks
 
-  RETURN l_sql_id;
+  RETURN L1_chr_arr(l_sql_id, To_Char(l_child_number));
 
 END get_SQL_Id;
 
@@ -588,15 +590,18 @@ FUNCTION Get_XPlan(
             p_add_outline                  BOOLEAN DEFAULT FALSE) -- repeat the plan with outline added
             RETURN                         L1_chr_arr IS          -- list of XPlan lines
 
-  l_sql_id      VARCHAR2(60) := get_SQL_Id (p_sql_marker);
-  l_xplan_lis   L1_chr_arr := L1_chr_arr();
+  l_xplan_lis         L1_chr_arr := L1_chr_arr();
+  l_v$sql_lis         L1_chr_arr := get_SQL_Id (p_sql_marker);
+  l_sql_id            VARCHAR2(60) := l_v$sql_lis(1);
 
   PROCEDURE Ins_Plan(p_type VARCHAR2) IS
   BEGIN
 
     FOR rec IN (
         SELECT plan_table_output
-          FROM TABLE(DBMS_XPlan.Display_Cursor(l_sql_id, NULL, p_type))
+          FROM TABLE(DBMS_XPlan.Display_Cursor(sql_id          => l_sql_id, 
+                                               cursor_child_no => l_v$sql_lis(2),
+                                               format          => p_type))
                ) LOOP
       l_xplan_lis.EXTEND;
       l_xplan_lis(l_xplan_lis.COUNT) := rec.plan_table_output;
@@ -617,7 +622,6 @@ BEGIN
   
     END IF;
   END IF;
-
   RETURN l_xplan_lis;
 
 END Get_XPlan;
