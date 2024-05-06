@@ -320,6 +320,109 @@ BEGIN
 
 END Get_Active_TT_Units;
 
+/***************************************************************************************************
+
+Set_Active_YNs: Sets the active_yn flag at both table (tt_units) and scenario level in the column
+  tt_units.input_json.
+
+  If p_unit_test_package_nm/p_purely_wrap_api_function_nm are set:
+    - Update the corresponding record with the p_yn value passed
+    - Update the other records in the group with the inverse of the p_yn value passed
+    - Do scenario updates only for the corresponding record
+  Else
+    - Update all records with the p_yn value passed
+    - Do scenario updates for all records in the group
+  End If
+
+  If p_scenario_nm is set (for records as above):
+    - Update the corresponding scenario with the p_yn value passed
+    - Update the other scenarios with the inverse of the p_yn value passed
+  Else
+    - Update all scenarios with the p_yn value passed
+  End If
+
+This can be useful in debugging, as it allows you to deactivate all records except one, and all
+  scenarios except one, until you have resolved any issues with them, then you can re-activate all
+  by making a call with the optional parameters null. This avoids having to manually set the flags
+  in the input JSON file and re-install. Generally the default value of 'Y' for p_yn is most useful.
+
+***************************************************************************************************/
+FUNCTION Set_Active_YNs (
+            p_group_nm                     VARCHAR2,         -- unit test group name
+            p_unit_test_package_nm         VARCHAR2 := NULL, -- unit test package name
+            p_purely_wrap_api_function_nm  VARCHAR2 := NULL, -- unit test API name
+            p_scenario_nm                  VARCHAR2 := NULL, -- scenario name
+            p_yn                           VARCHAR2 := 'Y')  -- Y/N flag
+            RETURN                         PLS_INTEGER IS    -- number of records updated in loop
+  l_yn      VARCHAR2(1);
+  l_n_rows  PLS_INTEGER := 0;
+BEGIN
+
+  UPDATE tt_units ttu
+     SET ttu.active_yn = CASE WHEN ttu.unit_test_package_nm = Nvl(p_unit_test_package_nm, ttu.unit_test_package_nm)
+                               AND ttu.purely_wrap_api_function_nm = Nvl(p_purely_wrap_api_function_nm, ttu.purely_wrap_api_function_nm) THEN 
+                                p_yn 
+                              ELSE 
+                                CASE WHEN p_yn = 'Y' THEN
+                                       'N' 
+                                     ELSE
+                                       'Y'
+                                END 
+                              END
+   WHERE ttu.group_nm = p_group_nm;
+
+  FOR rec IN (  WITH dataguide_groups AS (
+                  SELECT ttu.group_nm,
+                         ttu.unit_test_package_nm, 
+                         ttu.purely_wrap_api_function_nm, 
+                         JSON_Dataguide(ttu.input_json, DBMS_JSON.Format_hierarchical) dataguide
+                    FROM tt_units ttu
+                   WHERE ttu.group_nm = p_group_nm
+                     AND ttu.unit_test_package_nm = Nvl(p_unit_test_package_nm, ttu.unit_test_package_nm)
+                     AND ttu.purely_wrap_api_function_nm = Nvl(p_purely_wrap_api_function_nm, ttu.purely_wrap_api_function_nm)
+                   GROUP BY ttu.group_nm,
+                            ttu.unit_test_package_nm, 
+                            ttu.purely_wrap_api_function_nm
+                )
+                SELECT dgp.group_nm,
+                       dgp.unit_test_package_nm, 
+                       dgp.purely_wrap_api_function_nm,
+                       jst.scenario_nm
+                  FROM dataguide_groups dgp
+                 CROSS APPLY JSON_Table ( dgp.dataguide,
+                                          '$.properties.scenarios.properties.*'
+                                          COLUMNS (
+                                            attr_num    FOR ORDINALITY,
+                                            scenario_nm VARCHAR2 PATH '$."o:preferred_column_name"'
+                                          )
+                                        ) jst
+             ) LOOP
+
+    l_yn := CASE WHEN rec.scenario_nm = Nvl(p_scenario_nm, rec.scenario_nm) THEN 
+                   p_yn 
+                 ELSE 
+                   CASE WHEN p_yn = 'Y' THEN
+                          'N' 
+                        ELSE
+                          'Y'
+                   END 
+                 END;
+
+    UPDATE tt_units
+       SET input_json = JSON_MERGEPATCH (input_json,
+                                         '{"scenarios": {"' || rec.scenario_nm || '": {"active_yn": "' || l_yn || '"}}}' returning clob
+                                        )
+     WHERE group_nm                    = rec.group_nm
+       AND unit_test_package_nm        = rec.unit_test_package_nm
+       AND purely_wrap_api_function_nm = rec.purely_wrap_api_function_nm;
+
+    l_n_rows := l_n_rows + SQL%ROWCOUNT;
+
+  END LOOP;
+  RETURN l_n_rows;
+
+END Set_Active_YNs;
+
 BEGIN
   DBMS_Session.Set_Context('TRAPIT_CTX', 'MODE', 'UT');
 END Trapit;

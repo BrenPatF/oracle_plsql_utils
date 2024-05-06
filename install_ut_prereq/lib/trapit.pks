@@ -49,6 +49,13 @@ PROCEDURE Add_Ttu(
 FUNCTION Get_Active_TT_Units(
             p_group_nm                     VARCHAR2)
             RETURN                         L1_chr_arr PIPELINED;
+FUNCTION Set_Active_YNs (
+            p_group_nm                     VARCHAR2,
+            p_unit_test_package_nm         VARCHAR2 := NULL, 
+            p_purely_wrap_api_function_nm  VARCHAR2 := NULL,
+            p_scenario_nm                  VARCHAR2 := NULL,
+            p_yn                           VARCHAR2 := 'Y')
+            RETURN                         PLS_INTEGER;
 
 END Trapit;
 /

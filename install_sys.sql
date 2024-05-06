@@ -77,5 +77,5 @@ PROMPT Create &APP_USER
 @c_user &APP_USER
 GRANT CREATE SYNONYM TO &APP_USER
 /
-
 @endspool
+exit

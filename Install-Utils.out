@@ -1,0 +1,578 @@
+06-May-24 15:51:51
+First try to copy files to input folder...
+The item c:/input is a folder, copy there...
+Copied ./unit_test/tt_utils.purely_wrap_utils_inp.json to c:/input
+Copied ./fantasy_premier_league_player_stats.csv to c:/input
+
+Name                           Value
+----                           -----
+folder                         .
+script                         install_sys
+schema                         sys
+folder                         lib
+script                         install_utils
+schema                         lib
+folder                         install_ut_prereq\lib
+script                         install_lib_all
+schema                         lib
+folder                         install_ut_prereq\app
+script                         c_syns_all
+schema                         app
+folder                         lib
+script                         install_utils_tt
+schema                         lib
+folder                         app
+script                         install_col_group
+schema                         app
+Executing: @./install_sys for connection sys/sys@orclpdb AS SYSDBA
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Mon May 6 15:51:51 2024
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+
+Database	     Time		  Version
+-------------------- -------------------- ------------------------------
+Start: ORCL	     06-MAY-2024 15:51:51 Version 21.3.0.0.0
+
+Create directory input_dir
+
+Directory created.
+
+Create lib
+old   1: CREATE USER &DEMO_USER IDENTIFIED BY &DEMO_USER
+new   1: CREATE USER lib IDENTIFIED BY lib
+CREATE USER lib IDENTIFIED BY lib
+            *
+ERROR at line 1:
+ORA-01920: user name 'LIB' conflicts with another user or role name
+
+
+old   1: GRANT CREATE SESSION TO &DEMO_USER
+new   1: GRANT CREATE SESSION TO lib
+
+Grant succeeded.
+
+old   1: GRANT ALTER SESSION TO &DEMO_USER
+new   1: GRANT ALTER SESSION TO lib
+
+Grant succeeded.
+
+old   1: GRANT CREATE TABLE TO &DEMO_USER
+new   1: GRANT CREATE TABLE TO lib
+
+Grant succeeded.
+
+old   1: GRANT CREATE TYPE TO &DEMO_USER
+new   1: GRANT CREATE TYPE TO lib
+
+Grant succeeded.
+
+old   1: GRANT CREATE SEQUENCE TO &DEMO_USER
+new   1: GRANT CREATE SEQUENCE TO lib
+
+Grant succeeded.
+
+old   1: GRANT CREATE VIEW TO &DEMO_USER
+new   1: GRANT CREATE VIEW TO lib
+
+Grant succeeded.
+
+old   1: GRANT UNLIMITED TABLESPACE TO &DEMO_USER
+new   1: GRANT UNLIMITED TABLESPACE TO lib
+
+Grant succeeded.
+
+old   1: GRANT CREATE PROCEDURE TO &DEMO_USER
+new   1: GRANT CREATE PROCEDURE TO lib
+
+Grant succeeded.
+
+old   1: GRANT EXECUTE ON UTL_File TO &DEMO_USER
+new   1: GRANT EXECUTE ON UTL_File TO lib
+
+Grant succeeded.
+
+old   1: GRANT ALL ON DIRECTORY input_dir TO &DEMO_USER
+new   1: GRANT ALL ON DIRECTORY input_dir TO lib
+
+Grant succeeded.
+
+old   1: GRANT SELECT ON v_$database TO &DEMO_USER
+new   1: GRANT SELECT ON v_$database TO lib
+
+Grant succeeded.
+
+old   1: GRANT SELECT ON v_$sql TO &DEMO_USER
+new   1: GRANT SELECT ON v_$sql TO lib
+
+Grant succeeded.
+
+old   1: GRANT SELECT ON v_$sql_plan_statistics_all TO &DEMO_USER
+new   1: GRANT SELECT ON v_$sql_plan_statistics_all TO lib
+
+Grant succeeded.
+
+old   1: GRANT SELECT ON v_$sql_plan TO &DEMO_USER
+new   1: GRANT SELECT ON v_$sql_plan TO lib
+
+Grant succeeded.
+
+Grant Execute DBMS_Lock to lib
+old   1: GRANT EXECUTE ON DBMS_Lock TO &LIB_USER
+new   1: GRANT EXECUTE ON DBMS_Lock TO lib
+
+Grant succeeded.
+
+Grant Create Any Context to lib
+old   1: GRANT CREATE ANY CONTEXT TO &LIB_USER
+new   1: GRANT CREATE ANY CONTEXT TO lib
+
+Grant succeeded.
+
+Create app
+old   1: CREATE USER &DEMO_USER IDENTIFIED BY &DEMO_USER
+new   1: CREATE USER app IDENTIFIED BY app
+CREATE USER app IDENTIFIED BY app
+            *
+ERROR at line 1:
+ORA-01920: user name 'APP' conflicts with another user or role name
+
+
+old   1: GRANT CREATE SESSION TO &DEMO_USER
+new   1: GRANT CREATE SESSION TO app
+
+Grant succeeded.
+
+old   1: GRANT ALTER SESSION TO &DEMO_USER
+new   1: GRANT ALTER SESSION TO app
+
+Grant succeeded.
+
+old   1: GRANT CREATE TABLE TO &DEMO_USER
+new   1: GRANT CREATE TABLE TO app
+
+Grant succeeded.
+
+old   1: GRANT CREATE TYPE TO &DEMO_USER
+new   1: GRANT CREATE TYPE TO app
+
+Grant succeeded.
+
+old   1: GRANT CREATE SEQUENCE TO &DEMO_USER
+new   1: GRANT CREATE SEQUENCE TO app
+
+Grant succeeded.
+
+old   1: GRANT CREATE VIEW TO &DEMO_USER
+new   1: GRANT CREATE VIEW TO app
+
+Grant succeeded.
+
+old   1: GRANT UNLIMITED TABLESPACE TO &DEMO_USER
+new   1: GRANT UNLIMITED TABLESPACE TO app
+
+Grant succeeded.
+
+old   1: GRANT CREATE PROCEDURE TO &DEMO_USER
+new   1: GRANT CREATE PROCEDURE TO app
+
+Grant succeeded.
+
+old   1: GRANT EXECUTE ON UTL_File TO &DEMO_USER
+new   1: GRANT EXECUTE ON UTL_File TO app
+
+Grant succeeded.
+
+old   1: GRANT ALL ON DIRECTORY input_dir TO &DEMO_USER
+new   1: GRANT ALL ON DIRECTORY input_dir TO app
+
+Grant succeeded.
+
+old   1: GRANT SELECT ON v_$database TO &DEMO_USER
+new   1: GRANT SELECT ON v_$database TO app
+
+Grant succeeded.
+
+old   1: GRANT SELECT ON v_$sql TO &DEMO_USER
+new   1: GRANT SELECT ON v_$sql TO app
+
+Grant succeeded.
+
+old   1: GRANT SELECT ON v_$sql_plan_statistics_all TO &DEMO_USER
+new   1: GRANT SELECT ON v_$sql_plan_statistics_all TO app
+
+Grant succeeded.
+
+old   1: GRANT SELECT ON v_$sql_plan TO &DEMO_USER
+new   1: GRANT SELECT ON v_$sql_plan TO app
+
+Grant succeeded.
+
+old   1: GRANT CREATE SYNONYM TO &APP_USER
+new   1: GRANT CREATE SYNONYM TO app
+
+Grant succeeded.
+
+
+'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
+----------------------------------
+End: 06-MAY-2024 15:51:51
+
+Disconnected from Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+Executing: @./install_utils for connection lib/lib@orclpdb
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Mon May 6 15:51:51 2024
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Last Successful login time: Mon May 06 2024 15:49:44 +01:00
+
+Connected to:
+Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+
+Database	     Time		  Version
+-------------------- -------------------- ------------------------------
+Start: ORCL	     06-MAY-2024 15:51:51 Version 21.3.0.0.0
+
+Common type creation
+====================
+Create type L1_chr_arr
+CREATE OR REPLACE TYPE L1_chr_arr IS VARRAY(32767) OF VARCHAR2(32767)
+*
+ERROR at line 1:
+ORA-02303: cannot drop or replace a type with type or table dependents
+
+
+Create type L1_num_arr
+
+Type created.
+
+
+Type dropped.
+
+
+Type created.
+
+
+Type created.
+
+Packages creation
+=================
+Create package Utils
+
+Package created.
+
+No errors.
+
+Package body created.
+
+No errors.
+Grant access to app (skip if none passed)
+
+PL/SQL procedure successfully completed.
+
+Granting Utils components to app..
+old   1: GRANT EXECUTE ON L1_chr_arr TO &app
+new   1: GRANT EXECUTE ON L1_chr_arr TO app
+
+Grant succeeded.
+
+old   1: GRANT EXECUTE ON L1_num_arr TO &app
+new   1: GRANT EXECUTE ON L1_num_arr TO app
+
+Grant succeeded.
+
+old   1: GRANT EXECUTE ON chr_int_rec TO &app
+new   1: GRANT EXECUTE ON chr_int_rec TO app
+
+Grant succeeded.
+
+old   1: GRANT EXECUTE ON chr_int_arr TO &app
+new   1: GRANT EXECUTE ON chr_int_arr TO app
+
+Grant succeeded.
+
+old   1: GRANT EXECUTE ON Utils TO &app
+new   1: GRANT EXECUTE ON Utils TO app
+
+Grant succeeded.
+
+
+'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
+----------------------------------
+End: 06-MAY-2024 15:51:52
+
+Disconnected from Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+Executing: @./install_lib_all for connection lib/lib@orclpdb
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Mon May 6 15:51:52 2024
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Last Successful login time: Mon May 06 2024 15:51:51 +01:00
+
+Connected to:
+Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+
+Database	     Time		  Version
+-------------------- -------------------- ------------------------------
+Start: ORCL	     06-MAY-2024 15:51:52 Version 21.3.0.0.0
+
+Drop table tt_units
+
+Table dropped.
+
+Common type creation
+====================
+
+Type dropped.
+
+
+Type dropped.
+
+Create type L2_chr_arr
+
+Type created.
+
+Create type L3_chr_arr
+
+Type created.
+
+Create type L4_chr_arr
+
+Type created.
+
+Table creation
+==============
+Create table tt_units
+tt_units
+
+Table created.
+
+
+Comment created.
+
+
+Context created.
+
+Create package Trapit
+
+Package created.
+
+No errors.
+
+Package body created.
+
+No errors.
+Create package Trapit_Run
+
+Package created.
+
+No errors.
+
+Package body created.
+
+No errors.
+Grant access to app (skip if none passed)
+
+PL/SQL procedure successfully completed.
+
+Granting Trapit components to app..
+old   1: GRANT EXECUTE ON L2_chr_arr TO &app
+new   1: GRANT EXECUTE ON L2_chr_arr TO app
+
+Grant succeeded.
+
+old   1: GRANT EXECUTE ON L3_chr_arr TO &app
+new   1: GRANT EXECUTE ON L3_chr_arr TO app
+
+Grant succeeded.
+
+old   1: GRANT EXECUTE ON L4_chr_arr TO &app
+new   1: GRANT EXECUTE ON L4_chr_arr TO app
+
+Grant succeeded.
+
+old   1: GRANT EXECUTE ON Trapit TO &app
+new   1: GRANT EXECUTE ON Trapit TO app
+
+Grant succeeded.
+
+old   1: GRANT EXECUTE ON Trapit_Run TO &app
+new   1: GRANT EXECUTE ON Trapit_Run TO app
+
+Grant succeeded.
+
+
+'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
+----------------------------------
+End: 06-MAY-2024 15:51:52
+
+Disconnected from Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+Executing: @./c_syns_all for connection app/app@orclpdb
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Mon May 6 15:51:52 2024
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Last Successful login time: Mon May 06 2024 15:49:44 +01:00
+
+Connected to:
+Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+Creating synonyms for lib Trapit components...
+old   1: CREATE OR REPLACE SYNONYM L2_chr_arr FOR &lib..L2_chr_arr
+new   1: CREATE OR REPLACE SYNONYM L2_chr_arr FOR lib.L2_chr_arr
+
+Synonym created.
+
+old   1: CREATE OR REPLACE SYNONYM L3_chr_arr FOR &lib..L3_chr_arr
+new   1: CREATE OR REPLACE SYNONYM L3_chr_arr FOR lib.L3_chr_arr
+
+Synonym created.
+
+old   1: CREATE OR REPLACE SYNONYM L4_chr_arr FOR &lib..L4_chr_arr
+new   1: CREATE OR REPLACE SYNONYM L4_chr_arr FOR lib.L4_chr_arr
+
+Synonym created.
+
+old   1: CREATE OR REPLACE SYNONYM Trapit FOR &lib..Trapit
+new   1: CREATE OR REPLACE SYNONYM Trapit FOR lib.Trapit
+
+Synonym created.
+
+old   1: CREATE OR REPLACE SYNONYM Trapit_Run FOR &lib..Trapit_Run
+new   1: CREATE OR REPLACE SYNONYM Trapit_Run FOR lib.Trapit_Run
+
+Synonym created.
+
+Disconnected from Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+Executing: @./install_utils_tt for connection lib/lib@orclpdb
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Mon May 6 15:51:52 2024
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Last Successful login time: Mon May 06 2024 15:51:52 +01:00
+
+Connected to:
+Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+
+Database	     Time		  Version
+-------------------- -------------------- ------------------------------
+Start: ORCL	     06-MAY-2024 15:51:53 Version 21.3.0.0.0
+
+Add the tt_units record, reading in JSON file from INPUT_DIR
+old   4:   Trapit.Add_Ttu('TT_UTILS', 'Purely_Wrap_Utils', '&LIB', 'Y', 'tt_utils.purely_wrap_utils_inp.json');
+new   4:   Trapit.Add_Ttu('TT_UTILS', 'Purely_Wrap_Utils', 'lib', 'Y', 'tt_utils.purely_wrap_utils_inp.json');
+
+PL/SQL procedure successfully completed.
+
+Create package TT_Utils
+
+Package created.
+
+
+Package body created.
+
+No errors.
+
+'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
+----------------------------------
+End: 06-MAY-2024 15:51:53
+
+Disconnected from Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+Executing: @./install_col_group for connection app/app@orclpdb
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Mon May 6 15:51:53 2024
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Last Successful login time: Mon May 06 2024 15:51:52 +01:00
+
+Connected to:
+Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+
+Database	     Time		  Version
+-------------------- -------------------- ------------------------------
+Start: ORCL	     06-MAY-2024 15:51:53 Version 21.3.0.0.0
+
+Create Utils synonyms
+=====================
+Creating synonyms for lib Utils components...
+old   1: CREATE OR REPLACE SYNONYM L1_chr_arr FOR &lib..L1_chr_arr
+new   1: CREATE OR REPLACE SYNONYM L1_chr_arr FOR lib.L1_chr_arr
+
+Synonym created.
+
+old   1: CREATE OR REPLACE SYNONYM L1_num_arr FOR &lib..L1_num_arr
+new   1: CREATE OR REPLACE SYNONYM L1_num_arr FOR lib.L1_num_arr
+
+Synonym created.
+
+old   1: CREATE OR REPLACE SYNONYM chr_int_rec FOR &lib..chr_int_rec
+new   1: CREATE OR REPLACE SYNONYM chr_int_rec FOR lib.chr_int_rec
+
+Synonym created.
+
+old   1: CREATE OR REPLACE SYNONYM chr_int_arr FOR &lib..chr_int_arr
+new   1: CREATE OR REPLACE SYNONYM chr_int_arr FOR lib.chr_int_arr
+
+Synonym created.
+
+old   1: CREATE OR REPLACE SYNONYM Utils FOR &lib..Utils
+new   1: CREATE OR REPLACE SYNONYM Utils FOR lib.Utils
+
+Synonym created.
+
+External table creation
+=======================
+Create lines_et
+
+Table created.
+
+Packages creation
+=================
+Create package Col_Group
+
+Package created.
+
+No errors.
+
+Package body created.
+
+No errors.
+
+'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
+----------------------------------
+End: 06-MAY-2024 15:51:53
+
+Disconnected from Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+

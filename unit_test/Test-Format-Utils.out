@@ -1,10 +1,10 @@
 
-SQL*Plus: Release 21.0.0.0.0 - Production on Sun Oct 8 11:15:14 2023
+SQL*Plus: Release 21.0.0.0.0 - Production on Mon May 6 15:45:09 2024
 Version 21.3.0.0.0
 
 Copyright (c) 1982, 2021, Oracle.  All rights reserved.
 
-Last Successful login time: Sun Oct 08 2023 11:14:22 +01:00
+Last Successful login time: Mon May 06 2024 15:44:15 +01:00
 
 Connected to:
 Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Production
@@ -12,7 +12,6 @@ Version 21.3.0.0.0
 
 SQL> SQL>   2    3    4    5    6    7    8    9   10   11   12  !
 c:\input\tt_utils.purely_wrap_utils_out.json
-c:\input\tt_net_pipe.purely_wrap_all_nets_out.json
 !
 
 PL/SQL procedure successfully completed.
@@ -27,11 +26,3 @@ Out Groups:    17
 Tests:         5
 Fails:         0
 Folder:        oracle-pl_sql-utilities
- 
-File:          tt_net_pipe.purely_wrap_all_nets_out.json
-Title:         Oracle PL/SQL Network Analysis
-Inp Groups:    1
-Out Groups:    2
-Tests:         13
-Fails:         0
-Folder:        oracle-pl_sql-network-analysis

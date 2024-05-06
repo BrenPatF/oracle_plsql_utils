@@ -1,4 +1,4 @@
-@InitSpool drop_utils_users
+@initspool drop_utils_users
 DEFINE LIB_USER=lib
 DEFINE APP_USER=app
 
@@ -10,4 +10,5 @@ DROP USER &APP_USER CASCADE
 PROMPT Drop directory input_dir
 DROP DIRECTORY input_dir
 /
-@EndSpool
+@endspool
+exit

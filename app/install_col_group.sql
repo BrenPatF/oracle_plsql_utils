@@ -80,3 +80,4 @@ PROMPT Create package Col_Group
 @col_group.pkb
 
 @..\endspool
+exit

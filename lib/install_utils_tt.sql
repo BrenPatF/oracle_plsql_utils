@@ -65,3 +65,4 @@ PROMPT Create package TT_Utils
 @tt_utils.pkb
 
 @..\endspool
+exit

@@ -86,3 +86,4 @@ EXEC IF '&app' = 'none' THEN RAISE_APPLICATION_ERROR(-20000, 'Skipping schema gr
 @grant_utils_to_app &app
 
 @..\endspool
+exit
