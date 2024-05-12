@@ -356,18 +356,46 @@ Powershell is optional, and is used in the project for automation purposes, and 
 
 ### Oracle Installs
 [&uarr; Installation](#installation)<br />
+[&darr; Automated Installation](#automated-installation)<br />
+[&darr; Manual Installation](#manual-installation)<br />
+
+The Oracle installation can be performed via a single powershell script, or in a series of smaller steps.
+
+#### Automated Installation
+[&uarr; Oracle Installs](#oracle-installs)<br />
+
+The Oracle installation can be performed simply by running the following script, Install-Utils.ps1:
+
+##### [Folder: (module root)]
+
+```powershell
+.\Install-Utils
+```
+
+Some points to note:
+- This script copies two files to a folder "c:/input", creating it if it does not exist, and aborting if it exists as a file
+- It tries to create lib and app schemas using sys schema, with all passwords assumed to be the  usernames, and TNS alias orclpdb
+- There is a script drop_utils_users.sql that can be run manually first to drop those schemas if they exist, or uncommented from the powershell script
+
+##### [Schema: sys; Folder: (module root)] Drop lib and app schemas
+```sql
+SQL> @drop_utils_users.sql
+```
+
+#### Manual Installation
+[&uarr; Oracle Installs](#oracle-installs)<br />
 [&darr; Install 1: Create lib and app schemas and Oracle directory (optional)](#install-1-create-lib-and-app-schemas-and-oracle-directory-optional)<br />
 [&darr; Install 2: Create Utils components](#install-2-create-utils-components)<br />
 [&darr; Install 3: Create components for example code](#install-3-create-components-for-example-code)<br />
 [&darr; Install 4: Install Trapit module](#install-4-install-trapit-module)<br />
 [&darr; Install 5: Install unit test code](#install-5-install-unit-test-code)<br />
 
-#### Install 1: Create lib and app schemas and Oracle directory (optional)
-[&uarr; Oracle Installs](#oracle-installs)<br />
+##### Install 1: Create lib and app schemas and Oracle directory (optional)
+[&uarr; Manual Installation](#manual-installation)<br />
 
 You can install just the base module in an existing schema, or alternatively, install base module plus an example of usage, and unit testing code, in two new schemas, `lib` and `app`.
 
-#### [Schema: sys; Folder: (module root)]
+##### [Schema: sys; Folder: (module root)]
 - install_sys.sql creates an Oracle directory, `input_dir`, pointing to 'c:\input'. Update this if necessary to a folder on the database server with read/write access for the Oracle OS user
 - Run script from slqplus:
 ```sql
@@ -376,9 +404,9 @@ SQL> @install_sys
 
 If you do not create new users, subsequent installs will be from whichever schemas are used instead of lib and app.
 
-#### Install 2: Create Utils components
-[&uarr; Oracle Installs](#oracle-installs)<br />
-#### [Schema: lib; Folder: lib]
+##### Install 2: Create Utils components
+[&uarr; Manual Installation](#manual-installation)<br />
+##### [Schema: lib; Folder: lib]
 - Run script from slqplus:
 ```sql
 SQL> @install_utils app
@@ -389,21 +417,21 @@ This creates the required components for the base install along with grants for 
 SQL> @grant_utils_to_app schema
 ```
 
-#### Install 3: Create components for example code
-[&uarr; Oracle Installs](#oracle-installs)<br />
-#### [Folder: (module root)] Copy example csv to input folder
+##### Install 3: Create components for example code
+[&uarr; Manual Installation](#manual-installation)<br />
+##### [Folder: (module root)] Copy example csv to input folder
 - Copy the following file from the root folder to the server folder pointed to by the Oracle directory INPUT_DIR:
     - fantasy_premier_league_player_stats.csv
 
 - There is also a Powershell script to do this (it also copies the unit test JSON file), assuming C:\input as INPUT_DIR:
 
-##### Copy-DataFilesInput.ps1
+###### Copy-DataFilesInput.ps1
 ```powershell
 Copy-Item ./unit_test/tt_utils.purely_wrap_utils_inp.json c:/input
 Copy-Item ./fantasy_premier_league_player_stats.csv c:/input
 ```
 
-#### [Schema: app; Folder: app] Install example code
+##### [Schema: app; Folder: app] Install example code
 - Run script from slqplus:
 ```sql
 SQL> @install_col_group lib
@@ -416,35 +444,35 @@ SQL> @c_utils_syns lib
 
 The remaining, optional, installs are for the unit testing code, and require a minimum Oracle database version of 12.2.
 
-#### Install 4: Install Trapit module
-[&uarr; Oracle Installs](#oracle-installs)<br />
+##### Install 4: Install Trapit module
+[&uarr; Manual Installation](#manual-installation)<br />
 
 The module can be installed from its own Github page: [Trapit on GitHub](https://github.com/BrenPatF/trapit_oracle_tester). Alternatively, it can be installed directly here as follows:
 
-#### [Schema: lib; Folder: install_ut_prereq\lib] Create lib components
+##### [Schema: lib; Folder: install_ut_prereq\lib] Create lib components
 - Run script from slqplus:
 ```sql
 SQL> @install_lib_all
 ```
 
-#### [Schema: app; Folder: install_ut_prereq\app] Create app synonyms
+##### [Schema: app; Folder: install_ut_prereq\app] Create app synonyms
 - Run script from slqplus:
 ```sql
 SQL> @c_syns_all
 ```
 
-#### Install 5: Install unit test code
-[&uarr; Oracle Installs](#oracle-installs)<br />
+##### Install 5: Install unit test code
+[&uarr; Manual Installation](#manual-installation)<br />
 
 This step requires the Trapit module option to have been installed via Install 4 above.
 
-#### [Folder: unit_test] Copy unit test JSON file to input folder
+##### [Folder: unit_test] Copy unit test JSON file to input folder
 - Copy the following file from the unit_test folder to the server folder pointed to by the Oracle directory INPUT_DIR:
     - tt_utils.purely_wrap_utils_inp.json
 
 - The Powershell script mentioned in Install 3 above also copies this file, assuming C:\input as INPUT_DIR (so if executed already, no need to repeat):
 
-#### [Schema: lib; Folder: lib] Install unit test code
+##### [Schema: lib; Folder: lib] Install unit test code
 - Run script from slqplus:
 ```sql
 SQL> @install_utils_tt
