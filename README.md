@@ -335,7 +335,7 @@ The executed query should contain a hint of the form /*+  gather_plan_statistics
 #### Oracle Client
 [&uarr; Prerequisite Applications](#prerequisite-applications)<br />
 
-An Oracle client is required, including SQL*Plus, with access to an Oracle database:
+An Oracle client is required, including SQL\*Plus, with access to an Oracle database:
 
 - [Oracle Instant Client Downloads for Microsoft Windows (x64) 64-bit](https://www.oracle.com/ie/database/technologies/instant-client/winx64-64-downloads.html)
 
@@ -379,19 +379,49 @@ Some points to note:
 
 ##### [Schema: sys; Folder: (module root)] Drop lib and app schemas
 ```sql
-SQL> @drop_utils_users.sql
+SQL> @drop_utils_users
 ```
 
 #### Manual Installation
 [&uarr; Oracle Installs](#oracle-installs)<br />
-[&darr; Install 1: Create lib and app schemas and Oracle directory (optional)](#install-1-create-lib-and-app-schemas-and-oracle-directory-optional)<br />
-[&darr; Install 2: Create Utils components](#install-2-create-utils-components)<br />
-[&darr; Install 3: Create components for example code](#install-3-create-components-for-example-code)<br />
-[&darr; Install 4: Install Trapit module](#install-4-install-trapit-module)<br />
-[&darr; Install 5: Install unit test code](#install-5-install-unit-test-code)<br />
+[&darr; File System Installs](#file-system-installs)<br />
+[&darr; Database Installs](#database-installs)<br />
 
-##### Install 1: Create lib and app schemas and Oracle directory (optional)
+##### File System Installs
 [&uarr; Manual Installation](#manual-installation)<br />
+
+- Copy the following files to the server folder pointed to by the Oracle directory INPUT_DIR:
+
+    - fantasy_premier_league_player_stats.csv
+    - unit_test/tt_utils.purely_wrap_utils_inp.json
+
+- There is also a powershell script to do this, assuming C:\input as INPUT_DIR. From a powershell window in the root folder:
+```powershell
+$ ./Copy-DataFilesInput.ps1
+```
+
+##### Database Installs
+[&uarr; Manual Installation](#manual-installation)<br />
+[&darr; Create lib and app schemas and Oracle directory (optional)](#create-lib-and-app-schemas-and-oracle-directory-optional)<br />
+[&darr; Install Utils components](#install-utils-components)<br />
+[&darr; Install Trapit module](#install-trapit-module)<br />
+[&darr; Install unit test code](#install-unit-test-code)<br />
+[&darr; Install components for example code](#install-components-for-example-code)<br />
+
+The Oracle database installation is implemented through a small number of driver scripts: Usually one per Oracle schema and folder, but separating out some files.
+
+| Script                | Schema | Folder             | Purpose                                                |
+|:----------------------|:-------|:-------------------|:-------------------------------------------------------|
+| drop_utils_users.sql  | sys    | (module root)      | Drop lib and app schemas and Oracle directory          |
+| install_sys.sql       | sys    | (module root)      | Create lib and app schemas and Oracle directory        |
+| install_utils.sql     | lib    | lib                | Install lib components                                 |
+| install_lib_all.sql   | lib    | install_prereq\lib | Install Trapit module in lib                           |
+| c_syns_all.sql        | app    | install_prereq\app | Create app synonyms for Trapit to lib                  |
+| install_utils_tt.sql  | lib    | lib                | Install app base components                            |
+| install_col_group.sql | app    | app                | Install example components in app (and Utils synonyms) |
+
+###### Create lib and app schemas and Oracle directory (optional)
+[&uarr; Database Installs](#database-installs)<br />
 
 You can install just the base module in an existing schema, or alternatively, install base module plus an example of usage, and unit testing code, in two new schemas, `lib` and `app`.
 
@@ -402,10 +432,12 @@ You can install just the base module in an existing schema, or alternatively, in
 SQL> @install_sys
 ```
 
+To repeat an install you can first revert using drop_utils_users.sql.
+
 If you do not create new users, subsequent installs will be from whichever schemas are used instead of lib and app.
 
-##### Install 2: Create Utils components
-[&uarr; Manual Installation](#manual-installation)<br />
+###### Install Utils components
+[&uarr; Database Installs](#database-installs)<br />
 ##### [Schema: lib; Folder: lib]
 - Run script from slqplus:
 ```sql
@@ -417,35 +449,8 @@ This creates the required components for the base install along with grants for 
 SQL> @grant_utils_to_app schema
 ```
 
-##### Install 3: Create components for example code
-[&uarr; Manual Installation](#manual-installation)<br />
-##### [Folder: (module root)] Copy example csv to input folder
-- Copy the following file from the root folder to the server folder pointed to by the Oracle directory INPUT_DIR:
-    - fantasy_premier_league_player_stats.csv
-
-- There is also a Powershell script to do this (it also copies the unit test JSON file), assuming C:\input as INPUT_DIR:
-
-###### Copy-DataFilesInput.ps1
-```powershell
-Copy-Item ./unit_test/tt_utils.purely_wrap_utils_inp.json c:/input
-Copy-Item ./fantasy_premier_league_player_stats.csv c:/input
-```
-
-##### [Schema: app; Folder: app] Install example code
-- Run script from slqplus:
-```sql
-SQL> @install_col_group lib
-```
-
-You can review the results from the example code in the `app` subfolder without doing this install. This install creates private synonyms to the lib schema. To create synonyms within another schema, run the synonyms script directly from that schema, passing lib schema:
-```sql
-SQL> @c_utils_syns lib
-```
-
-The remaining, optional, installs are for the unit testing code, and require a minimum Oracle database version of 12.2.
-
-##### Install 4: Install Trapit module
-[&uarr; Manual Installation](#manual-installation)<br />
+###### Install Trapit module
+[&uarr; Database Installs](#database-installs)<br />
 
 The module can be installed from its own Github page: [Trapit on GitHub](https://github.com/BrenPatF/trapit_oracle_tester). Alternatively, it can be installed directly here as follows:
 
@@ -455,27 +460,35 @@ The module can be installed from its own Github page: [Trapit on GitHub](https:/
 SQL> @install_lib_all
 ```
 
-##### [Schema: app; Folder: install_ut_prereq\app] Create app synonyms
+##### [Schema: app; Folder: install_ut_prereq\app] Create app synonyms for Trapit to lib
 - Run script from slqplus:
 ```sql
 SQL> @c_syns_all
 ```
 
-##### Install 5: Install unit test code
-[&uarr; Manual Installation](#manual-installation)<br />
+###### Install unit test code
+[&uarr; Database Installs](#database-installs)<br />
 
-This step requires the Trapit module option to have been installed via Install 4 above.
-
-##### [Folder: unit_test] Copy unit test JSON file to input folder
-- Copy the following file from the unit_test folder to the server folder pointed to by the Oracle directory INPUT_DIR:
-    - tt_utils.purely_wrap_utils_inp.json
-
-- The Powershell script mentioned in Install 3 above also copies this file, assuming C:\input as INPUT_DIR (so if executed already, no need to repeat):
+This step requires the Trapit module option to have been installed via the previous install step above.
 
 ##### [Schema: lib; Folder: lib] Install unit test code
 - Run script from slqplus:
 ```sql
 SQL> @install_utils_tt
+```
+
+###### Install components for example code
+[&uarr; Database Installs](#database-installs)<br />
+
+##### [Schema: app; Folder: app] Install example components
+- Run script from slqplus:
+```sql
+SQL> @install_col_group lib
+```
+
+You can review the results from the example code in the `app` subfolder without doing this install. This install creates private synonyms to the lib schema. To create synonyms within another schema, run the synonyms script directly from that schema, passing lib schema:
+```sql
+SQL> @c_utils_syns lib
 ```
 
 ### Powershell and JavaScript Packages

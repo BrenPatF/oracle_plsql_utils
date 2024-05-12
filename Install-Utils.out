@@ -1,4 +1,4 @@
-06-May-24 15:51:51
+12-May-24 16:21:46
 First try to copy files to input folder...
 The item c:/input is a folder, copy there...
 Copied ./unit_test/tt_utils.purely_wrap_utils_inp.json to c:/input
@@ -7,26 +7,29 @@ Copied ./fantasy_premier_league_player_stats.csv to c:/input
 Name                           Value
 ----                           -----
 folder                         .
-script                         install_sys
 schema                         sys
+script                         drop_utils_users
+folder                         .
+schema                         sys
+script                         install_sys
 folder                         lib
+schema                         lib
 script                         install_utils
-schema                         lib
 folder                         install_ut_prereq\lib
+schema                         lib
 script                         install_lib_all
-schema                         lib
 folder                         install_ut_prereq\app
+schema                         app
 script                         c_syns_all
-schema                         app
 folder                         lib
-script                         install_utils_tt
 schema                         lib
+script                         install_utils_tt
 folder                         app
-script                         install_col_group
 schema                         app
-Executing: @./install_sys for connection sys/sys@orclpdb AS SYSDBA
+script                         install_col_group
+Executing: @./drop_utils_users for connection sys/sys@orclpdb AS SYSDBA
 
-SQL*Plus: Release 21.0.0.0.0 - Production on Mon May 6 15:51:51 2024
+SQL*Plus: Release 21.0.0.0.0 - Production on Sun May 12 16:21:48 2024
 Version 21.3.0.0.0
 
 Copyright (c) 1982, 2021, Oracle.  All rights reserved.
@@ -39,7 +42,46 @@ Version 21.3.0.0.0
 
 Database	     Time		  Version
 -------------------- -------------------- ------------------------------
-Start: ORCL	     06-MAY-2024 15:51:51 Version 21.3.0.0.0
+Start: ORCL	     12-MAY-2024 16:21:48 Version 21.3.0.0.0
+
+Drop lib and app
+old   1: DROP USER &LIB_USER CASCADE
+new   1: DROP USER lib CASCADE
+
+User dropped.
+
+old   1: DROP USER &APP_USER CASCADE
+new   1: DROP USER app CASCADE
+
+User dropped.
+
+Drop directory input_dir
+
+Directory dropped.
+
+
+'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
+----------------------------------
+End: 12-MAY-2024 16:21:50
+
+Disconnected from Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+Executing: @./install_sys for connection sys/sys@orclpdb AS SYSDBA
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Sun May 12 16:21:50 2024
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+
+Database	     Time		  Version
+-------------------- -------------------- ------------------------------
+Start: ORCL	     12-MAY-2024 16:21:51 Version 21.3.0.0.0
 
 Create directory input_dir
 
@@ -48,11 +90,8 @@ Directory created.
 Create lib
 old   1: CREATE USER &DEMO_USER IDENTIFIED BY &DEMO_USER
 new   1: CREATE USER lib IDENTIFIED BY lib
-CREATE USER lib IDENTIFIED BY lib
-            *
-ERROR at line 1:
-ORA-01920: user name 'LIB' conflicts with another user or role name
 
+User created.
 
 old   1: GRANT CREATE SESSION TO &DEMO_USER
 new   1: GRANT CREATE SESSION TO lib
@@ -139,11 +178,8 @@ Grant succeeded.
 Create app
 old   1: CREATE USER &DEMO_USER IDENTIFIED BY &DEMO_USER
 new   1: CREATE USER app IDENTIFIED BY app
-CREATE USER app IDENTIFIED BY app
-            *
-ERROR at line 1:
-ORA-01920: user name 'APP' conflicts with another user or role name
 
+User created.
 
 old   1: GRANT CREATE SESSION TO &DEMO_USER
 new   1: GRANT CREATE SESSION TO app
@@ -223,18 +259,17 @@ Grant succeeded.
 
 'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
 ----------------------------------
-End: 06-MAY-2024 15:51:51
+End: 12-MAY-2024 16:21:51
 
 Disconnected from Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Production
 Version 21.3.0.0.0
 Executing: @./install_utils for connection lib/lib@orclpdb
 
-SQL*Plus: Release 21.0.0.0.0 - Production on Mon May 6 15:51:51 2024
+SQL*Plus: Release 21.0.0.0.0 - Production on Sun May 12 16:21:51 2024
 Version 21.3.0.0.0
 
 Copyright (c) 1982, 2021, Oracle.  All rights reserved.
 
-Last Successful login time: Mon May 06 2024 15:49:44 +01:00
 
 Connected to:
 Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Production
@@ -243,23 +278,23 @@ Version 21.3.0.0.0
 
 Database	     Time		  Version
 -------------------- -------------------- ------------------------------
-Start: ORCL	     06-MAY-2024 15:51:51 Version 21.3.0.0.0
+Start: ORCL	     12-MAY-2024 16:21:51 Version 21.3.0.0.0
 
 Common type creation
 ====================
 Create type L1_chr_arr
-CREATE OR REPLACE TYPE L1_chr_arr IS VARRAY(32767) OF VARCHAR2(32767)
-*
-ERROR at line 1:
-ORA-02303: cannot drop or replace a type with type or table dependents
 
+Type created.
 
 Create type L1_num_arr
 
 Type created.
 
+DROP TYPE chr_int_arr
+*
+ERROR at line 1:
+ORA-04043: object CHR_INT_ARR does not exist
 
-Type dropped.
 
 
 Type created.
@@ -311,18 +346,18 @@ Grant succeeded.
 
 'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
 ----------------------------------
-End: 06-MAY-2024 15:51:52
+End: 12-MAY-2024 16:21:51
 
 Disconnected from Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Production
 Version 21.3.0.0.0
 Executing: @./install_lib_all for connection lib/lib@orclpdb
 
-SQL*Plus: Release 21.0.0.0.0 - Production on Mon May 6 15:51:52 2024
+SQL*Plus: Release 21.0.0.0.0 - Production on Sun May 12 16:21:52 2024
 Version 21.3.0.0.0
 
 Copyright (c) 1982, 2021, Oracle.  All rights reserved.
 
-Last Successful login time: Mon May 06 2024 15:51:51 +01:00
+Last Successful login time: Sun May 12 2024 16:21:51 +01:00
 
 Connected to:
 Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Production
@@ -331,19 +366,28 @@ Version 21.3.0.0.0
 
 Database	     Time		  Version
 -------------------- -------------------- ------------------------------
-Start: ORCL	     06-MAY-2024 15:51:52 Version 21.3.0.0.0
+Start: ORCL	     12-MAY-2024 16:21:52 Version 21.3.0.0.0
 
 Drop table tt_units
+DROP TABLE tt_units
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
 
-Table dropped.
 
 Common type creation
 ====================
+DROP TYPE L4_chr_arr
+*
+ERROR at line 1:
+ORA-04043: object L4_CHR_ARR does not exist
 
-Type dropped.
 
+DROP TYPE L3_chr_arr
+*
+ERROR at line 1:
+ORA-04043: object L3_CHR_ARR does not exist
 
-Type dropped.
 
 Create type L2_chr_arr
 
@@ -421,18 +465,17 @@ Grant succeeded.
 
 'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
 ----------------------------------
-End: 06-MAY-2024 15:51:52
+End: 12-MAY-2024 16:21:52
 
 Disconnected from Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Production
 Version 21.3.0.0.0
 Executing: @./c_syns_all for connection app/app@orclpdb
 
-SQL*Plus: Release 21.0.0.0.0 - Production on Mon May 6 15:51:52 2024
+SQL*Plus: Release 21.0.0.0.0 - Production on Sun May 12 16:21:52 2024
 Version 21.3.0.0.0
 
 Copyright (c) 1982, 2021, Oracle.  All rights reserved.
 
-Last Successful login time: Mon May 06 2024 15:49:44 +01:00
 
 Connected to:
 Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Production
@@ -468,12 +511,12 @@ Disconnected from Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Pr
 Version 21.3.0.0.0
 Executing: @./install_utils_tt for connection lib/lib@orclpdb
 
-SQL*Plus: Release 21.0.0.0.0 - Production on Mon May 6 15:51:52 2024
+SQL*Plus: Release 21.0.0.0.0 - Production on Sun May 12 16:21:52 2024
 Version 21.3.0.0.0
 
 Copyright (c) 1982, 2021, Oracle.  All rights reserved.
 
-Last Successful login time: Mon May 06 2024 15:51:52 +01:00
+Last Successful login time: Sun May 12 2024 16:21:52 +01:00
 
 Connected to:
 Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Production
@@ -482,7 +525,7 @@ Version 21.3.0.0.0
 
 Database	     Time		  Version
 -------------------- -------------------- ------------------------------
-Start: ORCL	     06-MAY-2024 15:51:53 Version 21.3.0.0.0
+Start: ORCL	     12-MAY-2024 16:21:53 Version 21.3.0.0.0
 
 Add the tt_units record, reading in JSON file from INPUT_DIR
 old   4:   Trapit.Add_Ttu('TT_UTILS', 'Purely_Wrap_Utils', '&LIB', 'Y', 'tt_utils.purely_wrap_utils_inp.json');
@@ -501,18 +544,18 @@ No errors.
 
 'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
 ----------------------------------
-End: 06-MAY-2024 15:51:53
+End: 12-MAY-2024 16:21:53
 
 Disconnected from Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Production
 Version 21.3.0.0.0
 Executing: @./install_col_group for connection app/app@orclpdb
 
-SQL*Plus: Release 21.0.0.0.0 - Production on Mon May 6 15:51:53 2024
+SQL*Plus: Release 21.0.0.0.0 - Production on Sun May 12 16:21:53 2024
 Version 21.3.0.0.0
 
 Copyright (c) 1982, 2021, Oracle.  All rights reserved.
 
-Last Successful login time: Mon May 06 2024 15:51:52 +01:00
+Last Successful login time: Sun May 12 2024 16:21:52 +01:00
 
 Connected to:
 Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Production
@@ -521,7 +564,7 @@ Version 21.3.0.0.0
 
 Database	     Time		  Version
 -------------------- -------------------- ------------------------------
-Start: ORCL	     06-MAY-2024 15:51:53 Version 21.3.0.0.0
+Start: ORCL	     12-MAY-2024 16:21:53 Version 21.3.0.0.0
 
 Create Utils synonyms
 =====================
@@ -571,7 +614,7 @@ No errors.
 
 'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
 ----------------------------------
-End: 06-MAY-2024 15:51:53
+End: 12-MAY-2024 16:21:53
 
 Disconnected from Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Production
 Version 21.3.0.0.0

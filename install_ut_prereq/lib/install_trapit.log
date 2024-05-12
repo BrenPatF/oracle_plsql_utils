@@ -1,19 +1,28 @@
 
 Database             Time                 Version
 -------------------- -------------------- ------------------------------
-Start: ORCL          06-MAY-2024 15:51:52 Version 21.3.0.0.0
+Start: ORCL          12-MAY-2024 16:40:14 Version 21.3.0.0.0
 
 Drop table tt_units
+DROP TABLE tt_units
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
 
-Table dropped.
 
 Common type creation
 ====================
+DROP TYPE L4_chr_arr
+*
+ERROR at line 1:
+ORA-04043: object L4_CHR_ARR does not exist
 
-Type dropped.
 
+DROP TYPE L3_chr_arr
+*
+ERROR at line 1:
+ORA-04043: object L3_CHR_ARR does not exist
 
-Type dropped.
 
 Create type L2_chr_arr
 
@@ -91,5 +100,5 @@ Grant succeeded.
 
 'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
 ----------------------------------
-End: 06-MAY-2024 15:51:52
+End: 12-MAY-2024 16:40:15
 

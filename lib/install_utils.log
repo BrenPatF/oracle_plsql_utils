@@ -1,23 +1,23 @@
 
 Database             Time                 Version
 -------------------- -------------------- ------------------------------
-Start: ORCL          06-MAY-2024 15:51:51 Version 21.3.0.0.0
+Start: ORCL          12-MAY-2024 16:39:52 Version 21.3.0.0.0
 
 Common type creation
 ====================
 Create type L1_chr_arr
-CREATE OR REPLACE TYPE L1_chr_arr IS VARRAY(32767) OF VARCHAR2(32767)
-*
-ERROR at line 1:
-ORA-02303: cannot drop or replace a type with type or table dependents
 
+Type created.
 
 Create type L1_num_arr
 
 Type created.
 
+DROP TYPE chr_int_arr
+*
+ERROR at line 1:
+ORA-04043: object CHR_INT_ARR does not exist
 
-Type dropped.
 
 
 Type created.
@@ -69,5 +69,5 @@ Grant succeeded.
 
 'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
 ----------------------------------
-End: 06-MAY-2024 15:51:52
+End: 12-MAY-2024 16:39:52
 

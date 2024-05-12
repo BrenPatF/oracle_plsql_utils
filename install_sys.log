@@ -1,7 +1,7 @@
 
 Database             Time                 Version
 -------------------- -------------------- ------------------------------
-Start: ORCL          06-MAY-2024 15:51:51 Version 21.3.0.0.0
+Start: ORCL          12-MAY-2024 16:39:32 Version 21.3.0.0.0
 
 Create directory input_dir
 
@@ -10,11 +10,8 @@ Directory created.
 Create lib
 old   1: CREATE USER &DEMO_USER IDENTIFIED BY &DEMO_USER
 new   1: CREATE USER lib IDENTIFIED BY lib
-CREATE USER lib IDENTIFIED BY lib
-            *
-ERROR at line 1:
-ORA-01920: user name 'LIB' conflicts with another user or role name
 
+User created.
 
 old   1: GRANT CREATE SESSION TO &DEMO_USER
 new   1: GRANT CREATE SESSION TO lib
@@ -101,11 +98,8 @@ Grant succeeded.
 Create app
 old   1: CREATE USER &DEMO_USER IDENTIFIED BY &DEMO_USER
 new   1: CREATE USER app IDENTIFIED BY app
-CREATE USER app IDENTIFIED BY app
-            *
-ERROR at line 1:
-ORA-01920: user name 'APP' conflicts with another user or role name
 
+User created.
 
 old   1: GRANT CREATE SESSION TO &DEMO_USER
 new   1: GRANT CREATE SESSION TO app
@@ -185,5 +179,5 @@ Grant succeeded.
 
 'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
 ----------------------------------
-End: 06-MAY-2024 15:51:51
+End: 12-MAY-2024 16:39:32
 
