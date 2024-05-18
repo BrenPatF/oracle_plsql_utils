@@ -20,6 +20,8 @@ The package is tested using [The Math Function Unit Testing Design Pattern](http
 
 The module also comes with examples of usage.
 
+There is a short (2m20s) installation demo, install_plsql_utils_demo.mp4, in the project root.
+
 # In this README...
 [&darr; Usage (extract from main_col_group.sql)](#usage-extract-from-main_col_groupsql)<br />
 [&darr; API - Utils](#api---utils)<br />
