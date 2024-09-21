@@ -563,7 +563,7 @@ Here is a diagram of the input and output groups for this example:
 From the input and output groups depicted we can construct CSV files with flattened group/field structures, and default values added, as follows (with `tt_utils.purely_wrap_utils_inp.csv` left, `tt_utils.purely_wrap_utils_out.csv` right):
 <img src="png/groups - utils.png">
 
-These form two of the three input files for the Powershell script that generates a template ofr the input JSON file. The third is the scenarios file, shown in the next section.
+These form two of the three input files for the Powershell script that generates a template for the input JSON file. The third is the scenarios file, shown in the next section.
 
 ##### Scenario Category ANalysis (SCAN)
 [&uarr; Step 1: Create JSON File](#step-1-create-json-file)<br />
@@ -812,7 +812,7 @@ The project folder structure is shown below.
 
 <img src="png/folders.png">
 
-There are six subfolders below the trapit root folder:
+There are six subfolders below the root folder:
 - `app`: Application schema folder (main)
 - `install_prereq`: Installation prerequisites
 - `lib`: Library schema folder (main)

@@ -1,14 +1,14 @@
 
-SQL*Plus: Release 21.0.0.0.0 - Production on Sun May 12 16:41:33 2024
-Version 21.3.0.0.0
+SQL*Plus: Release 23.0.0.0.0 - Production on Sat Sep 21 13:45:11 2024
+Version 23.4.0.24.05
 
-Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+Copyright (c) 1982, 2024, Oracle.  All rights reserved.
 
-Last Successful login time: Sun May 12 2024 16:40:49 +01:00
+Last Successful login time: Sat Sep 21 2024 10:52:36 +01:00
 
 Connected to:
-Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Production
-Version 21.3.0.0.0
+Oracle Database 23ai Free Release 23.0.0.0.0 - Production
+Version 23.4.0.24.05
 
 SQL> SQL>   2    3    4    5    6    7    8    9   10   11   12  !
 c:\input\tt_utils.purely_wrap_utils_out.json
@@ -16,8 +16,8 @@ c:\input\tt_utils.purely_wrap_utils_out.json
 
 PL/SQL procedure successfully completed.
 
-SQL> Disconnected from Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 - Production
-Version 21.3.0.0.0
+SQL> Disconnected from Oracle Database 23ai Free Release 23.0.0.0.0 - Production
+Version 23.4.0.24.05
  
 File:          tt_utils.purely_wrap_utils_out.json
 Title:         Oracle PL/SQL Utilities

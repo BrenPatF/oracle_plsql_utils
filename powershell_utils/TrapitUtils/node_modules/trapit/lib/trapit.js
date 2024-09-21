@@ -63,7 +63,6 @@ const BOILER = {
         failure        : 'FAILURE',
         repHdr         : 'Unit Test Report: $1',
         repFtr         : 'Test scenarios: $1 failed of $2: $3',
-        tstDate        : 'Tested: $1',
         fmtDate        : 'Formatted: $1'
 };
 const ROOT_HDRS = ['#', 'Category Set', 'Scenario', 'Fails (of X)', 'Status'];
@@ -394,7 +393,6 @@ const self = module.exports = {
         sceLis[s].sceHdr += BOILER.sceHdrCatSet.replace('$1', scenarios[s].category_set);
         catSetCol = 'Category Set';
       } 
-//                         (scenarios[s].category_set ? BOILER.sceHdrCatSet.replace('$1', scenarios[s].category_set) : '');
       sceLis[s].inpHdr = BOILER.inputs;
       sceLis[s].outHdr = BOILER.outputs;
       sceLis[s].inpGroups = mkInpObj(delimiter, scenarios[s].inp, meta.inp);
@@ -422,12 +420,8 @@ const self = module.exports = {
         result.nFail++;
       };
     }
-    const dateObj = new Date();
-    let dateStr = BOILER.fmtDate.replace('$1', dateObj.toISOString().replace('T', ' ').slice(0, -5));
-    if (meta.testedDate != undefined) {
-      dateStr = BOILER.tstDate.replace('$1', dateObj.toISOString().replace('T', ' ').slice(0, -5)) +
-        ', ' + dateStr;
-    }
+    const dateObj = (new Date()).toLocaleString();
+    let dateStr = BOILER.fmtDate.replace('$1', dateObj);
     return {
         title      : meta.title,
         catSetCol  : catSetCol,
@@ -440,7 +434,6 @@ const self = module.exports = {
                                .replace('$2', result.nTest)
                                .replace('$3', result.status),
         dates      : dateStr
-//                                 .replace('$2', Date().substring(0,24))
     };
   },
   /*************************************************************************************************

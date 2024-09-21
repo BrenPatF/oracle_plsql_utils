@@ -1019,9 +1019,9 @@
             "Sleep":[
             ],
             "Exception":[
-               "view_To_List;ORA-00942: table or view does not exist",
-               "cursor_To_List;ORA-00942: table or view does not exist",
-               "cursor_To_Pipe;ORA-00942: table or view does not exist"
+               "view_To_List;LIKE /ORA-00942: .*/",
+               "cursor_To_List;LIKE /ORA-00942: .*/",
+               "cursor_To_Pipe;LIKE /ORA-00942: .*/"
             ],
             "W (Line)":[
             ],

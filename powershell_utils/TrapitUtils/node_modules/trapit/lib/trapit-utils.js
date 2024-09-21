@@ -99,7 +99,6 @@ function mkUTResultsFolder(fileName, extFolder, formatType, colors) {
   const testData = getUTData(fileName),
         [meta,          scenarios         ] = 
         [testData.meta, testData.scenarios];
-  meta.testedDate = fs.statSync(fileName).mtime;
   return Trapit.mkUTResultsFolder(meta, scenarios, formatType, extFolder, colors);
 }
 
@@ -210,7 +209,6 @@ const self = module.exports = {
         scenarios[s] = {  category_set : callScenarios[s].category_set,
                           inp          : callScenarios[s].inp,
                           out          : getUTOutGroups(out, callPWU(delimiter, callScenarios[s].inp, callScenarios[s].out, purelyWrapUnit))
-//                          out          : getUTOutGroups(callScenarios[s].out, purelyWrapUnit(callScenarios[s].inp))
                        }
       }
     }
