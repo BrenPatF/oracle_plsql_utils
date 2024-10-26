@@ -27,7 +27,7 @@ $sysSchema = 'sys'
 $libSchema = 'lib'
 $appSchema = 'app'
 
-$installs = @(@{folder = '.';                     script = 'drop_utils_users';  schema = $sysSchema; prmLis = @($libSchema, $appSchema)},
+$installs = @(#@{folder = '.';                     script = 'drop_utils_users';  schema = $sysSchema; prmLis = @($libSchema, $appSchema)},
               @{folder = '.';                     script = 'install_sys';       schema = $sysSchema; prmLis = @($libSchema, $appSchema, $inputPath)},
               @{folder = 'lib';                   script = 'install_utils';     schema = $libSchema; prmLis = @($appSchema)},
               @{folder = 'install_ut_prereq\lib'; script = 'install_lib_all';   schema = $libSchema; prmLis = @($appSchema)},
