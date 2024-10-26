@@ -1,38 +1,40 @@
-#$PSStyle.OutputRendering = 'PlainText'
-#$Errorview = "NormalView"
-Date -format "dd-MMM-yy HH:mm:ss"
-"First try to copy files to input folder..."
-. ./Copy-DataFilesInput
-if (-not $IsFolder) {
-    "Could not copy files, so aborting main script..."
-    exit
-}
-# uncomment first element to have schema dropped and re-created
-$installs = @(#@{folder = '.'; script = 'drop_utils_users'; schema = 'sys'},
-              @{folder = '.'; script = 'install_sys'; schema = 'sys'},
-              @{folder = 'lib'; script = 'install_utils'; schema = 'lib'},
-              @{folder = 'install_ut_prereq\lib'; script = 'install_lib_all'; schema = 'lib'},
-              @{folder = 'install_ut_prereq\app'; script = 'c_syns_all'; schema = 'app'},
-              @{folder = 'lib'; script = 'install_utils_tt'; schema = 'lib'},
-              @{folder = 'app'; script = 'install_col_group'; schema = 'app'})
-$installs
+<#**************************************************************************************************
+Name: Install-Utils.ps1                 Author: Brendan Furey                      Date: 20-Oct-2024
 
-Foreach($i in $installs){
-    sl ($PSScriptRoot + '/' + $i.folder)
-    $script = '@./' + $i.script
-    $sysdba = ''
-    if ($i.schema -eq 'sys') {
-        $sysdba = ' AS SYSDBA'
-    }
-    $conn = $i.schema + '/' + $i.schema + '@orclpdb' + $sysdba
-    'Executing: ' + $script + ' for connection ' + $conn
-    if ($i.script -eq 'install_utils') {
-        $schema = 'app'
-    } elseif ($i.script -eq 'c_syns_all' -or $i.script -eq 'install_col_group') {
-        $schema = 'lib'
-    } else {
-        $schema = ''
-    }
-    & sqlplus $conn $script $schema
-}
-sl $PSScriptRoot
+Install script for Oracle PL/SQL Utils module
+
+    GitHub: https://github.com/BrenPatF/oracle_plsql_utils
+
+====================================================================================================
+| Script (.ps1)       | Module (.psm1) | Notes                                                     |
+|==================================================================================================|
+| *Install-Utils*     | OracleUtils    | Install script for Oracle PL/SQL Utils module             |
+|---------------------|----------------------------------------------------------------------------|
+|  Test-Format-Utils  | TrapitUtils    | Script to test and format results for Oracle PL/SQL       |
+|                     |                | Utils module                                              |
+|---------------------|----------------|-----------------------------------------------------------|
+|  Format-JSON-Utils  | TrapitUtils    | Script to create template for unit test JSON input        |
+|                     |                | file for Oracle PL/SQ Utils module                        |
+====================================================================================================
+
+**************************************************************************************************#>
+Import-Module .\powershell_utils\OracleUtils\OracleUtils
+$inputPath = 'c:/input'
+$fileLis = @('./unit_test/tt_utils.purely_wrap_utils_inp.json',
+             './fantasy_premier_league_player_stats.csv')
+
+$sysSchema = 'sys'
+$libSchema = 'lib'
+$appSchema = 'app'
+
+$installs = @(@{folder = '.';                     script = 'drop_utils_users';  schema = $sysSchema; prmLis = @($libSchema, $appSchema)},
+              @{folder = '.';                     script = 'install_sys';       schema = $sysSchema; prmLis = @($libSchema, $appSchema, $inputPath)},
+              @{folder = 'lib';                   script = 'install_utils';     schema = $libSchema; prmLis = @($appSchema)},
+              @{folder = 'install_ut_prereq\lib'; script = 'install_lib_all';   schema = $libSchema; prmLis = @($appSchema)},
+              @{folder = 'install_ut_prereq\app'; script = 'c_syns_all';        schema = $appSchema; prmLis = @($libSchema)},
+              @{folder = 'lib';                   script = 'install_utils_tt';  schema = $libSchema; prmLis = @()},
+              @{folder = 'app';                   script = 'install_col_group'; schema = $appSchema; prmLis = @($libSchema)},
+              @{folder = '.';                     script = 'l_objects';         schema = $sysSchema; prmLis = @($sysSchema)},
+              @{folder = '.';                     script = 'l_objects';         schema = $libSchema; prmLis = @($libSchema)},
+              @{folder = '.';                     script = 'l_objects';         schema = $appSchema; prmLis = @($appSchema)})
+Install-OracleApp $inputPath $fileLis $installs

@@ -1,37 +1,37 @@
 
 Database             Time                 Version
 -------------------- -------------------- ------------------------------
-Start: ORCL          12-MAY-2024 16:41:20 Version 21.3.0.0.0
+Start: FREE          26-OCT-2024 13:13:51 Version 23.4.0.24.05
 
 Example of Utils.Heading, .Col_Headers, .List_To_Line, .W (VARCHAR2), .W (L1_chr_arr)
-As Is
-=====
+Sort_By_Value
+=============
 Team                             Apps
 ------------------------------  -----
 team_name_1                         1
-West Brom                        1219
-Swansea                          1180
+Wolves                             31
 Blackburn                          33
 Bolton                             37
-Chelsea                          1147
 Arsenal                           534
-Everton                          1147
-Tottenham                        1288
-Fulham                           1209
-QPR                              1517
-Liverpool                        1227
-Sunderland                       1162
-Man City                         1099
-Man Utd                          1231
-Newcastle                        1247
-Stoke City                       1170
-Wolves                             31
 Aston Villa                       685
 Wigan                            1036
-Norwich                          1229
-West Ham                         1126
-Reading                          1167
+Man City                         1099
 Southampton                      1110
+West Ham                         1126
+Chelsea                          1147
+Everton                          1147
+Sunderland                       1162
+Reading                          1167
+Stoke City                       1170
+Swansea                          1180
+Fulham                           1209
+West Brom                        1219
+Liverpool                        1227
+Norwich                          1229
+Man Utd                          1231
+Newcastle                        1247
+Tottenham                        1288
+QPR                              1517
 
 PL/SQL procedure successfully completed.
 
@@ -39,19 +39,19 @@ Example of Utils.View_To_List
 
 CSV
 ------------------------------------------------------------
-CHR_INT_ARR|173274|12-MAY-24|2024-05-12:16:41:08
-CHR_INT_REC|173273|12-MAY-24|2024-05-12:16:41:08
-COL_GROUP|173277|12-MAY-24|2024-05-12:16:41:08
-COL_GROUP|173278|12-MAY-24|2024-05-12:16:41:08
-L1_CHR_ARR|173271|12-MAY-24|2024-05-12:16:41:08
-L1_NUM_ARR|173272|12-MAY-24|2024-05-12:16:41:08
-L2_CHR_ARR|173264|12-MAY-24|2024-05-12:16:40:28
-L3_CHR_ARR|173265|12-MAY-24|2024-05-12:16:40:28
-L4_CHR_ARR|173266|12-MAY-24|2024-05-12:16:40:28
-LINES_ET|173276|12-MAY-24|2024-05-12:16:41:08
-TRAPIT_RUN|173268|12-MAY-24|2024-05-12:16:40:28
-TRAPIT|173267|12-MAY-24|2024-05-12:16:40:28
-UTILS|173275|12-MAY-24|2024-05-12:16:41:08
+CHR_INT_ARR|91717|26-OCT-24|2024-10-26:13:12:47
+CHR_INT_REC|91716|26-OCT-24|2024-10-26:13:12:47
+COL_GROUP|91720|26-OCT-24|2024-10-26:13:12:47
+COL_GROUP|91721|26-OCT-24|2024-10-26:13:12:47
+L1_CHR_ARR|91714|26-OCT-24|2024-10-26:13:12:47
+L1_NUM_ARR|91715|26-OCT-24|2024-10-26:13:12:47
+L2_CHR_ARR|91707|26-OCT-24|2024-10-26:13:12:46
+L3_CHR_ARR|91708|26-OCT-24|2024-10-26:13:12:46
+L4_CHR_ARR|91709|26-OCT-24|2024-10-26:13:12:46
+LINES_ET|91719|26-OCT-24|2024-10-26:13:12:47
+TRAPIT_RUN|91711|26-OCT-24|2024-10-26:13:12:46
+TRAPIT|91710|26-OCT-24|2024-10-26:13:12:46
+UTILS|91718|26-OCT-24|2024-10-26:13:12:47
 
 13 rows selected.
 
@@ -59,57 +59,57 @@ Example of Utils.Cursor_To_List, .Split_Values, .Join_Values (list), .Join_Value
 .
 Utils.Cursor_To_List on user_objects...
 =======================================
-L2_CHR_ARR|173264|12-MAY-24|2024-05-12:16:40:28
-L3_CHR_ARR|173265|12-MAY-24|2024-05-12:16:40:28
-L4_CHR_ARR|173266|12-MAY-24|2024-05-12:16:40:28
-TRAPIT|173267|12-MAY-24|2024-05-12:16:40:28
-TRAPIT_RUN|173268|12-MAY-24|2024-05-12:16:40:28
-L1_CHR_ARR|173271|12-MAY-24|2024-05-12:16:41:08
-L1_NUM_ARR|173272|12-MAY-24|2024-05-12:16:41:08
-CHR_INT_REC|173273|12-MAY-24|2024-05-12:16:41:08
-CHR_INT_ARR|173274|12-MAY-24|2024-05-12:16:41:08
-UTILS|173275|12-MAY-24|2024-05-12:16:41:08
-LINES_ET|173276|12-MAY-24|2024-05-12:16:41:08
-COL_GROUP|173277|12-MAY-24|2024-05-12:16:41:08
-COL_GROUP|173278|12-MAY-24|2024-05-12:16:41:08
+CHR_INT_ARR|91717|26-OCT-24|2024-10-26:13:12:47
+CHR_INT_REC|91716|26-OCT-24|2024-10-26:13:12:47
+COL_GROUP|91720|26-OCT-24|2024-10-26:13:12:47
+COL_GROUP|91721|26-OCT-24|2024-10-26:13:12:47
+L1_CHR_ARR|91714|26-OCT-24|2024-10-26:13:12:47
+L1_NUM_ARR|91715|26-OCT-24|2024-10-26:13:12:47
+L2_CHR_ARR|91707|26-OCT-24|2024-10-26:13:12:46
+L3_CHR_ARR|91708|26-OCT-24|2024-10-26:13:12:46
+L4_CHR_ARR|91709|26-OCT-24|2024-10-26:13:12:46
+LINES_ET|91719|26-OCT-24|2024-10-26:13:12:47
+TRAPIT|91710|26-OCT-24|2024-10-26:13:12:46
+TRAPIT_RUN|91711|26-OCT-24|2024-10-26:13:12:46
+UTILS|91718|26-OCT-24|2024-10-26:13:12:47
 .
-Utils.Prep_Cursor on user_objects...
-====================================
+Utils.Prep_Cursor, .Pipe_Cursor on user_objects...
+==================================================
 Cursor prepared, now fetch...
-L2_CHR_ARR|173264|12-MAY-24|2024-05-12:16:40:28
-L3_CHR_ARR|173265|12-MAY-24|2024-05-12:16:40:28
-L4_CHR_ARR|173266|12-MAY-24|2024-05-12:16:40:28
-TRAPIT|173267|12-MAY-24|2024-05-12:16:40:28
-TRAPIT_RUN|173268|12-MAY-24|2024-05-12:16:40:28
-L1_CHR_ARR|173271|12-MAY-24|2024-05-12:16:41:08
-L1_NUM_ARR|173272|12-MAY-24|2024-05-12:16:41:08
-CHR_INT_REC|173273|12-MAY-24|2024-05-12:16:41:08
-CHR_INT_ARR|173274|12-MAY-24|2024-05-12:16:41:08
-UTILS|173275|12-MAY-24|2024-05-12:16:41:08
-LINES_ET|173276|12-MAY-24|2024-05-12:16:41:08
-COL_GROUP|173277|12-MAY-24|2024-05-12:16:41:08
-COL_GROUP|173278|12-MAY-24|2024-05-12:16:41:08
+CHR_INT_ARR|91717|26-OCT-24|2024-10-26:13:12:47
+CHR_INT_REC|91716|26-OCT-24|2024-10-26:13:12:47
+COL_GROUP|91720|26-OCT-24|2024-10-26:13:12:47
+COL_GROUP|91721|26-OCT-24|2024-10-26:13:12:47
+L1_CHR_ARR|91714|26-OCT-24|2024-10-26:13:12:47
+L1_NUM_ARR|91715|26-OCT-24|2024-10-26:13:12:47
+L2_CHR_ARR|91707|26-OCT-24|2024-10-26:13:12:46
+L3_CHR_ARR|91708|26-OCT-24|2024-10-26:13:12:46
+L4_CHR_ARR|91709|26-OCT-24|2024-10-26:13:12:46
+LINES_ET|91719|26-OCT-24|2024-10-26:13:12:47
+TRAPIT|91710|26-OCT-24|2024-10-26:13:12:46
+TRAPIT_RUN|91711|26-OCT-24|2024-10-26:13:12:46
+UTILS|91718|26-OCT-24|2024-10-26:13:12:47
 .
 Utils.Split_Values on first line...
 ===================================
-L2_CHR_ARR
-173264
-12-MAY-24
-2024-05-12:16:40:28
+CHR_INT_ARR
+91717
+26-OCT-24
+2024-10-26:13:12:47
 .
 Utils.Join_Values on first line, passing list, with "," delimiter...
 ====================================================================
-L2_CHR_ARR,173264,12-MAY-24,2024-05-12:16:40:28
+CHR_INT_ARR,91717,26-OCT-24,2024-10-26:13:12:47
 .
 Utils.Join_Values on first line, passing first three values...
 ==============================================================
-L2_CHR_ARR|173264|12-MAY-24
+CHR_INT_ARR|91717|26-OCT-24
 
 PL/SQL procedure successfully completed.
 
 Example of Utils.Sleep, .IntervalDS_To_Seconds, sleeping for 1.2s of which 0.36s CPU
-Elapsed time is 1.206
-CPU time is .29
+Elapsed time is 1.211851
+CPU time is .12
 DECLARE
 *
 ERROR at line 1:
@@ -144,8 +144,8 @@ Outline Data
 /*+
 BEGIN_OUTLINE_DATA
 IGNORE_OPTIM_EMBEDDED_HINTS
-OPTIMIZER_FEATURES_ENABLE('21.1.0')
-DB_VERSION('21.1.0')
+OPTIMIZER_FEATURES_ENABLE('23.1.0')
+DB_VERSION('23.1.0')
 ALL_ROWS
 OUTLINE_LEAF(@"SEL$1")
 END_OUTLINE_DATA
@@ -158,8 +158,22 @@ E -  XPLAN_MARKER_CG
 
 PL/SQL procedure successfully completed.
 
+Example of Utils.Write_File, .Read_File, .Delete_File
+First, create and write lines to a file, example_file.txt...
+============================================================
+Next, read the contents of the file and write them to log...
+============================================================
+Lines read...
+=============
+Line one
+Line two
+Finally, delete the file...
+===========================
+
+PL/SQL procedure successfully completed.
+
 
 'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
 ----------------------------------
-End: 12-MAY-2024 16:41:22
+End: 26-OCT-2024 13:13:54
 
