@@ -275,11 +275,11 @@ h4 {margin-top: 0em; margin-bottom: 0em;
 <h4>GROUP 12: Raise Error: Empty</h4>
 <h4>GROUP 13: Scalars</h4>
 <table>
-<tr><th>#</th><th>Delimiter</th><th>View Name</th><th>View Where</th><th>View Order By</th><th>W Line</th></tr>
+<tr><th>#</th><th>Delimiter</th><th>View Name</th><th>View Where</th><th>View Order By</th><th>W/L Line</th></tr>
 <tr><td>1</td><td></td><td>user_objects</td><td>regexp_like(object_name, '(CHR|L\d).+(ARR|REC)|TT_UNITS')</td><td></td><td></td></tr>
 </table>
 <h4></h4>
-<h4>GROUP 14: W (List)</h4>
+<h4>GROUP 14: W/L (List)</h4>
 <table>
 <tr><th>#</th><th>Line</th></tr>
 <tr><td>1</td><td>Line text 1</td></tr>
@@ -431,40 +431,40 @@ h4 {margin-top: 0em; margin-bottom: 0em;
 <h4>GROUP 7: View To List</h4>
 <table>
 <tr><th>#</th><th>Delimited String</th></tr>
-<tr><td>1</td><td>LIKE /CHR_INT_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: CHR_INT_ARR||91691||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:45|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
-<tr><td>2</td><td>LIKE /CHR_INT_REC\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: CHR_INT_REC||91690||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:45|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
-<tr><td>3</td><td>LIKE /L1_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L1_CHR_ARR||91688||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:45|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
-<tr><td>4</td><td>LIKE /L1_NUM_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L1_NUM_ARR||91689||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:45|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
-<tr><td>5</td><td>LIKE /L2_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L2_CHR_ARR||91694||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:46|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
-<tr><td>6</td><td>LIKE /L3_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L3_CHR_ARR||91695||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:46|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
-<tr><td>7</td><td>LIKE /L4_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L4_CHR_ARR||91696||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:46|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
-<tr><td>8</td><td>LIKE /TT_UNITS\|\|\d+?\|\d+?\|TABLE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: TT_UNITS||91697|91697|TABLE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:46|VALID|N|N|N|1||NONE||N|N|USING_NLS_COMP|N|N||||</td></tr>
+<tr><td>1</td><td>LIKE /CHR_INT_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: CHR_INT_ARR||128682||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
+<tr><td>2</td><td>LIKE /CHR_INT_REC\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: CHR_INT_REC||128681||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
+<tr><td>3</td><td>LIKE /L1_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L1_CHR_ARR||128679||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
+<tr><td>4</td><td>LIKE /L1_NUM_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L1_NUM_ARR||128680||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
+<tr><td>5</td><td>LIKE /L2_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L2_CHR_ARR||128685||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
+<tr><td>6</td><td>LIKE /L3_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L3_CHR_ARR||128686||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
+<tr><td>7</td><td>LIKE /L4_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L4_CHR_ARR||128687||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
+<tr><td>8</td><td>LIKE /TT_UNITS\|\|\d+?\|\d+?\|TABLE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: TT_UNITS||128688|128688|TABLE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE||N|N|USING_NLS_COMP|N|N||||</td></tr>
 </table>
 <h4>0 failed of 8: SUCCESS</h4>
 <h4>GROUP 8: Cursor To List</h4>
 <table>
 <tr><th>#</th><th>Delimited String</th></tr>
-<tr><td>1</td><td>LIKE /CHR_INT_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: CHR_INT_ARR||91691||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:45|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
-<tr><td>2</td><td>LIKE /CHR_INT_REC\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: CHR_INT_REC||91690||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:45|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
-<tr><td>3</td><td>LIKE /L1_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L1_CHR_ARR||91688||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:45|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
-<tr><td>4</td><td>LIKE /L1_NUM_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L1_NUM_ARR||91689||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:45|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
-<tr><td>5</td><td>LIKE /L2_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L2_CHR_ARR||91694||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:46|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
-<tr><td>6</td><td>LIKE /L3_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L3_CHR_ARR||91695||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:46|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
-<tr><td>7</td><td>LIKE /L4_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L4_CHR_ARR||91696||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:46|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
-<tr><td>8</td><td>LIKE /TT_UNITS\|\|\d+?\|\d+?\|TABLE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: TT_UNITS||91697|91697|TABLE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:46|VALID|N|N|N|1||NONE||N|N|USING_NLS_COMP|N|N||||</td></tr>
+<tr><td>1</td><td>LIKE /CHR_INT_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: CHR_INT_ARR||128682||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
+<tr><td>2</td><td>LIKE /CHR_INT_REC\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: CHR_INT_REC||128681||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
+<tr><td>3</td><td>LIKE /L1_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L1_CHR_ARR||128679||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
+<tr><td>4</td><td>LIKE /L1_NUM_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L1_NUM_ARR||128680||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
+<tr><td>5</td><td>LIKE /L2_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L2_CHR_ARR||128685||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
+<tr><td>6</td><td>LIKE /L3_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L3_CHR_ARR||128686||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
+<tr><td>7</td><td>LIKE /L4_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L4_CHR_ARR||128687||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
+<tr><td>8</td><td>LIKE /TT_UNITS\|\|\d+?\|\d+?\|TABLE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: TT_UNITS||128688|128688|TABLE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE||N|N|USING_NLS_COMP|N|N||||</td></tr>
 </table>
 <h4>0 failed of 8: SUCCESS</h4>
 <h4>GROUP 9: Cursor To Pipe</h4>
 <table>
 <tr><th>#</th><th>Delimited String</th></tr>
-<tr><td>1</td><td>LIKE /CHR_INT_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: CHR_INT_ARR||91691||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:45|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
-<tr><td>2</td><td>LIKE /CHR_INT_REC\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: CHR_INT_REC||91690||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:45|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
-<tr><td>3</td><td>LIKE /L1_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L1_CHR_ARR||91688||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:45|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
-<tr><td>4</td><td>LIKE /L1_NUM_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L1_NUM_ARR||91689||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:45|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
-<tr><td>5</td><td>LIKE /L2_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L2_CHR_ARR||91694||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:46|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
-<tr><td>6</td><td>LIKE /L3_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L3_CHR_ARR||91695||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:46|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
-<tr><td>7</td><td>LIKE /L4_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L4_CHR_ARR||91696||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:46|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
-<tr><td>8</td><td>LIKE /TT_UNITS\|\|\d+?\|\d+?\|TABLE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: TT_UNITS||91697|91697|TABLE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:46|VALID|N|N|N|1||NONE||N|N|USING_NLS_COMP|N|N||||</td></tr>
+<tr><td>1</td><td>LIKE /CHR_INT_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: CHR_INT_ARR||128682||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
+<tr><td>2</td><td>LIKE /CHR_INT_REC\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: CHR_INT_REC||128681||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
+<tr><td>3</td><td>LIKE /L1_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L1_CHR_ARR||128679||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
+<tr><td>4</td><td>LIKE /L1_NUM_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L1_NUM_ARR||128680||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
+<tr><td>5</td><td>LIKE /L2_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L2_CHR_ARR||128685||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
+<tr><td>6</td><td>LIKE /L3_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L3_CHR_ARR||128686||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
+<tr><td>7</td><td>LIKE /L4_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L4_CHR_ARR||128687||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||</td></tr>
+<tr><td>8</td><td>LIKE /TT_UNITS\|\|\d+?\|\d+?\|TABLE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: TT_UNITS||128688|128688|TABLE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE||N|N|USING_NLS_COMP|N|N||||</td></tr>
 </table>
 <h4>0 failed of 8: SUCCESS</h4>
 <h4>GROUP 10: Interval To Seconds: Empty as expected: SUCCESS</h4>
@@ -526,13 +526,69 @@ h4 {margin-top: 0em; margin-bottom: 0em;
 <tr><td>50</td><td>Line text 50</td></tr>
 </table>
 <h4>0 failed of 50: SUCCESS</h4>
-<h4>GROUP 15: File I/O</h4>
+<h4>GROUP 15: L (Line): Empty as expected: SUCCESS</h4>
+<h4>GROUP 16: L (List)</h4>
+<table>
+<tr><th>#</th><th>Line</th></tr>
+<tr><td>1</td><td>Line text 1</td></tr>
+<tr><td>2</td><td>Line text 2</td></tr>
+<tr><td>3</td><td>Line text 3</td></tr>
+<tr><td>4</td><td>Line text 4</td></tr>
+<tr><td>5</td><td>Line text 5</td></tr>
+<tr><td>6</td><td>Line text 6</td></tr>
+<tr><td>7</td><td>Line text 7</td></tr>
+<tr><td>8</td><td>Line text 8</td></tr>
+<tr><td>9</td><td>Line text 9</td></tr>
+<tr><td>10</td><td>Line text 10</td></tr>
+<tr><td>11</td><td>Line text 11</td></tr>
+<tr><td>12</td><td>Line text 12</td></tr>
+<tr><td>13</td><td>Line text 13</td></tr>
+<tr><td>14</td><td>Line text 14</td></tr>
+<tr><td>15</td><td>Line text 15</td></tr>
+<tr><td>16</td><td>Line text 16</td></tr>
+<tr><td>17</td><td>Line text 17</td></tr>
+<tr><td>18</td><td>Line text 18</td></tr>
+<tr><td>19</td><td>Line text 19</td></tr>
+<tr><td>20</td><td>Line text 20</td></tr>
+<tr><td>21</td><td>Line text 21</td></tr>
+<tr><td>22</td><td>Line text 22</td></tr>
+<tr><td>23</td><td>Line text 23</td></tr>
+<tr><td>24</td><td>Line text 24</td></tr>
+<tr><td>25</td><td>Line text 25</td></tr>
+<tr><td>26</td><td>Line text 26</td></tr>
+<tr><td>27</td><td>Line text 27</td></tr>
+<tr><td>28</td><td>Line text 28</td></tr>
+<tr><td>29</td><td>Line text 29</td></tr>
+<tr><td>30</td><td>Line text 30</td></tr>
+<tr><td>31</td><td>Line text 31</td></tr>
+<tr><td>32</td><td>Line text 32</td></tr>
+<tr><td>33</td><td>Line text 33</td></tr>
+<tr><td>34</td><td>Line text 34</td></tr>
+<tr><td>35</td><td>Line text 35</td></tr>
+<tr><td>36</td><td>Line text 36</td></tr>
+<tr><td>37</td><td>Line text 37</td></tr>
+<tr><td>38</td><td>Line text 38</td></tr>
+<tr><td>39</td><td>Line text 39</td></tr>
+<tr><td>40</td><td>Line text 40</td></tr>
+<tr><td>41</td><td>Line text 41</td></tr>
+<tr><td>42</td><td>Line text 42</td></tr>
+<tr><td>43</td><td>Line text 43</td></tr>
+<tr><td>44</td><td>Line text 44</td></tr>
+<tr><td>45</td><td>Line text 45</td></tr>
+<tr><td>46</td><td>Line text 46</td></tr>
+<tr><td>47</td><td>Line text 47</td></tr>
+<tr><td>48</td><td>Line text 48</td></tr>
+<tr><td>49</td><td>Line text 49</td></tr>
+<tr><td>50</td><td>Line text 50</td></tr>
+</table>
+<h4>0 failed of 50: SUCCESS</h4>
+<h4>GROUP 17: File I/O</h4>
 <table>
 <tr><th>#</th><th>#Lines</th><th>Line 1</th><th>Line 2</th></tr>
 <tr><td>1</td><td>2</td><td>Line 1</td><td>Line 2</td></tr>
 </table>
 <h4>0 failed of 1: SUCCESS</h4>
-<h4>GROUP 16: XPlan List (keyword extract)</h4>
+<h4>GROUP 18: XPlan List (keyword extract)</h4>
 <table>
 <tr><th>#</th><th>XPlan Line</th></tr>
 <tr><td>1</td><td>LIKE /SQL_ID.+., child number.+/: SQL_ID  1sytgjmk99n09, child number 0</td></tr>
@@ -545,6 +601,6 @@ h4 {margin-top: 0em; margin-bottom: 0em;
 <tr><td>8</td><td>LIKE /.*END_OUTLINE_DATA.*/:       END_OUTLINE_DATA</td></tr>
 </table>
 <h4>0 failed of 8: SUCCESS</h4>
-<h4>GROUP 17: Unhandled Exception: Empty as expected: SUCCESS</h4>
-<h2>0 failed of 17: SUCCESS</h2>
+<h4>GROUP 19: Unhandled Exception: Empty as expected: SUCCESS</h4>
+<h2>0 failed of 19: SUCCESS</h2>
 </body></html>

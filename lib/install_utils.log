@@ -1,7 +1,16 @@
 
 Database             Time                 Version
 -------------------- -------------------- ------------------------------
-Start: FREE          26-OCT-2024 13:12:45 Version 23.4.0.24.05
+Start: FREE          01-JUN-2025 08:26:39 Version 23.4.0.24.05
+
+Table creation
+====================
+Create table log_lines
+
+Table dropped.
+
+
+Table created.
 
 Common type creation
 ====================
@@ -13,12 +22,8 @@ Create type L1_num_arr
 
 Type created.
 
-DROP TYPE chr_int_arr
-*
-ERROR at line 1:
-ORA-04043: Object CHR_INT_ARR does not exist.
-Help: https://docs.oracle.com/error-help/db/ora-04043/
 
+Type dropped.
 
 
 Type created.
@@ -62,13 +67,18 @@ new   1: GRANT EXECUTE ON chr_int_arr TO app
 
 Grant succeeded.
 
-old   1: GRANT EXECUTE ON Utils TO &app
-new   1: GRANT EXECUTE ON Utils TO app
+old   1: GRANT EXECUTE ON utils TO &app
+new   1: GRANT EXECUTE ON utils TO app
+
+Grant succeeded.
+
+old   1: GRANT ALL ON log_lines to &app
+new   1: GRANT ALL ON log_lines to app
 
 Grant succeeded.
 
 
 'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
 ----------------------------------
-End: 26-OCT-2024 13:12:45
+End: 01-JUN-2025 08:26:39
 

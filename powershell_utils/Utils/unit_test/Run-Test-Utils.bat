@@ -1,1 +1,0 @@
-pwsh .\Run-Test-Utils.ps1  > .\Run-Test-Utils.out 2> .\Run-Test-Utils.err

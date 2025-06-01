@@ -1,7 +1,7 @@
 Unit Test Report: Oracle PL/SQL Utilities
 =========================================
 
-      #    Category Set      Scenario              Fails (of 17)  Status 
+      #    Category Set      Scenario              Fails (of 19)  Status 
       ---  ----------------  --------------------  -------------  -------
       1    Value Size        Small values          0              SUCCESS
       2    Value Size        Large values          0              SUCCESS
@@ -11,7 +11,7 @@ Unit Test Report: Oracle PL/SQL Utilities
 
 Test scenarios: 0 failed of 5: SUCCESS
 ======================================
-Formatted: 26/10/2024, 13:14:13
+Formatted: 1/6/2025, 08:27:14
 
 SCENARIO 1: Small values [Category Set: Value Size] {
 =====================================================
@@ -142,15 +142,15 @@ SCENARIO 1: Small values [Category Set: Value Size] {
       GROUP 13: Scalars {
       ===================
 
-            #  Delimiter  View Name   View Where                                      View Order By   W Line
-            -  ---------  ----------  ----------------------------------------------  --------------  ------
-            1  ,          user_types  regexp_like(type_name, '(CHR|L\d).+(ARR|REC)')  type_name DESC  t     
+            #  Delimiter  View Name   View Where                                      View Order By   W/L Line
+            -  ---------  ----------  ----------------------------------------------  --------------  --------
+            1  ,          user_types  regexp_like(type_name, '(CHR|L\d).+(ARR|REC)')  type_name DESC  t       
 
       }
       =
 
-      GROUP 14: W (List) {
-      ====================
+      GROUP 14: W/L (List) {
+      ======================
 
             #  Line
             -  ----
@@ -305,9 +305,9 @@ SCENARIO 1: Small values [Category Set: Value Size] {
       GROUP 11: Sleep {
       =================
 
-            #  Elapsed Seconds         CPU Seconds       
-            -  ----------------------  ------------------
-            1  IN [0.9,1.1]: 1.009249  IN [0.1,0.51]: .25
+            #  Elapsed Seconds        CPU Seconds       
+            -  ---------------------  ------------------
+            1  IN [0.9,1.1]: 1.00978  IN [0.1,0.51]: .48
 
       } 0 failed of 1: SUCCESS
       ========================
@@ -342,7 +342,27 @@ SCENARIO 1: Small values [Category Set: Value Size] {
       } 0 failed of 1: SUCCESS
       ========================
 
-      GROUP 15: File I/O {
+      GROUP 15: L (Line) {
+      ====================
+
+            #  Line
+            -  ----
+            1  t   
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 16: L (List) {
+      ====================
+
+            #  Line
+            -  ----
+            1  L   
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 17: File I/O {
       ====================
 
             #  #Lines  Line 1  Line 2
@@ -352,7 +372,7 @@ SCENARIO 1: Small values [Category Set: Value Size] {
       } 0 failed of 1: SUCCESS
       ========================
 
-      GROUP 16: XPlan List (keyword extract) {
+      GROUP 18: XPlan List (keyword extract) {
       ========================================
 
             #  XPlan Line                                                            
@@ -364,10 +384,10 @@ SCENARIO 1: Small values [Category Set: Value Size] {
       } 0 failed of 3: SUCCESS
       ========================
 
-      GROUP 17: Unhandled Exception: Empty as expected: SUCCESS
+      GROUP 19: Unhandled Exception: Empty as expected: SUCCESS
       =========================================================
 
-} 0 failed of 17: SUCCESS
+} 0 failed of 19: SUCCESS
 =========================
 
 SCENARIO 2: Large values [Category Set: Value Size] {
@@ -505,15 +525,15 @@ SCENARIO 2: Large values [Category Set: Value Size] {
       GROUP 13: Scalars {
       ===================
 
-            #  Delimiter  View Name     View Where                                                 View Order By  W Line                                                                                                       
+            #  Delimiter  View Name     View Where                                                 View Order By  W/L Line                                                                                                     
             -  ---------  ------------  ---------------------------------------------------------  -------------  -------------------------------------------------------------------------------------------------------------
             1  ,          user_objects  regexp_like(object_name, '(CHR|L\d).+(ARR|REC)|TT_UNITS')                 text line1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
 
       }
       =
 
-      GROUP 14: W (List) {
-      ====================
+      GROUP 14: W/L (List) {
+      ======================
 
             #  Line                                                                                                
             -  ----------------------------------------------------------------------------------------------------
@@ -615,16 +635,16 @@ SCENARIO 2: Large values [Category Set: Value Size] {
       GROUP 7: View To List {
       =======================
 
-            #  Delimited String                                                                        
-            -  ----------------------------------------------------------------------------------------
-            1  LIKE /CHR_INT_ARR,\d+?,\d.+\d,\d.+\d/: CHR_INT_ARR,91691,26-OCT-2024,2024-10-26:13:12:45
-            2  LIKE /CHR_INT_REC,\d+?,\d.+\d,\d.+\d/: CHR_INT_REC,91690,26-OCT-2024,2024-10-26:13:12:45
-            3  LIKE /L1_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L1_CHR_ARR,91688,26-OCT-2024,2024-10-26:13:12:45  
-            4  LIKE /L1_NUM_ARR,\d+?,\d.+\d,\d.+\d/: L1_NUM_ARR,91689,26-OCT-2024,2024-10-26:13:12:45  
-            5  LIKE /L2_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L2_CHR_ARR,91694,26-OCT-2024,2024-10-26:13:12:46  
-            6  LIKE /L3_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L3_CHR_ARR,91695,26-OCT-2024,2024-10-26:13:12:46  
-            7  LIKE /L4_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L4_CHR_ARR,91696,26-OCT-2024,2024-10-26:13:12:46  
-            8  LIKE /TT_UNITS,\d+?,\d.+\d,\d.+\d/: TT_UNITS,91697,26-OCT-2024,2024-10-26:13:12:46      
+            #  Delimited String                                                                         
+            -  -----------------------------------------------------------------------------------------
+            1  LIKE /CHR_INT_ARR,\d+?,\d.+\d,\d.+\d/: CHR_INT_ARR,128682,01-JUN-2025,2025-06-01:08:26:39
+            2  LIKE /CHR_INT_REC,\d+?,\d.+\d,\d.+\d/: CHR_INT_REC,128681,01-JUN-2025,2025-06-01:08:26:39
+            3  LIKE /L1_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L1_CHR_ARR,128679,01-JUN-2025,2025-06-01:08:26:39  
+            4  LIKE /L1_NUM_ARR,\d+?,\d.+\d,\d.+\d/: L1_NUM_ARR,128680,01-JUN-2025,2025-06-01:08:26:39  
+            5  LIKE /L2_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L2_CHR_ARR,128685,01-JUN-2025,2025-06-01:08:26:39  
+            6  LIKE /L3_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L3_CHR_ARR,128686,01-JUN-2025,2025-06-01:08:26:39  
+            7  LIKE /L4_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L4_CHR_ARR,128687,01-JUN-2025,2025-06-01:08:26:39  
+            8  LIKE /TT_UNITS,\d+?,\d.+\d,\d.+\d/: TT_UNITS,128688,01-JUN-2025,2025-06-01:08:26:39      
 
       } 0 failed of 8: SUCCESS
       ========================
@@ -632,16 +652,16 @@ SCENARIO 2: Large values [Category Set: Value Size] {
       GROUP 8: Cursor To List {
       =========================
 
-            #  Delimited String                                                                        
-            -  ----------------------------------------------------------------------------------------
-            1  LIKE /CHR_INT_ARR,\d+?,\d.+\d,\d.+\d/: CHR_INT_ARR,91691,26-OCT-2024,2024-10-26:13:12:45
-            2  LIKE /CHR_INT_REC,\d+?,\d.+\d,\d.+\d/: CHR_INT_REC,91690,26-OCT-2024,2024-10-26:13:12:45
-            3  LIKE /L1_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L1_CHR_ARR,91688,26-OCT-2024,2024-10-26:13:12:45  
-            4  LIKE /L1_NUM_ARR,\d+?,\d.+\d,\d.+\d/: L1_NUM_ARR,91689,26-OCT-2024,2024-10-26:13:12:45  
-            5  LIKE /L2_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L2_CHR_ARR,91694,26-OCT-2024,2024-10-26:13:12:46  
-            6  LIKE /L3_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L3_CHR_ARR,91695,26-OCT-2024,2024-10-26:13:12:46  
-            7  LIKE /L4_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L4_CHR_ARR,91696,26-OCT-2024,2024-10-26:13:12:46  
-            8  LIKE /TT_UNITS,\d+?,\d.+\d,\d.+\d/: TT_UNITS,91697,26-OCT-2024,2024-10-26:13:12:46      
+            #  Delimited String                                                                         
+            -  -----------------------------------------------------------------------------------------
+            1  LIKE /CHR_INT_ARR,\d+?,\d.+\d,\d.+\d/: CHR_INT_ARR,128682,01-JUN-2025,2025-06-01:08:26:39
+            2  LIKE /CHR_INT_REC,\d+?,\d.+\d,\d.+\d/: CHR_INT_REC,128681,01-JUN-2025,2025-06-01:08:26:39
+            3  LIKE /L1_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L1_CHR_ARR,128679,01-JUN-2025,2025-06-01:08:26:39  
+            4  LIKE /L1_NUM_ARR,\d+?,\d.+\d,\d.+\d/: L1_NUM_ARR,128680,01-JUN-2025,2025-06-01:08:26:39  
+            5  LIKE /L2_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L2_CHR_ARR,128685,01-JUN-2025,2025-06-01:08:26:39  
+            6  LIKE /L3_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L3_CHR_ARR,128686,01-JUN-2025,2025-06-01:08:26:39  
+            7  LIKE /L4_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L4_CHR_ARR,128687,01-JUN-2025,2025-06-01:08:26:39  
+            8  LIKE /TT_UNITS,\d+?,\d.+\d,\d.+\d/: TT_UNITS,128688,01-JUN-2025,2025-06-01:08:26:39      
 
       } 0 failed of 8: SUCCESS
       ========================
@@ -649,16 +669,16 @@ SCENARIO 2: Large values [Category Set: Value Size] {
       GROUP 9: Cursor To Pipe {
       =========================
 
-            #  Delimited String                                                                        
-            -  ----------------------------------------------------------------------------------------
-            1  LIKE /CHR_INT_ARR,\d+?,\d.+\d,\d.+\d/: CHR_INT_ARR,91691,26-OCT-2024,2024-10-26:13:12:45
-            2  LIKE /CHR_INT_REC,\d+?,\d.+\d,\d.+\d/: CHR_INT_REC,91690,26-OCT-2024,2024-10-26:13:12:45
-            3  LIKE /L1_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L1_CHR_ARR,91688,26-OCT-2024,2024-10-26:13:12:45  
-            4  LIKE /L1_NUM_ARR,\d+?,\d.+\d,\d.+\d/: L1_NUM_ARR,91689,26-OCT-2024,2024-10-26:13:12:45  
-            5  LIKE /L2_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L2_CHR_ARR,91694,26-OCT-2024,2024-10-26:13:12:46  
-            6  LIKE /L3_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L3_CHR_ARR,91695,26-OCT-2024,2024-10-26:13:12:46  
-            7  LIKE /L4_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L4_CHR_ARR,91696,26-OCT-2024,2024-10-26:13:12:46  
-            8  LIKE /TT_UNITS,\d+?,\d.+\d,\d.+\d/: TT_UNITS,91697,26-OCT-2024,2024-10-26:13:12:46      
+            #  Delimited String                                                                         
+            -  -----------------------------------------------------------------------------------------
+            1  LIKE /CHR_INT_ARR,\d+?,\d.+\d,\d.+\d/: CHR_INT_ARR,128682,01-JUN-2025,2025-06-01:08:26:39
+            2  LIKE /CHR_INT_REC,\d+?,\d.+\d,\d.+\d/: CHR_INT_REC,128681,01-JUN-2025,2025-06-01:08:26:39
+            3  LIKE /L1_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L1_CHR_ARR,128679,01-JUN-2025,2025-06-01:08:26:39  
+            4  LIKE /L1_NUM_ARR,\d+?,\d.+\d,\d.+\d/: L1_NUM_ARR,128680,01-JUN-2025,2025-06-01:08:26:39  
+            5  LIKE /L2_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L2_CHR_ARR,128685,01-JUN-2025,2025-06-01:08:26:39  
+            6  LIKE /L3_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L3_CHR_ARR,128686,01-JUN-2025,2025-06-01:08:26:39  
+            7  LIKE /L4_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L4_CHR_ARR,128687,01-JUN-2025,2025-06-01:08:26:39  
+            8  LIKE /TT_UNITS,\d+?,\d.+\d,\d.+\d/: TT_UNITS,128688,01-JUN-2025,2025-06-01:08:26:39      
 
       } 0 failed of 8: SUCCESS
       ========================
@@ -678,7 +698,7 @@ SCENARIO 2: Large values [Category Set: Value Size] {
 
             #  Elapsed Seconds         CPU Seconds        
             -  ----------------------  -------------------
-            1  IN [1.9,2.1]: 1.999814  IN [0.02,0.21]: .08
+            1  IN [1.9,2.1]: 2.013146  IN [0.02,0.21]: .21
 
       } 0 failed of 1: SUCCESS
       ========================
@@ -714,7 +734,28 @@ SCENARIO 2: Large values [Category Set: Value Size] {
       } 0 failed of 2: SUCCESS
       ========================
 
-      GROUP 15: File I/O {
+      GROUP 15: L (Line) {
+      ====================
+
+            #  Line                                                                                                         
+            -  -------------------------------------------------------------------------------------------------------------
+            1  text line1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 16: L (List) {
+      ====================
+
+            #  Line                                                                                                
+            -  ----------------------------------------------------------------------------------------------------
+            1  1-line text list                                                                                    
+            2  1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
+
+      } 0 failed of 2: SUCCESS
+      ========================
+
+      GROUP 17: File I/O {
       ====================
 
             #  #Lines  Line 1                                                                                                Line 2
@@ -724,7 +765,7 @@ SCENARIO 2: Large values [Category Set: Value Size] {
       } 0 failed of 1: SUCCESS
       ========================
 
-      GROUP 16: XPlan List (keyword extract) {
+      GROUP 18: XPlan List (keyword extract) {
       ========================================
 
             #  XPlan Line                                                                                           
@@ -736,10 +777,10 @@ SCENARIO 2: Large values [Category Set: Value Size] {
       } 0 failed of 3: SUCCESS
       ========================
 
-      GROUP 17: Unhandled Exception: Empty as expected: SUCCESS
+      GROUP 19: Unhandled Exception: Empty as expected: SUCCESS
       =========================================================
 
-} 0 failed of 17: SUCCESS
+} 0 failed of 19: SUCCESS
 =========================
 
 SCENARIO 3: One value [Category Set: Multiplicity] {
@@ -871,15 +912,15 @@ SCENARIO 3: One value [Category Set: Multiplicity] {
       GROUP 13: Scalars {
       ===================
 
-            #  Delimiter  View Name   View Where                                  View Order By   W Line   
+            #  Delimiter  View Name   View Where                                  View Order By   W/L Line 
             -  ---------  ----------  ------------------------------------------  --------------  ---------
             1  ,          user_types  regexp_like(type_name, '(CHR|L\d).+(REC)')  type_name DESC  text line
 
       }
       =
 
-      GROUP 14: W (List) {
-      ====================
+      GROUP 14: W/L (List) {
+      ======================
 
             #  Line            
             -  ----------------
@@ -1016,9 +1057,9 @@ SCENARIO 3: One value [Category Set: Multiplicity] {
       GROUP 11: Sleep {
       =================
 
-            #  Elapsed Seconds         CPU Seconds        
-            -  ----------------------  -------------------
-            1  IN [0.9,1.1]: 1.013484  IN [0.01,0.51]: .21
+            #  Elapsed Seconds         CPU Seconds      
+            -  ----------------------  -----------------
+            1  IN [0.9,1.1]: 1.005604  IN [0.01,0.6]: .5
 
       } 0 failed of 1: SUCCESS
       ========================
@@ -1053,7 +1094,27 @@ SCENARIO 3: One value [Category Set: Multiplicity] {
       } 0 failed of 1: SUCCESS
       ========================
 
-      GROUP 15: File I/O {
+      GROUP 15: L (Line) {
+      ====================
+
+            #  Line     
+            -  ---------
+            1  text line
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 16: L (List) {
+      ====================
+
+            #  Line            
+            -  ----------------
+            1  1-line text list
+
+      } 0 failed of 1: SUCCESS
+      ========================
+
+      GROUP 17: File I/O {
       ====================
 
             #  #Lines  Line 1  Line 2
@@ -1063,7 +1124,7 @@ SCENARIO 3: One value [Category Set: Multiplicity] {
       } 0 failed of 1: SUCCESS
       ========================
 
-      GROUP 16: XPlan List (keyword extract) {
+      GROUP 18: XPlan List (keyword extract) {
       ========================================
 
             #  XPlan Line                                                            
@@ -1075,10 +1136,10 @@ SCENARIO 3: One value [Category Set: Multiplicity] {
       } 0 failed of 3: SUCCESS
       ========================
 
-      GROUP 17: Unhandled Exception: Empty as expected: SUCCESS
+      GROUP 19: Unhandled Exception: Empty as expected: SUCCESS
       =========================================================
 
-} 0 failed of 17: SUCCESS
+} 0 failed of 19: SUCCESS
 =========================
 
 SCENARIO 4: Many values [Category Set: Multiplicity] {
@@ -1353,15 +1414,15 @@ SCENARIO 4: Many values [Category Set: Multiplicity] {
       GROUP 13: Scalars {
       ===================
 
-            #  Delimiter  View Name     View Where                                                 View Order By  W Line
-            -  ---------  ------------  ---------------------------------------------------------  -------------  ------
-            1             user_objects  regexp_like(object_name, '(CHR|L\d).+(ARR|REC)|TT_UNITS')                       
+            #  Delimiter  View Name     View Where                                                 View Order By  W/L Line
+            -  ---------  ------------  ---------------------------------------------------------  -------------  --------
+            1             user_objects  regexp_like(object_name, '(CHR|L\d).+(ARR|REC)|TT_UNITS')                         
 
       }
       =
 
-      GROUP 14: W (List) {
-      ====================
+      GROUP 14: W/L (List) {
+      ======================
 
             #   Line        
             --  ------------
@@ -1548,16 +1609,16 @@ SCENARIO 4: Many values [Category Set: Multiplicity] {
       GROUP 7: View To List {
       =======================
 
-            #  Delimited String                                                                                                                                                                                                                                                 
-            -  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            1  LIKE /CHR_INT_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: CHR_INT_ARR||91691||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:45|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||    
-            2  LIKE /CHR_INT_REC\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: CHR_INT_REC||91690||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:45|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||    
-            3  LIKE /L1_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L1_CHR_ARR||91688||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:45|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
-            4  LIKE /L1_NUM_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L1_NUM_ARR||91689||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:45|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
-            5  LIKE /L2_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L2_CHR_ARR||91694||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:46|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
-            6  LIKE /L3_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L3_CHR_ARR||91695||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:46|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
-            7  LIKE /L4_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L4_CHR_ARR||91696||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:46|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
-            8  LIKE /TT_UNITS\|\|\d+?\|\d+?\|TABLE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: TT_UNITS||91697|91697|TABLE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:46|VALID|N|N|N|1||NONE||N|N|USING_NLS_COMP|N|N||||
+            #  Delimited String                                                                                                                                                                                                                                                   
+            -  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            1  LIKE /CHR_INT_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: CHR_INT_ARR||128682||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||     
+            2  LIKE /CHR_INT_REC\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: CHR_INT_REC||128681||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||     
+            3  LIKE /L1_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L1_CHR_ARR||128679||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||       
+            4  LIKE /L1_NUM_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L1_NUM_ARR||128680||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||       
+            5  LIKE /L2_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L2_CHR_ARR||128685||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||       
+            6  LIKE /L3_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L3_CHR_ARR||128686||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||       
+            7  LIKE /L4_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L4_CHR_ARR||128687||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||       
+            8  LIKE /TT_UNITS\|\|\d+?\|\d+?\|TABLE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: TT_UNITS||128688|128688|TABLE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE||N|N|USING_NLS_COMP|N|N||||
 
       } 0 failed of 8: SUCCESS
       ========================
@@ -1565,16 +1626,16 @@ SCENARIO 4: Many values [Category Set: Multiplicity] {
       GROUP 8: Cursor To List {
       =========================
 
-            #  Delimited String                                                                                                                                                                                                                                                 
-            -  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            1  LIKE /CHR_INT_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: CHR_INT_ARR||91691||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:45|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||    
-            2  LIKE /CHR_INT_REC\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: CHR_INT_REC||91690||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:45|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||    
-            3  LIKE /L1_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L1_CHR_ARR||91688||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:45|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
-            4  LIKE /L1_NUM_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L1_NUM_ARR||91689||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:45|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
-            5  LIKE /L2_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L2_CHR_ARR||91694||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:46|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
-            6  LIKE /L3_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L3_CHR_ARR||91695||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:46|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
-            7  LIKE /L4_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L4_CHR_ARR||91696||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:46|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
-            8  LIKE /TT_UNITS\|\|\d+?\|\d+?\|TABLE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: TT_UNITS||91697|91697|TABLE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:46|VALID|N|N|N|1||NONE||N|N|USING_NLS_COMP|N|N||||
+            #  Delimited String                                                                                                                                                                                                                                                   
+            -  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            1  LIKE /CHR_INT_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: CHR_INT_ARR||128682||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||     
+            2  LIKE /CHR_INT_REC\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: CHR_INT_REC||128681||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||     
+            3  LIKE /L1_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L1_CHR_ARR||128679||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||       
+            4  LIKE /L1_NUM_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L1_NUM_ARR||128680||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||       
+            5  LIKE /L2_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L2_CHR_ARR||128685||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||       
+            6  LIKE /L3_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L3_CHR_ARR||128686||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||       
+            7  LIKE /L4_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L4_CHR_ARR||128687||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||       
+            8  LIKE /TT_UNITS\|\|\d+?\|\d+?\|TABLE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: TT_UNITS||128688|128688|TABLE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE||N|N|USING_NLS_COMP|N|N||||
 
       } 0 failed of 8: SUCCESS
       ========================
@@ -1582,16 +1643,16 @@ SCENARIO 4: Many values [Category Set: Multiplicity] {
       GROUP 9: Cursor To Pipe {
       =========================
 
-            #  Delimited String                                                                                                                                                                                                                                                 
-            -  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            1  LIKE /CHR_INT_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: CHR_INT_ARR||91691||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:45|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||    
-            2  LIKE /CHR_INT_REC\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: CHR_INT_REC||91690||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:45|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||    
-            3  LIKE /L1_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L1_CHR_ARR||91688||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:45|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
-            4  LIKE /L1_NUM_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L1_NUM_ARR||91689||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:45|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
-            5  LIKE /L2_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L2_CHR_ARR||91694||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:46|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
-            6  LIKE /L3_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L3_CHR_ARR||91695||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:46|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
-            7  LIKE /L4_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L4_CHR_ARR||91696||TYPE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:46|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||      
-            8  LIKE /TT_UNITS\|\|\d+?\|\d+?\|TABLE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: TT_UNITS||91697|91697|TABLE|26-OCT-2024|26-OCT-2024|2024-10-26:13:12:46|VALID|N|N|N|1||NONE||N|N|USING_NLS_COMP|N|N||||
+            #  Delimited String                                                                                                                                                                                                                                                   
+            -  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            1  LIKE /CHR_INT_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: CHR_INT_ARR||128682||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||     
+            2  LIKE /CHR_INT_REC\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: CHR_INT_REC||128681||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||     
+            3  LIKE /L1_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L1_CHR_ARR||128679||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||       
+            4  LIKE /L1_NUM_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L1_NUM_ARR||128680||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||       
+            5  LIKE /L2_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L2_CHR_ARR||128685||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||       
+            6  LIKE /L3_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L3_CHR_ARR||128686||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||       
+            7  LIKE /L4_CHR_ARR\|\|\d+?\|\|TYPE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: L4_CHR_ARR||128687||TYPE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE|Y|N|N|USING_NLS_COMP|N|N||||       
+            8  LIKE /TT_UNITS\|\|\d+?\|\d+?\|TABLE\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?\|.*?/: TT_UNITS||128688|128688|TABLE|01-JUN-2025|01-JUN-2025|2025-06-01:08:26:39|VALID|N|N|N|1||NONE||N|N|USING_NLS_COMP|N|N||||
 
       } 0 failed of 8: SUCCESS
       ========================
@@ -1667,7 +1728,69 @@ SCENARIO 4: Many values [Category Set: Multiplicity] {
       } 0 failed of 50: SUCCESS
       =========================
 
-      GROUP 15: File I/O {
+      GROUP 15: L (Line): Empty as expected: SUCCESS
+      ==============================================
+
+      GROUP 16: L (List) {
+      ====================
+
+            #   Line        
+            --  ------------
+            1   Line text 1 
+            2   Line text 2 
+            3   Line text 3 
+            4   Line text 4 
+            5   Line text 5 
+            6   Line text 6 
+            7   Line text 7 
+            8   Line text 8 
+            9   Line text 9 
+            10  Line text 10
+            11  Line text 11
+            12  Line text 12
+            13  Line text 13
+            14  Line text 14
+            15  Line text 15
+            16  Line text 16
+            17  Line text 17
+            18  Line text 18
+            19  Line text 19
+            20  Line text 20
+            21  Line text 21
+            22  Line text 22
+            23  Line text 23
+            24  Line text 24
+            25  Line text 25
+            26  Line text 26
+            27  Line text 27
+            28  Line text 28
+            29  Line text 29
+            30  Line text 30
+            31  Line text 31
+            32  Line text 32
+            33  Line text 33
+            34  Line text 34
+            35  Line text 35
+            36  Line text 36
+            37  Line text 37
+            38  Line text 38
+            39  Line text 39
+            40  Line text 40
+            41  Line text 41
+            42  Line text 42
+            43  Line text 43
+            44  Line text 44
+            45  Line text 45
+            46  Line text 46
+            47  Line text 47
+            48  Line text 48
+            49  Line text 49
+            50  Line text 50
+
+      } 0 failed of 50: SUCCESS
+      =========================
+
+      GROUP 17: File I/O {
       ====================
 
             #  #Lines  Line 1  Line 2
@@ -1677,7 +1800,7 @@ SCENARIO 4: Many values [Category Set: Multiplicity] {
       } 0 failed of 1: SUCCESS
       ========================
 
-      GROUP 16: XPlan List (keyword extract) {
+      GROUP 18: XPlan List (keyword extract) {
       ========================================
 
             #  XPlan Line                                                             
@@ -1694,10 +1817,10 @@ SCENARIO 4: Many values [Category Set: Multiplicity] {
       } 0 failed of 8: SUCCESS
       ========================
 
-      GROUP 17: Unhandled Exception: Empty as expected: SUCCESS
+      GROUP 19: Unhandled Exception: Empty as expected: SUCCESS
       =========================================================
 
-} 0 failed of 17: SUCCESS
+} 0 failed of 19: SUCCESS
 =========================
 
 SCENARIO 5: SQL exception raised [Category Set: Exception Raised] {
@@ -1766,15 +1889,15 @@ SCENARIO 5: SQL exception raised [Category Set: Exception Raised] {
       GROUP 13: Scalars {
       ===================
 
-            #  Delimiter  View Name       View Where                                               View Order By  W Line
-            -  ---------  --------------  -------------------------------------------------------  -------------  ------
-            1  ,          BAD_user_types  regexp_like(type_name, '(CHR|L\d).+(ARR|REC)|TT_UNITS')                       
+            #  Delimiter  View Name       View Where                                               View Order By  W/L Line
+            -  ---------  --------------  -------------------------------------------------------  -------------  --------
+            1  ,          BAD_user_types  regexp_like(type_name, '(CHR|L\d).+(ARR|REC)|TT_UNITS')                         
 
       }
       =
 
-      GROUP 14: W (List): Empty
-      =========================
+      GROUP 14: W/L (List): Empty
+      ===========================
 
       GROUP 15: File I/O: Empty
       =========================
@@ -1836,14 +1959,20 @@ SCENARIO 5: SQL exception raised [Category Set: Exception Raised] {
       GROUP 14: W (List): Empty as expected: SUCCESS
       ==============================================
 
-      GROUP 15: File I/O: Empty as expected: SUCCESS
+      GROUP 15: L (Line): Empty as expected: SUCCESS
       ==============================================
 
-      GROUP 16: XPlan List (keyword extract): Empty as expected: SUCCESS
+      GROUP 16: L (List): Empty as expected: SUCCESS
+      ==============================================
+
+      GROUP 17: File I/O: Empty as expected: SUCCESS
+      ==============================================
+
+      GROUP 18: XPlan List (keyword extract): Empty as expected: SUCCESS
       ==================================================================
 
-      GROUP 17: Unhandled Exception: Empty as expected: SUCCESS
+      GROUP 19: Unhandled Exception: Empty as expected: SUCCESS
       =========================================================
 
-} 0 failed of 17: SUCCESS
+} 0 failed of 19: SUCCESS
 =========================

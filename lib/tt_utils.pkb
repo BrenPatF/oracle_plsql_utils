@@ -531,6 +531,52 @@ END get_DBMS_Output_Buffer;
 
 /***************************************************************************************************
 
+get_Log_Line: Get last line from log_lines
+
+***************************************************************************************************/
+FUNCTION get_Log_Line
+            RETURN                         VARCHAR2 IS -- last line from the log_lines table
+  l_ret_value   VARCHAR2(4000);
+BEGIN
+
+  BEGIN
+    SELECT line INTO l_ret_value 
+      FROM log_lines 
+     WHERE id = (SELECT MAX(id) FROM log_lines);
+    Utils.Pop_L;
+  EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+      NULL;
+  END;
+  RETURN l_ret_value;
+
+END get_Log_Line;
+
+/***************************************************************************************************
+
+get_Log_Line: Get lines from log_lines
+
+***************************************************************************************************/
+FUNCTION get_Log_Lines
+            RETURN                         L1_chr_arr IS -- last line from the log_lines table
+  l_ret_value   L1_chr_arr;
+BEGIN
+
+  BEGIN
+    SELECT line BULK COLLECT INTO l_ret_value 
+      FROM log_lines 
+     ORDER BY id;
+    Utils.Clear_L;
+  EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+      NULL;
+  END;
+  RETURN l_ret_value;
+
+END get_Log_Lines;
+
+/***************************************************************************************************
+
 W: Overloaded function to call Utils functions of same name to write line and return lines written
    as list
    Input line null means omit group
@@ -587,6 +633,58 @@ BEGIN
   RETURN l_ret_value_lis;
 
 END w;
+
+/***************************************************************************************************
+
+l: Function to call Utils function of same name to write line and return lines written
+   as list
+   Input line null means omit group
+
+***************************************************************************************************/
+FUNCTION l( p_line                         VARCHAR2)     -- line of text to write 
+            RETURN                         L1_chr_arr IS -- lines of text from Log_Lines
+  l_ret_value       VARCHAR2(4000);
+  l_ret_value_lis   L1_chr_arr;
+BEGIN
+
+  IF p_line IS NULL THEN
+    RETURN l_ret_value_lis;
+  END IF;
+
+  Utils.L(p_line => p_line);
+  l_ret_value := get_Log_Line;
+  IF l_ret_value IS NOT NULL THEN
+    l_ret_value_lis := L1_chr_arr(l_ret_value);
+  END IF;
+  RETURN l_ret_value_lis;
+
+END l;
+
+/***************************************************************************************************
+
+l: Overloaded function to call Utils functions of same name to write list of lines and return lines
+   written as list
+   Input line array null means omit group.
+
+***************************************************************************************************/
+FUNCTION l( p_line_2lis                    L2_chr_arr)   -- lines of text in first column of 2-lis to write 
+            RETURN                         L1_chr_arr IS -- lines of text from get_DBMS_Output_Buffer
+  l_line_lis        L1_chr_arr;
+  l_ret_value_lis   L1_chr_arr;
+BEGIN
+
+  IF p_line_2lis.COUNT = 0  THEN
+    RETURN l_ret_value_lis;
+  END IF;
+
+  l_line_lis := extract_Lis_From_2Lis(p_line_2lis);
+  Utils.L(p_line_lis => l_line_lis);
+
+  l_ret_value_lis := get_Log_Lines;
+
+  RETURN l_ret_value_lis;
+
+END l;
 
 /***************************************************************************************************
 
@@ -750,7 +848,7 @@ FUNCTION Purely_Wrap_Utils(
   l_message                      VARCHAR2(4000);
 BEGIN
 
-  l_act_2lis.EXTEND(16);
+  l_act_2lis.EXTEND(18);
   l_act_2lis(1) := heading(              p_value_2lis     => p_inp_3lis(1));
   l_act_2lis(2) := col_Headers(          p_value_2lis     => p_inp_3lis(2));
   l_act_2lis(3) := list_To_Line(         p_value_2lis     => p_inp_3lis(3));
@@ -811,9 +909,11 @@ BEGIN
   END IF;
   l_act_2lis(13) := w(                   p_line           => p_inp_3lis(13)(1)(5));
   l_act_2lis(14) := w(                   p_line_2lis      => p_inp_3lis(14));
-  l_act_2lis(15) := file_IO(             p_value_2lis     => p_inp_3lis(15),
+  l_act_2lis(15) := l(                   p_line           => p_inp_3lis(13)(1)(5));
+  l_act_2lis(16) := l(                   p_line_2lis      => p_inp_3lis(14));
+  l_act_2lis(17) := file_IO(             p_value_2lis     => p_inp_3lis(15),
                                          p_delim          => c_delim);
-  l_act_2lis(16) := xPlan(               p_value_2lis     => p_inp_3lis(16));
+  l_act_2lis(18) := xPlan(               p_value_2lis     => p_inp_3lis(16));
   RETURN l_act_2lis;
 
 END Purely_Wrap_Utils;

@@ -38,8 +38,8 @@ Scalars,Delimiter,","
 Scalars,View Name,user_types
 Scalars,View Where,"regexp_like(type_name, '(CHR|L\\d).+(ARR|REC)')"
 Scalars,View Order By,type_name DESC
-Scalars,W Line,text line
-W (List),Line,1-line text list
+Scalars,W/L Line,text line
+W/L (List),Line,1-line text list
 File I/O,File Name,test_file.tmp
 File I/O,#Lines,0
 File I/O,Line 1,

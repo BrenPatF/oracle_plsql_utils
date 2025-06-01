@@ -42,6 +42,7 @@ Synonyms created:
     chr_int_rec         Object
     chr_int_arr         Array (VARRAY)
     Utils               Package
+    log_lines           Table
 
 ***************************************************************************************************/
 PROMPT Creating synonyms for &lib Utils components...
@@ -54,4 +55,6 @@ CREATE OR REPLACE SYNONYM chr_int_rec FOR &lib..chr_int_rec
 CREATE OR REPLACE SYNONYM chr_int_arr FOR &lib..chr_int_arr
 /
 CREATE OR REPLACE SYNONYM Utils FOR &lib..Utils
+/
+CREATE OR REPLACE SYNONYM log_lines FOR &lib..log_lines
 /

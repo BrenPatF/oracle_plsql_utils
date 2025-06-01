@@ -124,11 +124,11 @@ h4 {margin-top: 0em; margin-bottom: 0em;
 <h4></h4>
 <h4>GROUP 13: Scalars</h4>
 <table>
-<tr><th>#</th><th>Delimiter</th><th>View Name</th><th>View Where</th><th>View Order By</th><th>W Line</th></tr>
+<tr><th>#</th><th>Delimiter</th><th>View Name</th><th>View Where</th><th>View Order By</th><th>W/L Line</th></tr>
 <tr><td>1</td><td>,</td><td>user_types</td><td>regexp_like(type_name, '(CHR|L\d).+(ARR|REC)')</td><td>type_name DESC</td><td>t</td></tr>
 </table>
 <h4></h4>
-<h4>GROUP 14: W (List)</h4>
+<h4>GROUP 14: W/L (List)</h4>
 <table>
 <tr><th>#</th><th>Line</th></tr>
 <tr><td>1</td><td>L</td></tr>
@@ -230,7 +230,7 @@ h4 {margin-top: 0em; margin-bottom: 0em;
 <h4>GROUP 11: Sleep</h4>
 <table>
 <tr><th>#</th><th>Elapsed Seconds</th><th>CPU Seconds</th></tr>
-<tr><td>1</td><td>IN [0.9,1.1]: 1.009249</td><td>IN [0.1,0.51]: .25</td></tr>
+<tr><td>1</td><td>IN [0.9,1.1]: 1.00978</td><td>IN [0.1,0.51]: .48</td></tr>
 </table>
 <h4>0 failed of 1: SUCCESS</h4>
 <h4>GROUP 12: Exception</h4>
@@ -251,13 +251,25 @@ h4 {margin-top: 0em; margin-bottom: 0em;
 <tr><td>1</td><td>L</td></tr>
 </table>
 <h4>0 failed of 1: SUCCESS</h4>
-<h4>GROUP 15: File I/O</h4>
+<h4>GROUP 15: L (Line)</h4>
+<table>
+<tr><th>#</th><th>Line</th></tr>
+<tr><td>1</td><td>t</td></tr>
+</table>
+<h4>0 failed of 1: SUCCESS</h4>
+<h4>GROUP 16: L (List)</h4>
+<table>
+<tr><th>#</th><th>Line</th></tr>
+<tr><td>1</td><td>L</td></tr>
+</table>
+<h4>0 failed of 1: SUCCESS</h4>
+<h4>GROUP 17: File I/O</h4>
 <table>
 <tr><th>#</th><th>#Lines</th><th>Line 1</th><th>Line 2</th></tr>
 <tr><td>1</td><td>0</td><td></td><td></td></tr>
 </table>
 <h4>0 failed of 1: SUCCESS</h4>
-<h4>GROUP 16: XPlan List (keyword extract)</h4>
+<h4>GROUP 18: XPlan List (keyword extract)</h4>
 <table>
 <tr><th>#</th><th>XPlan Line</th></tr>
 <tr><td>1</td><td>LIKE /SQL_ID.+, child number.+/: SQL_ID  62unzfghvzfw4, child number 0</td></tr>
@@ -265,6 +277,6 @@ h4 {margin-top: 0em; margin-bottom: 0em;
 <tr><td>3</td><td>LIKE /Plan hash value: .+/: Plan hash value: 1388734953</td></tr>
 </table>
 <h4>0 failed of 3: SUCCESS</h4>
-<h4>GROUP 17: Unhandled Exception: Empty as expected: SUCCESS</h4>
-<h2>0 failed of 17: SUCCESS</h2>
+<h4>GROUP 19: Unhandled Exception: Empty as expected: SUCCESS</h4>
+<h2>0 failed of 19: SUCCESS</h2>
 </body></html>

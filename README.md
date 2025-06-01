@@ -31,7 +31,8 @@ There is a short (2m20s) installation demo, install_plsql_utils_demo.mp4, in the
 [&darr; See Also](#see-also)<br />
 ## Usage
 [&uarr; In this README...](#in-this-readme)<br />
-[&darr; Heading, Col_Headers, List_To_Line, W (VARCHAR2), W (L1_chr_arr)](#heading-col_headers-list_to_line-w-varchar2-w-l1_chr_arr)<br />
+[&darr; Heading, Col_Headers, List_To_Line, W, .L (VARCHAR2), .W, .L (L1_chr_arr)](#heading-col_headers-list_to_line-w-l-varchar2-w-l-l1_chr_arr)<br />
+[&darr; LOG_LINES - read then clear](#log_lines---read-then-clear)<br />
 [&darr; View_To_List](#view_to_list)<br />
 [&darr; Cursor_To_List, Split_Values, Join_Values (list), Join_Values (scalars)](#cursor_to_list-split_values-join_values-list-join_values-scalars)<br />
 [&darr; Sleep, IntervalDS_To_Seconds, Sleep, Raise_Error](#sleep-intervalds_to_seconds-sleep-raise_error)<br />
@@ -40,9 +41,9 @@ There is a short (2m20s) installation demo, install_plsql_utils_demo.mp4, in the
 
 The utils_examples.sql script gives examples of usage for all the functions and procedures in the Utils package.
 
-### Heading, Col_Headers, List_To_Line, W (VARCHAR2), W (L1_chr_arr)
+### Heading, Col_Headers, List_To_Line, W, .L (VARCHAR2), .W, .L (L1_chr_arr)
 [&uarr; Usage](#usage)<br />
-In the script, an example package, Col_Group, is called to read and process a CSV file, with calls to Utils procedures and functions to 'pretty-print' a listing at the end.
+In the script, an example package, Col_Group, is called to read and process a CSV file, with calls to Utils procedures and functions to 'pretty-print' a listing at the end. Procedure W writes via DBMS_Output, while L writes to the logging table, LOG_LINES, using autonomous transactions.
 #### PL/SQL
 
 ```sql
@@ -59,6 +60,16 @@ BEGIN
   )));
   FOR i IN 1..l_res_arr.COUNT LOOP
     Utils.W(p_line => Utils.List_To_Line(
+                          p_value_lis => chr_int_arr(chr_int_rec(l_res_arr(i).chr_value, 30),
+                                                     chr_int_rec(l_res_arr(i).int_value, -5)
+    )));
+  END LOOP;
+  Utils.L(p_line_lis => Utils.Heading(p_head => 'Sort_By_Value'));
+  Utils.L(p_line_lis => Utils.Col_Headers(p_value_lis => chr_int_arr(chr_int_rec('Team', 30),
+                                                                     chr_int_rec('Apps', -5)
+  )));
+  FOR i IN 1..l_res_arr.COUNT LOOP
+    Utils.L(p_line => Utils.List_To_Line(
                           p_value_lis => chr_int_arr(chr_int_rec(l_res_arr(i).chr_value, 30),
                                                      chr_int_rec(l_res_arr(i).int_value, -5)
     )));
@@ -97,6 +108,56 @@ Newcastle                        1247
 Tottenham                        1288
 QPR                              1517
 ```
+
+### LOG_LINES - read then clear
+[&uarr; Usage](#usage)<br />
+#### SQL
+```sql
+COLUMN line FORMAT A50
+COLUMN tmstp FORMAT A28
+SELECT *
+  FROM log_lines
+ ORDER BY id
+/
+EXEC Utils.Clear_L;
+```
+
+#### Output
+```
+        ID LINE                                               TMSTP
+---------- -------------------------------------------------- ----------------------------
+       198 Sort_By_Value                                      01-JUN-25 08.10.47.926556 AM
+       199 =============                                      01-JUN-25 08.10.47.927576 AM
+       200 Team                             Apps              01-JUN-25 08.10.47.927576 AM
+       201 ------------------------------  -----              01-JUN-25 08.10.47.927576 AM
+       202 team_name_1                         1              01-JUN-25 08.10.47.927576 AM
+       203 Wolves                             31              01-JUN-25 08.10.47.927576 AM
+       204 Blackburn                          33              01-JUN-25 08.10.47.927576 AM
+       205 Bolton                             37              01-JUN-25 08.10.47.927576 AM
+       206 Arsenal                           534              01-JUN-25 08.10.47.927576 AM
+       207 Aston Villa                       685              01-JUN-25 08.10.47.927576 AM
+       208 Wigan                            1036              01-JUN-25 08.10.47.928554 AM
+       209 Man City                         1099              01-JUN-25 08.10.47.928554 AM
+       210 Southampton                      1110              01-JUN-25 08.10.47.928554 AM
+       211 West Ham                         1126              01-JUN-25 08.10.47.928554 AM
+       212 Chelsea                          1147              01-JUN-25 08.10.47.928554 AM
+       213 Everton                          1147              01-JUN-25 08.10.47.928554 AM
+       214 Sunderland                       1162              01-JUN-25 08.10.47.928554 AM
+       215 Reading                          1167              01-JUN-25 08.10.47.928554 AM
+       216 Stoke City                       1170              01-JUN-25 08.10.47.928554 AM
+       217 Swansea                          1180              01-JUN-25 08.10.47.928554 AM
+       218 Fulham                           1209              01-JUN-25 08.10.47.928554 AM
+       219 West Brom                        1219              01-JUN-25 08.10.47.928554 AM
+       220 Liverpool                        1227              01-JUN-25 08.10.47.928554 AM
+       221 Norwich                          1229              01-JUN-25 08.10.47.928554 AM
+       222 Man Utd                          1231              01-JUN-25 08.10.47.928554 AM
+       223 Newcastle                        1247              01-JUN-25 08.10.47.928554 AM
+       224 Tottenham                        1288              01-JUN-25 08.10.47.929553 AM
+       225 QPR                              1517              01-JUN-25 08.10.47.929553 AM
+
+28 rows selected.
+```
+
 ### View_To_List
 [&uarr; Usage](#usage)<br />
 #### SQL
@@ -365,6 +426,10 @@ There is also a separate [module](https://github.com/BrenPatF/oracle_plsql_api_d
 [&darr; Raise_Error](#raise_error)<br />
 [&darr; W [scalar parameter]](#w-scalar-parameter)<br />
 [&darr; W [list parameter]](#w-list-parameter)<br />
+[&darr; L [scalar parameter]](#l-scalar-parameter)<br />
+[&darr; L [list parameter]](#l-list-parameter)<br />
+[&darr; Pop_L](#pop_l)<br />
+[&darr; Clear_L](#clear_l)<br />
 [&darr; Delete_File](#delete_file)<br />
 [&darr; Write_File](#write_file)<br />
 [&darr; Read_File](#read_file)<br />
@@ -473,7 +538,9 @@ Returns a list of rows returned from the specified view/table, with specified co
 
 Optional parameters:
 * `p_where`: where clause, omitting WHERE key-word
+* `p_order_by`: order by clause
 * `p_delim`: delimiter string, defaults to '|'
+* `p_hint`: optimizer hint
 
 Return value:
 
@@ -591,6 +658,43 @@ Utils.W(p_line_lis);
 Writes a list of lines of text using DBMS_Output.Put_line, with parameters as follows:
 
 * `p_line_lis`: L1_chr_arr list of lines of text to write
+
+### L [scalar parameter]
+[&uarr; API](#api)<br />
+```plsql
+Utils.L(p_line);
+```
+Writes a line of text into the table LOG_LINES as an autonomous transaction, with parameters as follows:
+
+* `p_line`: line of text to write
+
+#### LOG_LINES Structure
+* id: INTEGER GENERATED ALWAYS AS IDENTITY
+* line: VARCHAR2(4000)
+* tmstp: TIMESTAMP
+
+### L [list parameter]
+[&uarr; API](#api)<br />
+```plsql
+Utils.L(p_line_lis);
+```
+Writes a list of lines of text into the table LOG_LINES as an autonomous transaction, with parameters as follows:
+
+* `p_line_lis`: L1_chr_arr list of lines of text to write
+
+### Pop_L
+[&uarr; API](#api)<br />
+```plsql
+Utils.Pop_L;
+```
+Delete the last line from LOG_LINES as an autonomous transaction
+
+### Clear_L
+[&uarr; API](#api)<br />
+```plsql
+Utils.Clear_L;
+```
+Delete all lines from LOG_LINES as an autonomous transaction
 
 ### Delete_File
 [&uarr; API](#api)<br />
@@ -763,11 +867,11 @@ Objects in schema lib created within last minute
 
 OBJECT_TYPE             OBJECT_NAME                    STATUS
 ----------------------- ------------------------------ -------
-INDEX                   SYS_IL0000090565C00007$$       VALID
-INDEX                   SYS_IL0000090565C00008$$       VALID
+INDEX                   SYS_IL0000128650C00007$$       VALID
+INDEX                   SYS_IL0000128650C00008$$       VALID
 INDEX                   UNI_PK                         VALID
-LOB                     SYS_LOB0000090565C00007$$      VALID
-LOB                     SYS_LOB0000090565C00008$$      VALID
+LOB                     SYS_LOB0000128650C00007$$      VALID
+LOB                     SYS_LOB0000128650C00008$$      VALID
 PACKAGE                 TRAPIT                         VALID
 PACKAGE                 TRAPIT_RUN                     VALID
 PACKAGE                 TT_UTILS                       VALID
@@ -776,6 +880,8 @@ PACKAGE BODY            TRAPIT                         VALID
 PACKAGE BODY            TRAPIT_RUN                     VALID
 PACKAGE BODY            TT_UTILS                       VALID
 PACKAGE BODY            UTILS                          VALID
+SEQUENCE                ISEQ$$_128639                  VALID
+TABLE                   LOG_LINES                      VALID
 TABLE                   TT_UNITS                       VALID
 TYPE                    CHR_INT_ARR                    VALID
 TYPE                    CHR_INT_REC                    VALID
@@ -785,7 +891,7 @@ TYPE                    L2_CHR_ARR                     VALID
 TYPE                    L3_CHR_ARR                     VALID
 TYPE                    L4_CHR_ARR                     VALID
 
-21 rows selected.
+23 rows selected.
 ```
 
 ###### App Schema Objects
@@ -804,12 +910,13 @@ SYNONYM                 L1_NUM_ARR                     VALID
 SYNONYM                 L2_CHR_ARR                     VALID
 SYNONYM                 L3_CHR_ARR                     VALID
 SYNONYM                 L4_CHR_ARR                     VALID
+SYNONYM                 LOG_LINES                      VALID
 SYNONYM                 TRAPIT                         VALID
 SYNONYM                 TRAPIT_RUN                     VALID
 SYNONYM                 UTILS                          VALID
 TABLE                   LINES_ET                       VALID
 
-13 rows selected.
+14 rows selected.
 ```
 
 #### Manual Installation
@@ -1141,7 +1248,7 @@ FUNCTION Purely_Wrap_Utils(
   l_message                      VARCHAR2(4000);
 BEGIN
 
-  l_act_2lis.EXTEND(16);
+  l_act_2lis.EXTEND(18);
   l_act_2lis(1) := heading(              p_value_2lis     => p_inp_3lis(1));
   l_act_2lis(2) := col_Headers(          p_value_2lis     => p_inp_3lis(2));
   l_act_2lis(3) := list_To_Line(         p_value_2lis     => p_inp_3lis(3));
@@ -1198,7 +1305,7 @@ Here is the results summary in HTML format:
 ##### Scenario 1: Small values [Category Set: Value Size]
 [&uarr; Step 3: Format Results](#step-3-format-results)<br />
 
-The textbox shows extracts of the results for the first scenario, with groups 1 and 16 shown for both input and output sections, and with output group 17, 'Unhandled Exception' being dynamically created by the library package to capture any unhandled exceptions.
+The textbox shows extracts of the results for the first scenario, with groups 1 and 16 shown for input and 1 and 18 for output section, and with output group 19, 'Unhandled Exception' being dynamically created by the library package to capture any unhandled exceptions.
 
 ```
 SCENARIO 1: Small values [Category Set: Value Size] {
@@ -1231,7 +1338,8 @@ SCENARIO 1: Small values [Category Set: Value Size] {
       } 0 failed of 2: SUCCESS
       ========================
       ...
-      GROUP 16: XPlan List (keyword extract) {
+
+      GROUP 18: XPlan List (keyword extract) {
       ========================================
             #  XPlan Line
             -  ----------------------------------------------------------------------
@@ -1240,10 +1348,9 @@ SCENARIO 1: Small values [Category Set: Value Size] {
             3  LIKE /Plan hash value: .+/: Plan hash value: 1388734953
       } 0 failed of 3: SUCCESS
       ========================
-      GROUP 17: Unhandled Exception: Empty as expected: SUCCESS
+      GROUP 19: Unhandled Exception: Empty as expected: SUCCESS
       =========================================================
-} 0 failed of 17: SUCCESS
-=========================
+} 0 failed of 19: SUCCESS
 ```
 You can review the formatted unit test results here, [Unit Test Report: Oracle PL/SQL Utilities](http://htmlpreview.github.io/?https://github.com/BrenPatF/oracle_plsql_utils/blob/master/unit_test/oracle-pl_sql-utilities/oracle-pl_sql-utilities.html), and the files are available in the `unit_test\oracle-pl_sql-utilities` subfolder [oracle-pl_sql-utilities.html is the root page for the HTML version and oracle-pl_sql-utilities.txt has the results in text format].
 ## Folder Structure

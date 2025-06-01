@@ -62,7 +62,8 @@ FUNCTION View_To_List(
             p_sel_value_lis                L1_chr_arr,
             p_where                        VARCHAR2 := NULL,
             p_order_by                     VARCHAR2 := '1',
-            p_delim                        VARCHAR2 := DELIM) 
+            p_delim                        VARCHAR2 := DELIM, 
+            p_hint                         VARCHAR2 := NULL)
             RETURN                         L1_chr_arr;
 FUNCTION Cursor_To_List(  
             x_csr                   IN OUT SYS_REFCURSOR, 
@@ -89,6 +90,10 @@ PROCEDURE Raise_Error(
             p_message                      VARCHAR2);
 PROCEDURE W(p_line                         VARCHAR2);
 PROCEDURE W(p_line_lis                     L1_chr_arr);
+PROCEDURE L(p_line                         VARCHAR2);
+PROCEDURE L(p_line_lis                     L1_chr_arr);
+PROCEDURE Pop_L;
+PROCEDURE Clear_L;
 
 PROCEDURE Delete_File(
             p_file_name                    VARCHAR2);

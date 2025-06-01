@@ -214,11 +214,13 @@ FUNCTION View_To_List(
             p_sel_value_lis                L1_chr_arr,        -- list of fields to select
             p_where                        VARCHAR2 := NULL,  -- optional where clause
             p_order_by                     VARCHAR2 := '1',   -- optional order by
-            p_delim                        VARCHAR2 := DELIM) -- optional delimiter
+            p_delim                        VARCHAR2 := DELIM, -- optional delimiter
+            p_hint                         VARCHAR2 := NULL)  -- optional hint
             RETURN                         L1_chr_arr IS      -- list of delimited result records
 
   l_cur            SYS_REFCURSOR;
-  l_sql_txt        VARCHAR2(32767) := 'SELECT Utils.Join_Values(L1_chr_arr(';
+  l_sql_txt        VARCHAR2(32767) := 'SELECT ' || Nvl2(p_hint, '/*+ ' || p_hint || ' */ ', '')
+                                                || 'Utils.Join_Values(L1_chr_arr(';
   l_result_lis     L1_chr_arr;
 
 BEGIN
@@ -485,6 +487,62 @@ BEGIN
     W(p_line_lis(i));
   END LOOP;
 END W;
+
+/***************************************************************************************************
+
+L: Overloaded procedure to write a line, or an array of lines, to log_lines
+
+***************************************************************************************************/
+PROCEDURE L(p_line                         VARCHAR2) IS -- line of text to write
+  PRAGMA AUTONOMOUS_TRANSACTION;
+  i           PLS_INTEGER := 0;
+BEGIN
+
+  LOOP
+    i := i + 1;
+    EXIT WHEN 1 + (i - 1) * 4000 > Length (p_line);
+    INSERT INTO log_lines (line, tmstp)
+    VALUES (Substr(p_line, 1 + (i - 1) * 4000, 4000), SYSTIMESTAMP);
+  END LOOP;
+  COMMIT;
+
+END L;
+
+PROCEDURE L(p_line_lis                     L1_chr_arr) IS -- array of lines of text to write
+BEGIN
+  FOR i IN 1..p_line_lis.COUNT LOOP
+    L(p_line_lis(i));
+  END LOOP;
+END L;
+
+/***************************************************************************************************
+
+L: Procedure to pop a line from log_lines
+
+***************************************************************************************************/
+PROCEDURE Pop_L IS
+  PRAGMA AUTONOMOUS_TRANSACTION;
+BEGIN
+
+  DELETE log_lines
+   WHERE id = (SELECT Max(id) FROM log_lines);
+  COMMIT;
+
+END Pop_L;
+
+/***************************************************************************************************
+
+Clear_L: Procedure to clear log_lines
+
+***************************************************************************************************/
+PROCEDURE Clear_L IS
+  PRAGMA AUTONOMOUS_TRANSACTION;
+BEGIN
+
+  DELETE log_lines;
+  COMMIT;
+
+END Clear_L;
 
 /***************************************************************************************************
 

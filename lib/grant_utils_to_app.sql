@@ -42,6 +42,7 @@ Grants applied:
     Execute             chr_int_rec              Object
     Execute             chr_int_arr              Array (VARRAY)
     Execute             Utils                    Package
+    All                 log_lines                Table
 
 ***************************************************************************************************/
 PROMPT Granting Utils components to &app...
@@ -53,5 +54,7 @@ GRANT EXECUTE ON chr_int_rec TO &app
 /
 GRANT EXECUTE ON chr_int_arr TO &app
 /
-GRANT EXECUTE ON Utils TO &app
+GRANT EXECUTE ON utils TO &app
+/
+GRANT ALL ON log_lines to &app
 /

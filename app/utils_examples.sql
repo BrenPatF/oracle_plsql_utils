@@ -15,7 +15,7 @@ a package that reads delimited lines from a file, and counts values in a given c
 to return the counts in various orderings. It is used as a simple example to illustrate usage of 
 Utils and, elsewhere, of other utility packages.
 ***************************************************************************************************/
-PROMPT Example of Utils.Heading, .Col_Headers, .List_To_Line, .W (VARCHAR2), .W (L1_chr_arr)
+PROMPT Example of Utils.Heading, .Col_Headers, .List_To_Line, .W, .L (VARCHAR2), .W, .L (L1_chr_arr)
 DECLARE
   l_res_arr              chr_int_arr;
 BEGIN
@@ -37,8 +37,33 @@ BEGIN
     )));
   END LOOP;
 
+  Utils.L(p_line_lis => Utils.Heading(p_head => 'Sort_By_Value'));
+
+  Utils.L(p_line_lis => Utils.Col_Headers(p_value_lis => chr_int_arr(chr_int_rec('Team', 30), 
+                                                                     chr_int_rec('Apps', -5)
+  )));
+
+  FOR i IN 1..l_res_arr.COUNT LOOP
+    Utils.L(p_line => Utils.List_To_Line(
+                          p_value_lis => chr_int_arr(chr_int_rec(l_res_arr(i).chr_value, 30), 
+                                                     chr_int_rec(l_res_arr(i).int_value, -5)
+    )));
+  END LOOP;
+
 END;
 /
+COLUMN line FORMAT A50
+COLUMN tmstp FORMAT A28
+
+PROMPT Read from LOG_LINES table
+SELECT *
+  FROM log_lines
+ ORDER BY id
+/
+
+PROMPT Clear LOG_LINES table using Utils.Clear_L
+EXEC Utils.Clear_L;
+
 PROMPT Example of Utils.View_To_List
 COLUMN csv FORMAT A60
 SELECT COLUMN_VALUE csv

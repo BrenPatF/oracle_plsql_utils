@@ -1,9 +1,9 @@
 
 Database             Time                 Version
 -------------------- -------------------- ------------------------------
-Start: FREE          26-OCT-2024 13:13:51 Version 23.4.0.24.05
+Start: FREE          01-JUN-2025 08:29:01 Version 23.4.0.24.05
 
-Example of Utils.Heading, .Col_Headers, .List_To_Line, .W (VARCHAR2), .W (L1_chr_arr)
+Example of Utils.Heading, .Col_Headers, .List_To_Line, .W, .L (VARCHAR2), .W, .L (L1_chr_arr)
 Sort_By_Value
 =============
 Team                             Apps
@@ -35,86 +35,128 @@ QPR                              1517
 
 PL/SQL procedure successfully completed.
 
+Read from LOG_LINES table
+
+        ID LINE                                               TMSTP
+---------- -------------------------------------------------- ----------------------------
+        58 Sort_By_Value                                      01-JUN-25 08.29.01.662110 AM
+        59 =============                                      01-JUN-25 08.29.01.662110 AM
+        60 Team                             Apps              01-JUN-25 08.29.01.662110 AM
+        61 ------------------------------  -----              01-JUN-25 08.29.01.662110 AM
+        62 team_name_1                         1              01-JUN-25 08.29.01.662110 AM
+        63 Wolves                             31              01-JUN-25 08.29.01.662110 AM
+        64 Blackburn                          33              01-JUN-25 08.29.01.662110 AM
+        65 Bolton                             37              01-JUN-25 08.29.01.662110 AM
+        66 Arsenal                           534              01-JUN-25 08.29.01.662110 AM
+        67 Aston Villa                       685              01-JUN-25 08.29.01.662110 AM
+        68 Wigan                            1036              01-JUN-25 08.29.01.662110 AM
+        69 Man City                         1099              01-JUN-25 08.29.01.662110 AM
+        70 Southampton                      1110              01-JUN-25 08.29.01.662110 AM
+        71 West Ham                         1126              01-JUN-25 08.29.01.662110 AM
+        72 Chelsea                          1147              01-JUN-25 08.29.01.662110 AM
+        73 Everton                          1147              01-JUN-25 08.29.01.662110 AM
+        74 Sunderland                       1162              01-JUN-25 08.29.01.677835 AM
+        75 Reading                          1167              01-JUN-25 08.29.01.677835 AM
+        76 Stoke City                       1170              01-JUN-25 08.29.01.677835 AM
+        77 Swansea                          1180              01-JUN-25 08.29.01.677835 AM
+        78 Fulham                           1209              01-JUN-25 08.29.01.677835 AM
+        79 West Brom                        1219              01-JUN-25 08.29.01.677835 AM
+        80 Liverpool                        1227              01-JUN-25 08.29.01.677835 AM
+        81 Norwich                          1229              01-JUN-25 08.29.01.677835 AM
+        82 Man Utd                          1231              01-JUN-25 08.29.01.677835 AM
+        83 Newcastle                        1247              01-JUN-25 08.29.01.677835 AM
+        84 Tottenham                        1288              01-JUN-25 08.29.01.677835 AM
+        85 QPR                              1517              01-JUN-25 08.29.01.677835 AM
+
+28 rows selected.
+
+Clear LOG_LINES table using Utils.Clear_L
+
+PL/SQL procedure successfully completed.
+
 Example of Utils.View_To_List
 
 CSV
 ------------------------------------------------------------
-CHR_INT_ARR|91717|26-OCT-24|2024-10-26:13:12:47
-CHR_INT_REC|91716|26-OCT-24|2024-10-26:13:12:47
-COL_GROUP|91720|26-OCT-24|2024-10-26:13:12:47
-COL_GROUP|91721|26-OCT-24|2024-10-26:13:12:47
-L1_CHR_ARR|91714|26-OCT-24|2024-10-26:13:12:47
-L1_NUM_ARR|91715|26-OCT-24|2024-10-26:13:12:47
-L2_CHR_ARR|91707|26-OCT-24|2024-10-26:13:12:46
-L3_CHR_ARR|91708|26-OCT-24|2024-10-26:13:12:46
-L4_CHR_ARR|91709|26-OCT-24|2024-10-26:13:12:46
-LINES_ET|91719|26-OCT-24|2024-10-26:13:12:47
-TRAPIT_RUN|91711|26-OCT-24|2024-10-26:13:12:46
-TRAPIT|91710|26-OCT-24|2024-10-26:13:12:46
-UTILS|91718|26-OCT-24|2024-10-26:13:12:47
+CHR_INT_ARR|128708|01-JUN-25|2025-06-01:08:26:40
+CHR_INT_REC|128707|01-JUN-25|2025-06-01:08:26:40
+COL_GROUP|128712|01-JUN-25|2025-06-01:08:26:40
+COL_GROUP|128713|01-JUN-25|2025-06-01:08:26:40
+L1_CHR_ARR|128705|01-JUN-25|2025-06-01:08:26:40
+L1_NUM_ARR|128706|01-JUN-25|2025-06-01:08:26:40
+L2_CHR_ARR|128698|01-JUN-25|2025-06-01:08:26:39
+L3_CHR_ARR|128699|01-JUN-25|2025-06-01:08:26:39
+L4_CHR_ARR|128700|01-JUN-25|2025-06-01:08:26:39
+LINES_ET|128711|01-JUN-25|2025-06-01:08:26:40
+LOG_LINES|128710|01-JUN-25|2025-06-01:08:26:40
+TRAPIT_RUN|128702|01-JUN-25|2025-06-01:08:26:39
+TRAPIT|128701|01-JUN-25|2025-06-01:08:26:39
+UTILS|128709|01-JUN-25|2025-06-01:08:26:40
 
-13 rows selected.
+14 rows selected.
 
 Example of Utils.Cursor_To_List, .Split_Values, .Join_Values (list), .Join_Values (scalars)
 .
 Utils.Cursor_To_List on user_objects...
 =======================================
-CHR_INT_ARR|91717|26-OCT-24|2024-10-26:13:12:47
-CHR_INT_REC|91716|26-OCT-24|2024-10-26:13:12:47
-COL_GROUP|91720|26-OCT-24|2024-10-26:13:12:47
-COL_GROUP|91721|26-OCT-24|2024-10-26:13:12:47
-L1_CHR_ARR|91714|26-OCT-24|2024-10-26:13:12:47
-L1_NUM_ARR|91715|26-OCT-24|2024-10-26:13:12:47
-L2_CHR_ARR|91707|26-OCT-24|2024-10-26:13:12:46
-L3_CHR_ARR|91708|26-OCT-24|2024-10-26:13:12:46
-L4_CHR_ARR|91709|26-OCT-24|2024-10-26:13:12:46
-LINES_ET|91719|26-OCT-24|2024-10-26:13:12:47
-TRAPIT|91710|26-OCT-24|2024-10-26:13:12:46
-TRAPIT_RUN|91711|26-OCT-24|2024-10-26:13:12:46
-UTILS|91718|26-OCT-24|2024-10-26:13:12:47
+CHR_INT_ARR|128708|01-JUN-25|2025-06-01:08:26:40
+CHR_INT_REC|128707|01-JUN-25|2025-06-01:08:26:40
+COL_GROUP|128712|01-JUN-25|2025-06-01:08:26:40
+COL_GROUP|128713|01-JUN-25|2025-06-01:08:26:40
+L1_CHR_ARR|128705|01-JUN-25|2025-06-01:08:26:40
+L1_NUM_ARR|128706|01-JUN-25|2025-06-01:08:26:40
+L2_CHR_ARR|128698|01-JUN-25|2025-06-01:08:26:39
+L3_CHR_ARR|128699|01-JUN-25|2025-06-01:08:26:39
+L4_CHR_ARR|128700|01-JUN-25|2025-06-01:08:26:39
+LINES_ET|128711|01-JUN-25|2025-06-01:08:26:40
+LOG_LINES|128710|01-JUN-25|2025-06-01:08:26:40
+TRAPIT|128701|01-JUN-25|2025-06-01:08:26:39
+TRAPIT_RUN|128702|01-JUN-25|2025-06-01:08:26:39
+UTILS|128709|01-JUN-25|2025-06-01:08:26:40
 .
 Utils.Prep_Cursor, .Pipe_Cursor on user_objects...
 ==================================================
 Cursor prepared, now fetch...
-CHR_INT_ARR|91717|26-OCT-24|2024-10-26:13:12:47
-CHR_INT_REC|91716|26-OCT-24|2024-10-26:13:12:47
-COL_GROUP|91720|26-OCT-24|2024-10-26:13:12:47
-COL_GROUP|91721|26-OCT-24|2024-10-26:13:12:47
-L1_CHR_ARR|91714|26-OCT-24|2024-10-26:13:12:47
-L1_NUM_ARR|91715|26-OCT-24|2024-10-26:13:12:47
-L2_CHR_ARR|91707|26-OCT-24|2024-10-26:13:12:46
-L3_CHR_ARR|91708|26-OCT-24|2024-10-26:13:12:46
-L4_CHR_ARR|91709|26-OCT-24|2024-10-26:13:12:46
-LINES_ET|91719|26-OCT-24|2024-10-26:13:12:47
-TRAPIT|91710|26-OCT-24|2024-10-26:13:12:46
-TRAPIT_RUN|91711|26-OCT-24|2024-10-26:13:12:46
-UTILS|91718|26-OCT-24|2024-10-26:13:12:47
+CHR_INT_ARR|128708|01-JUN-25|2025-06-01:08:26:40
+CHR_INT_REC|128707|01-JUN-25|2025-06-01:08:26:40
+COL_GROUP|128712|01-JUN-25|2025-06-01:08:26:40
+COL_GROUP|128713|01-JUN-25|2025-06-01:08:26:40
+L1_CHR_ARR|128705|01-JUN-25|2025-06-01:08:26:40
+L1_NUM_ARR|128706|01-JUN-25|2025-06-01:08:26:40
+L2_CHR_ARR|128698|01-JUN-25|2025-06-01:08:26:39
+L3_CHR_ARR|128699|01-JUN-25|2025-06-01:08:26:39
+L4_CHR_ARR|128700|01-JUN-25|2025-06-01:08:26:39
+LINES_ET|128711|01-JUN-25|2025-06-01:08:26:40
+LOG_LINES|128710|01-JUN-25|2025-06-01:08:26:40
+TRAPIT|128701|01-JUN-25|2025-06-01:08:26:39
+TRAPIT_RUN|128702|01-JUN-25|2025-06-01:08:26:39
+UTILS|128709|01-JUN-25|2025-06-01:08:26:40
 .
 Utils.Split_Values on first line...
 ===================================
 CHR_INT_ARR
-91717
-26-OCT-24
-2024-10-26:13:12:47
+128708
+01-JUN-25
+2025-06-01:08:26:40
 .
 Utils.Join_Values on first line, passing list, with "," delimiter...
 ====================================================================
-CHR_INT_ARR,91717,26-OCT-24,2024-10-26:13:12:47
+CHR_INT_ARR,128708,01-JUN-25,2025-06-01:08:26:40
 .
 Utils.Join_Values on first line, passing first three values...
 ==============================================================
-CHR_INT_ARR|91717|26-OCT-24
+CHR_INT_ARR|128708|01-JUN-25
 
 PL/SQL procedure successfully completed.
 
 Example of Utils.Sleep, .IntervalDS_To_Seconds, sleeping for 1.2s of which 0.36s CPU
-Elapsed time is 1.211851
-CPU time is .12
+Elapsed time is 1.217159
+CPU time is .35
 DECLARE
 *
 ERROR at line 1:
 ORA-20000: Example of raising error via Raise_Error
-ORA-06512: at "LIB.UTILS", line 465
+ORA-06512: at "LIB.UTILS", line 467
 ORA-06512: at line 10
 
 
@@ -175,5 +217,5 @@ PL/SQL procedure successfully completed.
 
 'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
 ----------------------------------
-End: 26-OCT-2024 13:13:54
+End: 01-JUN-2025 08:29:03
 

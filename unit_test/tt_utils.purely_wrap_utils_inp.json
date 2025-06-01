@@ -67,9 +67,9 @@
             "View Name",
             "View Where",
             "View Order By",
-            "W Line"
+            "W/L Line"
          ],
-         "W (List)":[
+         "W/L (List)": [
             "Line"
          ],
          "File I/O":[
@@ -129,6 +129,12 @@
          "W (List)":[
             "Line"
          ],
+         "L (Line)":[
+            "Line"
+         ],
+         "L (List)":[
+            "Line"
+         ],
          "File I/O":[
             "#Lines",
             "Line 1",
@@ -183,7 +189,7 @@
             "Scalars":[
                ",;user_types;regexp_like(type_name, '(CHR|L\\d).+(ARR|REC)');type_name DESC;t"
             ],
-            "W (List)":[
+            "W/L (List)":[
                "L"
             ],
             "File I/O":[
@@ -256,6 +262,12 @@
             "W (List)":[
                "L"
             ],
+            "L (Line)":[
+               "t"
+            ],
+            "L (List)":[
+               "L"
+            ],
             "File I/O":[
                "0;;"
             ],
@@ -315,7 +327,7 @@
             "Scalars":[
                ",;user_objects;regexp_like(object_name, '(CHR|L\\d).+(ARR|REC)|TT_UNITS');;text line1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890"
             ],
-            "W (List)":[
+            "W/L (List)":[
                "1-line text list",
                "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890"
             ],
@@ -397,6 +409,13 @@
                "1-line text list",
                "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890"
             ],
+            "L (Line)":[
+               "text line1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890"
+            ],
+            "L (List)":[
+               "1-line text list",
+               "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890"
+            ],
             "File I/O":[
                "1;1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890;"
             ],
@@ -450,7 +469,7 @@
             "Scalars":[
                ",;user_types;regexp_like(type_name, '(CHR|L\\d).+(REC)');type_name DESC;text line"
             ],
-            "W (List)":[
+            "W/L (List)":[
                "1-line text list"
             ],
             "File I/O":[
@@ -494,7 +513,7 @@
                "0"
             ],
             "Sleep":[
-               "IN [0.9,1.1];IN [0.01,0.51]"
+               "IN [0.9,1.1];IN [0.01,0.6]"
             ],
             "Exception":[
                "Raise_Error;ORA-20000: Test message"
@@ -503,6 +522,12 @@
                "text line"
             ],
             "W (List)":[
+               "1-line text list"
+            ],
+            "L (Line)":[
+               "text line"
+            ],
+            "L (List)":[
                "1-line text list"
             ],
             "File I/O":[
@@ -708,7 +733,7 @@
                "created_vsnid",
                "modified_appid",
                "modified_vsnid"
-	    ],
+	         ],
             "Cursor To List":[
                "select object_name,subobject_name,object_id,data_object_id,object_type,created,last_ddl_time,timestamp,status,temporary,generated,secondary,namespace,edition_name,sharing,editionable,oracle_maintained,application,default_collation,duplicated,sharded,created_appid,created_vsnid,modified_appid,modified_vsnid from user_objects order by 1;(CHR|L\\d).+(ARR|REC)|TT_UNITS"
             ],
@@ -724,7 +749,7 @@
             "Scalars":[
                ";user_objects;regexp_like(object_name, '(CHR|L\\d).+(ARR|REC)|TT_UNITS');;"
             ],
-            "W (List)":[
+            "W/L (List)":[
                "Line text 1",
                "Line text 2",
                "Line text 3",
@@ -939,6 +964,59 @@
                "Line text 48",
                "Line text 49",
                "Line text 50"],
+            "L (Line)":[
+            ],
+            "L (List)":[
+               "Line text 1",
+               "Line text 2",
+               "Line text 3",
+               "Line text 4",
+               "Line text 5",
+               "Line text 6",
+               "Line text 7",
+               "Line text 8",
+               "Line text 9",
+               "Line text 10",
+               "Line text 11",
+               "Line text 12",
+               "Line text 13",
+               "Line text 14",
+               "Line text 15",
+               "Line text 16",
+               "Line text 17",
+               "Line text 18",
+               "Line text 19",
+               "Line text 20",
+               "Line text 21",
+               "Line text 22",
+               "Line text 23",
+               "Line text 24",
+               "Line text 25",
+               "Line text 26",
+               "Line text 27",
+               "Line text 28",
+               "Line text 29",
+               "Line text 30",
+               "Line text 31",
+               "Line text 32",
+               "Line text 33",
+               "Line text 34",
+               "Line text 35",
+               "Line text 36",
+               "Line text 37",
+               "Line text 38",
+               "Line text 39",
+               "Line text 40",
+               "Line text 41",
+               "Line text 42",
+               "Line text 43",
+               "Line text 44",
+               "Line text 45",
+               "Line text 46",
+               "Line text 47",
+               "Line text 48",
+               "Line text 49",
+               "Line text 50"],
             "File I/O":[
                "2;Line 1;Line 2"
             ],
@@ -988,7 +1066,7 @@
             "Scalars":[
                ",;BAD_user_types;regexp_like(type_name, '(CHR|L\\d).+(ARR|REC)|TT_UNITS');;"
             ],
-            "W (List)":[
+            "W/L (List)":[
             ],
             "File I/O":[
             ],
@@ -1026,6 +1104,10 @@
             "W (Line)":[
             ],
             "W (List)":[
+            ],
+            "L (Line)":[
+            ],
+            "L (List)":[
             ],
             "File I/O":[
             ],

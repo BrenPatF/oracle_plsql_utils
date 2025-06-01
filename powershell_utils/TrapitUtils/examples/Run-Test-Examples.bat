@@ -1,1 +1,0 @@
-pwsh .\Run-Test-Examples.ps1  > .\Run-Test-Examples.out 2> .\Run-Test-Examples.err

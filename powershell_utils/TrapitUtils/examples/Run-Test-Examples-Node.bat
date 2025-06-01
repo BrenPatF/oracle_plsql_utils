@@ -1,1 +1,0 @@
-pwsh .\Run-Test-Examples-Node.ps1  > .\Run-Test-Examples-Node.out 2> .\Run-Test-Examples-Node.err

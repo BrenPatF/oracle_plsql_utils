@@ -130,11 +130,11 @@ h4 {margin-top: 0em; margin-bottom: 0em;
 <h4></h4>
 <h4>GROUP 13: Scalars</h4>
 <table>
-<tr><th>#</th><th>Delimiter</th><th>View Name</th><th>View Where</th><th>View Order By</th><th>W Line</th></tr>
+<tr><th>#</th><th>Delimiter</th><th>View Name</th><th>View Where</th><th>View Order By</th><th>W/L Line</th></tr>
 <tr><td>1</td><td>,</td><td>user_objects</td><td>regexp_like(object_name, '(CHR|L\d).+(ARR|REC)|TT_UNITS')</td><td></td><td>text line1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</td></tr>
 </table>
 <h4></h4>
-<h4>GROUP 14: W (List)</h4>
+<h4>GROUP 14: W/L (List)</h4>
 <table>
 <tr><th>#</th><th>Line</th></tr>
 <tr><td>1</td><td>1-line text list</td></tr>
@@ -199,40 +199,40 @@ h4 {margin-top: 0em; margin-bottom: 0em;
 <h4>GROUP 7: View To List</h4>
 <table>
 <tr><th>#</th><th>Delimited String</th></tr>
-<tr><td>1</td><td>LIKE /CHR_INT_ARR,\d+?,\d.+\d,\d.+\d/: CHR_INT_ARR,91691,26-OCT-2024,2024-10-26:13:12:45</td></tr>
-<tr><td>2</td><td>LIKE /CHR_INT_REC,\d+?,\d.+\d,\d.+\d/: CHR_INT_REC,91690,26-OCT-2024,2024-10-26:13:12:45</td></tr>
-<tr><td>3</td><td>LIKE /L1_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L1_CHR_ARR,91688,26-OCT-2024,2024-10-26:13:12:45</td></tr>
-<tr><td>4</td><td>LIKE /L1_NUM_ARR,\d+?,\d.+\d,\d.+\d/: L1_NUM_ARR,91689,26-OCT-2024,2024-10-26:13:12:45</td></tr>
-<tr><td>5</td><td>LIKE /L2_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L2_CHR_ARR,91694,26-OCT-2024,2024-10-26:13:12:46</td></tr>
-<tr><td>6</td><td>LIKE /L3_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L3_CHR_ARR,91695,26-OCT-2024,2024-10-26:13:12:46</td></tr>
-<tr><td>7</td><td>LIKE /L4_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L4_CHR_ARR,91696,26-OCT-2024,2024-10-26:13:12:46</td></tr>
-<tr><td>8</td><td>LIKE /TT_UNITS,\d+?,\d.+\d,\d.+\d/: TT_UNITS,91697,26-OCT-2024,2024-10-26:13:12:46</td></tr>
+<tr><td>1</td><td>LIKE /CHR_INT_ARR,\d+?,\d.+\d,\d.+\d/: CHR_INT_ARR,128682,01-JUN-2025,2025-06-01:08:26:39</td></tr>
+<tr><td>2</td><td>LIKE /CHR_INT_REC,\d+?,\d.+\d,\d.+\d/: CHR_INT_REC,128681,01-JUN-2025,2025-06-01:08:26:39</td></tr>
+<tr><td>3</td><td>LIKE /L1_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L1_CHR_ARR,128679,01-JUN-2025,2025-06-01:08:26:39</td></tr>
+<tr><td>4</td><td>LIKE /L1_NUM_ARR,\d+?,\d.+\d,\d.+\d/: L1_NUM_ARR,128680,01-JUN-2025,2025-06-01:08:26:39</td></tr>
+<tr><td>5</td><td>LIKE /L2_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L2_CHR_ARR,128685,01-JUN-2025,2025-06-01:08:26:39</td></tr>
+<tr><td>6</td><td>LIKE /L3_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L3_CHR_ARR,128686,01-JUN-2025,2025-06-01:08:26:39</td></tr>
+<tr><td>7</td><td>LIKE /L4_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L4_CHR_ARR,128687,01-JUN-2025,2025-06-01:08:26:39</td></tr>
+<tr><td>8</td><td>LIKE /TT_UNITS,\d+?,\d.+\d,\d.+\d/: TT_UNITS,128688,01-JUN-2025,2025-06-01:08:26:39</td></tr>
 </table>
 <h4>0 failed of 8: SUCCESS</h4>
 <h4>GROUP 8: Cursor To List</h4>
 <table>
 <tr><th>#</th><th>Delimited String</th></tr>
-<tr><td>1</td><td>LIKE /CHR_INT_ARR,\d+?,\d.+\d,\d.+\d/: CHR_INT_ARR,91691,26-OCT-2024,2024-10-26:13:12:45</td></tr>
-<tr><td>2</td><td>LIKE /CHR_INT_REC,\d+?,\d.+\d,\d.+\d/: CHR_INT_REC,91690,26-OCT-2024,2024-10-26:13:12:45</td></tr>
-<tr><td>3</td><td>LIKE /L1_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L1_CHR_ARR,91688,26-OCT-2024,2024-10-26:13:12:45</td></tr>
-<tr><td>4</td><td>LIKE /L1_NUM_ARR,\d+?,\d.+\d,\d.+\d/: L1_NUM_ARR,91689,26-OCT-2024,2024-10-26:13:12:45</td></tr>
-<tr><td>5</td><td>LIKE /L2_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L2_CHR_ARR,91694,26-OCT-2024,2024-10-26:13:12:46</td></tr>
-<tr><td>6</td><td>LIKE /L3_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L3_CHR_ARR,91695,26-OCT-2024,2024-10-26:13:12:46</td></tr>
-<tr><td>7</td><td>LIKE /L4_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L4_CHR_ARR,91696,26-OCT-2024,2024-10-26:13:12:46</td></tr>
-<tr><td>8</td><td>LIKE /TT_UNITS,\d+?,\d.+\d,\d.+\d/: TT_UNITS,91697,26-OCT-2024,2024-10-26:13:12:46</td></tr>
+<tr><td>1</td><td>LIKE /CHR_INT_ARR,\d+?,\d.+\d,\d.+\d/: CHR_INT_ARR,128682,01-JUN-2025,2025-06-01:08:26:39</td></tr>
+<tr><td>2</td><td>LIKE /CHR_INT_REC,\d+?,\d.+\d,\d.+\d/: CHR_INT_REC,128681,01-JUN-2025,2025-06-01:08:26:39</td></tr>
+<tr><td>3</td><td>LIKE /L1_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L1_CHR_ARR,128679,01-JUN-2025,2025-06-01:08:26:39</td></tr>
+<tr><td>4</td><td>LIKE /L1_NUM_ARR,\d+?,\d.+\d,\d.+\d/: L1_NUM_ARR,128680,01-JUN-2025,2025-06-01:08:26:39</td></tr>
+<tr><td>5</td><td>LIKE /L2_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L2_CHR_ARR,128685,01-JUN-2025,2025-06-01:08:26:39</td></tr>
+<tr><td>6</td><td>LIKE /L3_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L3_CHR_ARR,128686,01-JUN-2025,2025-06-01:08:26:39</td></tr>
+<tr><td>7</td><td>LIKE /L4_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L4_CHR_ARR,128687,01-JUN-2025,2025-06-01:08:26:39</td></tr>
+<tr><td>8</td><td>LIKE /TT_UNITS,\d+?,\d.+\d,\d.+\d/: TT_UNITS,128688,01-JUN-2025,2025-06-01:08:26:39</td></tr>
 </table>
 <h4>0 failed of 8: SUCCESS</h4>
 <h4>GROUP 9: Cursor To Pipe</h4>
 <table>
 <tr><th>#</th><th>Delimited String</th></tr>
-<tr><td>1</td><td>LIKE /CHR_INT_ARR,\d+?,\d.+\d,\d.+\d/: CHR_INT_ARR,91691,26-OCT-2024,2024-10-26:13:12:45</td></tr>
-<tr><td>2</td><td>LIKE /CHR_INT_REC,\d+?,\d.+\d,\d.+\d/: CHR_INT_REC,91690,26-OCT-2024,2024-10-26:13:12:45</td></tr>
-<tr><td>3</td><td>LIKE /L1_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L1_CHR_ARR,91688,26-OCT-2024,2024-10-26:13:12:45</td></tr>
-<tr><td>4</td><td>LIKE /L1_NUM_ARR,\d+?,\d.+\d,\d.+\d/: L1_NUM_ARR,91689,26-OCT-2024,2024-10-26:13:12:45</td></tr>
-<tr><td>5</td><td>LIKE /L2_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L2_CHR_ARR,91694,26-OCT-2024,2024-10-26:13:12:46</td></tr>
-<tr><td>6</td><td>LIKE /L3_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L3_CHR_ARR,91695,26-OCT-2024,2024-10-26:13:12:46</td></tr>
-<tr><td>7</td><td>LIKE /L4_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L4_CHR_ARR,91696,26-OCT-2024,2024-10-26:13:12:46</td></tr>
-<tr><td>8</td><td>LIKE /TT_UNITS,\d+?,\d.+\d,\d.+\d/: TT_UNITS,91697,26-OCT-2024,2024-10-26:13:12:46</td></tr>
+<tr><td>1</td><td>LIKE /CHR_INT_ARR,\d+?,\d.+\d,\d.+\d/: CHR_INT_ARR,128682,01-JUN-2025,2025-06-01:08:26:39</td></tr>
+<tr><td>2</td><td>LIKE /CHR_INT_REC,\d+?,\d.+\d,\d.+\d/: CHR_INT_REC,128681,01-JUN-2025,2025-06-01:08:26:39</td></tr>
+<tr><td>3</td><td>LIKE /L1_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L1_CHR_ARR,128679,01-JUN-2025,2025-06-01:08:26:39</td></tr>
+<tr><td>4</td><td>LIKE /L1_NUM_ARR,\d+?,\d.+\d,\d.+\d/: L1_NUM_ARR,128680,01-JUN-2025,2025-06-01:08:26:39</td></tr>
+<tr><td>5</td><td>LIKE /L2_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L2_CHR_ARR,128685,01-JUN-2025,2025-06-01:08:26:39</td></tr>
+<tr><td>6</td><td>LIKE /L3_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L3_CHR_ARR,128686,01-JUN-2025,2025-06-01:08:26:39</td></tr>
+<tr><td>7</td><td>LIKE /L4_CHR_ARR,\d+?,\d.+\d,\d.+\d/: L4_CHR_ARR,128687,01-JUN-2025,2025-06-01:08:26:39</td></tr>
+<tr><td>8</td><td>LIKE /TT_UNITS,\d+?,\d.+\d,\d.+\d/: TT_UNITS,128688,01-JUN-2025,2025-06-01:08:26:39</td></tr>
 </table>
 <h4>0 failed of 8: SUCCESS</h4>
 <h4>GROUP 10: Interval To Seconds</h4>
@@ -244,7 +244,7 @@ h4 {margin-top: 0em; margin-bottom: 0em;
 <h4>GROUP 11: Sleep</h4>
 <table>
 <tr><th>#</th><th>Elapsed Seconds</th><th>CPU Seconds</th></tr>
-<tr><td>1</td><td>IN [1.9,2.1]: 1.999814</td><td>IN [0.02,0.21]: .08</td></tr>
+<tr><td>1</td><td>IN [1.9,2.1]: 2.013146</td><td>IN [0.02,0.21]: .21</td></tr>
 </table>
 <h4>0 failed of 1: SUCCESS</h4>
 <h4>GROUP 12: Exception</h4>
@@ -266,13 +266,26 @@ h4 {margin-top: 0em; margin-bottom: 0em;
 <tr><td>2</td><td>1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</td></tr>
 </table>
 <h4>0 failed of 2: SUCCESS</h4>
-<h4>GROUP 15: File I/O</h4>
+<h4>GROUP 15: L (Line)</h4>
+<table>
+<tr><th>#</th><th>Line</th></tr>
+<tr><td>1</td><td>text line1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</td></tr>
+</table>
+<h4>0 failed of 1: SUCCESS</h4>
+<h4>GROUP 16: L (List)</h4>
+<table>
+<tr><th>#</th><th>Line</th></tr>
+<tr><td>1</td><td>1-line text list</td></tr>
+<tr><td>2</td><td>1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</td></tr>
+</table>
+<h4>0 failed of 2: SUCCESS</h4>
+<h4>GROUP 17: File I/O</h4>
 <table>
 <tr><th>#</th><th>#Lines</th><th>Line 1</th><th>Line 2</th></tr>
 <tr><td>1</td><td>1</td><td>1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</td><td></td></tr>
 </table>
 <h4>0 failed of 1: SUCCESS</h4>
-<h4>GROUP 16: XPlan List (keyword extract)</h4>
+<h4>GROUP 18: XPlan List (keyword extract)</h4>
 <table>
 <tr><th>#</th><th>XPlan Line</th></tr>
 <tr><td>1</td><td>LIKE /SQL_ID.+, child number.+/: SQL_ID  9tmmb5rfzdvdd, child number 0</td></tr>
@@ -280,6 +293,6 @@ h4 {margin-top: 0em; margin-bottom: 0em;
 <tr><td>3</td><td>LIKE /Plan hash value: .+/: Plan hash value: 2193768776</td></tr>
 </table>
 <h4>0 failed of 3: SUCCESS</h4>
-<h4>GROUP 17: Unhandled Exception: Empty as expected: SUCCESS</h4>
-<h2>0 failed of 17: SUCCESS</h2>
+<h4>GROUP 19: Unhandled Exception: Empty as expected: SUCCESS</h4>
+<h2>0 failed of 19: SUCCESS</h2>
 </body></html>

@@ -1,4 +1,4 @@
-26-Oct-24 13:12:39
+01-Jun-25 08:26:37
 First try to copy files to input folder...
 The item c:/input is a folder, copy there...
 Copied ./unit_test/tt_utils.purely_wrap_utils_inp.json to c:/input
@@ -7,48 +7,48 @@ Copied ./fantasy_premier_league_player_stats.csv to c:/input
 Name                           Value
 ----                           -----
 schema                         sys
-script                         drop_utils_users
 prmLis                         {lib, app}
+script                         drop_utils_users
 folder                         .
 schema                         sys
-script                         install_sys
 prmLis                         {lib, app, c:/input}
+script                         install_sys
 folder                         .
 schema                         lib
-script                         install_utils
 prmLis                         {app}
+script                         install_utils
 folder                         lib
 schema                         lib
-script                         install_lib_all
 prmLis                         {app}
+script                         install_lib_all
 folder                         install_ut_prereq\lib
 schema                         app
-script                         c_syns_all
 prmLis                         {lib}
+script                         c_syns_all
 folder                         install_ut_prereq\app
 schema                         lib
-script                         install_utils_tt
 prmLis                         {}
+script                         install_utils_tt
 folder                         lib
 schema                         app
-script                         install_col_group
 prmLis                         {lib}
+script                         install_col_group
 folder                         app
 schema                         sys
-script                         l_objects
 prmLis                         {sys}
+script                         l_objects
 folder                         .
 schema                         lib
-script                         l_objects
 prmLis                         {lib}
+script                         l_objects
 folder                         .
 schema                         app
-script                         l_objects
 prmLis                         {app}
+script                         l_objects
 folder                         .
 Executing: @./drop_utils_users for connection sys/sys@orclpdb AS SYSDBA
 
-SQL*Plus: Release 23.0.0.0.0 - Production on Sat Oct 26 13:12:41 2024
+SQL*Plus: Release 23.0.0.0.0 - Production on Sun Jun 1 08:26:37 2025
 Version 23.4.0.24.05
 
 Copyright (c) 1982, 2024, Oracle.  All rights reserved.
@@ -61,7 +61,7 @@ Version 23.4.0.24.05
 
 Database	     Time		  Version
 -------------------- -------------------- ------------------------------
-Start: FREE	     26-OCT-2024 13:12:41 Version 23.4.0.24.05
+Start: FREE	     01-JUN-2025 08:26:37 Version 23.4.0.24.05
 
 Drop lib and app
 old   1: DROP USER &LIB_USER CASCADE
@@ -81,13 +81,13 @@ Directory dropped.
 
 'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
 ----------------------------------
-End: 26-OCT-2024 13:12:45
+End: 01-JUN-2025 08:26:38
 
 Disconnected from Oracle Database 23ai Free Release 23.0.0.0.0 - Production
 Version 23.4.0.24.05
 Executing: @./install_sys for connection sys/sys@orclpdb AS SYSDBA
 
-SQL*Plus: Release 23.0.0.0.0 - Production on Sat Oct 26 13:12:45 2024
+SQL*Plus: Release 23.0.0.0.0 - Production on Sun Jun 1 08:26:38 2025
 Version 23.4.0.24.05
 
 Copyright (c) 1982, 2024, Oracle.  All rights reserved.
@@ -100,7 +100,7 @@ Version 23.4.0.24.05
 
 Database	     Time		  Version
 -------------------- -------------------- ------------------------------
-Start: FREE	     26-OCT-2024 13:12:45 Version 23.4.0.24.05
+Start: FREE	     01-JUN-2025 08:26:38 Version 23.4.0.24.05
 
 Create directory input_dir
 
@@ -278,13 +278,13 @@ Grant succeeded.
 
 'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
 ----------------------------------
-End: 26-OCT-2024 13:12:45
+End: 01-JUN-2025 08:26:39
 
 Disconnected from Oracle Database 23ai Free Release 23.0.0.0.0 - Production
 Version 23.4.0.24.05
 Executing: @./install_utils for connection lib/lib@orclpdb
 
-SQL*Plus: Release 23.0.0.0.0 - Production on Sat Oct 26 13:12:45 2024
+SQL*Plus: Release 23.0.0.0.0 - Production on Sun Jun 1 08:26:39 2025
 Version 23.4.0.24.05
 
 Copyright (c) 1982, 2024, Oracle.  All rights reserved.
@@ -297,7 +297,16 @@ Version 23.4.0.24.05
 
 Database	     Time		  Version
 -------------------- -------------------- ------------------------------
-Start: FREE	     26-OCT-2024 13:12:45 Version 23.4.0.24.05
+Start: FREE	     01-JUN-2025 08:26:39 Version 23.4.0.24.05
+
+Table creation
+====================
+Create table log_lines
+
+Table dropped.
+
+
+Table created.
 
 Common type creation
 ====================
@@ -309,12 +318,8 @@ Create type L1_num_arr
 
 Type created.
 
-DROP TYPE chr_int_arr
-*
-ERROR at line 1:
-ORA-04043: Object CHR_INT_ARR does not exist.
-Help: https://docs.oracle.com/error-help/db/ora-04043/
 
+Type dropped.
 
 
 Type created.
@@ -358,26 +363,31 @@ new   1: GRANT EXECUTE ON chr_int_arr TO app
 
 Grant succeeded.
 
-old   1: GRANT EXECUTE ON Utils TO &app
-new   1: GRANT EXECUTE ON Utils TO app
+old   1: GRANT EXECUTE ON utils TO &app
+new   1: GRANT EXECUTE ON utils TO app
+
+Grant succeeded.
+
+old   1: GRANT ALL ON log_lines to &app
+new   1: GRANT ALL ON log_lines to app
 
 Grant succeeded.
 
 
 'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
 ----------------------------------
-End: 26-OCT-2024 13:12:45
+End: 01-JUN-2025 08:26:39
 
 Disconnected from Oracle Database 23ai Free Release 23.0.0.0.0 - Production
 Version 23.4.0.24.05
 Executing: @./install_lib_all for connection lib/lib@orclpdb
 
-SQL*Plus: Release 23.0.0.0.0 - Production on Sat Oct 26 13:12:46 2024
+SQL*Plus: Release 23.0.0.0.0 - Production on Sun Jun 1 08:26:39 2025
 Version 23.4.0.24.05
 
 Copyright (c) 1982, 2024, Oracle.  All rights reserved.
 
-Last Successful login time: Sat Oct 26 2024 13:12:45 +01:00
+Last Successful login time: Sun Jun 01 2025 08:26:39 +01:00
 
 Connected to:
 Oracle Database 23ai Free Release 23.0.0.0.0 - Production
@@ -386,7 +396,7 @@ Version 23.4.0.24.05
 
 Database	     Time		  Version
 -------------------- -------------------- ------------------------------
-Start: FREE	     26-OCT-2024 13:12:46 Version 23.4.0.24.05
+Start: FREE	     01-JUN-2025 08:26:39 Version 23.4.0.24.05
 
 Drop table tt_units
 DROP TABLE tt_units
@@ -488,13 +498,13 @@ Grant succeeded.
 
 'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
 ----------------------------------
-End: 26-OCT-2024 13:12:46
+End: 01-JUN-2025 08:26:39
 
 Disconnected from Oracle Database 23ai Free Release 23.0.0.0.0 - Production
 Version 23.4.0.24.05
 Executing: @./c_syns_all for connection app/app@orclpdb
 
-SQL*Plus: Release 23.0.0.0.0 - Production on Sat Oct 26 13:12:46 2024
+SQL*Plus: Release 23.0.0.0.0 - Production on Sun Jun 1 08:26:39 2025
 Version 23.4.0.24.05
 
 Copyright (c) 1982, 2024, Oracle.  All rights reserved.
@@ -534,12 +544,12 @@ Disconnected from Oracle Database 23ai Free Release 23.0.0.0.0 - Production
 Version 23.4.0.24.05
 Executing: @./install_utils_tt for connection lib/lib@orclpdb
 
-SQL*Plus: Release 23.0.0.0.0 - Production on Sat Oct 26 13:12:46 2024
+SQL*Plus: Release 23.0.0.0.0 - Production on Sun Jun 1 08:26:40 2025
 Version 23.4.0.24.05
 
 Copyright (c) 1982, 2024, Oracle.  All rights reserved.
 
-Last Successful login time: Sat Oct 26 2024 13:12:46 +01:00
+Last Successful login time: Sun Jun 01 2025 08:26:39 +01:00
 
 Connected to:
 Oracle Database 23ai Free Release 23.0.0.0.0 - Production
@@ -548,7 +558,7 @@ Version 23.4.0.24.05
 
 Database	     Time		  Version
 -------------------- -------------------- ------------------------------
-Start: FREE	     26-OCT-2024 13:12:46 Version 23.4.0.24.05
+Start: FREE	     01-JUN-2025 08:26:40 Version 23.4.0.24.05
 
 Add the tt_units record, reading in JSON file from INPUT_DIR
 old   4:   Trapit.Add_Ttu('TT_UTILS', 'Purely_Wrap_Utils', '&LIB', 'Y', 'tt_utils.purely_wrap_utils_inp.json');
@@ -567,18 +577,18 @@ No errors.
 
 'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
 ----------------------------------
-End: 26-OCT-2024 13:12:46
+End: 01-JUN-2025 08:26:40
 
 Disconnected from Oracle Database 23ai Free Release 23.0.0.0.0 - Production
 Version 23.4.0.24.05
 Executing: @./install_col_group for connection app/app@orclpdb
 
-SQL*Plus: Release 23.0.0.0.0 - Production on Sat Oct 26 13:12:47 2024
+SQL*Plus: Release 23.0.0.0.0 - Production on Sun Jun 1 08:26:40 2025
 Version 23.4.0.24.05
 
 Copyright (c) 1982, 2024, Oracle.  All rights reserved.
 
-Last Successful login time: Sat Oct 26 2024 13:12:46 +01:00
+Last Successful login time: Sun Jun 01 2025 08:26:39 +01:00
 
 Connected to:
 Oracle Database 23ai Free Release 23.0.0.0.0 - Production
@@ -587,7 +597,7 @@ Version 23.4.0.24.05
 
 Database	     Time		  Version
 -------------------- -------------------- ------------------------------
-Start: FREE	     26-OCT-2024 13:12:47 Version 23.4.0.24.05
+Start: FREE	     01-JUN-2025 08:26:40 Version 23.4.0.24.05
 
 Create Utils synonyms
 =====================
@@ -617,6 +627,11 @@ new   1: CREATE OR REPLACE SYNONYM Utils FOR lib.Utils
 
 Synonym created.
 
+old   1: CREATE OR REPLACE SYNONYM log_lines FOR &lib..log_lines
+new   1: CREATE OR REPLACE SYNONYM log_lines FOR lib.log_lines
+
+Synonym created.
+
 External table creation
 =======================
 Create lines_et
@@ -637,13 +652,13 @@ No errors.
 
 'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
 ----------------------------------
-End: 26-OCT-2024 13:12:47
+End: 01-JUN-2025 08:26:40
 
 Disconnected from Oracle Database 23ai Free Release 23.0.0.0.0 - Production
 Version 23.4.0.24.05
 Executing: @./l_objects for connection sys/sys@orclpdb AS SYSDBA
 
-SQL*Plus: Release 23.0.0.0.0 - Production on Sat Oct 26 13:12:47 2024
+SQL*Plus: Release 23.0.0.0.0 - Production on Sun Jun 1 08:26:40 2025
 Version 23.4.0.24.05
 
 Copyright (c) 1982, 2024, Oracle.  All rights reserved.
@@ -656,7 +671,7 @@ Version 23.4.0.24.05
 
 Database	     Time		  Version
 -------------------- -------------------- ------------------------------
-Start: FREE	     26-OCT-2024 13:12:47 Version 23.4.0.24.05
+Start: FREE	     01-JUN-2025 08:26:40 Version 23.4.0.24.05
 
 Objects in schema sys created within last minute
 
@@ -667,18 +682,18 @@ DIRECTORY		INPUT_DIR		       VALID
 
 'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
 ----------------------------------
-End: 26-OCT-2024 13:12:47
+End: 01-JUN-2025 08:26:40
 
 Disconnected from Oracle Database 23ai Free Release 23.0.0.0.0 - Production
 Version 23.4.0.24.05
 Executing: @./l_objects for connection lib/lib@orclpdb
 
-SQL*Plus: Release 23.0.0.0.0 - Production on Sat Oct 26 13:12:47 2024
+SQL*Plus: Release 23.0.0.0.0 - Production on Sun Jun 1 08:26:40 2025
 Version 23.4.0.24.05
 
 Copyright (c) 1982, 2024, Oracle.  All rights reserved.
 
-Last Successful login time: Sat Oct 26 2024 13:12:46 +01:00
+Last Successful login time: Sun Jun 01 2025 08:26:40 +01:00
 
 Connected to:
 Oracle Database 23ai Free Release 23.0.0.0.0 - Production
@@ -687,17 +702,17 @@ Version 23.4.0.24.05
 
 Database	     Time		  Version
 -------------------- -------------------- ------------------------------
-Start: FREE	     26-OCT-2024 13:12:47 Version 23.4.0.24.05
+Start: FREE	     01-JUN-2025 08:26:40 Version 23.4.0.24.05
 
 Objects in schema lib created within last minute
 
 OBJECT_TYPE		OBJECT_NAME		       STATUS
 ----------------------- ------------------------------ -------
-INDEX			SYS_IL0000091697C00007$$       VALID
-INDEX			SYS_IL0000091697C00008$$       VALID
+INDEX			SYS_IL0000128688C00007$$       VALID
+INDEX			SYS_IL0000128688C00008$$       VALID
 INDEX			UNI_PK			       VALID
-LOB			SYS_LOB0000091697C00007$$      VALID
-LOB			SYS_LOB0000091697C00008$$      VALID
+LOB			SYS_LOB0000128688C00007$$      VALID
+LOB			SYS_LOB0000128688C00008$$      VALID
 PACKAGE 		TRAPIT			       VALID
 PACKAGE 		TRAPIT_RUN		       VALID
 PACKAGE 		TT_UTILS		       VALID
@@ -706,6 +721,8 @@ PACKAGE BODY		TRAPIT			       VALID
 PACKAGE BODY		TRAPIT_RUN		       VALID
 PACKAGE BODY		TT_UTILS		       VALID
 PACKAGE BODY		UTILS			       VALID
+SEQUENCE		ISEQ$$_128677		       VALID
+TABLE			LOG_LINES		       VALID
 TABLE			TT_UNITS		       VALID
 TYPE			CHR_INT_ARR		       VALID
 TYPE			CHR_INT_REC		       VALID
@@ -715,23 +732,23 @@ TYPE			L2_CHR_ARR		       VALID
 TYPE			L3_CHR_ARR		       VALID
 TYPE			L4_CHR_ARR		       VALID
 
-21 rows selected.
+23 rows selected.
 
 
 'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
 ----------------------------------
-End: 26-OCT-2024 13:12:47
+End: 01-JUN-2025 08:26:40
 
 Disconnected from Oracle Database 23ai Free Release 23.0.0.0.0 - Production
 Version 23.4.0.24.05
 Executing: @./l_objects for connection app/app@orclpdb
 
-SQL*Plus: Release 23.0.0.0.0 - Production on Sat Oct 26 13:12:47 2024
+SQL*Plus: Release 23.0.0.0.0 - Production on Sun Jun 1 08:26:40 2025
 Version 23.4.0.24.05
 
 Copyright (c) 1982, 2024, Oracle.  All rights reserved.
 
-Last Successful login time: Sat Oct 26 2024 13:12:47 +01:00
+Last Successful login time: Sun Jun 01 2025 08:26:40 +01:00
 
 Connected to:
 Oracle Database 23ai Free Release 23.0.0.0.0 - Production
@@ -740,7 +757,7 @@ Version 23.4.0.24.05
 
 Database	     Time		  Version
 -------------------- -------------------- ------------------------------
-Start: FREE	     26-OCT-2024 13:12:47 Version 23.4.0.24.05
+Start: FREE	     01-JUN-2025 08:26:41 Version 23.4.0.24.05
 
 Objects in schema app created within last minute
 
@@ -755,17 +772,18 @@ SYNONYM 		L1_NUM_ARR		       VALID
 SYNONYM 		L2_CHR_ARR		       VALID
 SYNONYM 		L3_CHR_ARR		       VALID
 SYNONYM 		L4_CHR_ARR		       VALID
+SYNONYM 		LOG_LINES		       VALID
 SYNONYM 		TRAPIT			       VALID
 SYNONYM 		TRAPIT_RUN		       VALID
 SYNONYM 		UTILS			       VALID
 TABLE			LINES_ET		       VALID
 
-13 rows selected.
+14 rows selected.
 
 
 'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
 ----------------------------------
-End: 26-OCT-2024 13:12:47
+End: 01-JUN-2025 08:26:41
 
 Disconnected from Oracle Database 23ai Free Release 23.0.0.0.0 - Production
 Version 23.4.0.24.05

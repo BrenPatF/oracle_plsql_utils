@@ -67,9 +67,9 @@
         "View Name",
         "View Where",
         "View Order By",
-        "W Line"
+        "W/L Line"
       ],
-      "W (List)": [
+      "W/L (List)": [
         "Line"
       ],
       "File I/O": [
@@ -129,6 +129,12 @@
       "W (List)": [
         "Line"
       ],
+      "L (Line)": [
+        "Line"
+      ],
+      "L (List)": [
+        "Line"
+      ],
       "File I/O": [
         "#Lines",
         "Line 1",
@@ -183,7 +189,7 @@
         "Scalars": [
           ",;user_types;regexp_like(type_name, '(CHR|L\\\\d).+(ARR|REC)');type_name DESC;text line"
         ],
-        "W (List)": [
+        "W/L (List)": [
           "1-line text list"
         ],
         "File I/O": [
@@ -234,6 +240,12 @@
           "text line"
         ],
         "W (List)": [
+          "1-line text list"
+        ],
+        "L (Line)": [
+          "text line"
+        ],
+        "L (List)": [
           "1-line text list"
         ],
         "File I/O": [
@@ -287,7 +299,7 @@
         "Scalars": [
           ",;user_types;regexp_like(type_name, '(CHR|L\\\\d).+(ARR|REC)');type_name DESC;text line"
         ],
-        "W (List)": [
+        "W/L (List)": [
           "1-line text list"
         ],
         "File I/O": [
@@ -338,6 +350,12 @@
           "text line"
         ],
         "W (List)": [
+          "1-line text list"
+        ],
+        "L (Line)": [
+          "text line"
+        ],
+        "L (List)": [
           "1-line text list"
         ],
         "File I/O": [
@@ -391,7 +409,7 @@
         "Scalars": [
           ",;user_types;regexp_like(type_name, '(CHR|L\\\\d).+(ARR|REC)');type_name DESC;text line"
         ],
-        "W (List)": [
+        "W/L (List)": [
           "1-line text list"
         ],
         "File I/O": [
@@ -442,6 +460,12 @@
           "text line"
         ],
         "W (List)": [
+          "1-line text list"
+        ],
+        "L (Line)": [
+          "text line"
+        ],
+        "L (List)": [
           "1-line text list"
         ],
         "File I/O": [
@@ -495,7 +519,7 @@
         "Scalars": [
           ",;user_types;regexp_like(type_name, '(CHR|L\\\\d).+(ARR|REC)');type_name DESC;text line"
         ],
-        "W (List)": [
+        "W/L (List)": [
           "1-line text list"
         ],
         "File I/O": [
@@ -546,6 +570,12 @@
           "text line"
         ],
         "W (List)": [
+          "1-line text list"
+        ],
+        "L (Line)": [
+          "text line"
+        ],
+        "L (List)": [
           "1-line text list"
         ],
         "File I/O": [
@@ -599,7 +629,7 @@
         "Scalars": [
           ",;user_types;regexp_like(type_name, '(CHR|L\\\\d).+(ARR|REC)');type_name DESC;text line"
         ],
-        "W (List)": [
+        "W/L (List)": [
           "1-line text list"
         ],
         "File I/O": [
@@ -650,6 +680,12 @@
           "text line"
         ],
         "W (List)": [
+          "1-line text list"
+        ],
+        "L (Line)": [
+          "text line"
+        ],
+        "L (List)": [
           "1-line text list"
         ],
         "File I/O": [

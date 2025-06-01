@@ -43,6 +43,10 @@ including v10 and v11 (although it has not been tested on them).
 
 Components created, with grants to app schema (if passed) via grant_utils_to_app.sql:
 
+    Tables       Description
+    ===========  ===================================================================================
+    log_lines    Logging table
+
     Types        Description
     ===========  ===================================================================================
     L1_chr_arr   Generic array of strings
@@ -56,6 +60,19 @@ Components created, with grants to app schema (if passed) via grant_utils_to_app
 
 ***************************************************************************************************/
 
+PROMPT Table creation
+PROMPT ====================
+
+PROMPT Create table log_lines
+
+DROP TABLE IF EXISTS log_lines
+/
+CREATE TABLE log_lines (
+    id                            INTEGER GENERATED ALWAYS AS IDENTITY,
+    line                          VARCHAR2(4000),
+    tmstp                         TIMESTAMP
+)
+/
 PROMPT Common type creation
 PROMPT ====================
 
@@ -65,11 +82,11 @@ CREATE OR REPLACE TYPE L1_chr_arr IS VARRAY(32767) OF VARCHAR2(32767)
 PROMPT Create type L1_num_arr
 CREATE OR REPLACE TYPE L1_num_arr IS VARRAY(32767) OF NUMBER
 /
-DROP TYPE chr_int_arr
+DROP TYPE IF EXISTS chr_int_arr
 /
 CREATE OR REPLACE TYPE chr_int_rec AS OBJECT (
-  chr_value                     VARCHAR2(4000), 
-  int_value                     INTEGER)
+    chr_value                     VARCHAR2(4000), 
+    int_value                     INTEGER)
 /
 CREATE TYPE chr_int_arr AS TABLE OF chr_int_rec
 /

@@ -15,6 +15,8 @@ Exception,Source,
 Exception,Message,
 W (Line),Line,text line
 W (List),Line,1-line text list
+L (Line),Line,text line
+L (List),Line,1-line text list
 File I/O,#Lines,0
 File I/O,Line 1,
 File I/O,Line 2,

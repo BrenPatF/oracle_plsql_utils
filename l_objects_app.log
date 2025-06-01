@@ -1,7 +1,7 @@
 
 Database             Time                 Version
 -------------------- -------------------- ------------------------------
-Start: FREE          26-OCT-2024 13:12:47 Version 23.4.0.24.05
+Start: FREE          01-JUN-2025 08:26:41 Version 23.4.0.24.05
 
 Objects in schema app created within last minute
 
@@ -16,15 +16,16 @@ SYNONYM                 L1_NUM_ARR                     VALID
 SYNONYM                 L2_CHR_ARR                     VALID
 SYNONYM                 L3_CHR_ARR                     VALID
 SYNONYM                 L4_CHR_ARR                     VALID
+SYNONYM                 LOG_LINES                      VALID
 SYNONYM                 TRAPIT                         VALID
 SYNONYM                 TRAPIT_RUN                     VALID
 SYNONYM                 UTILS                          VALID
 TABLE                   LINES_ET                       VALID
 
-13 rows selected.
+14 rows selected.
 
 
 'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
 ----------------------------------
-End: 26-OCT-2024 13:12:47
+End: 01-JUN-2025 08:26:41
 
