@@ -1362,10 +1362,10 @@ The project folder structure is shown below.
 
 There are six subfolders below the root folder:
 - `app`: Application schema folder (main)
-- `install_prereq`: Installation prerequisites
+- `install_ut_prereq`: Unit test installation prerequisites
 - `lib`: Library schema folder (main)
 - `png`: Image files for the README
-- `powershell_utils`: Powershell packages, with JavaScript Trapit module included in TrapitUtils
+- `powershell_utils`: PowerShell packages, with JavaScript Trapit module included in TrapitUtils
 - `unit test`: Unit test root folder
 
 ## See Also
