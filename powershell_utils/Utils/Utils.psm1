@@ -11,26 +11,25 @@ example class module that uses the pretty-printing functions, and calls other fu
 
 The unit test script follows the Math Function Unit Testing design pattern, as described in:
 
-    https://github.com/BrenPatF/trapit_nodejs_tester#trapit
+    https://brenpatf.github.io/2023/06/05/the-math-function-unit-testing-design-pattern.html
 
 ====================================================================================================
-| Script (.ps1)    | Module (.psm1) |  Notes                                                       |
+| Script (.ps1)   | Module (.psm1) |  Notes                                                        |
 |==================================================================================================|
-|  Install-Utils   |                   Install script copies module to Powershell path             |
-|------------------|-------------------------------------------------------------------------------|
-|                  |  ColGroup      |  Simple file-reading and group-counting class module         |
-|  Show-Examples   |----------------|--------------------------------------------------------------|
-|                  |                |                                                              |
-|------------------| *Utils*        |  General utility functions                                   |
-|                  |                |                                                              |
-|  Test-Utils      |----------------|--------------------------------------------------------------|
-|                  |  Trapit-Utils  |  Trapit unit testing utility functions                       |
+|  Install-Utils  |                   Install script copies module to Powershell path              |
+|-----------------|--------------------------------------------------------------------------------|
+|                 |  ColGroup      |  Simple file-reading and group-counting class module          |
+|  Show-Examples  |----------------|---------------------------------------------------------------|
+|                 |                |                                                               |
+|-----------------| *Utils*        |  General utility functions                                    |
+|                 |                |                                                               |
+|  Test-Utils     |----------------|---------------------------------------------------------------|
+|                 |  TrapitUtils   |  Trapit unit testing utility functions                        |
 ====================================================================================================
 
-Utils package with functions called by Show-Examples and Test-Utils scripts
+Utils package with functions called by Show-Examples and Test-Utils scripts.
 
 **************************************************************************************************#>
-
 <#**************************************************************************************************
 Write-Debug($msg, $new, $filename): Write message to the debug log file; pass $true for $new on 
     first call
@@ -121,7 +120,7 @@ function Get-ColHeaders {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory=$true)]
-        [Object[]]$header2Lis, # title
+        [Object[]]$header2Lis, # list of values and length/justifications objects
         [Parameter(Mandatory=$false)]
         [int]$indent = 0 # indent level
     )
@@ -132,8 +131,32 @@ function Get-ColHeaders {
         $l1 = $l1 + "{0,$($_[1])}  " -f $_[0]
         $l2 = $l2 + '-'*[math]::Abs($($_[1])) + "  " 
     }
-#    ($sp + ("$l1" -replace ".{2}$") + "`n" + $sp + "$l2".trim() + "`n")
     ($sp + ("$l1" -replace ".{2}$") + "`n" + $sp + "$l2".trim())
+}
+<#**************************************************************************************************
+Get-ColHeadersLis($header2Lis, $indent): Get column headers as 2-line string with headers underlined
+
+    Input: $header2Lis - list of values and length/justifications objects
+           $indent     - number of space to indent, default 0
+
+    Return: column headers 2-element array of strings with headers underlined
+**************************************************************************************************#>
+function Get-ColHeadersLis {
+    [CmdletBinding()]
+    param (
+        [Parameter(Mandatory=$true)]
+        [Object[]]$header2Lis, # list of values and length/justifications objects
+        [Parameter(Mandatory=$false)]
+        [int]$indent = 0 # indent level
+    )
+    if ($indent -gt 0) {
+        $sp = " "*$indent
+    }
+    $header2Lis | %{ 
+        $l1 = $l1 + "{0,$($_[1])}  " -f $_[0]
+        $l2 = $l2 + '-'*[math]::Abs($($_[1])) + "  " 
+    }
+    @(($sp + ("$l1" -replace ".{2}$")), ($sp + "$l2".trim()))
 }
 <#**************************************************************************************************
 Get-2LisAsLine($line2Lis, $indent): Get list of strings as one formatted line
@@ -158,7 +181,6 @@ function Get-2LisAsLine {
     $line2Lis | %{
         $l1 += "{0,$($_[1])}  " -f $_[0]
     }
-#    ($sp + ("$l1" -replace ".{2}$") + "`n")
     ($sp + ("$l1" -replace ".{2}$"))
 }
 <#**************************************************************************************************
@@ -252,4 +274,54 @@ function Install-Module {
         New-Item -ItemType Directory -Force -Path $folder
     }
     Copy-Item -Path ($srcFolder + '\' + $modName + '.psm1') -Destination $folder -Force
+}
+<#**************************************************************************************************
+Start-MySleep($stime, $fractionCPU): Sleep for $stime seconds, of which target $fractionCPU as
+    fraction of total to be CPU
+
+    Input: $stime       - total seconds to sleep for
+           $fractionCPU - fraction of total to be CPU
+
+    Return: void
+**************************************************************************************************#>
+function Start-MySleep {
+    [CmdletBinding()]
+    param (
+        [Parameter(Mandatory=$true)]
+        [float]$stime, # total seconds to sleep for
+        [Parameter(Mandatory=$false)]
+        [float]$fractionCPU = 0.5 # fraction of total to be CPU
+    )
+    [long]$startTicks = $(Get-Date).ticks
+    Sleep ((1.0 - $fractionCPU) * $stime)
+    $x = 1
+    foreach ($i in 1..2147483647) {
+        if ($(Get-Date).ticks -gt ($startTicks + 10000000 * $stime)) {break}
+        $x = $x * $i
+    }
+}
+# Not yet tested and documented...
+function Find-InFiles ($fileExpr, $searchStr, $tp = "L"){
+    switch ($tp) {
+        "L" { Get-ChildItem -Recurse $fileExpr | Select-String $searchStr | Select-Object -Unique Path | Split-Path -Leaf }
+        "P" { Get-ChildItem -Recurse $fileExpr | Select-String $searchStr | Select-Object -Unique Path | Split-Path -Leaf }
+        "S" { Get-ChildItem -Recurse $fileExpr | Select-String $searchStr }
+    }
+}
+function Find-InFilesArray ([string[]]$strLis, [string]$ext, [string]$root){
+    "Searching $root for: $($strLis -join ',')"
+    $counts = [ordered]@{}
+    foreach($s in $strLis) {
+        [string[]]$filesFoundLis = @((Find-InFiles -fileExpr ("*." + $ext) -searchStr "$s" -tp "P" -Path $root).Path)
+        $counts[$s] = $filesFoundLis.length
+        if($s -eq $strLis[0]) {
+            $filesLis = $filesFoundLis
+        } else {
+            $filesLis = $filesLis | Where-Object {$filesFoundLis -contains $_}
+        }
+    }
+    heading "All search strings were found in the following $($filesLis.length) files..."
+    $filesLis -Replace [Regex]::Escape($root), ''
+    heading "File counts by individual search string..."
+    $counts
 }

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "title",
+    "title": "",
     "delimiter": ";",
     "inp": {
       "Heading": [
@@ -233,9 +233,7 @@
         "Sleep": [
           "IN [0.9,1.1];IN [0.4,0.6]"
         ],
-        "Exception": [
-          ";"
-        ],
+        "Exception": [],
         "W (Line)": [
           "text line"
         ],
@@ -343,9 +341,7 @@
         "Sleep": [
           "IN [0.9,1.1];IN [0.4,0.6]"
         ],
-        "Exception": [
-          ";"
-        ],
+        "Exception": [],
         "W (Line)": [
           "text line"
         ],
@@ -453,9 +449,7 @@
         "Sleep": [
           "IN [0.9,1.1];IN [0.4,0.6]"
         ],
-        "Exception": [
-          ";"
-        ],
+        "Exception": [],
         "W (Line)": [
           "text line"
         ],
@@ -563,9 +557,7 @@
         "Sleep": [
           "IN [0.9,1.1];IN [0.4,0.6]"
         ],
-        "Exception": [
-          ";"
-        ],
+        "Exception": [],
         "W (Line)": [
           "text line"
         ],
@@ -673,9 +665,7 @@
         "Sleep": [
           "IN [0.9,1.1];IN [0.4,0.6]"
         ],
-        "Exception": [
-          ";"
-        ],
+        "Exception": [],
         "W (Line)": [
           "text line"
         ],

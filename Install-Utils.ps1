@@ -27,14 +27,17 @@ $sysSchema = 'sys'
 $libSchema = 'lib'
 $appSchema = 'app'
 
-$installs = @(@{folder = '.';                     script = 'drop_utils_users';  schema = $sysSchema; prmLis = @($libSchema, $appSchema)},
-              @{folder = '.';                     script = 'install_sys';       schema = $sysSchema; prmLis = @($libSchema, $appSchema, $inputPath)},
-              @{folder = 'lib';                   script = 'install_utils';     schema = $libSchema; prmLis = @($appSchema)},
-              @{folder = 'install_ut_prereq\lib'; script = 'install_lib_all';   schema = $libSchema; prmLis = @($appSchema)},
-              @{folder = 'install_ut_prereq\app'; script = 'c_syns_all';        schema = $appSchema; prmLis = @($libSchema)},
-              @{folder = 'lib';                   script = 'install_utils_tt';  schema = $libSchema; prmLis = @()},
-              @{folder = 'app';                   script = 'install_col_group'; schema = $appSchema; prmLis = @($libSchema)},
-              @{folder = '.';                     script = 'l_objects';         schema = $sysSchema; prmLis = @($sysSchema)},
-              @{folder = '.';                     script = 'l_objects';         schema = $libSchema; prmLis = @($libSchema)},
-              @{folder = '.';                     script = 'l_objects';         schema = $appSchema; prmLis = @($appSchema)})
-Install-OracleApp $inputPath $fileLis $installs
+$sqlInstalls = @(@{folder = '.';                     script = 'drop_utils_users.sql';  schema = $sysSchema; prmLis = @($libSchema, $appSchema)},
+                 @{folder = '.';                     script = 'install_sys.sql';       schema = $sysSchema; prmLis = @($libSchema, $appSchema, $inputPath)},
+                 @{folder = 'lib';                   script = 'install_utils.sql';     schema = $libSchema; prmLis = @($appSchema)},
+                 @{folder = 'install_ut_prereq\lib'; script = 'install_lib_all.sql';   schema = $libSchema; prmLis = @($appSchema)},
+                 @{folder = 'install_ut_prereq\app'; script = 'c_syns_all.sql';        schema = $appSchema; prmLis = @($libSchema)},
+                 @{folder = 'lib';                   script = 'install_utils_tt.sql';  schema = $libSchema; prmLis = @()},
+                 @{folder = 'app';                   script = 'install_col_group.sql'; schema = $appSchema; prmLis = @($libSchema)},
+                 @{folder = '.';                     script = 'l_objects.sql';         schema = $sysSchema; prmLis = @($sysSchema)},
+                 @{folder = '.';                     script = 'l_objects.sql';         schema = $libSchema; prmLis = @($libSchema)},
+                 @{folder = '.';                     script = 'l_objects.sql';         schema = $appSchema; prmLis = @($appSchema)})
+$fileCopies = [PSCustomObject]@{inputPath = $inputPath
+                                fileLis = $fileLis}
+$ret = Install-OracleApp -fileCopies $fileCopies -sqlInstalls $sqlInstalls -testMode $false
+Write-OracleApp $ret

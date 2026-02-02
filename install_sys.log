@@ -1,7 +1,7 @@
 
 Database             Time                 Version
 -------------------- -------------------- ------------------------------
-Start: FREE          01-JUN-2025 08:26:38 Version 23.4.0.24.05
+Start: FREE          02-FEB-2026 14:32:15 Version 23.4.0.24.05
 
 Create directory input_dir
 
@@ -179,5 +179,5 @@ Grant succeeded.
 
 'END:'||TO_CHAR(SYSDATE,'DD-MON-YY
 ----------------------------------
-End: 01-JUN-2025 08:26:39
+End: 02-FEB-2026 14:32:15
 
